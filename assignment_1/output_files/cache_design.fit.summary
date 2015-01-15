@@ -1,20 +1,20 @@
-Fitter Status : Successful - Tue Jan 13 01:30:10 2015
-Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Fitter Status : Successful - Thu Jan 15 11:48:02 2015
+Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Full Version
 Revision Name : cache_design
-Top-level Entity Name : cache
+Top-level Entity Name : cache_SRAM
 Family : Cyclone IV GX
-Device : EP4CGX22CF19C6
+Device : EP4CGX110DF27C7
 Timing Models : Final
-Total logic elements : 0 / 21,280 ( 0 % )
-    Total combinational functions : 0 / 21,280 ( 0 % )
-    Dedicated logic registers : 0 / 21,280 ( 0 % )
+Total logic elements : 0 / 109,424 ( 0 % )
+    Total combinational functions : 0 / 109,424 ( 0 % )
+    Dedicated logic registers : 0 / 109,424 ( 0 % )
 Total registers : 0
-Total pins : 100 / 167 ( 60 % )
+Total pins : 313 / 426 ( 73 % )
 Total virtual pins : 0
-Total memory bits : 0 / 774,144 ( 0 % )
-Embedded Multiplier 9-bit elements : 0 / 80 ( 0 % )
-Total GXB Receiver Channel PCS : 0 / 4 ( 0 % )
-Total GXB Receiver Channel PMA : 0 / 4 ( 0 % )
-Total GXB Transmitter Channel PCS : 0 / 4 ( 0 % )
-Total GXB Transmitter Channel PMA : 0 / 4 ( 0 % )
-Total PLLs : 0 / 4 ( 0 % )
+Total memory bits : 38,807 / 5,621,760 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 560 ( 0 % )
+Total GXB Receiver Channel PCS : 0 / 8 ( 0 % )
+Total GXB Receiver Channel PMA : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PCS : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PMA : 0 / 8 ( 0 % )
+Total PLLs : 0 / 8 ( 0 % )

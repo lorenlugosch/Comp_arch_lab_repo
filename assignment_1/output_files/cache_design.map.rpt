@@ -1,6 +1,6 @@
 Analysis & Synthesis report for cache_design
-Tue Jan 13 01:29:56 2015
-Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Thu Jan 15 11:47:40 2015
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
 ---------------------
@@ -9,13 +9,19 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   1. Legal Notice
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
-  4. Analysis & Synthesis Source Files Read
-  5. Analysis & Synthesis Resource Usage Summary
-  6. Analysis & Synthesis Resource Utilization by Entity
-  7. General Register Statistics
-  8. Parameter Settings for User Entity Instance: Top-level Entity: |cache
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. General Register Statistics
+ 10. Registers Packed Into Inferred Megafunctions
+ 11. Source assignments for altsyncram:mem_block_rtl_0|altsyncram_9j81:auto_generated
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |cache_SRAM
+ 13. Parameter Settings for Inferred Entity Instance: altsyncram:mem_block_rtl_0
+ 14. altsyncram Parameter Settings by Entity Instance
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -38,28 +44,28 @@ applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                    ;
-+------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jan 13 01:29:56 2015      ;
-; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
-; Revision Name                      ; cache_design                               ;
-; Top-level Entity Name              ; cache                                      ;
-; Family                             ; Cyclone IV GX                              ;
-; Total logic elements               ; 0                                          ;
-;     Total combinational functions  ; 0                                          ;
-;     Dedicated logic registers      ; 0                                          ;
-; Total registers                    ; 0                                          ;
-; Total pins                         ; 100                                        ;
-; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 0                                          ;
-; Embedded Multiplier 9-bit elements ; 0                                          ;
-; Total GXB Receiver Channel PCS     ; 0                                          ;
-; Total GXB Receiver Channel PMA     ; 0                                          ;
-; Total GXB Transmitter Channel PCS  ; 0                                          ;
-; Total GXB Transmitter Channel PMA  ; 0                                          ;
-; Total PLLs                         ; 0                                          ;
-+------------------------------------+--------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Jan 15 11:47:40 2015       ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
+; Revision Name                      ; cache_design                                ;
+; Top-level Entity Name              ; cache_SRAM                                  ;
+; Family                             ; Cyclone IV GX                               ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 313                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 38,807                                      ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total GXB Receiver Channel PCS     ; 0                                           ;
+; Total GXB Receiver Channel PMA     ; 0                                           ;
+; Total GXB Transmitter Channel PCS  ; 0                                           ;
+; Total GXB Transmitter Channel PMA  ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -67,7 +73,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                                      ; cache              ; cache_design       ;
+; Top-level entity name                                                      ; cache_SRAM         ; cache_design       ;
 ; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -148,37 +154,76 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                           ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                    ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
-; vhdl/cache.vhd                   ; yes             ; User VHDL File  ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+---------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary ;
-+--------------------------+------------------+
-; Resource                 ; Usage            ;
-+--------------------------+------------------+
-; I/O pins                 ; 100              ;
-; DSP block 9-bit elements ; 0                ;
-; Maximum fan-out node     ; clock            ;
-; Maximum fan-out          ; 1                ;
-; Total fan-out            ; 100              ;
-; Average fan-out          ; 0.50             ;
-+--------------------------+------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; vhdl/cache_SRAM.vhd              ; yes             ; User VHDL File               ; C:/WORKSPACE/Comp_arch_lab_repo/assignment_1/vhdl/cache_SRAM.vhd     ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_9j81.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/WORKSPACE/Comp_arch_lab_repo/assignment_1/db/altsyncram_9j81.tdf  ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
-; |cache                     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 100  ; 0            ; |cache              ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
++----------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary  ;
++--------------------------+-------------------+
+; Resource                 ; Usage             ;
++--------------------------+-------------------+
+; I/O pins                 ; 313               ;
+; Total memory bits        ; 38807             ;
+; DSP block 9-bit elements ; 0                 ;
+; Maximum fan-out node     ; writeenable~input ;
+; Maximum fan-out          ; 151               ;
+; Total fan-out            ; 2276              ;
+; Average fan-out          ; 2.93              ;
++--------------------------+-------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                   ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                   ; Library Name ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
+; |cache_SRAM                            ; 0 (0)             ; 0 (0)        ; 38807       ; 0            ; 0       ; 0         ; 0         ; 313  ; 0            ; |cache_SRAM                                                           ;              ;
+;    |altsyncram:mem_block_rtl_0|        ; 0 (0)             ; 0 (0)        ; 38807       ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache_SRAM|altsyncram:mem_block_rtl_0                                ;              ;
+;       |altsyncram_9j81:auto_generated| ; 0 (0)             ; 0 (0)        ; 38807       ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache_SRAM|altsyncram:mem_block_rtl_0|altsyncram_9j81:auto_generated ;              ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                     ;
++----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                                 ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+------+
+; altsyncram:mem_block_rtl_0|altsyncram_9j81:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 257          ; 151          ; --           ; --           ; 38807 ; None ;
++----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+------+
 
 
 +------------------------------------------------------+
@@ -196,19 +241,264 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |cache ;
-+----------------+-------+----------------------------------------------+
-; Parameter Name ; Value ; Type                                         ;
-+----------------+-------+----------------------------------------------+
-; word_length    ; 32    ; Signed Integer                               ;
-; address_length ; 32    ; Signed Integer                               ;
-; associativity  ; 2     ; Signed Integer                               ;
-; index_length   ; 8     ; Signed Integer                               ;
-; tag_length     ; 22    ; Signed Integer                               ;
-; offset_length  ; 2     ; Signed Integer                               ;
-+----------------+-------+----------------------------------------------+
++----------------------------------------------+
+; Registers Packed Into Inferred Megafunctions ;
++--------------------+-----------------+-------+
+; Register Name      ; Megafunction    ; Type  ;
++--------------------+-----------------+-------+
+; readdata[0]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[1]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[2]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[3]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[4]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[5]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[6]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[7]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[8]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[9]~reg0   ; mem_block_rtl_0 ; RAM   ;
+; readdata[10]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[11]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[12]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[13]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[14]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[15]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[16]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[17]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[18]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[19]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[20]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[21]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[22]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[23]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[24]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[25]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[26]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[27]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[28]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[29]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[30]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[31]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[32]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[33]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[34]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[35]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[36]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[37]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[38]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[39]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[40]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[41]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[42]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[43]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[44]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[45]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[46]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[47]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[48]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[49]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[50]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[51]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[52]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[53]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[54]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[55]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[56]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[57]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[58]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[59]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[60]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[61]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[62]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[63]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[64]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[65]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[66]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[67]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[68]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[69]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[70]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[71]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[72]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[73]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[74]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[75]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[76]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[77]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[78]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[79]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[80]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[81]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[82]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[83]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[84]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[85]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[86]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[87]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[88]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[89]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[90]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[91]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[92]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[93]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[94]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[95]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[96]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[97]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[98]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[99]~reg0  ; mem_block_rtl_0 ; RAM   ;
+; readdata[100]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[101]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[102]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[103]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[104]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[105]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[106]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[107]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[108]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[109]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[110]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[111]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[112]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[113]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[114]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[115]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[116]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[117]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[118]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[119]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[120]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[121]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[122]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[123]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[124]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[125]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[126]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[127]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[128]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[129]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[130]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[131]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[132]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[133]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[134]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[135]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[136]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[137]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[138]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[139]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[140]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[141]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[142]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[143]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[144]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[145]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[146]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[147]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[148]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[149]~reg0 ; mem_block_rtl_0 ; RAM   ;
+; readdata[150]~reg0 ; mem_block_rtl_0 ; RAM   ;
++--------------------+-----------------+-------+
+
+
++----------------------------------------------------------------------------------+
+; Source assignments for altsyncram:mem_block_rtl_0|altsyncram_9j81:auto_generated ;
++---------------------------------+--------------------+------+--------------------+
+; Assignment                      ; Value              ; From ; To                 ;
++---------------------------------+--------------------+------+--------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                  ;
++---------------------------------+--------------------+------+--------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |cache_SRAM ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; SRAM_width     ; 150   ; Signed Integer                                    ;
+; number_of_rows ; 256   ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:mem_block_rtl_0 ;
++------------------------------------+----------------------+-----------------+
+; Parameter Name                     ; Value                ; Type            ;
++------------------------------------+----------------------+-----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped         ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY      ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY    ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE    ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE  ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped         ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped         ;
+; WIDTH_A                            ; 151                  ; Untyped         ;
+; WIDTHAD_A                          ; 9                    ; Untyped         ;
+; NUMWORDS_A                         ; 257                  ; Untyped         ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped         ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped         ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped         ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped         ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped         ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped         ;
+; WIDTH_B                            ; 1                    ; Untyped         ;
+; WIDTHAD_B                          ; 1                    ; Untyped         ;
+; NUMWORDS_B                         ; 1                    ; Untyped         ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped         ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped         ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped         ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped         ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped         ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped         ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped         ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped         ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped         ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped         ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped         ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped         ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped         ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped         ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped         ;
+; BYTE_SIZE                          ; 8                    ; Untyped         ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped         ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA             ; Untyped         ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped         ;
+; INIT_FILE                          ; UNUSED               ; Untyped         ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped         ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped         ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped         ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped         ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped         ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped         ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped         ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped         ;
+; ENABLE_ECC                         ; FALSE                ; Untyped         ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped         ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped         ;
+; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped         ;
+; CBXI_PARAMETER                     ; altsyncram_9j81      ; Untyped         ;
++------------------------------------+----------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                       ;
++-------------------------------------------+----------------------------+
+; Name                                      ; Value                      ;
++-------------------------------------------+----------------------------+
+; Number of entity instances                ; 1                          ;
+; Entity Instance                           ; altsyncram:mem_block_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                ;
+;     -- WIDTH_A                            ; 151                        ;
+;     -- NUMWORDS_A                         ; 257                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED               ;
+;     -- WIDTH_B                            ; 1                          ;
+;     -- NUMWORDS_B                         ; 1                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                  ;
++-------------------------------------------+----------------------------+
 
 
 +-------------------------------+
@@ -225,10 +515,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Tue Jan 13 01:29:54 2015
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Full Version
+    Info: Processing started: Thu Jan 15 11:47:36 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cache_design -c cache_design
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/memory.vhd
     Info (12022): Found design unit 1: memory-rtl
     Info (12023): Found entity 1: memory
@@ -238,122 +528,49 @@ Info (12021): Found 2 design units, including 1 entities, in source file vhdl/me
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache.vhd
     Info (12022): Found design unit 1: cache-arch
     Info (12023): Found entity 1: cache
-Info (12021): Found 0 design units, including 0 entities, in source file vhdl/cache_tb.vhd
-Info (12127): Elaborating entity "cache" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at cache.vhd(33): object "input_tag" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at cache.vhd(34): object "input_index" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at cache.vhd(35): object "input_offset" assigned a value but never read
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "readdata[0]" is stuck at GND
-    Warning (13410): Pin "readdata[1]" is stuck at GND
-    Warning (13410): Pin "readdata[2]" is stuck at GND
-    Warning (13410): Pin "readdata[3]" is stuck at VCC
-    Warning (13410): Pin "readdata[4]" is stuck at VCC
-    Warning (13410): Pin "readdata[5]" is stuck at VCC
-    Warning (13410): Pin "readdata[6]" is stuck at VCC
-    Warning (13410): Pin "readdata[7]" is stuck at GND
-    Warning (13410): Pin "readdata[8]" is stuck at GND
-    Warning (13410): Pin "readdata[9]" is stuck at VCC
-    Warning (13410): Pin "readdata[10]" is stuck at VCC
-    Warning (13410): Pin "readdata[11]" is stuck at GND
-    Warning (13410): Pin "readdata[12]" is stuck at VCC
-    Warning (13410): Pin "readdata[13]" is stuck at GND
-    Warning (13410): Pin "readdata[14]" is stuck at VCC
-    Warning (13410): Pin "readdata[15]" is stuck at GND
-    Warning (13410): Pin "readdata[16]" is stuck at GND
-    Warning (13410): Pin "readdata[17]" is stuck at GND
-    Warning (13410): Pin "readdata[18]" is stuck at VCC
-    Warning (13410): Pin "readdata[19]" is stuck at GND
-    Warning (13410): Pin "readdata[20]" is stuck at VCC
-    Warning (13410): Pin "readdata[21]" is stuck at VCC
-    Warning (13410): Pin "readdata[22]" is stuck at GND
-    Warning (13410): Pin "readdata[23]" is stuck at GND
-    Warning (13410): Pin "readdata[24]" is stuck at GND
-    Warning (13410): Pin "readdata[25]" is stuck at VCC
-    Warning (13410): Pin "readdata[26]" is stuck at GND
-    Warning (13410): Pin "readdata[27]" is stuck at GND
-    Warning (13410): Pin "readdata[28]" is stuck at VCC
-    Warning (13410): Pin "readdata[29]" is stuck at GND
-    Warning (13410): Pin "readdata[30]" is stuck at GND
-    Warning (13410): Pin "readdata[31]" is stuck at GND
-    Warning (13410): Pin "waitrequest" is stuck at VCC
+Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache_tb.vhd
+    Info (12022): Found design unit 1: cache_tb-behavior
+    Info (12023): Found entity 1: cache_tb
+Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache_sram.vhd
+    Info (12022): Found design unit 1: cache_SRAM-arch
+    Info (12023): Found entity 1: cache_SRAM
+Info (12127): Elaborating entity "cache_SRAM" for the top level hierarchy
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "mem_block_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 151
+        Info (286033): Parameter WIDTHAD_A set to 9
+        Info (286033): Parameter NUMWORDS_A set to 257
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (12130): Elaborated megafunction instantiation "altsyncram:mem_block_rtl_0"
+Info (12133): Instantiated megafunction "altsyncram:mem_block_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "151"
+    Info (12134): Parameter "WIDTHAD_A" = "9"
+    Info (12134): Parameter "NUMWORDS_A" = "257"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_A" = "OLD_DATA"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9j81.tdf
+    Info (12023): Found entity 1: altsyncram_9j81
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 67 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clock"
-    Warning (15610): No output dependent on input pin "writedata[0]"
-    Warning (15610): No output dependent on input pin "writedata[1]"
-    Warning (15610): No output dependent on input pin "writedata[2]"
-    Warning (15610): No output dependent on input pin "writedata[3]"
-    Warning (15610): No output dependent on input pin "writedata[4]"
-    Warning (15610): No output dependent on input pin "writedata[5]"
-    Warning (15610): No output dependent on input pin "writedata[6]"
-    Warning (15610): No output dependent on input pin "writedata[7]"
-    Warning (15610): No output dependent on input pin "writedata[8]"
-    Warning (15610): No output dependent on input pin "writedata[9]"
-    Warning (15610): No output dependent on input pin "writedata[10]"
-    Warning (15610): No output dependent on input pin "writedata[11]"
-    Warning (15610): No output dependent on input pin "writedata[12]"
-    Warning (15610): No output dependent on input pin "writedata[13]"
-    Warning (15610): No output dependent on input pin "writedata[14]"
-    Warning (15610): No output dependent on input pin "writedata[15]"
-    Warning (15610): No output dependent on input pin "writedata[16]"
-    Warning (15610): No output dependent on input pin "writedata[17]"
-    Warning (15610): No output dependent on input pin "writedata[18]"
-    Warning (15610): No output dependent on input pin "writedata[19]"
-    Warning (15610): No output dependent on input pin "writedata[20]"
-    Warning (15610): No output dependent on input pin "writedata[21]"
-    Warning (15610): No output dependent on input pin "writedata[22]"
-    Warning (15610): No output dependent on input pin "writedata[23]"
-    Warning (15610): No output dependent on input pin "writedata[24]"
-    Warning (15610): No output dependent on input pin "writedata[25]"
-    Warning (15610): No output dependent on input pin "writedata[26]"
-    Warning (15610): No output dependent on input pin "writedata[27]"
-    Warning (15610): No output dependent on input pin "writedata[28]"
-    Warning (15610): No output dependent on input pin "writedata[29]"
-    Warning (15610): No output dependent on input pin "writedata[30]"
-    Warning (15610): No output dependent on input pin "writedata[31]"
-    Warning (15610): No output dependent on input pin "address[0]"
-    Warning (15610): No output dependent on input pin "address[1]"
-    Warning (15610): No output dependent on input pin "address[2]"
-    Warning (15610): No output dependent on input pin "address[3]"
-    Warning (15610): No output dependent on input pin "address[4]"
-    Warning (15610): No output dependent on input pin "address[5]"
-    Warning (15610): No output dependent on input pin "address[6]"
-    Warning (15610): No output dependent on input pin "address[7]"
-    Warning (15610): No output dependent on input pin "address[8]"
-    Warning (15610): No output dependent on input pin "address[9]"
-    Warning (15610): No output dependent on input pin "address[10]"
-    Warning (15610): No output dependent on input pin "address[11]"
-    Warning (15610): No output dependent on input pin "address[12]"
-    Warning (15610): No output dependent on input pin "address[13]"
-    Warning (15610): No output dependent on input pin "address[14]"
-    Warning (15610): No output dependent on input pin "address[15]"
-    Warning (15610): No output dependent on input pin "address[16]"
-    Warning (15610): No output dependent on input pin "address[17]"
-    Warning (15610): No output dependent on input pin "address[18]"
-    Warning (15610): No output dependent on input pin "address[19]"
-    Warning (15610): No output dependent on input pin "address[20]"
-    Warning (15610): No output dependent on input pin "address[21]"
-    Warning (15610): No output dependent on input pin "address[22]"
-    Warning (15610): No output dependent on input pin "address[23]"
-    Warning (15610): No output dependent on input pin "address[24]"
-    Warning (15610): No output dependent on input pin "address[25]"
-    Warning (15610): No output dependent on input pin "address[26]"
-    Warning (15610): No output dependent on input pin "address[27]"
-    Warning (15610): No output dependent on input pin "address[28]"
-    Warning (15610): No output dependent on input pin "address[29]"
-    Warning (15610): No output dependent on input pin "address[30]"
-    Warning (15610): No output dependent on input pin "address[31]"
-    Warning (15610): No output dependent on input pin "memwrite"
-    Warning (15610): No output dependent on input pin "memread"
-Info (21057): Implemented 100 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 67 input pins
-    Info (21059): Implemented 33 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 106 warnings
-    Info: Peak virtual memory: 595 megabytes
-    Info: Processing ended: Tue Jan 13 01:29:56 2015
-    Info: Elapsed time: 00:00:02
+Info (21057): Implemented 464 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 162 input pins
+    Info (21059): Implemented 151 output pins
+    Info (21064): Implemented 151 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 564 megabytes
+    Info: Processing ended: Thu Jan 15 11:47:40 2015
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:02
 
 
