@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cache_design
-Thu Jan 15 11:47:40 2015
+Fri Jan 16 14:36:37 2015
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
@@ -16,7 +16,7 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
   8. Analysis & Synthesis RAM Summary
   9. General Register Statistics
  10. Registers Packed Into Inferred Megafunctions
- 11. Source assignments for altsyncram:mem_block_rtl_0|altsyncram_9j81:auto_generated
+ 11. Source assignments for altsyncram:mem_block_rtl_0|altsyncram_6j81:auto_generated
  12. Parameter Settings for User Entity Instance: Top-level Entity: |cache_SRAM
  13. Parameter Settings for Inferred Entity Instance: altsyncram:mem_block_rtl_0
  14. altsyncram Parameter Settings by Entity Instance
@@ -47,7 +47,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jan 15 11:47:40 2015       ;
+; Analysis & Synthesis Status        ; Successful - Fri Jan 16 14:36:37 2015       ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
 ; Revision Name                      ; cache_design                                ;
 ; Top-level Entity Name              ; cache_SRAM                                  ;
@@ -56,9 +56,9 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 0                                           ;
 ;     Dedicated logic registers      ; 0                                           ;
 ; Total registers                    ; 0                                           ;
-; Total pins                         ; 313                                         ;
+; Total pins                         ; 310                                         ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 38,807                                      ;
+; Total memory bits                  ; 38,400                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total GXB Receiver Channel PCS     ; 0                                           ;
 ; Total GXB Receiver Channel PMA     ; 0                                           ;
@@ -186,7 +186,7 @@ applicable agreement for further details.
 ; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_9j81.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/WORKSPACE/Comp_arch_lab_repo/assignment_1/db/altsyncram_9j81.tdf  ;         ;
+; db/altsyncram_6j81.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/WORKSPACE/Comp_arch_lab_repo/assignment_1/db/altsyncram_6j81.tdf  ;         ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
 
 
@@ -195,13 +195,13 @@ applicable agreement for further details.
 +--------------------------+-------------------+
 ; Resource                 ; Usage             ;
 +--------------------------+-------------------+
-; I/O pins                 ; 313               ;
-; Total memory bits        ; 38807             ;
+; I/O pins                 ; 310               ;
+; Total memory bits        ; 38400             ;
 ; DSP block 9-bit elements ; 0                 ;
 ; Maximum fan-out node     ; writeenable~input ;
-; Maximum fan-out          ; 151               ;
-; Total fan-out            ; 2276              ;
-; Average fan-out          ; 2.93              ;
+; Maximum fan-out          ; 150               ;
+; Total fan-out            ; 2110              ;
+; Average fan-out          ; 2.74              ;
 +--------------------------+-------------------+
 
 
@@ -210,9 +210,9 @@ applicable agreement for further details.
 +----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                   ; Library Name ;
 +----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
-; |cache_SRAM                            ; 0 (0)             ; 0 (0)        ; 38807       ; 0            ; 0       ; 0         ; 0         ; 313  ; 0            ; |cache_SRAM                                                           ;              ;
-;    |altsyncram:mem_block_rtl_0|        ; 0 (0)             ; 0 (0)        ; 38807       ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache_SRAM|altsyncram:mem_block_rtl_0                                ;              ;
-;       |altsyncram_9j81:auto_generated| ; 0 (0)             ; 0 (0)        ; 38807       ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache_SRAM|altsyncram:mem_block_rtl_0|altsyncram_9j81:auto_generated ;              ;
+; |cache_SRAM                            ; 0 (0)             ; 0 (0)        ; 38400       ; 0            ; 0       ; 0         ; 0         ; 310  ; 0            ; |cache_SRAM                                                           ;              ;
+;    |altsyncram:mem_block_rtl_0|        ; 0 (0)             ; 0 (0)        ; 38400       ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache_SRAM|altsyncram:mem_block_rtl_0                                ;              ;
+;       |altsyncram_6j81:auto_generated| ; 0 (0)             ; 0 (0)        ; 38400       ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache_SRAM|altsyncram:mem_block_rtl_0|altsyncram_6j81:auto_generated ;              ;
 +----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -222,7 +222,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+------+
 ; Name                                                                 ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
 +----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+------+
-; altsyncram:mem_block_rtl_0|altsyncram_9j81:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 257          ; 151          ; --           ; --           ; 38807 ; None ;
+; altsyncram:mem_block_rtl_0|altsyncram_6j81:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 150          ; --           ; --           ; 38400 ; None ;
 +----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+------+
 
 
@@ -396,12 +396,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; readdata[147]~reg0 ; mem_block_rtl_0 ; RAM   ;
 ; readdata[148]~reg0 ; mem_block_rtl_0 ; RAM   ;
 ; readdata[149]~reg0 ; mem_block_rtl_0 ; RAM   ;
-; readdata[150]~reg0 ; mem_block_rtl_0 ; RAM   ;
 +--------------------+-----------------+-------+
 
 
 +----------------------------------------------------------------------------------+
-; Source assignments for altsyncram:mem_block_rtl_0|altsyncram_9j81:auto_generated ;
+; Source assignments for altsyncram:mem_block_rtl_0|altsyncram_6j81:auto_generated ;
 +---------------------------------+--------------------+------+--------------------+
 ; Assignment                      ; Value              ; From ; To                 ;
 +---------------------------------+--------------------+------+--------------------+
@@ -432,9 +431,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE  ;
 ; WIDTH_BYTEENA                      ; 1                    ; Untyped         ;
 ; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped         ;
-; WIDTH_A                            ; 151                  ; Untyped         ;
-; WIDTHAD_A                          ; 9                    ; Untyped         ;
-; NUMWORDS_A                         ; 257                  ; Untyped         ;
+; WIDTH_A                            ; 150                  ; Untyped         ;
+; WIDTHAD_A                          ; 8                    ; Untyped         ;
+; NUMWORDS_A                         ; 256                  ; Untyped         ;
 ; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped         ;
 ; ADDRESS_ACLR_A                     ; NONE                 ; Untyped         ;
 ; OUTDATA_ACLR_A                     ; NONE                 ; Untyped         ;
@@ -476,7 +475,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped         ;
 ; WIDTH_ECCSTATUS                    ; 3                    ; Untyped         ;
 ; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped         ;
-; CBXI_PARAMETER                     ; altsyncram_9j81      ; Untyped         ;
+; CBXI_PARAMETER                     ; altsyncram_6j81      ; Untyped         ;
 +------------------------------------+----------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -489,8 +488,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Number of entity instances                ; 1                          ;
 ; Entity Instance                           ; altsyncram:mem_block_rtl_0 ;
 ;     -- OPERATION_MODE                     ; SINGLE_PORT                ;
-;     -- WIDTH_A                            ; 151                        ;
-;     -- NUMWORDS_A                         ; 257                        ;
+;     -- WIDTH_A                            ; 150                        ;
+;     -- NUMWORDS_A                         ; 256                        ;
 ;     -- OUTDATA_REG_A                      ; UNREGISTERED               ;
 ;     -- WIDTH_B                            ; 1                          ;
 ;     -- NUMWORDS_B                         ; 1                          ;
@@ -516,7 +515,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Full Version
-    Info: Processing started: Thu Jan 15 11:47:36 2015
+    Info: Processing started: Fri Jan 16 14:36:32 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cache_design -c cache_design
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/memory.vhd
@@ -534,13 +533,14 @@ Info (12021): Found 2 design units, including 1 entities, in source file vhdl/ca
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache_sram.vhd
     Info (12022): Found design unit 1: cache_SRAM-arch
     Info (12023): Found entity 1: cache_SRAM
+Info (12021): Found 0 design units, including 0 entities, in source file vhdl/cache_sram_tb.vhd
 Info (12127): Elaborating entity "cache_SRAM" for the top level hierarchy
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "mem_block_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
-        Info (286033): Parameter WIDTH_A set to 151
-        Info (286033): Parameter WIDTHAD_A set to 9
-        Info (286033): Parameter NUMWORDS_A set to 257
+        Info (286033): Parameter WIDTH_A set to 150
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
         Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
         Info (286033): Parameter ADDRESS_ACLR_A set to NONE
         Info (286033): Parameter OUTDATA_ACLR_A set to NONE
@@ -550,27 +550,27 @@ Info (19000): Inferred 1 megafunctions from design logic
 Info (12130): Elaborated megafunction instantiation "altsyncram:mem_block_rtl_0"
 Info (12133): Instantiated megafunction "altsyncram:mem_block_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
-    Info (12134): Parameter "WIDTH_A" = "151"
-    Info (12134): Parameter "WIDTHAD_A" = "9"
-    Info (12134): Parameter "NUMWORDS_A" = "257"
+    Info (12134): Parameter "WIDTH_A" = "150"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
     Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
     Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
     Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_A" = "OLD_DATA"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9j81.tdf
-    Info (12023): Found entity 1: altsyncram_9j81
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6j81.tdf
+    Info (12023): Found entity 1: altsyncram_6j81
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 464 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 162 input pins
-    Info (21059): Implemented 151 output pins
-    Info (21064): Implemented 151 RAM segments
+Info (21057): Implemented 460 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 160 input pins
+    Info (21059): Implemented 150 output pins
+    Info (21064): Implemented 150 RAM segments
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 564 megabytes
-    Info: Processing ended: Thu Jan 15 11:47:40 2015
-    Info: Elapsed time: 00:00:04
+    Info: Peak virtual memory: 556 megabytes
+    Info: Processing ended: Fri Jan 16 14:36:37 2015
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -36,8 +36,20 @@ ARCHITECTURE arch OF cache IS
 	SIGNAL input_index : INTEGER;--STD_LOGIC_VECTOR(index_length-1 downto 0);
 	SIGNAL input_offset : STD_LOGIC_VECTOR(offset_length-1 downto 0);
 	
+	-- readdata for each word SRAM --
+	SIGNAL readdata_one : STD_LOGIC_VECTOR(word_length-1 downto 0);
+	SIGNAL readdata_two : STD_LOGIC_VECTOR(word_length-1 downto 0);
+	SIGNAL readdata_three : STD_LOGIC_VECTOR(word_length-1 downto 0);
+	SIGNAL readdata_four : STD_LOGIC_VECTOR(word_length-1 downto 0);
+	
+	-- memwrites select which word to write --
+	
 	-- cache lines --
 	COMPONENT cache_SRAM
+		GENERIC (
+			SRAM_width : INTEGER; -- \
+			number_of_rows : INTEGER
+		);
 		PORT (
 			clock : in STD_LOGIC;
 			writedata : in STD_LOGIC_VECTOR(SRAM_width downto 0);
@@ -52,7 +64,25 @@ ARCHITECTURE arch OF cache IS
 		input_index <= to_integer(unsigned(address(address_length-tag_length-1 downto address_length-tag_length-index_length)));
 		input_offset <= address(offset_length-1 downto 0);
 		
-		cache_SRAM_instance: cache_SRAM PORT MAP (clock, writedata, input_index, memwrite, readdata);
+		-- tag SRAM contains: tag, dirty bit, valid bit
+		tag_SRAM: cache_SRAM GENERIC MAP (SRAM_width => word_length, number_of_rows => number_of_cache_lines)
+									PORT MAP (clock, writedata, input_index, memwrite, readdata_tag);
+		word_one_SRAM: cache_SRAM GENERIC MAP (SRAM_width => word_length, number_of_rows => number_of_cache_lines)
+									PORT MAP (clock, writedata, input_index, memwrite, readdata_one);
+		word_two_SRAM: cache_SRAM GENERIC MAP (SRAM_width => word_length, number_of_rows => number_of_cache_lines)
+									PORT MAP (clock, writedata, input_index, memwrite, readdata_two);
+		word_three_SRAM: cache_SRAM GENERIC MAP (SRAM_width => word_length, number_of_rows => number_of_cache_lines)
+									PORT MAP (clock, writedata, input_index, memwrite, readdata_three);
+		word_four_SRAM: cache_SRAM GENERIC MAP (SRAM_width => word_length, number_of_rows => number_of_cache_lines)
+									PORT MAP (clock, writedata, input_index, memwrite, readdata_four);
+		
+		-- "input_offset" represents which word of the cache line we want --
+		-- use it to select which SRAM's output data we want to read --
+		with input_offset select
+			readdata <= readdata_one when "00",
+						<= readdata_two when "01",
+						<= readdata_three when "10",
+						<= readdata_four when "11";
 		
 		-- dummy output to test address decoding --
 		--readdata <= X"12345678";

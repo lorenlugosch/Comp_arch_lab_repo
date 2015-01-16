@@ -9,21 +9,21 @@ USE ieee.numeric_std.all;
 
 ENTITY cache_SRAM IS
 	GENERIC(
-		SRAM_width : INTEGER := 150; -- \
-		number_of_rows : INTEGER := 256
+		SRAM_width : INTEGER; -- \
+		number_of_rows : INTEGER
 	);
 	PORT(
 		clock : in STD_LOGIC;
-		writedata : in STD_LOGIC_VECTOR(SRAM_width downto 0);
-		address : in INTEGER RANGE 0 to number_of_rows;
+		writedata : in STD_LOGIC_VECTOR(SRAM_width-1 downto 0);
+		address : in INTEGER RANGE 0 to number_of_rows-1;
 		writeenable : in STD_LOGIC;
-		readdata : out STD_LOGIC_VECTOR(SRAM_width downto 0)
+		readdata : out STD_LOGIC_VECTOR(SRAM_width-1 downto 0)
 	);
 END cache_SRAM;
 
 -- Inferred memory SRAM adapted from Altera examples --
 ARCHITECTURE arch OF cache_SRAM IS
-	TYPE MEM IS ARRAY(0 to number_of_rows) OF STD_LOGIC_VECTOR(SRAM_width downto 0);
+	TYPE MEM IS ARRAY(0 to number_of_rows) OF STD_LOGIC_VECTOR(SRAM_width-1 downto 0);
 	SIGNAL mem_block : MEM;
 	
 BEGIN
