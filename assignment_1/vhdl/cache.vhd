@@ -16,7 +16,7 @@ ENTITY cache IS
 		index_length : INTEGER := 8; --256 cache lines means 8 bits of index--
 		tag_length : INTEGER := 22; --32 address bits minus 10 = 22 tag bits--
 		offset_length : INTEGER := 2; --4 words per line means 2 bits req'd to address a word--
-		SRAM_width : INTEGER := 150;
+		--SRAM_width : INTEGER := 150;
 		number_of_cache_lines : INTEGER := 256
 	);
 	PORT(
@@ -34,13 +34,16 @@ ARCHITECTURE arch OF cache IS
 	-- address decoding signals --
 	SIGNAL input_tag : STD_LOGIC_VECTOR(tag_length-1 downto 0);
 	SIGNAL input_index : INTEGER;--STD_LOGIC_VECTOR(index_length-1 downto 0);
-	SIGNAL input_offset : STD_LOGIC_VECTOR(offset_length-1 downto 0);
+	SIGNAL input_offset : STD_LOGIC_VECTOR(1 downto 0);
 	
 	-- readdata for each word SRAM --
 	SIGNAL readdata_one : STD_LOGIC_VECTOR(word_length-1 downto 0);
 	SIGNAL readdata_two : STD_LOGIC_VECTOR(word_length-1 downto 0);
 	SIGNAL readdata_three : STD_LOGIC_VECTOR(word_length-1 downto 0);
 	SIGNAL readdata_four : STD_LOGIC_VECTOR(word_length-1 downto 0);
+	
+	-- readdata for tag, dirty, valid --
+	SIGNAL readdata_tag : STD_LOGIC_VECTOR(word_length-1 downto 0);
 	
 	-- memwrites select which word to write --
 	
@@ -52,10 +55,10 @@ ARCHITECTURE arch OF cache IS
 		);
 		PORT (
 			clock : in STD_LOGIC;
-			writedata : in STD_LOGIC_VECTOR(SRAM_width downto 0);
-			index : in INTEGER RANGE 0 to number_of_cache_lines;
+			writedata : in STD_LOGIC_VECTOR(SRAM_width-1 downto 0);
+			address : in INTEGER RANGE 0 to number_of_cache_lines-1;
 			writeenable : in STD_LOGIC;
-			readdata : out STD_LOGIC_VECTOR(SRAM_width downto 0)
+			readdata : out STD_LOGIC_VECTOR(SRAM_width-1 downto 0)
 		);
 	END COMPONENT;
 	
@@ -80,9 +83,10 @@ ARCHITECTURE arch OF cache IS
 		-- use it to select which SRAM's output data we want to read --
 		with input_offset select
 			readdata <= readdata_one when "00",
-						<= readdata_two when "01",
-						<= readdata_three when "10",
-						<= readdata_four when "11";
+						   readdata_two when "01",
+						   readdata_three when "10",
+						   readdata_four when "11",
+						   X"00000000" when others;
 		
 		-- dummy output to test address decoding --
 		--readdata <= X"12345678";

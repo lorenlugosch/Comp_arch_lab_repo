@@ -26,10 +26,10 @@ ARCHITECTURE behaviour OF memory_tb IS
 		);
 	END COMPONENT;
 
-    --all the input signals with initial values
-    signal clk : std_logic := '0';
-    constant clk_period : time := 1 ns;
-   	signal writedata: std_logic_vector(31 downto 0);
+   --all the input signals with initial values
+   signal clk : std_logic := '0';
+   constant clk_period : time := 1 ns;
+   signal writedata: std_logic_vector(31 downto 0);
 	signal address: INTEGER RANGE 0 TO 24576-1;
 	signal memwrite: STD_LOGIC := '0';
 	signal memread: STD_LOGIC := '0';

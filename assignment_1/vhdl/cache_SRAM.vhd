@@ -9,7 +9,7 @@ USE ieee.numeric_std.all;
 
 ENTITY cache_SRAM IS
 	GENERIC(
-		SRAM_width : INTEGER; -- \
+		SRAM_width : INTEGER;
 		number_of_rows : INTEGER
 	);
 	PORT(

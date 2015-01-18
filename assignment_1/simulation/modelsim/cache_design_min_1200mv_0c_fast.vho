@@ -14,12 +14,12 @@
 
 -- VENDOR "Altera"
 -- PROGRAM "Quartus II 64-Bit"
--- VERSION "Version 13.0.0 Build 156 04/24/2013 SJ Full Version"
+-- VERSION "Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
 
--- DATE "01/16/2015 13:52:08"
+-- DATE "01/17/2015 16:35:10"
 
 -- 
--- Device: Altera EP4CGX110DF27C7 Package FBGA672
+-- Device: Altera EP4CGX22CF19C6 Package FBGA324
 -- 
 
 -- 
@@ -28,337 +28,125 @@
 
 LIBRARY CYCLONEIV;
 LIBRARY IEEE;
-LIBRARY STD;
 USE CYCLONEIV.CYCLONEIV_COMPONENTS.ALL;
 USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.STD_LOGIC_ARITH.ALL;
-USE STD.STANDARD.ALL;
 
-ENTITY 	cache_SRAM IS
+ENTITY 	cache IS
     PORT (
 	clock : IN std_logic;
-	writedata : IN std_logic_vector(149 DOWNTO 0);
-	address : IN STD.STANDARD.integer range 0 TO 256;
-	writeenable : IN std_logic;
-	readdata : OUT std_logic_vector(149 DOWNTO 0)
+	writedata : IN std_logic_vector(31 DOWNTO 0);
+	address : IN std_logic_vector(31 DOWNTO 0);
+	memwrite : IN std_logic;
+	memread : IN std_logic;
+	readdata : OUT std_logic_vector(31 DOWNTO 0);
+	waitrequest : OUT std_logic
 	);
-END cache_SRAM;
+END cache;
 
 -- Design Ports Information
--- readdata[0]	=>  Location: PIN_U16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[1]	=>  Location: PIN_AA15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[2]	=>  Location: PIN_AC17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[3]	=>  Location: PIN_AF10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[4]	=>  Location: PIN_W14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[5]	=>  Location: PIN_W16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[6]	=>  Location: PIN_AC16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[7]	=>  Location: PIN_AE9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[8]	=>  Location: PIN_V15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[9]	=>  Location: PIN_AC14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[10]	=>  Location: PIN_AF12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[11]	=>  Location: PIN_AC15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[12]	=>  Location: PIN_AC13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[13]	=>  Location: PIN_AF16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[14]	=>  Location: PIN_AF11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[15]	=>  Location: PIN_AE14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[16]	=>  Location: PIN_AE13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[17]	=>  Location: PIN_W13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[18]	=>  Location: PIN_D15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[19]	=>  Location: PIN_A18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[20]	=>  Location: PIN_A11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[21]	=>  Location: PIN_A10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[22]	=>  Location: PIN_C15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[23]	=>  Location: PIN_C14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[24]	=>  Location: PIN_A8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[25]	=>  Location: PIN_A9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[26]	=>  Location: PIN_A17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[27]	=>  Location: PIN_B18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[28]	=>  Location: PIN_A15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[29]	=>  Location: PIN_C13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[30]	=>  Location: PIN_A13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[31]	=>  Location: PIN_B10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[32]	=>  Location: PIN_J14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[33]	=>  Location: PIN_K13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[34]	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[35]	=>  Location: PIN_A19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[36]	=>  Location: PIN_AC19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[37]	=>  Location: PIN_AD19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[38]	=>  Location: PIN_AF19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[39]	=>  Location: PIN_AF25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[40]	=>  Location: PIN_AC18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[41]	=>  Location: PIN_W17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[42]	=>  Location: PIN_AD18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[43]	=>  Location: PIN_AF18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[44]	=>  Location: PIN_AB18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[45]	=>  Location: PIN_AF20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[46]	=>  Location: PIN_AF21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[47]	=>  Location: PIN_AF23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[48]	=>  Location: PIN_AA17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[49]	=>  Location: PIN_W18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[50]	=>  Location: PIN_AE23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[51]	=>  Location: PIN_AE19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[52]	=>  Location: PIN_AE18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[53]	=>  Location: PIN_V18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[54]	=>  Location: PIN_D25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[55]	=>  Location: PIN_D26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[56]	=>  Location: PIN_L21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[57]	=>  Location: PIN_E25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[58]	=>  Location: PIN_B25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[59]	=>  Location: PIN_F26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[60]	=>  Location: PIN_J23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[61]	=>  Location: PIN_F23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[62]	=>  Location: PIN_K23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[63]	=>  Location: PIN_K21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[64]	=>  Location: PIN_E24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[65]	=>  Location: PIN_J20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[66]	=>  Location: PIN_J25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[67]	=>  Location: PIN_B26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[68]	=>  Location: PIN_G22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[69]	=>  Location: PIN_C26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[70]	=>  Location: PIN_K20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[71]	=>  Location: PIN_H22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[72]	=>  Location: PIN_D11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[73]	=>  Location: PIN_AB11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[74]	=>  Location: PIN_B6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[75]	=>  Location: PIN_A4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[76]	=>  Location: PIN_H12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[77]	=>  Location: PIN_AD10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[78]	=>  Location: PIN_B4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[79]	=>  Location: PIN_J11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[80]	=>  Location: PIN_W12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[81]	=>  Location: PIN_J13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[82]	=>  Location: PIN_B7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[83]	=>  Location: PIN_AC10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[84]	=>  Location: PIN_C10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[85]	=>  Location: PIN_B9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[86]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[87]	=>  Location: PIN_J12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[88]	=>  Location: PIN_Y12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[89]	=>  Location: PIN_E11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[90]	=>  Location: PIN_H18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[91]	=>  Location: PIN_A21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[92]	=>  Location: PIN_A25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[93]	=>  Location: PIN_E19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[94]	=>  Location: PIN_C20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[95]	=>  Location: PIN_G15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[96]	=>  Location: PIN_J18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[97]	=>  Location: PIN_A22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[98]	=>  Location: PIN_F15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[99]	=>  Location: PIN_B21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[100]	=>  Location: PIN_B19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[101]	=>  Location: PIN_A24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[102]	=>  Location: PIN_C22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[103]	=>  Location: PIN_A23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[104]	=>  Location: PIN_D19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[105]	=>  Location: PIN_E17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[106]	=>  Location: PIN_E22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[107]	=>  Location: PIN_E18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[108]	=>  Location: PIN_U26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[109]	=>  Location: PIN_U19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[110]	=>  Location: PIN_T21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[111]	=>  Location: PIN_R25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[112]	=>  Location: PIN_U24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[113]	=>  Location: PIN_U25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[114]	=>  Location: PIN_W26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[115]	=>  Location: PIN_R23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[116]	=>  Location: PIN_U23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[117]	=>  Location: PIN_R20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[118]	=>  Location: PIN_T24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[119]	=>  Location: PIN_V26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[120]	=>  Location: PIN_R24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[121]	=>  Location: PIN_T19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[122]	=>  Location: PIN_T23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[123]	=>  Location: PIN_AA26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[124]	=>  Location: PIN_T26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[125]	=>  Location: PIN_W24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[126]	=>  Location: PIN_C3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[127]	=>  Location: PIN_D3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[128]	=>  Location: PIN_D7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[129]	=>  Location: PIN_D2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[130]	=>  Location: PIN_D8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[131]	=>  Location: PIN_D10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[132]	=>  Location: PIN_D9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[133]	=>  Location: PIN_E9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[134]	=>  Location: PIN_B2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[135]	=>  Location: PIN_C2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[136]	=>  Location: PIN_F8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[137]	=>  Location: PIN_D1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[138]	=>  Location: PIN_AE6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[139]	=>  Location: PIN_G9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[140]	=>  Location: PIN_C7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[141]	=>  Location: PIN_E8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[142]	=>  Location: PIN_B1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[143]	=>  Location: PIN_G10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[144]	=>  Location: PIN_M25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[145]	=>  Location: PIN_M23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[146]	=>  Location: PIN_N24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[147]	=>  Location: PIN_L22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[148]	=>  Location: PIN_M19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- readdata[149]	=>  Location: PIN_N22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writeenable	=>  Location: PIN_V13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- clock	=>  Location: PIN_T15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[0]	=>  Location: PIN_W15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[0]	=>  Location: PIN_AC23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[1]	=>  Location: PIN_P23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[2]	=>  Location: PIN_AD12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[3]	=>  Location: PIN_AB23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[4]	=>  Location: PIN_Y10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[5]	=>  Location: PIN_Y13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[6]	=>  Location: PIN_W10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[7]	=>  Location: PIN_AA9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- address[8]	=>  Location: PIN_M22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[1]	=>  Location: PIN_AB14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[2]	=>  Location: PIN_AE15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[3]	=>  Location: PIN_AE10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[4]	=>  Location: PIN_AD17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[5]	=>  Location: PIN_P26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[6]	=>  Location: PIN_R26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[7]	=>  Location: PIN_AD16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[8]	=>  Location: PIN_AD13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[9]	=>  Location: PIN_Y14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[10]	=>  Location: PIN_AE17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[11]	=>  Location: PIN_AD14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[12]	=>  Location: PIN_AB15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[13]	=>  Location: PIN_AF15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[14]	=>  Location: PIN_AF17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[15]	=>  Location: PIN_AD15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[16]	=>  Location: PIN_V16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[17]	=>  Location: PIN_AF9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[18]	=>  Location: PIN_E16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[19]	=>  Location: PIN_B15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[20]	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[21]	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[22]	=>  Location: PIN_D18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[23]	=>  Location: PIN_E15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[24]	=>  Location: PIN_B17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[25]	=>  Location: PIN_C16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[26]	=>  Location: PIN_G14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[27]	=>  Location: PIN_C18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[10]	=>  Location: PIN_V11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[11]	=>  Location: PIN_V12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[12]	=>  Location: PIN_D6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[13]	=>  Location: PIN_T6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[14]	=>  Location: PIN_N17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[15]	=>  Location: PIN_V16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[16]	=>  Location: PIN_A9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[17]	=>  Location: PIN_R16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[18]	=>  Location: PIN_N16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[19]	=>  Location: PIN_V10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[20]	=>  Location: PIN_U18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[21]	=>  Location: PIN_U6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[22]	=>  Location: PIN_V5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[23]	=>  Location: PIN_B7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[24]	=>  Location: PIN_A5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[25]	=>  Location: PIN_T13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[26]	=>  Location: PIN_D16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[27]	=>  Location: PIN_R7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[28]	=>  Location: PIN_V7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[29]	=>  Location: PIN_T16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[30]	=>  Location: PIN_C9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[31]	=>  Location: PIN_U7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- memread	=>  Location: PIN_N5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[0]	=>  Location: PIN_U13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[1]	=>  Location: PIN_K15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[2]	=>  Location: PIN_U12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[3]	=>  Location: PIN_P12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[4]	=>  Location: PIN_P18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[5]	=>  Location: PIN_F18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[6]	=>  Location: PIN_M17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[7]	=>  Location: PIN_D15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[8]	=>  Location: PIN_D10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[9]	=>  Location: PIN_B10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[10]	=>  Location: PIN_K16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[11]	=>  Location: PIN_P13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[12]	=>  Location: PIN_G16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[13]	=>  Location: PIN_V13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[14]	=>  Location: PIN_D9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[15]	=>  Location: PIN_G15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[16]	=>  Location: PIN_C18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[17]	=>  Location: PIN_G17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[18]	=>  Location: PIN_T18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[19]	=>  Location: PIN_R13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[20]	=>  Location: PIN_G18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[21]	=>  Location: PIN_U15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[22]	=>  Location: PIN_B9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[23]	=>  Location: PIN_E10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[24]	=>  Location: PIN_D18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[25]	=>  Location: PIN_A10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[26]	=>  Location: PIN_B16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[27]	=>  Location: PIN_F15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[28]	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[29]	=>  Location: PIN_R17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[30]	=>  Location: PIN_A11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- readdata[31]	=>  Location: PIN_E12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- waitrequest	=>  Location: PIN_B15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[1]	=>  Location: PIN_T11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[0]	=>  Location: PIN_U16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- memwrite	=>  Location: PIN_C12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- clock	=>  Location: PIN_M10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[0]	=>  Location: PIN_L18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[2]	=>  Location: PIN_M18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[3]	=>  Location: PIN_C13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[4]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[5]	=>  Location: PIN_E18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[6]	=>  Location: PIN_A15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[7]	=>  Location: PIN_C16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[8]	=>  Location: PIN_F16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- address[9]	=>  Location: PIN_R12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[1]	=>  Location: PIN_D14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[2]	=>  Location: PIN_H16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[3]	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[4]	=>  Location: PIN_N18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[5]	=>  Location: PIN_C10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[6]	=>  Location: PIN_C17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[7]	=>  Location: PIN_A17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[8]	=>  Location: PIN_A16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[9]	=>  Location: PIN_V15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[10]	=>  Location: PIN_J16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[11]	=>  Location: PIN_R11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[12]	=>  Location: PIN_J17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[13]	=>  Location: PIN_V14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[14]	=>  Location: PIN_T12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[15]	=>  Location: PIN_E15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[16]	=>  Location: PIN_L16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[17]	=>  Location: PIN_C14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[18]	=>  Location: PIN_C8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[19]	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[20]	=>  Location: PIN_B12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[21]	=>  Location: PIN_A13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[22]	=>  Location: PIN_F17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[23]	=>  Location: PIN_C15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[24]	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[25]	=>  Location: PIN_D13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[26]	=>  Location: PIN_E16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[27]	=>  Location: PIN_D7,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- writedata[28]	=>  Location: PIN_D17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[29]	=>  Location: PIN_A6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[30]	=>  Location: PIN_H14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[31]	=>  Location: PIN_D14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[32]	=>  Location: PIN_D16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[33]	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[34]	=>  Location: PIN_A16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[35]	=>  Location: PIN_C17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[36]	=>  Location: PIN_AE21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[37]	=>  Location: PIN_AD21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[38]	=>  Location: PIN_Y17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[39]	=>  Location: PIN_U18,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[40]	=>  Location: PIN_AA20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[41]	=>  Location: PIN_AD23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[42]	=>  Location: PIN_AC20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[43]	=>  Location: PIN_AD20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[44]	=>  Location: PIN_AD24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[45]	=>  Location: PIN_AE22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[46]	=>  Location: PIN_Y21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[47]	=>  Location: PIN_AF22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[48]	=>  Location: PIN_AC21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[49]	=>  Location: PIN_AD22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[50]	=>  Location: PIN_AB20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[51]	=>  Location: PIN_AC22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[52]	=>  Location: PIN_W19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[53]	=>  Location: PIN_AF24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[54]	=>  Location: PIN_K19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[55]	=>  Location: PIN_G25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[56]	=>  Location: PIN_J24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[57]	=>  Location: PIN_F21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[58]	=>  Location: PIN_H24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[59]	=>  Location: PIN_G26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[60]	=>  Location: PIN_C24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[61]	=>  Location: PIN_H26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[62]	=>  Location: PIN_H25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[63]	=>  Location: PIN_K24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[64]	=>  Location: PIN_E26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[65]	=>  Location: PIN_G24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[66]	=>  Location: PIN_C25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[67]	=>  Location: PIN_D24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[68]	=>  Location: PIN_F24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[69]	=>  Location: PIN_G23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[70]	=>  Location: PIN_K22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[71]	=>  Location: PIN_H23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[72]	=>  Location: PIN_G11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[73]	=>  Location: PIN_K12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[74]	=>  Location: PIN_AD11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[75]	=>  Location: PIN_E12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[76]	=>  Location: PIN_B5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[77]	=>  Location: PIN_AB12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[78]	=>  Location: PIN_E13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[79]	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[80]	=>  Location: PIN_H13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[81]	=>  Location: PIN_AC11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[82]	=>  Location: PIN_AE7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[83]	=>  Location: PIN_C12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[84]	=>  Location: PIN_AF6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[85]	=>  Location: PIN_AC12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[86]	=>  Location: PIN_H11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[87]	=>  Location: PIN_D13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[88]	=>  Location: PIN_A2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[89]	=>  Location: PIN_A5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[90]	=>  Location: PIN_H15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[91]	=>  Location: PIN_A20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[92]	=>  Location: PIN_H17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[93]	=>  Location: PIN_G17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[94]	=>  Location: PIN_J19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[95]	=>  Location: PIN_C19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[96]	=>  Location: PIN_J15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[97]	=>  Location: PIN_B22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[98]	=>  Location: PIN_C23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[99]	=>  Location: PIN_C21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[100]	=>  Location: PIN_D20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[101]	=>  Location: PIN_J17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[102]	=>  Location: PIN_D21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[103]	=>  Location: PIN_H16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[104]	=>  Location: PIN_B23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[105]	=>  Location: PIN_J16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[106]	=>  Location: PIN_D22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[107]	=>  Location: PIN_E20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[108]	=>  Location: PIN_AC25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[109]	=>  Location: PIN_R19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[110]	=>  Location: PIN_AB26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[111]	=>  Location: PIN_Y26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[112]	=>  Location: PIN_V24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[113]	=>  Location: PIN_W25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[114]	=>  Location: PIN_AC26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[115]	=>  Location: PIN_V23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[116]	=>  Location: PIN_V22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[117]	=>  Location: PIN_AD25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[118]	=>  Location: PIN_R22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[119]	=>  Location: PIN_P19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[120]	=>  Location: PIN_Y25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[121]	=>  Location: PIN_U22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[122]	=>  Location: PIN_T22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[123]	=>  Location: PIN_T25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[124]	=>  Location: PIN_Y24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[125]	=>  Location: PIN_AA25,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[126]	=>  Location: PIN_AD5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[127]	=>  Location: PIN_V11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[128]	=>  Location: PIN_H9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[129]	=>  Location: PIN_E7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[130]	=>  Location: PIN_C5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[131]	=>  Location: PIN_AD8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[132]	=>  Location: PIN_AF4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[133]	=>  Location: PIN_C1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[134]	=>  Location: PIN_C9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[135]	=>  Location: PIN_C4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[136]	=>  Location: PIN_A3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[137]	=>  Location: PIN_E2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[138]	=>  Location: PIN_H10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[139]	=>  Location: PIN_AE5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[140]	=>  Location: PIN_C6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[141]	=>  Location: PIN_AF5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[142]	=>  Location: PIN_C8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[143]	=>  Location: PIN_AD6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[144]	=>  Location: PIN_M24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[145]	=>  Location: PIN_N23,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[146]	=>  Location: PIN_M26,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[147]	=>  Location: PIN_L19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[148]	=>  Location: PIN_AF13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- writedata[149]	=>  Location: PIN_AF14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[29]	=>  Location: PIN_D11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[30]	=>  Location: PIN_A14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- writedata[31]	=>  Location: PIN_A18,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
-ARCHITECTURE structure OF cache_SRAM IS
+ARCHITECTURE structure OF cache IS
 SIGNAL gnd : std_logic := '0';
 SIGNAL vcc : std_logic := '1';
 SIGNAL unknown : std_logic := 'X';
@@ -369,38 +157,60 @@ SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
 SIGNAL ww_clock : std_logic;
-SIGNAL ww_writedata : std_logic_vector(149 DOWNTO 0);
-SIGNAL ww_address : std_logic_vector(8 DOWNTO 0);
-SIGNAL ww_writeenable : std_logic;
-SIGNAL ww_readdata : std_logic_vector(149 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a0_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a18_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a36_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a54_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a72_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a90_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a108_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a126_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a144_PORTAADDR_bus\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL ww_writedata : std_logic_vector(31 DOWNTO 0);
+SIGNAL ww_address : std_logic_vector(31 DOWNTO 0);
+SIGNAL ww_memwrite : std_logic;
+SIGNAL ww_memread : std_logic;
+SIGNAL ww_readdata : std_logic_vector(31 DOWNTO 0);
+SIGNAL ww_waitrequest : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTAADDR_bus\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTAADDR_bus\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTAADDR_bus\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTAADDR_bus\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTAADDR_bus\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTAADDR_bus\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTAADDR_bus\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAIN_bus\ : std_logic_vector(17 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTAADDR_bus\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\ : std_logic_vector(17 DOWNTO 0);
 SIGNAL \clock~inputclkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \address[10]~input_o\ : std_logic;
+SIGNAL \address[11]~input_o\ : std_logic;
+SIGNAL \address[12]~input_o\ : std_logic;
+SIGNAL \address[13]~input_o\ : std_logic;
+SIGNAL \address[14]~input_o\ : std_logic;
+SIGNAL \address[15]~input_o\ : std_logic;
+SIGNAL \address[16]~input_o\ : std_logic;
+SIGNAL \address[17]~input_o\ : std_logic;
+SIGNAL \address[18]~input_o\ : std_logic;
+SIGNAL \address[19]~input_o\ : std_logic;
+SIGNAL \address[20]~input_o\ : std_logic;
+SIGNAL \address[21]~input_o\ : std_logic;
+SIGNAL \address[22]~input_o\ : std_logic;
+SIGNAL \address[23]~input_o\ : std_logic;
+SIGNAL \address[24]~input_o\ : std_logic;
+SIGNAL \address[25]~input_o\ : std_logic;
+SIGNAL \address[26]~input_o\ : std_logic;
+SIGNAL \address[27]~input_o\ : std_logic;
+SIGNAL \address[28]~input_o\ : std_logic;
+SIGNAL \address[29]~input_o\ : std_logic;
+SIGNAL \address[30]~input_o\ : std_logic;
+SIGNAL \address[31]~input_o\ : std_logic;
+SIGNAL \memread~input_o\ : std_logic;
 SIGNAL \readdata[0]~output_o\ : std_logic;
 SIGNAL \readdata[1]~output_o\ : std_logic;
 SIGNAL \readdata[2]~output_o\ : std_logic;
@@ -433,130 +243,12 @@ SIGNAL \readdata[28]~output_o\ : std_logic;
 SIGNAL \readdata[29]~output_o\ : std_logic;
 SIGNAL \readdata[30]~output_o\ : std_logic;
 SIGNAL \readdata[31]~output_o\ : std_logic;
-SIGNAL \readdata[32]~output_o\ : std_logic;
-SIGNAL \readdata[33]~output_o\ : std_logic;
-SIGNAL \readdata[34]~output_o\ : std_logic;
-SIGNAL \readdata[35]~output_o\ : std_logic;
-SIGNAL \readdata[36]~output_o\ : std_logic;
-SIGNAL \readdata[37]~output_o\ : std_logic;
-SIGNAL \readdata[38]~output_o\ : std_logic;
-SIGNAL \readdata[39]~output_o\ : std_logic;
-SIGNAL \readdata[40]~output_o\ : std_logic;
-SIGNAL \readdata[41]~output_o\ : std_logic;
-SIGNAL \readdata[42]~output_o\ : std_logic;
-SIGNAL \readdata[43]~output_o\ : std_logic;
-SIGNAL \readdata[44]~output_o\ : std_logic;
-SIGNAL \readdata[45]~output_o\ : std_logic;
-SIGNAL \readdata[46]~output_o\ : std_logic;
-SIGNAL \readdata[47]~output_o\ : std_logic;
-SIGNAL \readdata[48]~output_o\ : std_logic;
-SIGNAL \readdata[49]~output_o\ : std_logic;
-SIGNAL \readdata[50]~output_o\ : std_logic;
-SIGNAL \readdata[51]~output_o\ : std_logic;
-SIGNAL \readdata[52]~output_o\ : std_logic;
-SIGNAL \readdata[53]~output_o\ : std_logic;
-SIGNAL \readdata[54]~output_o\ : std_logic;
-SIGNAL \readdata[55]~output_o\ : std_logic;
-SIGNAL \readdata[56]~output_o\ : std_logic;
-SIGNAL \readdata[57]~output_o\ : std_logic;
-SIGNAL \readdata[58]~output_o\ : std_logic;
-SIGNAL \readdata[59]~output_o\ : std_logic;
-SIGNAL \readdata[60]~output_o\ : std_logic;
-SIGNAL \readdata[61]~output_o\ : std_logic;
-SIGNAL \readdata[62]~output_o\ : std_logic;
-SIGNAL \readdata[63]~output_o\ : std_logic;
-SIGNAL \readdata[64]~output_o\ : std_logic;
-SIGNAL \readdata[65]~output_o\ : std_logic;
-SIGNAL \readdata[66]~output_o\ : std_logic;
-SIGNAL \readdata[67]~output_o\ : std_logic;
-SIGNAL \readdata[68]~output_o\ : std_logic;
-SIGNAL \readdata[69]~output_o\ : std_logic;
-SIGNAL \readdata[70]~output_o\ : std_logic;
-SIGNAL \readdata[71]~output_o\ : std_logic;
-SIGNAL \readdata[72]~output_o\ : std_logic;
-SIGNAL \readdata[73]~output_o\ : std_logic;
-SIGNAL \readdata[74]~output_o\ : std_logic;
-SIGNAL \readdata[75]~output_o\ : std_logic;
-SIGNAL \readdata[76]~output_o\ : std_logic;
-SIGNAL \readdata[77]~output_o\ : std_logic;
-SIGNAL \readdata[78]~output_o\ : std_logic;
-SIGNAL \readdata[79]~output_o\ : std_logic;
-SIGNAL \readdata[80]~output_o\ : std_logic;
-SIGNAL \readdata[81]~output_o\ : std_logic;
-SIGNAL \readdata[82]~output_o\ : std_logic;
-SIGNAL \readdata[83]~output_o\ : std_logic;
-SIGNAL \readdata[84]~output_o\ : std_logic;
-SIGNAL \readdata[85]~output_o\ : std_logic;
-SIGNAL \readdata[86]~output_o\ : std_logic;
-SIGNAL \readdata[87]~output_o\ : std_logic;
-SIGNAL \readdata[88]~output_o\ : std_logic;
-SIGNAL \readdata[89]~output_o\ : std_logic;
-SIGNAL \readdata[90]~output_o\ : std_logic;
-SIGNAL \readdata[91]~output_o\ : std_logic;
-SIGNAL \readdata[92]~output_o\ : std_logic;
-SIGNAL \readdata[93]~output_o\ : std_logic;
-SIGNAL \readdata[94]~output_o\ : std_logic;
-SIGNAL \readdata[95]~output_o\ : std_logic;
-SIGNAL \readdata[96]~output_o\ : std_logic;
-SIGNAL \readdata[97]~output_o\ : std_logic;
-SIGNAL \readdata[98]~output_o\ : std_logic;
-SIGNAL \readdata[99]~output_o\ : std_logic;
-SIGNAL \readdata[100]~output_o\ : std_logic;
-SIGNAL \readdata[101]~output_o\ : std_logic;
-SIGNAL \readdata[102]~output_o\ : std_logic;
-SIGNAL \readdata[103]~output_o\ : std_logic;
-SIGNAL \readdata[104]~output_o\ : std_logic;
-SIGNAL \readdata[105]~output_o\ : std_logic;
-SIGNAL \readdata[106]~output_o\ : std_logic;
-SIGNAL \readdata[107]~output_o\ : std_logic;
-SIGNAL \readdata[108]~output_o\ : std_logic;
-SIGNAL \readdata[109]~output_o\ : std_logic;
-SIGNAL \readdata[110]~output_o\ : std_logic;
-SIGNAL \readdata[111]~output_o\ : std_logic;
-SIGNAL \readdata[112]~output_o\ : std_logic;
-SIGNAL \readdata[113]~output_o\ : std_logic;
-SIGNAL \readdata[114]~output_o\ : std_logic;
-SIGNAL \readdata[115]~output_o\ : std_logic;
-SIGNAL \readdata[116]~output_o\ : std_logic;
-SIGNAL \readdata[117]~output_o\ : std_logic;
-SIGNAL \readdata[118]~output_o\ : std_logic;
-SIGNAL \readdata[119]~output_o\ : std_logic;
-SIGNAL \readdata[120]~output_o\ : std_logic;
-SIGNAL \readdata[121]~output_o\ : std_logic;
-SIGNAL \readdata[122]~output_o\ : std_logic;
-SIGNAL \readdata[123]~output_o\ : std_logic;
-SIGNAL \readdata[124]~output_o\ : std_logic;
-SIGNAL \readdata[125]~output_o\ : std_logic;
-SIGNAL \readdata[126]~output_o\ : std_logic;
-SIGNAL \readdata[127]~output_o\ : std_logic;
-SIGNAL \readdata[128]~output_o\ : std_logic;
-SIGNAL \readdata[129]~output_o\ : std_logic;
-SIGNAL \readdata[130]~output_o\ : std_logic;
-SIGNAL \readdata[131]~output_o\ : std_logic;
-SIGNAL \readdata[132]~output_o\ : std_logic;
-SIGNAL \readdata[133]~output_o\ : std_logic;
-SIGNAL \readdata[134]~output_o\ : std_logic;
-SIGNAL \readdata[135]~output_o\ : std_logic;
-SIGNAL \readdata[136]~output_o\ : std_logic;
-SIGNAL \readdata[137]~output_o\ : std_logic;
-SIGNAL \readdata[138]~output_o\ : std_logic;
-SIGNAL \readdata[139]~output_o\ : std_logic;
-SIGNAL \readdata[140]~output_o\ : std_logic;
-SIGNAL \readdata[141]~output_o\ : std_logic;
-SIGNAL \readdata[142]~output_o\ : std_logic;
-SIGNAL \readdata[143]~output_o\ : std_logic;
-SIGNAL \readdata[144]~output_o\ : std_logic;
-SIGNAL \readdata[145]~output_o\ : std_logic;
-SIGNAL \readdata[146]~output_o\ : std_logic;
-SIGNAL \readdata[147]~output_o\ : std_logic;
-SIGNAL \readdata[148]~output_o\ : std_logic;
-SIGNAL \readdata[149]~output_o\ : std_logic;
-SIGNAL \writeenable~input_o\ : std_logic;
+SIGNAL \waitrequest~output_o\ : std_logic;
+SIGNAL \address[1]~input_o\ : std_logic;
+SIGNAL \memwrite~input_o\ : std_logic;
 SIGNAL \clock~input_o\ : std_logic;
 SIGNAL \clock~inputclkctrl_outclk\ : std_logic;
 SIGNAL \writedata[0]~input_o\ : std_logic;
-SIGNAL \address[0]~input_o\ : std_logic;
-SIGNAL \address[1]~input_o\ : std_logic;
 SIGNAL \address[2]~input_o\ : std_logic;
 SIGNAL \address[3]~input_o\ : std_logic;
 SIGNAL \address[4]~input_o\ : std_logic;
@@ -564,541 +256,438 @@ SIGNAL \address[5]~input_o\ : std_logic;
 SIGNAL \address[6]~input_o\ : std_logic;
 SIGNAL \address[7]~input_o\ : std_logic;
 SIGNAL \address[8]~input_o\ : std_logic;
+SIGNAL \address[9]~input_o\ : std_logic;
 SIGNAL \writedata[1]~input_o\ : std_logic;
 SIGNAL \writedata[2]~input_o\ : std_logic;
 SIGNAL \writedata[3]~input_o\ : std_logic;
 SIGNAL \writedata[4]~input_o\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0~portadataout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\ : std_logic;
+SIGNAL \address[0]~input_o\ : std_logic;
+SIGNAL \Mux31~0_combout\ : std_logic;
+SIGNAL \Mux31~1_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ : std_logic;
+SIGNAL \Mux30~0_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ : std_logic;
+SIGNAL \Mux30~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ : std_logic;
+SIGNAL \Mux29~0_combout\ : std_logic;
+SIGNAL \Mux29~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ : std_logic;
+SIGNAL \Mux28~0_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ : std_logic;
+SIGNAL \Mux28~1_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\ : std_logic;
 SIGNAL \writedata[5]~input_o\ : std_logic;
 SIGNAL \writedata[6]~input_o\ : std_logic;
 SIGNAL \writedata[7]~input_o\ : std_logic;
 SIGNAL \writedata[8]~input_o\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\ : std_logic;
+SIGNAL \Mux27~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4~portadataout\ : std_logic;
+SIGNAL \Mux27~1_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ : std_logic;
+SIGNAL \Mux26~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ : std_logic;
+SIGNAL \Mux26~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ : std_logic;
+SIGNAL \Mux25~0_combout\ : std_logic;
+SIGNAL \Mux25~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ : std_logic;
+SIGNAL \Mux24~0_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ : std_logic;
+SIGNAL \Mux24~1_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ : std_logic;
+SIGNAL \Mux23~0_combout\ : std_logic;
+SIGNAL \Mux23~1_combout\ : std_logic;
 SIGNAL \writedata[9]~input_o\ : std_logic;
 SIGNAL \writedata[10]~input_o\ : std_logic;
 SIGNAL \writedata[11]~input_o\ : std_logic;
 SIGNAL \writedata[12]~input_o\ : std_logic;
 SIGNAL \writedata[13]~input_o\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9~portadataout\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\ : std_logic;
+SIGNAL \Mux22~0_combout\ : std_logic;
+SIGNAL \Mux22~1_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ : std_logic;
+SIGNAL \Mux21~0_combout\ : std_logic;
+SIGNAL \Mux21~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\ : std_logic;
+SIGNAL \Mux20~0_combout\ : std_logic;
+SIGNAL \Mux20~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\ : std_logic;
+SIGNAL \Mux19~0_combout\ : std_logic;
+SIGNAL \Mux19~1_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\ : std_logic;
 SIGNAL \writedata[14]~input_o\ : std_logic;
 SIGNAL \writedata[15]~input_o\ : std_logic;
 SIGNAL \writedata[16]~input_o\ : std_logic;
 SIGNAL \writedata[17]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a0~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a1\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a2\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a3\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a4\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a5\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a6\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a7\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a8\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a9\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a10\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a11\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a12\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a13\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a14\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a15\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a16\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a17\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\ : std_logic;
+SIGNAL \Mux18~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13~portadataout\ : std_logic;
+SIGNAL \Mux18~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\ : std_logic;
+SIGNAL \Mux17~0_combout\ : std_logic;
+SIGNAL \Mux17~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ : std_logic;
+SIGNAL \Mux16~0_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ : std_logic;
+SIGNAL \Mux16~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\ : std_logic;
+SIGNAL \Mux15~0_combout\ : std_logic;
+SIGNAL \Mux15~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ : std_logic;
+SIGNAL \Mux14~0_combout\ : std_logic;
+SIGNAL \Mux14~1_combout\ : std_logic;
 SIGNAL \writedata[18]~input_o\ : std_logic;
 SIGNAL \writedata[19]~input_o\ : std_logic;
 SIGNAL \writedata[20]~input_o\ : std_logic;
 SIGNAL \writedata[21]~input_o\ : std_logic;
 SIGNAL \writedata[22]~input_o\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18~portadataout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\ : std_logic;
+SIGNAL \Mux13~0_combout\ : std_logic;
+SIGNAL \Mux13~1_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ : std_logic;
+SIGNAL \Mux12~0_combout\ : std_logic;
+SIGNAL \Mux12~1_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\ : std_logic;
+SIGNAL \Mux11~0_combout\ : std_logic;
+SIGNAL \Mux11~1_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ : std_logic;
+SIGNAL \Mux10~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ : std_logic;
+SIGNAL \Mux10~1_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\ : std_logic;
 SIGNAL \writedata[23]~input_o\ : std_logic;
 SIGNAL \writedata[24]~input_o\ : std_logic;
 SIGNAL \writedata[25]~input_o\ : std_logic;
 SIGNAL \writedata[26]~input_o\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22~portadataout\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\ : std_logic;
+SIGNAL \Mux9~0_combout\ : std_logic;
+SIGNAL \Mux9~1_combout\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ : std_logic;
+SIGNAL \Mux8~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ : std_logic;
+SIGNAL \Mux8~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\ : std_logic;
+SIGNAL \Mux7~0_combout\ : std_logic;
+SIGNAL \Mux7~1_combout\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ : std_logic;
+SIGNAL \Mux6~0_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ : std_logic;
+SIGNAL \Mux6~1_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ : std_logic;
+SIGNAL \Mux5~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ : std_logic;
+SIGNAL \Mux5~1_combout\ : std_logic;
 SIGNAL \writedata[27]~input_o\ : std_logic;
 SIGNAL \writedata[28]~input_o\ : std_logic;
 SIGNAL \writedata[29]~input_o\ : std_logic;
 SIGNAL \writedata[30]~input_o\ : std_logic;
 SIGNAL \writedata[31]~input_o\ : std_logic;
-SIGNAL \writedata[32]~input_o\ : std_logic;
-SIGNAL \writedata[33]~input_o\ : std_logic;
-SIGNAL \writedata[34]~input_o\ : std_logic;
-SIGNAL \writedata[35]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a18~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a19\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a20\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a21\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a22\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a23\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a24\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a25\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a26\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a27\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a28\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a29\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a30\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a31\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a32\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a33\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a34\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a35\ : std_logic;
-SIGNAL \writedata[36]~input_o\ : std_logic;
-SIGNAL \writedata[37]~input_o\ : std_logic;
-SIGNAL \writedata[38]~input_o\ : std_logic;
-SIGNAL \writedata[39]~input_o\ : std_logic;
-SIGNAL \writedata[40]~input_o\ : std_logic;
-SIGNAL \writedata[41]~input_o\ : std_logic;
-SIGNAL \writedata[42]~input_o\ : std_logic;
-SIGNAL \writedata[43]~input_o\ : std_logic;
-SIGNAL \writedata[44]~input_o\ : std_logic;
-SIGNAL \writedata[45]~input_o\ : std_logic;
-SIGNAL \writedata[46]~input_o\ : std_logic;
-SIGNAL \writedata[47]~input_o\ : std_logic;
-SIGNAL \writedata[48]~input_o\ : std_logic;
-SIGNAL \writedata[49]~input_o\ : std_logic;
-SIGNAL \writedata[50]~input_o\ : std_logic;
-SIGNAL \writedata[51]~input_o\ : std_logic;
-SIGNAL \writedata[52]~input_o\ : std_logic;
-SIGNAL \writedata[53]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a36~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a37\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a38\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a39\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a40\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a41\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a42\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a43\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a44\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a45\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a46\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a47\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a48\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a49\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a50\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a51\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a52\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a53\ : std_logic;
-SIGNAL \writedata[54]~input_o\ : std_logic;
-SIGNAL \writedata[55]~input_o\ : std_logic;
-SIGNAL \writedata[56]~input_o\ : std_logic;
-SIGNAL \writedata[57]~input_o\ : std_logic;
-SIGNAL \writedata[58]~input_o\ : std_logic;
-SIGNAL \writedata[59]~input_o\ : std_logic;
-SIGNAL \writedata[60]~input_o\ : std_logic;
-SIGNAL \writedata[61]~input_o\ : std_logic;
-SIGNAL \writedata[62]~input_o\ : std_logic;
-SIGNAL \writedata[63]~input_o\ : std_logic;
-SIGNAL \writedata[64]~input_o\ : std_logic;
-SIGNAL \writedata[65]~input_o\ : std_logic;
-SIGNAL \writedata[66]~input_o\ : std_logic;
-SIGNAL \writedata[67]~input_o\ : std_logic;
-SIGNAL \writedata[68]~input_o\ : std_logic;
-SIGNAL \writedata[69]~input_o\ : std_logic;
-SIGNAL \writedata[70]~input_o\ : std_logic;
-SIGNAL \writedata[71]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a54~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a55\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a56\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a57\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a58\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a59\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a60\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a61\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a62\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a63\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a64\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a65\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a66\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a67\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a68\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a69\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a70\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a71\ : std_logic;
-SIGNAL \writedata[72]~input_o\ : std_logic;
-SIGNAL \writedata[73]~input_o\ : std_logic;
-SIGNAL \writedata[74]~input_o\ : std_logic;
-SIGNAL \writedata[75]~input_o\ : std_logic;
-SIGNAL \writedata[76]~input_o\ : std_logic;
-SIGNAL \writedata[77]~input_o\ : std_logic;
-SIGNAL \writedata[78]~input_o\ : std_logic;
-SIGNAL \writedata[79]~input_o\ : std_logic;
-SIGNAL \writedata[80]~input_o\ : std_logic;
-SIGNAL \writedata[81]~input_o\ : std_logic;
-SIGNAL \writedata[82]~input_o\ : std_logic;
-SIGNAL \writedata[83]~input_o\ : std_logic;
-SIGNAL \writedata[84]~input_o\ : std_logic;
-SIGNAL \writedata[85]~input_o\ : std_logic;
-SIGNAL \writedata[86]~input_o\ : std_logic;
-SIGNAL \writedata[87]~input_o\ : std_logic;
-SIGNAL \writedata[88]~input_o\ : std_logic;
-SIGNAL \writedata[89]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a72~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a73\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a74\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a75\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a76\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a77\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a78\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a79\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a80\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a81\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a82\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a83\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a84\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a85\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a86\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a87\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a88\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a89\ : std_logic;
-SIGNAL \writedata[90]~input_o\ : std_logic;
-SIGNAL \writedata[91]~input_o\ : std_logic;
-SIGNAL \writedata[92]~input_o\ : std_logic;
-SIGNAL \writedata[93]~input_o\ : std_logic;
-SIGNAL \writedata[94]~input_o\ : std_logic;
-SIGNAL \writedata[95]~input_o\ : std_logic;
-SIGNAL \writedata[96]~input_o\ : std_logic;
-SIGNAL \writedata[97]~input_o\ : std_logic;
-SIGNAL \writedata[98]~input_o\ : std_logic;
-SIGNAL \writedata[99]~input_o\ : std_logic;
-SIGNAL \writedata[100]~input_o\ : std_logic;
-SIGNAL \writedata[101]~input_o\ : std_logic;
-SIGNAL \writedata[102]~input_o\ : std_logic;
-SIGNAL \writedata[103]~input_o\ : std_logic;
-SIGNAL \writedata[104]~input_o\ : std_logic;
-SIGNAL \writedata[105]~input_o\ : std_logic;
-SIGNAL \writedata[106]~input_o\ : std_logic;
-SIGNAL \writedata[107]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a90~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a91\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a92\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a93\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a94\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a95\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a96\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a97\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a98\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a99\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a100\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a101\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a102\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a103\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a104\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a105\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a106\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a107\ : std_logic;
-SIGNAL \writedata[108]~input_o\ : std_logic;
-SIGNAL \writedata[109]~input_o\ : std_logic;
-SIGNAL \writedata[110]~input_o\ : std_logic;
-SIGNAL \writedata[111]~input_o\ : std_logic;
-SIGNAL \writedata[112]~input_o\ : std_logic;
-SIGNAL \writedata[113]~input_o\ : std_logic;
-SIGNAL \writedata[114]~input_o\ : std_logic;
-SIGNAL \writedata[115]~input_o\ : std_logic;
-SIGNAL \writedata[116]~input_o\ : std_logic;
-SIGNAL \writedata[117]~input_o\ : std_logic;
-SIGNAL \writedata[118]~input_o\ : std_logic;
-SIGNAL \writedata[119]~input_o\ : std_logic;
-SIGNAL \writedata[120]~input_o\ : std_logic;
-SIGNAL \writedata[121]~input_o\ : std_logic;
-SIGNAL \writedata[122]~input_o\ : std_logic;
-SIGNAL \writedata[123]~input_o\ : std_logic;
-SIGNAL \writedata[124]~input_o\ : std_logic;
-SIGNAL \writedata[125]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a108~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a109\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a110\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a111\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a112\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a113\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a114\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a115\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a116\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a117\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a118\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a119\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a120\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a121\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a122\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a123\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a124\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a125\ : std_logic;
-SIGNAL \writedata[126]~input_o\ : std_logic;
-SIGNAL \writedata[127]~input_o\ : std_logic;
-SIGNAL \writedata[128]~input_o\ : std_logic;
-SIGNAL \writedata[129]~input_o\ : std_logic;
-SIGNAL \writedata[130]~input_o\ : std_logic;
-SIGNAL \writedata[131]~input_o\ : std_logic;
-SIGNAL \writedata[132]~input_o\ : std_logic;
-SIGNAL \writedata[133]~input_o\ : std_logic;
-SIGNAL \writedata[134]~input_o\ : std_logic;
-SIGNAL \writedata[135]~input_o\ : std_logic;
-SIGNAL \writedata[136]~input_o\ : std_logic;
-SIGNAL \writedata[137]~input_o\ : std_logic;
-SIGNAL \writedata[138]~input_o\ : std_logic;
-SIGNAL \writedata[139]~input_o\ : std_logic;
-SIGNAL \writedata[140]~input_o\ : std_logic;
-SIGNAL \writedata[141]~input_o\ : std_logic;
-SIGNAL \writedata[142]~input_o\ : std_logic;
-SIGNAL \writedata[143]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a126~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a127\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a128\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a129\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a130\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a131\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a132\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a133\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a134\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a135\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a136\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a137\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a138\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a139\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a140\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a141\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a142\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a143\ : std_logic;
-SIGNAL \writedata[144]~input_o\ : std_logic;
-SIGNAL \writedata[145]~input_o\ : std_logic;
-SIGNAL \writedata[146]~input_o\ : std_logic;
-SIGNAL \writedata[147]~input_o\ : std_logic;
-SIGNAL \writedata[148]~input_o\ : std_logic;
-SIGNAL \writedata[149]~input_o\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a144~portadataout\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a145\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a146\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a147\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a148\ : std_logic;
-SIGNAL \mem_block_rtl_0|auto_generated|ram_block1a149\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27~portadataout\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27~portadataout\ : std_logic;
+SIGNAL \Mux4~0_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\ : std_logic;
+SIGNAL \Mux4~1_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ : std_logic;
+SIGNAL \Mux3~0_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ : std_logic;
+SIGNAL \Mux3~1_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ : std_logic;
+SIGNAL \Mux2~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ : std_logic;
+SIGNAL \Mux2~1_combout\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\ : std_logic;
+SIGNAL \Mux1~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\ : std_logic;
+SIGNAL \Mux1~1_combout\ : std_logic;
+SIGNAL \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ : std_logic;
+SIGNAL \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ : std_logic;
+SIGNAL \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ : std_logic;
+SIGNAL \Mux0~0_combout\ : std_logic;
+SIGNAL \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ : std_logic;
+SIGNAL \Mux0~1_combout\ : std_logic;
 
 BEGIN
 
 ww_clock <= clock;
 ww_writedata <= writedata;
-ww_address <= IEEE.STD_LOGIC_ARITH.CONV_STD_LOGIC_VECTOR(address, 9);
-ww_writeenable <= writeenable;
+ww_address <= address;
+ww_memwrite <= memwrite;
+ww_memread <= memread;
 readdata <= ww_readdata;
+waitrequest <= ww_waitrequest;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
 
-\mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAIN_bus\ <= (\writedata[17]~input_o\ & \writedata[16]~input_o\ & \writedata[15]~input_o\ & \writedata[14]~input_o\ & \writedata[13]~input_o\ & \writedata[12]~input_o\ & \writedata[11]~input_o\ & 
-\writedata[10]~input_o\ & \writedata[9]~input_o\ & \writedata[8]~input_o\ & \writedata[7]~input_o\ & \writedata[6]~input_o\ & \writedata[5]~input_o\ & \writedata[4]~input_o\ & \writedata[3]~input_o\ & \writedata[2]~input_o\ & \writedata[1]~input_o\ & 
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAIN_bus\ <= (\writedata[4]~input_o\ & \writedata[3]~input_o\ & \writedata[2]~input_o\ & \writedata[1]~input_o\ & \writedata[0]~input_o\ & \writedata[4]~input_o\ & \writedata[3]~input_o\
+& \writedata[2]~input_o\ & \writedata[1]~input_o\ & \writedata[0]~input_o\ & \writedata[3]~input_o\ & \writedata[2]~input_o\ & \writedata[1]~input_o\ & \writedata[0]~input_o\ & \writedata[3]~input_o\ & \writedata[2]~input_o\ & \writedata[1]~input_o\ & 
 \writedata[0]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a0_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTAADDR_bus\ <= (\address[9]~input_o\ & \address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & 
+\address[2]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a0~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a1\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a2\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a3\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a4\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a5\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(5);
-\mem_block_rtl_0|auto_generated|ram_block1a6\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(6);
-\mem_block_rtl_0|auto_generated|ram_block1a7\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(7);
-\mem_block_rtl_0|auto_generated|ram_block1a8\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(8);
-\mem_block_rtl_0|auto_generated|ram_block1a9\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(9);
-\mem_block_rtl_0|auto_generated|ram_block1a10\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(10);
-\mem_block_rtl_0|auto_generated|ram_block1a11\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(11);
-\mem_block_rtl_0|auto_generated|ram_block1a12\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(12);
-\mem_block_rtl_0|auto_generated|ram_block1a13\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(13);
-\mem_block_rtl_0|auto_generated|ram_block1a14\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(14);
-\mem_block_rtl_0|auto_generated|ram_block1a15\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(15);
-\mem_block_rtl_0|auto_generated|ram_block1a16\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(16);
-\mem_block_rtl_0|auto_generated|ram_block1a17\ <= \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(17);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0~portadataout\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(0);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(1);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(2);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(3);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(4);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(5);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(6);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(7);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(8);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(9);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(10);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(11);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(12);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(13);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(14);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(15);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(16);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\(17);
 
-\mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAIN_bus\ <= (\writedata[35]~input_o\ & \writedata[34]~input_o\ & \writedata[33]~input_o\ & \writedata[32]~input_o\ & \writedata[31]~input_o\ & \writedata[30]~input_o\ & \writedata[29]~input_o\ & 
-\writedata[28]~input_o\ & \writedata[27]~input_o\ & \writedata[26]~input_o\ & \writedata[25]~input_o\ & \writedata[24]~input_o\ & \writedata[23]~input_o\ & \writedata[22]~input_o\ & \writedata[21]~input_o\ & \writedata[20]~input_o\ & 
-\writedata[19]~input_o\ & \writedata[18]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAIN_bus\ <= (\writedata[8]~input_o\ & \writedata[7]~input_o\ & \writedata[6]~input_o\ & \writedata[5]~input_o\ & \writedata[8]~input_o\ & \writedata[7]~input_o\ & \writedata[6]~input_o\
+& \writedata[5]~input_o\ & \writedata[8]~input_o\ & \writedata[7]~input_o\ & \writedata[6]~input_o\ & \writedata[5]~input_o\ & \writedata[4]~input_o\ & \writedata[8]~input_o\ & \writedata[7]~input_o\ & \writedata[6]~input_o\ & \writedata[5]~input_o\ & 
+\writedata[4]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a18_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTAADDR_bus\ <= (\address[9]~input_o\ & \address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & 
+\address[2]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a18~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a19\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a20\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a21\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a22\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a23\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(5);
-\mem_block_rtl_0|auto_generated|ram_block1a24\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(6);
-\mem_block_rtl_0|auto_generated|ram_block1a25\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(7);
-\mem_block_rtl_0|auto_generated|ram_block1a26\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(8);
-\mem_block_rtl_0|auto_generated|ram_block1a27\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(9);
-\mem_block_rtl_0|auto_generated|ram_block1a28\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(10);
-\mem_block_rtl_0|auto_generated|ram_block1a29\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(11);
-\mem_block_rtl_0|auto_generated|ram_block1a30\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(12);
-\mem_block_rtl_0|auto_generated|ram_block1a31\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(13);
-\mem_block_rtl_0|auto_generated|ram_block1a32\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(14);
-\mem_block_rtl_0|auto_generated|ram_block1a33\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(15);
-\mem_block_rtl_0|auto_generated|ram_block1a34\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(16);
-\mem_block_rtl_0|auto_generated|ram_block1a35\ <= \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(17);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4~portadataout\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(0);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(1);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(2);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(3);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(4);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(5);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(6);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(7);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(8);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(9);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(10);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(11);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(12);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(13);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(14);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(15);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(16);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\(17);
 
-\mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAIN_bus\ <= (\writedata[53]~input_o\ & \writedata[52]~input_o\ & \writedata[51]~input_o\ & \writedata[50]~input_o\ & \writedata[49]~input_o\ & \writedata[48]~input_o\ & \writedata[47]~input_o\ & 
-\writedata[46]~input_o\ & \writedata[45]~input_o\ & \writedata[44]~input_o\ & \writedata[43]~input_o\ & \writedata[42]~input_o\ & \writedata[41]~input_o\ & \writedata[40]~input_o\ & \writedata[39]~input_o\ & \writedata[38]~input_o\ & 
-\writedata[37]~input_o\ & \writedata[36]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAIN_bus\ <= (\writedata[13]~input_o\ & \writedata[12]~input_o\ & \writedata[11]~input_o\ & \writedata[10]~input_o\ & \writedata[9]~input_o\ & \writedata[13]~input_o\ & 
+\writedata[12]~input_o\ & \writedata[11]~input_o\ & \writedata[10]~input_o\ & \writedata[9]~input_o\ & \writedata[12]~input_o\ & \writedata[11]~input_o\ & \writedata[10]~input_o\ & \writedata[9]~input_o\ & \writedata[12]~input_o\ & \writedata[11]~input_o\
+& \writedata[10]~input_o\ & \writedata[9]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a36_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTAADDR_bus\ <= (\address[9]~input_o\ & \address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & 
+\address[2]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a36~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a37\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a38\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a39\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a40\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a41\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(5);
-\mem_block_rtl_0|auto_generated|ram_block1a42\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(6);
-\mem_block_rtl_0|auto_generated|ram_block1a43\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(7);
-\mem_block_rtl_0|auto_generated|ram_block1a44\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(8);
-\mem_block_rtl_0|auto_generated|ram_block1a45\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(9);
-\mem_block_rtl_0|auto_generated|ram_block1a46\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(10);
-\mem_block_rtl_0|auto_generated|ram_block1a47\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(11);
-\mem_block_rtl_0|auto_generated|ram_block1a48\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(12);
-\mem_block_rtl_0|auto_generated|ram_block1a49\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(13);
-\mem_block_rtl_0|auto_generated|ram_block1a50\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(14);
-\mem_block_rtl_0|auto_generated|ram_block1a51\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(15);
-\mem_block_rtl_0|auto_generated|ram_block1a52\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(16);
-\mem_block_rtl_0|auto_generated|ram_block1a53\ <= \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\(17);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9~portadataout\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(0);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(1);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(2);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(3);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(4);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(5);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(6);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(7);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(8);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(9);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(10);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(11);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(12);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(13);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(14);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(15);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(16);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\(17);
 
-\mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAIN_bus\ <= (\writedata[71]~input_o\ & \writedata[70]~input_o\ & \writedata[69]~input_o\ & \writedata[68]~input_o\ & \writedata[67]~input_o\ & \writedata[66]~input_o\ & \writedata[65]~input_o\ & 
-\writedata[64]~input_o\ & \writedata[63]~input_o\ & \writedata[62]~input_o\ & \writedata[61]~input_o\ & \writedata[60]~input_o\ & \writedata[59]~input_o\ & \writedata[58]~input_o\ & \writedata[57]~input_o\ & \writedata[56]~input_o\ & 
-\writedata[55]~input_o\ & \writedata[54]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAIN_bus\ <= (\writedata[17]~input_o\ & \writedata[16]~input_o\ & \writedata[15]~input_o\ & \writedata[14]~input_o\ & \writedata[17]~input_o\ & \writedata[16]~input_o\ & 
+\writedata[15]~input_o\ & \writedata[14]~input_o\ & \writedata[17]~input_o\ & \writedata[16]~input_o\ & \writedata[15]~input_o\ & \writedata[14]~input_o\ & \writedata[13]~input_o\ & \writedata[17]~input_o\ & \writedata[16]~input_o\ & 
+\writedata[15]~input_o\ & \writedata[14]~input_o\ & \writedata[13]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a54_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTAADDR_bus\ <= (\address[9]~input_o\ & \address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & 
+\address[2]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a54~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a55\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a56\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a57\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a58\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a59\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(5);
-\mem_block_rtl_0|auto_generated|ram_block1a60\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(6);
-\mem_block_rtl_0|auto_generated|ram_block1a61\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(7);
-\mem_block_rtl_0|auto_generated|ram_block1a62\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(8);
-\mem_block_rtl_0|auto_generated|ram_block1a63\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(9);
-\mem_block_rtl_0|auto_generated|ram_block1a64\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(10);
-\mem_block_rtl_0|auto_generated|ram_block1a65\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(11);
-\mem_block_rtl_0|auto_generated|ram_block1a66\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(12);
-\mem_block_rtl_0|auto_generated|ram_block1a67\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(13);
-\mem_block_rtl_0|auto_generated|ram_block1a68\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(14);
-\mem_block_rtl_0|auto_generated|ram_block1a69\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(15);
-\mem_block_rtl_0|auto_generated|ram_block1a70\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(16);
-\mem_block_rtl_0|auto_generated|ram_block1a71\ <= \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\(17);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13~portadataout\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(0);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(1);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(2);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(3);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(4);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(5);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(6);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(7);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(8);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(9);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(10);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(11);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(12);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(13);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(14);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(15);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(16);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\(17);
 
-\mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAIN_bus\ <= (\writedata[89]~input_o\ & \writedata[88]~input_o\ & \writedata[87]~input_o\ & \writedata[86]~input_o\ & \writedata[85]~input_o\ & \writedata[84]~input_o\ & \writedata[83]~input_o\ & 
-\writedata[82]~input_o\ & \writedata[81]~input_o\ & \writedata[80]~input_o\ & \writedata[79]~input_o\ & \writedata[78]~input_o\ & \writedata[77]~input_o\ & \writedata[76]~input_o\ & \writedata[75]~input_o\ & \writedata[74]~input_o\ & 
-\writedata[73]~input_o\ & \writedata[72]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAIN_bus\ <= (\writedata[22]~input_o\ & \writedata[21]~input_o\ & \writedata[20]~input_o\ & \writedata[19]~input_o\ & \writedata[18]~input_o\ & \writedata[22]~input_o\ & 
+\writedata[21]~input_o\ & \writedata[20]~input_o\ & \writedata[19]~input_o\ & \writedata[18]~input_o\ & \writedata[21]~input_o\ & \writedata[20]~input_o\ & \writedata[19]~input_o\ & \writedata[18]~input_o\ & \writedata[21]~input_o\ & 
+\writedata[20]~input_o\ & \writedata[19]~input_o\ & \writedata[18]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a72_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTAADDR_bus\ <= (\address[9]~input_o\ & \address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & 
+\address[2]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a72~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a73\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a74\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a75\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a76\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a77\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(5);
-\mem_block_rtl_0|auto_generated|ram_block1a78\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(6);
-\mem_block_rtl_0|auto_generated|ram_block1a79\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(7);
-\mem_block_rtl_0|auto_generated|ram_block1a80\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(8);
-\mem_block_rtl_0|auto_generated|ram_block1a81\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(9);
-\mem_block_rtl_0|auto_generated|ram_block1a82\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(10);
-\mem_block_rtl_0|auto_generated|ram_block1a83\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(11);
-\mem_block_rtl_0|auto_generated|ram_block1a84\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(12);
-\mem_block_rtl_0|auto_generated|ram_block1a85\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(13);
-\mem_block_rtl_0|auto_generated|ram_block1a86\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(14);
-\mem_block_rtl_0|auto_generated|ram_block1a87\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(15);
-\mem_block_rtl_0|auto_generated|ram_block1a88\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(16);
-\mem_block_rtl_0|auto_generated|ram_block1a89\ <= \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\(17);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18~portadataout\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(0);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(1);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(2);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(3);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(4);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(5);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(6);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(7);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(8);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(9);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(10);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(11);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(12);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(13);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(14);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(15);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(16);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\(17);
 
-\mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAIN_bus\ <= (\writedata[107]~input_o\ & \writedata[106]~input_o\ & \writedata[105]~input_o\ & \writedata[104]~input_o\ & \writedata[103]~input_o\ & \writedata[102]~input_o\ & \writedata[101]~input_o\
-& \writedata[100]~input_o\ & \writedata[99]~input_o\ & \writedata[98]~input_o\ & \writedata[97]~input_o\ & \writedata[96]~input_o\ & \writedata[95]~input_o\ & \writedata[94]~input_o\ & \writedata[93]~input_o\ & \writedata[92]~input_o\ & 
-\writedata[91]~input_o\ & \writedata[90]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAIN_bus\ <= (\writedata[26]~input_o\ & \writedata[25]~input_o\ & \writedata[24]~input_o\ & \writedata[23]~input_o\ & \writedata[26]~input_o\ & \writedata[25]~input_o\ & 
+\writedata[24]~input_o\ & \writedata[23]~input_o\ & \writedata[26]~input_o\ & \writedata[25]~input_o\ & \writedata[24]~input_o\ & \writedata[23]~input_o\ & \writedata[22]~input_o\ & \writedata[26]~input_o\ & \writedata[25]~input_o\ & 
+\writedata[24]~input_o\ & \writedata[23]~input_o\ & \writedata[22]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a90_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTAADDR_bus\ <= (\address[9]~input_o\ & \address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & 
+\address[2]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a90~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a91\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a92\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a93\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a94\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a95\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(5);
-\mem_block_rtl_0|auto_generated|ram_block1a96\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(6);
-\mem_block_rtl_0|auto_generated|ram_block1a97\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(7);
-\mem_block_rtl_0|auto_generated|ram_block1a98\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(8);
-\mem_block_rtl_0|auto_generated|ram_block1a99\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(9);
-\mem_block_rtl_0|auto_generated|ram_block1a100\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(10);
-\mem_block_rtl_0|auto_generated|ram_block1a101\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(11);
-\mem_block_rtl_0|auto_generated|ram_block1a102\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(12);
-\mem_block_rtl_0|auto_generated|ram_block1a103\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(13);
-\mem_block_rtl_0|auto_generated|ram_block1a104\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(14);
-\mem_block_rtl_0|auto_generated|ram_block1a105\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(15);
-\mem_block_rtl_0|auto_generated|ram_block1a106\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(16);
-\mem_block_rtl_0|auto_generated|ram_block1a107\ <= \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\(17);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22~portadataout\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(0);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(1);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(2);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(3);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(4);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(5);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(6);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(7);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(8);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(9);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(10);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(11);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(12);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(13);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(14);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(15);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(16);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\(17);
 
-\mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAIN_bus\ <= (\writedata[125]~input_o\ & \writedata[124]~input_o\ & \writedata[123]~input_o\ & \writedata[122]~input_o\ & \writedata[121]~input_o\ & \writedata[120]~input_o\ & \writedata[119]~input_o\
-& \writedata[118]~input_o\ & \writedata[117]~input_o\ & \writedata[116]~input_o\ & \writedata[115]~input_o\ & \writedata[114]~input_o\ & \writedata[113]~input_o\ & \writedata[112]~input_o\ & \writedata[111]~input_o\ & \writedata[110]~input_o\ & 
-\writedata[109]~input_o\ & \writedata[108]~input_o\);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAIN_bus\ <= (gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & \writedata[27]~input_o\ & \writedata[27]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a108_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTAADDR_bus\ <= (\address[9]~input_o\ & \address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & 
+\address[2]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a108~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a109\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a110\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a111\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a112\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a113\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(5);
-\mem_block_rtl_0|auto_generated|ram_block1a114\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(6);
-\mem_block_rtl_0|auto_generated|ram_block1a115\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(7);
-\mem_block_rtl_0|auto_generated|ram_block1a116\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(8);
-\mem_block_rtl_0|auto_generated|ram_block1a117\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(9);
-\mem_block_rtl_0|auto_generated|ram_block1a118\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(10);
-\mem_block_rtl_0|auto_generated|ram_block1a119\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(11);
-\mem_block_rtl_0|auto_generated|ram_block1a120\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(12);
-\mem_block_rtl_0|auto_generated|ram_block1a121\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(13);
-\mem_block_rtl_0|auto_generated|ram_block1a122\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(14);
-\mem_block_rtl_0|auto_generated|ram_block1a123\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(15);
-\mem_block_rtl_0|auto_generated|ram_block1a124\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(16);
-\mem_block_rtl_0|auto_generated|ram_block1a125\ <= \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\(17);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27~portadataout\ <= \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(0);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\ <= \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(1);
 
-\mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAIN_bus\ <= (\writedata[143]~input_o\ & \writedata[142]~input_o\ & \writedata[141]~input_o\ & \writedata[140]~input_o\ & \writedata[139]~input_o\ & \writedata[138]~input_o\ & \writedata[137]~input_o\
-& \writedata[136]~input_o\ & \writedata[135]~input_o\ & \writedata[134]~input_o\ & \writedata[133]~input_o\ & \writedata[132]~input_o\ & \writedata[131]~input_o\ & \writedata[130]~input_o\ & \writedata[129]~input_o\ & \writedata[128]~input_o\ & 
-\writedata[127]~input_o\ & \writedata[126]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAIN_bus\ <= (\writedata[31]~input_o\ & \writedata[30]~input_o\ & \writedata[29]~input_o\ & \writedata[28]~input_o\ & \writedata[31]~input_o\ & \writedata[30]~input_o\ & 
+\writedata[29]~input_o\ & \writedata[28]~input_o\ & \writedata[31]~input_o\ & \writedata[30]~input_o\ & \writedata[29]~input_o\ & \writedata[28]~input_o\ & \writedata[27]~input_o\ & \writedata[31]~input_o\ & \writedata[30]~input_o\ & 
+\writedata[29]~input_o\ & \writedata[28]~input_o\ & \writedata[27]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a126_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTAADDR_bus\ <= (\address[9]~input_o\ & \address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & 
+\address[2]~input_o\);
 
-\mem_block_rtl_0|auto_generated|ram_block1a126~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a127\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a128\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a129\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a130\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a131\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(5);
-\mem_block_rtl_0|auto_generated|ram_block1a132\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(6);
-\mem_block_rtl_0|auto_generated|ram_block1a133\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(7);
-\mem_block_rtl_0|auto_generated|ram_block1a134\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(8);
-\mem_block_rtl_0|auto_generated|ram_block1a135\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(9);
-\mem_block_rtl_0|auto_generated|ram_block1a136\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(10);
-\mem_block_rtl_0|auto_generated|ram_block1a137\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(11);
-\mem_block_rtl_0|auto_generated|ram_block1a138\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(12);
-\mem_block_rtl_0|auto_generated|ram_block1a139\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(13);
-\mem_block_rtl_0|auto_generated|ram_block1a140\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(14);
-\mem_block_rtl_0|auto_generated|ram_block1a141\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(15);
-\mem_block_rtl_0|auto_generated|ram_block1a142\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(16);
-\mem_block_rtl_0|auto_generated|ram_block1a143\ <= \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\(17);
-
-\mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAIN_bus\ <= (gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & \writedata[149]~input_o\ & \writedata[148]~input_o\ & \writedata[147]~input_o\ & \writedata[146]~input_o\ & 
-\writedata[145]~input_o\ & \writedata[144]~input_o\);
-
-\mem_block_rtl_0|auto_generated|ram_block1a144_PORTAADDR_bus\ <= (\address[8]~input_o\ & \address[7]~input_o\ & \address[6]~input_o\ & \address[5]~input_o\ & \address[4]~input_o\ & \address[3]~input_o\ & \address[2]~input_o\ & \address[1]~input_o\ & 
-\address[0]~input_o\);
-
-\mem_block_rtl_0|auto_generated|ram_block1a144~portadataout\ <= \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAOUT_bus\(0);
-\mem_block_rtl_0|auto_generated|ram_block1a145\ <= \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAOUT_bus\(1);
-\mem_block_rtl_0|auto_generated|ram_block1a146\ <= \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAOUT_bus\(2);
-\mem_block_rtl_0|auto_generated|ram_block1a147\ <= \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAOUT_bus\(3);
-\mem_block_rtl_0|auto_generated|ram_block1a148\ <= \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAOUT_bus\(4);
-\mem_block_rtl_0|auto_generated|ram_block1a149\ <= \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAOUT_bus\(5);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27~portadataout\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(0);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(1);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(2);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(3);
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(4);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(5);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(6);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(7);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(8);
+\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(9);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(10);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(11);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(12);
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(13);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(14);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(15);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(16);
+\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ <= \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\(17);
 
 \clock~inputclkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \clock~input_o\);
 
--- Location: IOOBUF_X82_Y0_N16
+-- Location: IOOBUF_X29_Y0_N9
 \readdata[0]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1106,11 +695,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a0~portadataout\,
+	i => \Mux31~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[0]~output_o\);
 
--- Location: IOOBUF_X70_Y0_N16
+-- Location: IOOBUF_X52_Y18_N2
 \readdata[1]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1118,11 +707,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a1\,
+	i => \Mux30~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[1]~output_o\);
 
--- Location: IOOBUF_X75_Y0_N16
+-- Location: IOOBUF_X31_Y0_N2
 \readdata[2]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1130,11 +719,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a2\,
+	i => \Mux29~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[2]~output_o\);
 
--- Location: IOOBUF_X53_Y0_N16
+-- Location: IOOBUF_X38_Y0_N9
 \readdata[3]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1142,11 +731,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a3\,
+	i => \Mux28~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[3]~output_o\);
 
--- Location: IOOBUF_X48_Y0_N2
+-- Location: IOOBUF_X52_Y12_N9
 \readdata[4]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1154,11 +743,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a4\,
+	i => \Mux27~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[4]~output_o\);
 
--- Location: IOOBUF_X82_Y0_N23
+-- Location: IOOBUF_X52_Y30_N2
 \readdata[5]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1166,11 +755,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a5\,
+	i => \Mux26~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[5]~output_o\);
 
--- Location: IOOBUF_X68_Y0_N16
+-- Location: IOOBUF_X52_Y15_N9
 \readdata[6]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1178,11 +767,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a6\,
+	i => \Mux25~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[6]~output_o\);
 
--- Location: IOOBUF_X50_Y0_N9
+-- Location: IOOBUF_X46_Y41_N2
 \readdata[7]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1190,11 +779,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a7\,
+	i => \Mux24~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[7]~output_o\);
 
--- Location: IOOBUF_X77_Y0_N16
+-- Location: IOOBUF_X29_Y41_N2
 \readdata[8]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1202,11 +791,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a8\,
+	i => \Mux23~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[8]~output_o\);
 
--- Location: IOOBUF_X61_Y0_N23
+-- Location: IOOBUF_X21_Y41_N9
 \readdata[9]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1214,11 +803,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a9\,
+	i => \Mux22~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[9]~output_o\);
 
--- Location: IOOBUF_X53_Y0_N2
+-- Location: IOOBUF_X52_Y18_N9
 \readdata[10]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1226,11 +815,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a10\,
+	i => \Mux21~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[10]~output_o\);
 
--- Location: IOOBUF_X66_Y0_N16
+-- Location: IOOBUF_X38_Y0_N2
 \readdata[11]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1238,11 +827,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a11\,
+	i => \Mux20~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[11]~output_o\);
 
--- Location: IOOBUF_X48_Y0_N23
+-- Location: IOOBUF_X52_Y27_N2
 \readdata[12]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1250,11 +839,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a12\,
+	i => \Mux19~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[12]~output_o\);
 
--- Location: IOOBUF_X68_Y0_N23
+-- Location: IOOBUF_X29_Y0_N2
 \readdata[13]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1262,11 +851,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a13\,
+	i => \Mux18~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[13]~output_o\);
 
--- Location: IOOBUF_X53_Y0_N9
+-- Location: IOOBUF_X18_Y41_N9
 \readdata[14]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1274,11 +863,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a14\,
+	i => \Mux17~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[14]~output_o\);
 
--- Location: IOOBUF_X63_Y0_N23
+-- Location: IOOBUF_X52_Y28_N9
 \readdata[15]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1286,11 +875,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a15\,
+	i => \Mux16~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[15]~output_o\);
 
--- Location: IOOBUF_X48_Y0_N9
+-- Location: IOOBUF_X50_Y41_N2
 \readdata[16]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1298,11 +887,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a16\,
+	i => \Mux15~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[16]~output_o\);
 
--- Location: IOOBUF_X46_Y0_N23
+-- Location: IOOBUF_X52_Y27_N9
 \readdata[17]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1310,11 +899,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a17\,
+	i => \Mux14~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[17]~output_o\);
 
--- Location: IOOBUF_X63_Y91_N16
+-- Location: IOOBUF_X52_Y11_N9
 \readdata[18]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1322,11 +911,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a18~portadataout\,
+	i => \Mux13~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[18]~output_o\);
 
--- Location: IOOBUF_X79_Y91_N16
+-- Location: IOOBUF_X36_Y0_N2
 \readdata[19]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1334,11 +923,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a19\,
+	i => \Mux12~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[19]~output_o\);
 
--- Location: IOOBUF_X50_Y91_N16
+-- Location: IOOBUF_X52_Y25_N9
 \readdata[20]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1346,11 +935,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a20\,
+	i => \Mux11~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[20]~output_o\);
 
--- Location: IOOBUF_X48_Y91_N2
+-- Location: IOOBUF_X41_Y0_N9
 \readdata[21]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1358,11 +947,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a21\,
+	i => \Mux10~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[21]~output_o\);
 
--- Location: IOOBUF_X61_Y91_N9
+-- Location: IOOBUF_X21_Y41_N2
 \readdata[22]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1370,11 +959,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a22\,
+	i => \Mux9~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[22]~output_o\);
 
--- Location: IOOBUF_X61_Y91_N2
+-- Location: IOOBUF_X29_Y41_N9
 \readdata[23]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1382,11 +971,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a23\,
+	i => \Mux8~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[23]~output_o\);
 
--- Location: IOOBUF_X46_Y91_N2
+-- Location: IOOBUF_X52_Y31_N9
 \readdata[24]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1394,11 +983,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a24\,
+	i => \Mux7~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[24]~output_o\);
 
--- Location: IOOBUF_X46_Y91_N9
+-- Location: IOOBUF_X23_Y41_N2
 \readdata[25]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1406,11 +995,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a25\,
+	i => \Mux6~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[25]~output_o\);
 
--- Location: IOOBUF_X68_Y91_N9
+-- Location: IOOBUF_X38_Y41_N9
 \readdata[26]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1418,11 +1007,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a26\,
+	i => \Mux5~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[26]~output_o\);
 
--- Location: IOOBUF_X75_Y91_N2
+-- Location: IOOBUF_X52_Y32_N2
 \readdata[27]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1430,11 +1019,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a27\,
+	i => \Mux4~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[27]~output_o\);
 
--- Location: IOOBUF_X66_Y91_N16
+-- Location: IOOBUF_X12_Y41_N2
 \readdata[28]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1442,11 +1031,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a28\,
+	i => \Mux3~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[28]~output_o\);
 
--- Location: IOOBUF_X53_Y91_N9
+-- Location: IOOBUF_X52_Y11_N2
 \readdata[29]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1454,11 +1043,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a29\,
+	i => \Mux2~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[29]~output_o\);
 
--- Location: IOOBUF_X53_Y91_N23
+-- Location: IOOBUF_X23_Y41_N9
 \readdata[30]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1466,11 +1055,11 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a30\,
+	i => \Mux1~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[30]~output_o\);
 
--- Location: IOOBUF_X48_Y91_N9
+-- Location: IOOBUF_X41_Y41_N23
 \readdata[31]~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1478,1438 +1067,45 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a31\,
+	i => \Mux0~1_combout\,
 	devoe => ww_devoe,
 	o => \readdata[31]~output_o\);
 
--- Location: IOOBUF_X44_Y91_N2
-\readdata[32]~output\ : cycloneiv_io_obuf
+-- Location: IOOBUF_X41_Y41_N2
+\waitrequest~output\ : cycloneiv_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a32\,
+	i => VCC,
 	devoe => ww_devoe,
-	o => \readdata[32]~output_o\);
+	o => \waitrequest~output_o\);
 
--- Location: IOOBUF_X44_Y91_N9
-\readdata[33]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a33\,
-	devoe => ww_devoe,
-	o => \readdata[33]~output_o\);
-
--- Location: IOOBUF_X53_Y91_N2
-\readdata[34]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a34\,
-	devoe => ww_devoe,
-	o => \readdata[34]~output_o\);
-
--- Location: IOOBUF_X79_Y91_N23
-\readdata[35]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a35\,
-	devoe => ww_devoe,
-	o => \readdata[35]~output_o\);
-
--- Location: IOOBUF_X90_Y0_N9
-\readdata[36]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a36~portadataout\,
-	devoe => ww_devoe,
-	o => \readdata[36]~output_o\);
-
--- Location: IOOBUF_X90_Y0_N2
-\readdata[37]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a37\,
-	devoe => ww_devoe,
-	o => \readdata[37]~output_o\);
-
--- Location: IOOBUF_X86_Y0_N2
-\readdata[38]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a38\,
-	devoe => ww_devoe,
-	o => \readdata[38]~output_o\);
-
--- Location: IOOBUF_X108_Y0_N16
-\readdata[39]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a39\,
-	devoe => ww_devoe,
-	o => \readdata[39]~output_o\);
-
--- Location: IOOBUF_X86_Y0_N23
-\readdata[40]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a40\,
-	devoe => ww_devoe,
-	o => \readdata[40]~output_o\);
-
--- Location: IOOBUF_X88_Y0_N9
-\readdata[41]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a41\,
-	devoe => ww_devoe,
-	o => \readdata[41]~output_o\);
-
--- Location: IOOBUF_X86_Y0_N16
-\readdata[42]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a42\,
-	devoe => ww_devoe,
-	o => \readdata[42]~output_o\);
-
--- Location: IOOBUF_X84_Y0_N23
-\readdata[43]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a43\,
-	devoe => ww_devoe,
-	o => \readdata[43]~output_o\);
-
--- Location: IOOBUF_X84_Y0_N2
-\readdata[44]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a44\,
-	devoe => ww_devoe,
-	o => \readdata[44]~output_o\);
-
--- Location: IOOBUF_X92_Y0_N23
-\readdata[45]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a45\,
-	devoe => ww_devoe,
-	o => \readdata[45]~output_o\);
-
--- Location: IOOBUF_X92_Y0_N16
-\readdata[46]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a46\,
-	devoe => ww_devoe,
-	o => \readdata[46]~output_o\);
-
--- Location: IOOBUF_X104_Y0_N16
-\readdata[47]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a47\,
-	devoe => ww_devoe,
-	o => \readdata[47]~output_o\);
-
--- Location: IOOBUF_X84_Y0_N9
-\readdata[48]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a48\,
-	devoe => ww_devoe,
-	o => \readdata[48]~output_o\);
-
--- Location: IOOBUF_X88_Y0_N2
-\readdata[49]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a49\,
-	devoe => ww_devoe,
-	o => \readdata[49]~output_o\);
-
--- Location: IOOBUF_X104_Y0_N23
-\readdata[50]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a50\,
-	devoe => ww_devoe,
-	o => \readdata[50]~output_o\);
-
--- Location: IOOBUF_X86_Y0_N9
-\readdata[51]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a51\,
-	devoe => ww_devoe,
-	o => \readdata[51]~output_o\);
-
--- Location: IOOBUF_X82_Y0_N2
-\readdata[52]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a52\,
-	devoe => ww_devoe,
-	o => \readdata[52]~output_o\);
-
--- Location: IOOBUF_X99_Y0_N16
-\readdata[53]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a53\,
-	devoe => ww_devoe,
-	o => \readdata[53]~output_o\);
-
--- Location: IOOBUF_X117_Y73_N2
-\readdata[54]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a54~portadataout\,
-	devoe => ww_devoe,
-	o => \readdata[54]~output_o\);
-
--- Location: IOOBUF_X117_Y73_N9
-\readdata[55]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a55\,
-	devoe => ww_devoe,
-	o => \readdata[55]~output_o\);
-
--- Location: IOOBUF_X117_Y60_N9
-\readdata[56]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a56\,
-	devoe => ww_devoe,
-	o => \readdata[56]~output_o\);
-
--- Location: IOOBUF_X117_Y72_N2
-\readdata[57]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a57\,
-	devoe => ww_devoe,
-	o => \readdata[57]~output_o\);
-
--- Location: IOOBUF_X117_Y83_N2
-\readdata[58]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a58\,
-	devoe => ww_devoe,
-	o => \readdata[58]~output_o\);
-
--- Location: IOOBUF_X117_Y66_N9
-\readdata[59]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a59\,
-	devoe => ww_devoe,
-	o => \readdata[59]~output_o\);
-
--- Location: IOOBUF_X117_Y69_N9
-\readdata[60]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a60\,
-	devoe => ww_devoe,
-	o => \readdata[60]~output_o\);
-
--- Location: IOOBUF_X117_Y77_N2
-\readdata[61]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a61\,
-	devoe => ww_devoe,
-	o => \readdata[61]~output_o\);
-
--- Location: IOOBUF_X117_Y69_N2
-\readdata[62]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a62\,
-	devoe => ww_devoe,
-	o => \readdata[62]~output_o\);
-
--- Location: IOOBUF_X117_Y62_N2
-\readdata[63]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a63\,
-	devoe => ww_devoe,
-	o => \readdata[63]~output_o\);
-
--- Location: IOOBUF_X117_Y80_N9
-\readdata[64]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a64\,
-	devoe => ww_devoe,
-	o => \readdata[64]~output_o\);
-
--- Location: IOOBUF_X117_Y64_N9
-\readdata[65]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a65\,
-	devoe => ww_devoe,
-	o => \readdata[65]~output_o\);
-
--- Location: IOOBUF_X117_Y61_N9
-\readdata[66]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a66\,
-	devoe => ww_devoe,
-	o => \readdata[66]~output_o\);
-
--- Location: IOOBUF_X117_Y83_N9
-\readdata[67]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a67\,
-	devoe => ww_devoe,
-	o => \readdata[67]~output_o\);
-
--- Location: IOOBUF_X117_Y86_N9
-\readdata[68]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a68\,
-	devoe => ww_devoe,
-	o => \readdata[68]~output_o\);
-
--- Location: IOOBUF_X117_Y81_N9
-\readdata[69]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a69\,
-	devoe => ww_devoe,
-	o => \readdata[69]~output_o\);
-
--- Location: IOOBUF_X117_Y60_N2
-\readdata[70]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a70\,
-	devoe => ww_devoe,
-	o => \readdata[70]~output_o\);
-
--- Location: IOOBUF_X117_Y74_N2
-\readdata[71]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a71\,
-	devoe => ww_devoe,
-	o => \readdata[71]~output_o\);
-
--- Location: IOOBUF_X30_Y91_N2
-\readdata[72]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a72~portadataout\,
-	devoe => ww_devoe,
-	o => \readdata[72]~output_o\);
-
--- Location: IOOBUF_X32_Y0_N9
-\readdata[73]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a73\,
-	devoe => ww_devoe,
-	o => \readdata[73]~output_o\);
-
--- Location: IOOBUF_X30_Y91_N9
-\readdata[74]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a74\,
-	devoe => ww_devoe,
-	o => \readdata[74]~output_o\);
-
--- Location: IOOBUF_X30_Y91_N23
-\readdata[75]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a75\,
-	devoe => ww_devoe,
-	o => \readdata[75]~output_o\);
-
--- Location: IOOBUF_X34_Y91_N2
-\readdata[76]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a76\,
-	devoe => ww_devoe,
-	o => \readdata[76]~output_o\);
-
--- Location: IOOBUF_X34_Y0_N2
-\readdata[77]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a77\,
-	devoe => ww_devoe,
-	o => \readdata[77]~output_o\);
-
--- Location: IOOBUF_X28_Y91_N2
-\readdata[78]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a78\,
-	devoe => ww_devoe,
-	o => \readdata[78]~output_o\);
-
--- Location: IOOBUF_X34_Y91_N16
-\readdata[79]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a79\,
-	devoe => ww_devoe,
-	o => \readdata[79]~output_o\);
-
--- Location: IOOBUF_X34_Y0_N23
-\readdata[80]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a80\,
-	devoe => ww_devoe,
-	o => \readdata[80]~output_o\);
-
--- Location: IOOBUF_X39_Y91_N9
-\readdata[81]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a81\,
-	devoe => ww_devoe,
-	o => \readdata[81]~output_o\);
-
--- Location: IOOBUF_X30_Y91_N16
-\readdata[82]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a82\,
-	devoe => ww_devoe,
-	o => \readdata[82]~output_o\);
-
--- Location: IOOBUF_X34_Y0_N9
-\readdata[83]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a83\,
-	devoe => ww_devoe,
-	o => \readdata[83]~output_o\);
-
--- Location: IOOBUF_X28_Y91_N16
-\readdata[84]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a84\,
-	devoe => ww_devoe,
-	o => \readdata[84]~output_o\);
-
--- Location: IOOBUF_X28_Y91_N9
-\readdata[85]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a85\,
-	devoe => ww_devoe,
-	o => \readdata[85]~output_o\);
-
--- Location: IOOBUF_X32_Y91_N2
-\readdata[86]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a86\,
-	devoe => ww_devoe,
-	o => \readdata[86]~output_o\);
-
--- Location: IOOBUF_X34_Y91_N9
-\readdata[87]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a87\,
-	devoe => ww_devoe,
-	o => \readdata[87]~output_o\);
-
--- Location: IOOBUF_X34_Y0_N16
-\readdata[88]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a88\,
-	devoe => ww_devoe,
-	o => \readdata[88]~output_o\);
-
--- Location: IOOBUF_X32_Y91_N9
-\readdata[89]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a89\,
-	devoe => ww_devoe,
-	o => \readdata[89]~output_o\);
-
--- Location: IOOBUF_X113_Y91_N16
-\readdata[90]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a90~portadataout\,
-	devoe => ww_devoe,
-	o => \readdata[90]~output_o\);
-
--- Location: IOOBUF_X86_Y91_N9
-\readdata[91]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a91\,
-	devoe => ww_devoe,
-	o => \readdata[91]~output_o\);
-
--- Location: IOOBUF_X108_Y91_N23
-\readdata[92]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a92\,
-	devoe => ww_devoe,
-	o => \readdata[92]~output_o\);
-
--- Location: IOOBUF_X99_Y91_N23
-\readdata[93]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a93\,
-	devoe => ww_devoe,
-	o => \readdata[93]~output_o\);
-
--- Location: IOOBUF_X95_Y91_N16
-\readdata[94]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a94\,
-	devoe => ww_devoe,
-	o => \readdata[94]~output_o\);
-
--- Location: IOOBUF_X92_Y91_N9
-\readdata[95]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a95\,
-	devoe => ww_devoe,
-	o => \readdata[95]~output_o\);
-
--- Location: IOOBUF_X111_Y91_N16
-\readdata[96]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a96\,
-	devoe => ww_devoe,
-	o => \readdata[96]~output_o\);
-
--- Location: IOOBUF_X88_Y91_N2
-\readdata[97]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a97\,
-	devoe => ww_devoe,
-	o => \readdata[97]~output_o\);
-
--- Location: IOOBUF_X92_Y91_N2
-\readdata[98]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a98\,
-	devoe => ww_devoe,
-	o => \readdata[98]~output_o\);
-
--- Location: IOOBUF_X88_Y91_N9
-\readdata[99]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a99\,
-	devoe => ww_devoe,
-	o => \readdata[99]~output_o\);
-
--- Location: IOOBUF_X82_Y91_N2
-\readdata[100]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a100\,
-	devoe => ww_devoe,
-	o => \readdata[100]~output_o\);
-
--- Location: IOOBUF_X108_Y91_N16
-\readdata[101]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a101\,
-	devoe => ww_devoe,
-	o => \readdata[101]~output_o\);
-
--- Location: IOOBUF_X108_Y91_N2
-\readdata[102]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a102\,
-	devoe => ww_devoe,
-	o => \readdata[102]~output_o\);
-
--- Location: IOOBUF_X104_Y91_N2
-\readdata[103]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a103\,
-	devoe => ww_devoe,
-	o => \readdata[103]~output_o\);
-
--- Location: IOOBUF_X95_Y91_N23
-\readdata[104]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a104\,
-	devoe => ww_devoe,
-	o => \readdata[104]~output_o\);
-
--- Location: IOOBUF_X86_Y91_N16
-\readdata[105]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a105\,
-	devoe => ww_devoe,
-	o => \readdata[105]~output_o\);
-
--- Location: IOOBUF_X115_Y91_N23
-\readdata[106]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a106\,
-	devoe => ww_devoe,
-	o => \readdata[106]~output_o\);
-
--- Location: IOOBUF_X99_Y91_N16
-\readdata[107]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a107\,
-	devoe => ww_devoe,
-	o => \readdata[107]~output_o\);
-
--- Location: IOOBUF_X117_Y34_N2
-\readdata[108]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a108~portadataout\,
-	devoe => ww_devoe,
-	o => \readdata[108]~output_o\);
-
--- Location: IOOBUF_X117_Y27_N2
-\readdata[109]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a109\,
-	devoe => ww_devoe,
-	o => \readdata[109]~output_o\);
-
--- Location: IOOBUF_X117_Y23_N2
-\readdata[110]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a110\,
-	devoe => ww_devoe,
-	o => \readdata[110]~output_o\);
-
--- Location: IOOBUF_X117_Y41_N9
-\readdata[111]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a111\,
-	devoe => ww_devoe,
-	o => \readdata[111]~output_o\);
-
--- Location: IOOBUF_X117_Y28_N9
-\readdata[112]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a112\,
-	devoe => ww_devoe,
-	o => \readdata[112]~output_o\);
-
--- Location: IOOBUF_X117_Y35_N9
-\readdata[113]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a113\,
-	devoe => ww_devoe,
-	o => \readdata[113]~output_o\);
-
--- Location: IOOBUF_X117_Y32_N9
-\readdata[114]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a114\,
-	devoe => ww_devoe,
-	o => \readdata[114]~output_o\);
-
--- Location: IOOBUF_X117_Y41_N2
-\readdata[115]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a115\,
-	devoe => ww_devoe,
-	o => \readdata[115]~output_o\);
-
--- Location: IOOBUF_X117_Y18_N9
-\readdata[116]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a116\,
-	devoe => ww_devoe,
-	o => \readdata[116]~output_o\);
-
--- Location: IOOBUF_X117_Y36_N2
-\readdata[117]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a117\,
-	devoe => ww_devoe,
-	o => \readdata[117]~output_o\);
-
--- Location: IOOBUF_X117_Y36_N9
-\readdata[118]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a118\,
-	devoe => ww_devoe,
-	o => \readdata[118]~output_o\);
-
--- Location: IOOBUF_X117_Y31_N2
-\readdata[119]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a119\,
-	devoe => ww_devoe,
-	o => \readdata[119]~output_o\);
-
--- Location: IOOBUF_X117_Y42_N2
-\readdata[120]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a120\,
-	devoe => ww_devoe,
-	o => \readdata[120]~output_o\);
-
--- Location: IOOBUF_X117_Y27_N9
-\readdata[121]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a121\,
-	devoe => ww_devoe,
-	o => \readdata[121]~output_o\);
-
--- Location: IOOBUF_X117_Y33_N2
-\readdata[122]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a122\,
-	devoe => ww_devoe,
-	o => \readdata[122]~output_o\);
-
--- Location: IOOBUF_X117_Y26_N2
-\readdata[123]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a123\,
-	devoe => ww_devoe,
-	o => \readdata[123]~output_o\);
-
--- Location: IOOBUF_X117_Y39_N2
-\readdata[124]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a124\,
-	devoe => ww_devoe,
-	o => \readdata[124]~output_o\);
-
--- Location: IOOBUF_X117_Y31_N9
-\readdata[125]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a125\,
-	devoe => ww_devoe,
-	o => \readdata[125]~output_o\);
-
--- Location: IOOBUF_X12_Y91_N9
-\readdata[126]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a126~portadataout\,
-	devoe => ww_devoe,
-	o => \readdata[126]~output_o\);
-
--- Location: IOOBUF_X10_Y91_N2
-\readdata[127]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a127\,
-	devoe => ww_devoe,
-	o => \readdata[127]~output_o\);
-
--- Location: IOOBUF_X5_Y91_N9
-\readdata[128]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a128\,
-	devoe => ww_devoe,
-	o => \readdata[128]~output_o\);
-
--- Location: IOOBUF_X8_Y91_N2
-\readdata[129]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a129\,
-	devoe => ww_devoe,
-	o => \readdata[129]~output_o\);
-
--- Location: IOOBUF_X17_Y91_N2
-\readdata[130]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a130\,
-	devoe => ww_devoe,
-	o => \readdata[130]~output_o\);
-
--- Location: IOOBUF_X21_Y91_N23
-\readdata[131]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a131\,
-	devoe => ww_devoe,
-	o => \readdata[131]~output_o\);
-
--- Location: IOOBUF_X21_Y91_N16
-\readdata[132]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a132\,
-	devoe => ww_devoe,
-	o => \readdata[132]~output_o\);
-
--- Location: IOOBUF_X17_Y91_N16
-\readdata[133]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a133\,
-	devoe => ww_devoe,
-	o => \readdata[133]~output_o\);
-
--- Location: IOOBUF_X21_Y91_N9
-\readdata[134]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a134\,
-	devoe => ww_devoe,
-	o => \readdata[134]~output_o\);
-
--- Location: IOOBUF_X10_Y91_N9
-\readdata[135]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a135\,
-	devoe => ww_devoe,
-	o => \readdata[135]~output_o\);
-
--- Location: IOOBUF_X5_Y91_N2
-\readdata[136]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a136\,
-	devoe => ww_devoe,
-	o => \readdata[136]~output_o\);
-
--- Location: IOOBUF_X3_Y91_N2
-\readdata[137]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a137\,
-	devoe => ww_devoe,
-	o => \readdata[137]~output_o\);
-
--- Location: IOOBUF_X21_Y0_N9
-\readdata[138]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a138\,
-	devoe => ww_devoe,
-	o => \readdata[138]~output_o\);
-
--- Location: IOOBUF_X19_Y91_N16
-\readdata[139]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a139\,
-	devoe => ww_devoe,
-	o => \readdata[139]~output_o\);
-
--- Location: IOOBUF_X12_Y91_N2
-\readdata[140]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a140\,
-	devoe => ww_devoe,
-	o => \readdata[140]~output_o\);
-
--- Location: IOOBUF_X17_Y91_N9
-\readdata[141]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a141\,
-	devoe => ww_devoe,
-	o => \readdata[141]~output_o\);
-
--- Location: IOOBUF_X21_Y91_N2
-\readdata[142]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a142\,
-	devoe => ww_devoe,
-	o => \readdata[142]~output_o\);
-
--- Location: IOOBUF_X19_Y91_N2
-\readdata[143]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a143\,
-	devoe => ww_devoe,
-	o => \readdata[143]~output_o\);
-
--- Location: IOOBUF_X117_Y55_N9
-\readdata[144]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a144~portadataout\,
-	devoe => ww_devoe,
-	o => \readdata[144]~output_o\);
-
--- Location: IOOBUF_X117_Y53_N9
-\readdata[145]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a145\,
-	devoe => ww_devoe,
-	o => \readdata[145]~output_o\);
-
--- Location: IOOBUF_X117_Y50_N2
-\readdata[146]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a146\,
-	devoe => ww_devoe,
-	o => \readdata[146]~output_o\);
-
--- Location: IOOBUF_X117_Y55_N2
-\readdata[147]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a147\,
-	devoe => ww_devoe,
-	o => \readdata[147]~output_o\);
-
--- Location: IOOBUF_X117_Y51_N2
-\readdata[148]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a148\,
-	devoe => ww_devoe,
-	o => \readdata[148]~output_o\);
-
--- Location: IOOBUF_X117_Y49_N2
-\readdata[149]~output\ : cycloneiv_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => \mem_block_rtl_0|auto_generated|ram_block1a149\,
-	devoe => ww_devoe,
-	o => \readdata[149]~output_o\);
-
--- Location: IOIBUF_X41_Y0_N22
-\writeenable~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X31_Y0_N15
+\address[1]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writeenable,
-	o => \writeenable~input_o\);
+	i => ww_address(1),
+	o => \address[1]~input_o\);
 
--- Location: IOIBUF_X57_Y0_N15
+-- Location: IOIBUF_X36_Y41_N1
+\memwrite~input\ : cycloneiv_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_memwrite,
+	o => \memwrite~input_o\);
+
+-- Location: IOIBUF_X27_Y0_N15
 \clock~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -2920,7 +1116,7 @@ PORT MAP (
 	i => ww_clock,
 	o => \clock~input_o\);
 
--- Location: CLKCTRL_G29
+-- Location: CLKCTRL_G17
 \clock~inputclkctrl\ : cycloneiv_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -2933,7 +1129,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \clock~inputclkctrl_outclk\);
 
--- Location: IOIBUF_X77_Y0_N8
+-- Location: IOIBUF_X52_Y19_N8
 \writedata[0]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -2944,29 +1140,7 @@ PORT MAP (
 	i => ww_writedata(0),
 	o => \writedata[0]~input_o\);
 
--- Location: IOIBUF_X117_Y10_N8
-\address[0]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_address(0),
-	o => \address[0]~input_o\);
-
--- Location: IOIBUF_X117_Y44_N1
-\address[1]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_address(1),
-	o => \address[1]~input_o\);
-
--- Location: IOIBUF_X44_Y0_N22
+-- Location: IOIBUF_X52_Y19_N1
 \address[2]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -2977,7 +1151,7 @@ PORT MAP (
 	i => ww_address(2),
 	o => \address[2]~input_o\);
 
--- Location: IOIBUF_X117_Y7_N1
+-- Location: IOIBUF_X36_Y41_N8
 \address[3]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -2988,7 +1162,7 @@ PORT MAP (
 	i => ww_address(3),
 	o => \address[3]~input_o\);
 
--- Location: IOIBUF_X26_Y0_N8
+-- Location: IOIBUF_X31_Y41_N8
 \address[4]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -2999,7 +1173,7 @@ PORT MAP (
 	i => ww_address(4),
 	o => \address[4]~input_o\);
 
--- Location: IOIBUF_X46_Y0_N15
+-- Location: IOIBUF_X52_Y30_N8
 \address[5]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3010,7 +1184,7 @@ PORT MAP (
 	i => ww_address(5),
 	o => \address[5]~input_o\);
 
--- Location: IOIBUF_X26_Y0_N15
+-- Location: IOIBUF_X34_Y41_N8
 \address[6]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3021,7 +1195,7 @@ PORT MAP (
 	i => ww_address(6),
 	o => \address[6]~input_o\);
 
--- Location: IOIBUF_X26_Y0_N1
+-- Location: IOIBUF_X48_Y41_N1
 \address[7]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3032,7 +1206,7 @@ PORT MAP (
 	i => ww_address(7),
 	o => \address[7]~input_o\);
 
--- Location: IOIBUF_X117_Y56_N8
+-- Location: IOIBUF_X52_Y32_N15
 \address[8]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3043,7 +1217,18 @@ PORT MAP (
 	i => ww_address(8),
 	o => \address[8]~input_o\);
 
--- Location: IOIBUF_X66_Y0_N22
+-- Location: IOIBUF_X36_Y0_N8
+\address[9]~input\ : cycloneiv_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_address(9),
+	o => \address[9]~input_o\);
+
+-- Location: IOIBUF_X43_Y41_N8
 \writedata[1]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3054,7 +1239,7 @@ PORT MAP (
 	i => ww_writedata(1),
 	o => \writedata[1]~input_o\);
 
--- Location: IOIBUF_X63_Y0_N15
+-- Location: IOIBUF_X52_Y28_N1
 \writedata[2]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3065,7 +1250,7 @@ PORT MAP (
 	i => ww_writedata(2),
 	o => \writedata[2]~input_o\);
 
--- Location: IOIBUF_X53_Y0_N22
+-- Location: IOIBUF_X25_Y41_N8
 \writedata[3]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3076,7 +1261,7 @@ PORT MAP (
 	i => ww_writedata(3),
 	o => \writedata[3]~input_o\);
 
--- Location: IOIBUF_X75_Y0_N8
+-- Location: IOIBUF_X52_Y16_N8
 \writedata[4]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3087,7 +1272,191 @@ PORT MAP (
 	i => ww_writedata(4),
 	o => \writedata[4]~input_o\);
 
--- Location: IOIBUF_X117_Y46_N22
+-- Location: M9K_X33_Y28_N0
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\ : cycloneiv_ram_block
+-- pragma translate_off
+GENERIC MAP (
+	data_interleave_offset_in_bits => 1,
+	data_interleave_width_in_bits => 1,
+	logical_ram_name => "cache_SRAM:word_four_SRAM|altsyncram:mem_block_rtl_0|altsyncram_lh81:auto_generated|ALTSYNCRAM",
+	operation_mode => "single_port",
+	port_a_address_clear => "none",
+	port_a_address_width => 8,
+	port_a_byte_enable_clock => "none",
+	port_a_data_out_clear => "none",
+	port_a_data_out_clock => "none",
+	port_a_data_width => 18,
+	port_a_first_address => 0,
+	port_a_first_bit_number => 0,
+	port_a_last_address => 255,
+	port_a_logical_ram_depth => 256,
+	port_a_logical_ram_width => 32,
+	port_a_read_during_write_mode => "old_data",
+	port_b_address_width => 8,
+	port_b_data_width => 18,
+	ram_block_type => "M9K")
+-- pragma translate_on
+PORT MAP (
+	portawe => \memwrite~input_o\,
+	portare => VCC,
+	clk0 => \clock~inputclkctrl_outclk\,
+	portadatain => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAIN_bus\,
+	portaaddr => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTAADDR_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	portadataout => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\);
+
+-- Location: IOIBUF_X41_Y0_N1
+\address[0]~input\ : cycloneiv_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_address(0),
+	o => \address[0]~input_o\);
+
+-- Location: LCCOMB_X34_Y28_N0
+\Mux31~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux31~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111001010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\,
+	datac => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\,
+	datad => \address[0]~input_o\,
+	combout => \Mux31~0_combout\);
+
+-- Location: LCCOMB_X34_Y28_N18
+\Mux31~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux31~1_combout\ = (\address[1]~input_o\ & ((\Mux31~0_combout\ & (\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0~portadataout\)) # (!\Mux31~0_combout\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\))))) # 
+-- (!\address[1]~input_o\ & (((\Mux31~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0~portadataout\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a0\,
+	datad => \Mux31~0_combout\,
+	combout => \Mux31~1_combout\);
+
+-- Location: LCCOMB_X34_Y28_N12
+\Mux30~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux30~0_combout\ = (\address[1]~input_o\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\) # ((\address[0]~input_o\)))) # (!\address[1]~input_o\ & (((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ & !\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000010101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux30~0_combout\);
+
+-- Location: LCCOMB_X34_Y28_N6
+\Mux30~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux30~1_combout\ = (\Mux30~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\) # (!\address[0]~input_o\)))) # (!\Mux30~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\ & ((\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110010010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Mux30~0_combout\,
+	datab => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a1\,
+	datad => \address[0]~input_o\,
+	combout => \Mux30~1_combout\);
+
+-- Location: LCCOMB_X34_Y28_N8
+\Mux29~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux29~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & ((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\))) # (!\address[0]~input_o\ & 
+-- (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\,
+	datad => \address[0]~input_o\,
+	combout => \Mux29~0_combout\);
+
+-- Location: LCCOMB_X34_Y28_N26
+\Mux29~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux29~1_combout\ = (\Mux29~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\) # ((!\address[1]~input_o\)))) # (!\Mux29~0_combout\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\ & \address[1]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010110011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a2\,
+	datac => \Mux29~0_combout\,
+	datad => \address[1]~input_o\,
+	combout => \Mux29~1_combout\);
+
+-- Location: LCCOMB_X34_Y28_N4
+\Mux28~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux28~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ & ((!\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\,
+	datab => \address[1]~input_o\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\,
+	datad => \address[0]~input_o\,
+	combout => \Mux28~0_combout\);
+
+-- Location: LCCOMB_X34_Y28_N14
+\Mux28~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux28~1_combout\ = (\Mux28~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\) # ((!\address[0]~input_o\)))) # (!\Mux28~0_combout\ & (((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\ & \address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011100011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\,
+	datab => \Mux28~0_combout\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a3\,
+	datad => \address[0]~input_o\,
+	combout => \Mux28~1_combout\);
+
+-- Location: IOIBUF_X25_Y41_N1
 \writedata[5]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3098,7 +1467,7 @@ PORT MAP (
 	i => ww_writedata(5),
 	o => \writedata[5]~input_o\);
 
--- Location: IOIBUF_X117_Y46_N15
+-- Location: IOIBUF_X48_Y41_N8
 \writedata[6]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3109,7 +1478,7 @@ PORT MAP (
 	i => ww_writedata(6),
 	o => \writedata[6]~input_o\);
 
--- Location: IOIBUF_X68_Y0_N8
+-- Location: IOIBUF_X46_Y41_N15
 \writedata[7]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3120,7 +1489,7 @@ PORT MAP (
 	i => ww_writedata(7),
 	o => \writedata[7]~input_o\);
 
--- Location: IOIBUF_X48_Y0_N15
+-- Location: IOIBUF_X38_Y41_N1
 \writedata[8]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3131,7 +1500,215 @@ PORT MAP (
 	i => ww_writedata(8),
 	o => \writedata[8]~input_o\);
 
--- Location: IOIBUF_X50_Y0_N15
+-- Location: M9K_X33_Y28_N0
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\ : cycloneiv_ram_block
+-- pragma translate_off
+GENERIC MAP (
+	data_interleave_offset_in_bits => 1,
+	data_interleave_width_in_bits => 1,
+	logical_ram_name => "cache_SRAM:word_four_SRAM|altsyncram:mem_block_rtl_0|altsyncram_lh81:auto_generated|ALTSYNCRAM",
+	operation_mode => "single_port",
+	port_a_address_clear => "none",
+	port_a_address_width => 8,
+	port_a_byte_enable_clock => "none",
+	port_a_data_out_clear => "none",
+	port_a_data_out_clock => "none",
+	port_a_data_width => 18,
+	port_a_first_address => 0,
+	port_a_first_bit_number => 4,
+	port_a_last_address => 255,
+	port_a_logical_ram_depth => 256,
+	port_a_logical_ram_width => 32,
+	port_a_read_during_write_mode => "old_data",
+	port_b_address_width => 8,
+	port_b_data_width => 18,
+	ram_block_type => "M9K")
+-- pragma translate_on
+PORT MAP (
+	portawe => \memwrite~input_o\,
+	portare => VCC,
+	clk0 => \clock~inputclkctrl_outclk\,
+	portadatain => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAIN_bus\,
+	portaaddr => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTAADDR_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	portadataout => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4_PORTADATAOUT_bus\);
+
+-- Location: LCCOMB_X34_Y28_N16
+\Mux27~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux27~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & ((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\))) # (!\address[0]~input_o\ & 
+-- (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\,
+	datad => \address[0]~input_o\,
+	combout => \Mux27~0_combout\);
+
+-- Location: LCCOMB_X34_Y28_N2
+\Mux27~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux27~1_combout\ = (\Mux27~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4~portadataout\) # (!\address[1]~input_o\)))) # (!\Mux27~0_combout\ & (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\ & 
+-- ((\address[1]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110001011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4\,
+	datab => \Mux27~0_combout\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a4~portadataout\,
+	datad => \address[1]~input_o\,
+	combout => \Mux27~1_combout\);
+
+-- Location: LCCOMB_X34_Y28_N28
+\Mux26~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux26~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ & ((!\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101011100100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\,
+	datad => \address[0]~input_o\,
+	combout => \Mux26~0_combout\);
+
+-- Location: LCCOMB_X34_Y28_N30
+\Mux26~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux26~1_combout\ = (\Mux26~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\) # (!\address[0]~input_o\)))) # (!\Mux26~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\ & ((\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110001011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\,
+	datab => \Mux26~0_combout\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a5\,
+	datad => \address[0]~input_o\,
+	combout => \Mux26~1_combout\);
+
+-- Location: LCCOMB_X34_Y28_N24
+\Mux25~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux25~0_combout\ = (\address[0]~input_o\ & (((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\) # (\address[1]~input_o\)))) # (!\address[0]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\ & ((!\address[1]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\,
+	datab => \address[0]~input_o\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\,
+	datad => \address[1]~input_o\,
+	combout => \Mux25~0_combout\);
+
+-- Location: LCCOMB_X34_Y28_N10
+\Mux25~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux25~1_combout\ = (\address[1]~input_o\ & ((\Mux25~0_combout\ & (\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\)) # (!\Mux25~0_combout\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\))))) # (!\address[1]~input_o\ & 
+-- (((\Mux25~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a6\,
+	datac => \address[1]~input_o\,
+	datad => \Mux25~0_combout\,
+	combout => \Mux25~1_combout\);
+
+-- Location: LCCOMB_X36_Y29_N24
+\Mux24~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux24~0_combout\ = (\address[1]~input_o\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\) # ((\address[0]~input_o\)))) # (!\address[1]~input_o\ & (((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ & !\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000010101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux24~0_combout\);
+
+-- Location: LCCOMB_X36_Y29_N26
+\Mux24~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux24~1_combout\ = (\Mux24~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\) # ((!\address[0]~input_o\)))) # (!\Mux24~0_combout\ & (((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\ & \address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011100011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\,
+	datab => \Mux24~0_combout\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a7\,
+	datad => \address[0]~input_o\,
+	combout => \Mux24~1_combout\);
+
+-- Location: LCCOMB_X34_Y29_N0
+\Mux23~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux23~0_combout\ = (\address[0]~input_o\ & (((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\) # (\address[1]~input_o\)))) # (!\address[0]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\ & ((!\address[1]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\,
+	datab => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\,
+	datac => \address[0]~input_o\,
+	datad => \address[1]~input_o\,
+	combout => \Mux23~0_combout\);
+
+-- Location: LCCOMB_X34_Y29_N10
+\Mux23~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux23~1_combout\ = (\address[1]~input_o\ & ((\Mux23~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\))) # (!\Mux23~0_combout\ & (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\)))) # (!\address[1]~input_o\ & 
+-- (((\Mux23~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a8\,
+	datac => \address[1]~input_o\,
+	datad => \Mux23~0_combout\,
+	combout => \Mux23~1_combout\);
+
+-- Location: IOIBUF_X34_Y0_N1
 \writedata[9]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3142,7 +1719,7 @@ PORT MAP (
 	i => ww_writedata(9),
 	o => \writedata[9]~input_o\);
 
--- Location: IOIBUF_X75_Y0_N1
+-- Location: IOIBUF_X52_Y23_N1
 \writedata[10]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3153,7 +1730,7 @@ PORT MAP (
 	i => ww_writedata(10),
 	o => \writedata[10]~input_o\);
 
--- Location: IOIBUF_X61_Y0_N15
+-- Location: IOIBUF_X31_Y0_N22
 \writedata[11]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3164,7 +1741,7 @@ PORT MAP (
 	i => ww_writedata(11),
 	o => \writedata[11]~input_o\);
 
--- Location: IOIBUF_X70_Y0_N8
+-- Location: IOIBUF_X52_Y23_N8
 \writedata[12]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3175,7 +1752,7 @@ PORT MAP (
 	i => ww_writedata(12),
 	o => \writedata[12]~input_o\);
 
--- Location: IOIBUF_X66_Y0_N1
+-- Location: IOIBUF_X34_Y0_N8
 \writedata[13]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3186,7 +1763,183 @@ PORT MAP (
 	i => ww_writedata(13),
 	o => \writedata[13]~input_o\);
 
--- Location: IOIBUF_X77_Y0_N22
+-- Location: M9K_X33_Y29_N0
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\ : cycloneiv_ram_block
+-- pragma translate_off
+GENERIC MAP (
+	data_interleave_offset_in_bits => 1,
+	data_interleave_width_in_bits => 1,
+	logical_ram_name => "cache_SRAM:word_four_SRAM|altsyncram:mem_block_rtl_0|altsyncram_lh81:auto_generated|ALTSYNCRAM",
+	operation_mode => "single_port",
+	port_a_address_clear => "none",
+	port_a_address_width => 8,
+	port_a_byte_enable_clock => "none",
+	port_a_data_out_clear => "none",
+	port_a_data_out_clock => "none",
+	port_a_data_width => 18,
+	port_a_first_address => 0,
+	port_a_first_bit_number => 9,
+	port_a_last_address => 255,
+	port_a_logical_ram_depth => 256,
+	port_a_logical_ram_width => 32,
+	port_a_read_during_write_mode => "old_data",
+	port_b_address_width => 8,
+	port_b_data_width => 18,
+	ram_block_type => "M9K")
+-- pragma translate_on
+PORT MAP (
+	portawe => \memwrite~input_o\,
+	portare => VCC,
+	clk0 => \clock~inputclkctrl_outclk\,
+	portadatain => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAIN_bus\,
+	portaaddr => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTAADDR_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	portadataout => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9_PORTADATAOUT_bus\);
+
+-- Location: LCCOMB_X34_Y29_N12
+\Mux22~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux22~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\) # (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\ & (!\address[0]~input_o\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111010100100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\,
+	datac => \address[0]~input_o\,
+	datad => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\,
+	combout => \Mux22~0_combout\);
+
+-- Location: LCCOMB_X34_Y29_N22
+\Mux22~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux22~1_combout\ = (\address[0]~input_o\ & ((\Mux22~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9~portadataout\))) # (!\Mux22~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\)))) # 
+-- (!\address[0]~input_o\ & (((\Mux22~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a9~portadataout\,
+	datac => \address[0]~input_o\,
+	datad => \Mux22~0_combout\,
+	combout => \Mux22~1_combout\);
+
+-- Location: LCCOMB_X34_Y29_N8
+\Mux21~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux21~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & ((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\))) # (!\address[0]~input_o\ & 
+-- (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111001011000010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\,
+	datab => \address[1]~input_o\,
+	datac => \address[0]~input_o\,
+	datad => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\,
+	combout => \Mux21~0_combout\);
+
+-- Location: LCCOMB_X34_Y29_N2
+\Mux21~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux21~1_combout\ = (\Mux21~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\) # (!\address[1]~input_o\)))) # (!\Mux21~0_combout\ & (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\ & ((\address[1]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100101011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a10\,
+	datac => \Mux21~0_combout\,
+	datad => \address[1]~input_o\,
+	combout => \Mux21~1_combout\);
+
+-- Location: LCCOMB_X34_Y29_N28
+\Mux20~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux20~0_combout\ = (\address[1]~input_o\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\) # ((\address[0]~input_o\)))) # (!\address[1]~input_o\ & (((!\address[0]~input_o\ & 
+-- \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100101111001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\,
+	datab => \address[1]~input_o\,
+	datac => \address[0]~input_o\,
+	datad => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\,
+	combout => \Mux20~0_combout\);
+
+-- Location: LCCOMB_X34_Y29_N30
+\Mux20~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux20~1_combout\ = (\address[0]~input_o\ & ((\Mux20~0_combout\ & (\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\)) # (!\Mux20~0_combout\ & ((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\))))) # (!\address[0]~input_o\ & 
+-- (((\Mux20~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\,
+	datab => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a11\,
+	datac => \address[0]~input_o\,
+	datad => \Mux20~0_combout\,
+	combout => \Mux20~1_combout\);
+
+-- Location: LCCOMB_X34_Y29_N24
+\Mux19~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux19~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110001111100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\,
+	datab => \address[1]~input_o\,
+	datac => \address[0]~input_o\,
+	datad => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\,
+	combout => \Mux19~0_combout\);
+
+-- Location: LCCOMB_X34_Y29_N26
+\Mux19~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux19~1_combout\ = (\address[1]~input_o\ & ((\Mux19~0_combout\ & (\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\)) # (!\Mux19~0_combout\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\))))) # (!\address[1]~input_o\ & 
+-- (((\Mux19~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011101111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\,
+	datab => \address[1]~input_o\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a12\,
+	datad => \Mux19~0_combout\,
+	combout => \Mux19~1_combout\);
+
+-- Location: IOIBUF_X31_Y0_N8
 \writedata[14]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3197,7 +1950,7 @@ PORT MAP (
 	i => ww_writedata(14),
 	o => \writedata[14]~input_o\);
 
--- Location: IOIBUF_X66_Y0_N8
+-- Location: IOIBUF_X52_Y32_N8
 \writedata[15]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3208,7 +1961,7 @@ PORT MAP (
 	i => ww_writedata(15),
 	o => \writedata[15]~input_o\);
 
--- Location: IOIBUF_X77_Y0_N1
+-- Location: IOIBUF_X52_Y13_N8
 \writedata[16]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3219,7 +1972,7 @@ PORT MAP (
 	i => ww_writedata(16),
 	o => \writedata[16]~input_o\);
 
--- Location: IOIBUF_X50_Y0_N1
+-- Location: IOIBUF_X43_Y41_N1
 \writedata[17]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3230,41 +1983,220 @@ PORT MAP (
 	i => ww_writedata(17),
 	o => \writedata[17]~input_o\);
 
--- Location: M9K_X65_Y1_N0
-\mem_block_rtl_0|auto_generated|ram_block1a0\ : cycloneiv_ram_block
+-- Location: M9K_X33_Y29_N0
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\ : cycloneiv_ram_block
 -- pragma translate_off
 GENERIC MAP (
 	data_interleave_offset_in_bits => 1,
 	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
+	logical_ram_name => "cache_SRAM:word_four_SRAM|altsyncram:mem_block_rtl_0|altsyncram_lh81:auto_generated|ALTSYNCRAM",
 	operation_mode => "single_port",
 	port_a_address_clear => "none",
-	port_a_address_width => 9,
+	port_a_address_width => 8,
 	port_a_byte_enable_clock => "none",
 	port_a_data_out_clear => "none",
 	port_a_data_out_clock => "none",
 	port_a_data_width => 18,
 	port_a_first_address => 0,
-	port_a_first_bit_number => 0,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
+	port_a_first_bit_number => 13,
+	port_a_last_address => 255,
+	port_a_logical_ram_depth => 256,
+	port_a_logical_ram_width => 32,
 	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
+	port_b_address_width => 8,
 	port_b_data_width => 18,
 	ram_block_type => "M9K")
 -- pragma translate_on
 PORT MAP (
-	portawe => \writeenable~input_o\,
+	portawe => \memwrite~input_o\,
 	portare => VCC,
 	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a0_PORTAADDR_bus\,
+	portadatain => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAIN_bus\,
+	portaaddr => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTAADDR_bus\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a0_PORTADATAOUT_bus\);
+	portadataout => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13_PORTADATAOUT_bus\);
 
--- Location: IOIBUF_X77_Y91_N8
+-- Location: LCCOMB_X34_Y29_N4
+\Mux18~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux18~0_combout\ = (\address[1]~input_o\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\) # ((\address[0]~input_o\)))) # (!\address[1]~input_o\ & (((!\address[0]~input_o\ & 
+-- \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100101111001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\,
+	datab => \address[1]~input_o\,
+	datac => \address[0]~input_o\,
+	datad => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\,
+	combout => \Mux18~0_combout\);
+
+-- Location: LCCOMB_X34_Y29_N14
+\Mux18~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux18~1_combout\ = (\Mux18~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13~portadataout\) # (!\address[0]~input_o\)))) # (!\Mux18~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\ & 
+-- (\address[0]~input_o\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110110000101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13\,
+	datab => \Mux18~0_combout\,
+	datac => \address[0]~input_o\,
+	datad => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a13~portadataout\,
+	combout => \Mux18~1_combout\);
+
+-- Location: LCCOMB_X34_Y29_N16
+\Mux17~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux17~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110001111100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\,
+	datab => \address[1]~input_o\,
+	datac => \address[0]~input_o\,
+	datad => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\,
+	combout => \Mux17~0_combout\);
+
+-- Location: LCCOMB_X34_Y29_N18
+\Mux17~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux17~1_combout\ = (\address[1]~input_o\ & ((\Mux17~0_combout\ & (\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\)) # (!\Mux17~0_combout\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\))))) # (!\address[1]~input_o\ & 
+-- (((\Mux17~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011101111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\,
+	datab => \address[1]~input_o\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a14\,
+	datad => \Mux17~0_combout\,
+	combout => \Mux17~1_combout\);
+
+-- Location: LCCOMB_X36_Y29_N4
+\Mux16~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux16~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ & 
+-- ((!\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux16~0_combout\);
+
+-- Location: LCCOMB_X36_Y29_N30
+\Mux16~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux16~1_combout\ = (\Mux16~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\) # ((!\address[0]~input_o\)))) # (!\Mux16~0_combout\ & (((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\ & \address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011100011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\,
+	datab => \Mux16~0_combout\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a15\,
+	datad => \address[0]~input_o\,
+	combout => \Mux16~1_combout\);
+
+-- Location: LCCOMB_X36_Y29_N0
+\Mux15~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux15~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux15~0_combout\);
+
+-- Location: LCCOMB_X36_Y29_N10
+\Mux15~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux15~1_combout\ = (\address[1]~input_o\ & ((\Mux15~0_combout\ & (\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\)) # (!\Mux15~0_combout\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\))))) # (!\address[1]~input_o\ & 
+-- (((\Mux15~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a16\,
+	datad => \Mux15~0_combout\,
+	combout => \Mux15~1_combout\);
+
+-- Location: LCCOMB_X36_Y29_N28
+\Mux14~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux14~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\ & 
+-- ((!\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux14~0_combout\);
+
+-- Location: LCCOMB_X36_Y29_N22
+\Mux14~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux14~1_combout\ = (\address[0]~input_o\ & ((\Mux14~0_combout\ & (\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\)) # (!\Mux14~0_combout\ & ((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\))))) # (!\address[0]~input_o\ & 
+-- (((\Mux14~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[0]~input_o\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a17\,
+	datad => \Mux14~0_combout\,
+	combout => \Mux14~1_combout\);
+
+-- Location: IOIBUF_X14_Y41_N8
 \writedata[18]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3275,7 +2207,7 @@ PORT MAP (
 	i => ww_writedata(18),
 	o => \writedata[18]~input_o\);
 
--- Location: IOIBUF_X66_Y91_N22
+-- Location: IOIBUF_X27_Y41_N1
 \writedata[19]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3286,7 +2218,7 @@ PORT MAP (
 	i => ww_writedata(19),
 	o => \writedata[19]~input_o\);
 
--- Location: IOIBUF_X46_Y91_N22
+-- Location: IOIBUF_X27_Y41_N8
 \writedata[20]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3297,7 +2229,7 @@ PORT MAP (
 	i => ww_writedata(20),
 	o => \writedata[20]~input_o\);
 
--- Location: IOIBUF_X53_Y91_N15
+-- Location: IOIBUF_X31_Y41_N15
 \writedata[21]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3308,7 +2240,7 @@ PORT MAP (
 	i => ww_writedata(21),
 	o => \writedata[21]~input_o\);
 
--- Location: IOIBUF_X79_Y91_N8
+-- Location: IOIBUF_X52_Y25_N1
 \writedata[22]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3319,7 +2251,183 @@ PORT MAP (
 	i => ww_writedata(22),
 	o => \writedata[22]~input_o\);
 
--- Location: IOIBUF_X63_Y91_N22
+-- Location: M9K_X33_Y34_N0
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\ : cycloneiv_ram_block
+-- pragma translate_off
+GENERIC MAP (
+	data_interleave_offset_in_bits => 1,
+	data_interleave_width_in_bits => 1,
+	logical_ram_name => "cache_SRAM:word_four_SRAM|altsyncram:mem_block_rtl_0|altsyncram_lh81:auto_generated|ALTSYNCRAM",
+	operation_mode => "single_port",
+	port_a_address_clear => "none",
+	port_a_address_width => 8,
+	port_a_byte_enable_clock => "none",
+	port_a_data_out_clear => "none",
+	port_a_data_out_clock => "none",
+	port_a_data_width => 18,
+	port_a_first_address => 0,
+	port_a_first_bit_number => 18,
+	port_a_last_address => 255,
+	port_a_logical_ram_depth => 256,
+	port_a_logical_ram_width => 32,
+	port_a_read_during_write_mode => "old_data",
+	port_b_address_width => 8,
+	port_b_data_width => 18,
+	ram_block_type => "M9K")
+-- pragma translate_on
+PORT MAP (
+	portawe => \memwrite~input_o\,
+	portare => VCC,
+	clk0 => \clock~inputclkctrl_outclk\,
+	portadatain => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAIN_bus\,
+	portaaddr => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTAADDR_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	portadataout => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\);
+
+-- Location: LCCOMB_X34_Y29_N20
+\Mux13~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux13~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110001111100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\,
+	datab => \address[1]~input_o\,
+	datac => \address[0]~input_o\,
+	datad => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\,
+	combout => \Mux13~0_combout\);
+
+-- Location: LCCOMB_X36_Y29_N8
+\Mux13~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux13~1_combout\ = (\address[1]~input_o\ & ((\Mux13~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18~portadataout\))) # (!\Mux13~0_combout\ & (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\)))) # 
+-- (!\address[1]~input_o\ & (((\Mux13~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a18~portadataout\,
+	datac => \address[1]~input_o\,
+	datad => \Mux13~0_combout\,
+	combout => \Mux13~1_combout\);
+
+-- Location: LCCOMB_X34_Y28_N20
+\Mux12~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux12~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ & 
+-- ((!\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux12~0_combout\);
+
+-- Location: LCCOMB_X36_Y29_N18
+\Mux12~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux12~1_combout\ = (\Mux12~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\) # (!\address[0]~input_o\)))) # (!\Mux12~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\ & ((\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100101011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a19\,
+	datac => \Mux12~0_combout\,
+	datad => \address[0]~input_o\,
+	combout => \Mux12~1_combout\);
+
+-- Location: LCCOMB_X36_Y29_N20
+\Mux11~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux11~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux11~0_combout\);
+
+-- Location: LCCOMB_X36_Y29_N14
+\Mux11~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux11~1_combout\ = (\address[1]~input_o\ & ((\Mux11~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\))) # (!\Mux11~0_combout\ & (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\)))) # (!\address[1]~input_o\ & 
+-- (((\Mux11~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a20\,
+	datad => \Mux11~0_combout\,
+	combout => \Mux11~1_combout\);
+
+-- Location: LCCOMB_X36_Y29_N16
+\Mux10~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux10~0_combout\ = (\address[1]~input_o\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\) # ((\address[0]~input_o\)))) # (!\address[1]~input_o\ & (((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ & 
+-- !\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101011011000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\,
+	datac => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\,
+	datad => \address[0]~input_o\,
+	combout => \Mux10~0_combout\);
+
+-- Location: LCCOMB_X36_Y29_N2
+\Mux10~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux10~1_combout\ = (\Mux10~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\) # (!\address[0]~input_o\)))) # (!\Mux10~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\ & ((\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110001011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\,
+	datab => \Mux10~0_combout\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a21\,
+	datad => \address[0]~input_o\,
+	combout => \Mux10~1_combout\);
+
+-- Location: IOIBUF_X41_Y41_N8
 \writedata[23]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3330,7 +2438,7 @@ PORT MAP (
 	i => ww_writedata(23),
 	o => \writedata[23]~input_o\);
 
--- Location: IOIBUF_X66_Y91_N1
+-- Location: IOIBUF_X31_Y41_N22
 \writedata[24]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3341,7 +2449,7 @@ PORT MAP (
 	i => ww_writedata(24),
 	o => \writedata[24]~input_o\);
 
--- Location: IOIBUF_X66_Y91_N8
+-- Location: IOIBUF_X41_Y41_N15
 \writedata[25]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3352,7 +2460,7 @@ PORT MAP (
 	i => ww_writedata(25),
 	o => \writedata[25]~input_o\);
 
--- Location: IOIBUF_X70_Y91_N1
+-- Location: IOIBUF_X52_Y32_N22
 \writedata[26]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3363,7 +2471,218 @@ PORT MAP (
 	i => ww_writedata(26),
 	o => \writedata[26]~input_o\);
 
--- Location: IOIBUF_X79_Y91_N1
+-- Location: M9K_X33_Y34_N0
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\ : cycloneiv_ram_block
+-- pragma translate_off
+GENERIC MAP (
+	data_interleave_offset_in_bits => 1,
+	data_interleave_width_in_bits => 1,
+	logical_ram_name => "cache_SRAM:word_four_SRAM|altsyncram:mem_block_rtl_0|altsyncram_lh81:auto_generated|ALTSYNCRAM",
+	operation_mode => "single_port",
+	port_a_address_clear => "none",
+	port_a_address_width => 8,
+	port_a_byte_enable_clock => "none",
+	port_a_data_out_clear => "none",
+	port_a_data_out_clock => "none",
+	port_a_data_width => 18,
+	port_a_first_address => 0,
+	port_a_first_bit_number => 22,
+	port_a_last_address => 255,
+	port_a_logical_ram_depth => 256,
+	port_a_logical_ram_width => 32,
+	port_a_read_during_write_mode => "old_data",
+	port_b_address_width => 8,
+	port_b_data_width => 18,
+	ram_block_type => "M9K")
+-- pragma translate_on
+PORT MAP (
+	portawe => \memwrite~input_o\,
+	portare => VCC,
+	clk0 => \clock~inputclkctrl_outclk\,
+	portadatain => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAIN_bus\,
+	portaaddr => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTAADDR_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	portadataout => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22_PORTADATAOUT_bus\);
+
+-- Location: LCCOMB_X32_Y35_N24
+\Mux9~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux9~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & ((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\))) # (!\address[0]~input_o\ & 
+-- (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110000001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\,
+	datab => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux9~0_combout\);
+
+-- Location: LCCOMB_X32_Y35_N2
+\Mux9~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux9~1_combout\ = (\address[1]~input_o\ & ((\Mux9~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22~portadataout\))) # (!\Mux9~0_combout\ & (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\)))) # 
+-- (!\address[1]~input_o\ & (((\Mux9~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111001110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22\,
+	datab => \address[1]~input_o\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a22~portadataout\,
+	datad => \Mux9~0_combout\,
+	combout => \Mux9~1_combout\);
+
+-- Location: LCCOMB_X32_Y35_N12
+\Mux8~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux8~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ & 
+-- ((!\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\,
+	datab => \address[1]~input_o\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\,
+	datad => \address[0]~input_o\,
+	combout => \Mux8~0_combout\);
+
+-- Location: LCCOMB_X32_Y35_N30
+\Mux8~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux8~1_combout\ = (\Mux8~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\) # ((!\address[0]~input_o\)))) # (!\Mux8~0_combout\ & (((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\ & \address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101100010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Mux8~0_combout\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a23\,
+	datad => \address[0]~input_o\,
+	combout => \Mux8~1_combout\);
+
+-- Location: LCCOMB_X34_Y35_N0
+\Mux7~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux7~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux7~0_combout\);
+
+-- Location: LCCOMB_X34_Y35_N10
+\Mux7~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux7~1_combout\ = (\address[1]~input_o\ & ((\Mux7~0_combout\ & (\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\)) # (!\Mux7~0_combout\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\))))) # (!\address[1]~input_o\ & 
+-- (((\Mux7~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a24\,
+	datad => \Mux7~0_combout\,
+	combout => \Mux7~1_combout\);
+
+-- Location: LCCOMB_X34_Y35_N12
+\Mux6~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux6~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ & 
+-- ((!\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101011100100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \address[1]~input_o\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\,
+	datad => \address[0]~input_o\,
+	combout => \Mux6~0_combout\);
+
+-- Location: LCCOMB_X34_Y35_N30
+\Mux6~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux6~1_combout\ = (\Mux6~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\) # (!\address[0]~input_o\)))) # (!\Mux6~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\ & ((\address[0]~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110010010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Mux6~0_combout\,
+	datab => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a25\,
+	datad => \address[0]~input_o\,
+	combout => \Mux6~1_combout\);
+
+-- Location: LCCOMB_X34_Y35_N16
+\Mux5~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux5~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\,
+	datab => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux5~0_combout\);
+
+-- Location: LCCOMB_X34_Y35_N26
+\Mux5~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux5~1_combout\ = (\Mux5~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\) # (!\address[1]~input_o\)))) # (!\Mux5~0_combout\ & (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\ & (\address[1]~input_o\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110110000101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\,
+	datab => \Mux5~0_combout\,
+	datac => \address[1]~input_o\,
+	datad => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a26\,
+	combout => \Mux5~1_combout\);
+
+-- Location: IOIBUF_X10_Y41_N8
 \writedata[27]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3374,7 +2693,7 @@ PORT MAP (
 	i => ww_writedata(27),
 	o => \writedata[27]~input_o\);
 
--- Location: IOIBUF_X77_Y91_N1
+-- Location: IOIBUF_X52_Y31_N1
 \writedata[28]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3385,7 +2704,7 @@ PORT MAP (
 	i => ww_writedata(28),
 	o => \writedata[28]~input_o\);
 
--- Location: IOIBUF_X46_Y91_N15
+-- Location: IOIBUF_X31_Y41_N1
 \writedata[29]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3396,7 +2715,7 @@ PORT MAP (
 	i => ww_writedata(29),
 	o => \writedata[29]~input_o\);
 
--- Location: IOIBUF_X70_Y91_N8
+-- Location: IOIBUF_X34_Y41_N1
 \writedata[30]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3407,7 +2726,7 @@ PORT MAP (
 	i => ww_writedata(30),
 	o => \writedata[30]~input_o\);
 
--- Location: IOIBUF_X48_Y91_N15
+-- Location: IOIBUF_X46_Y41_N22
 \writedata[31]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -3418,1575 +2737,503 @@ PORT MAP (
 	i => ww_writedata(31),
 	o => \writedata[31]~input_o\);
 
--- Location: IOIBUF_X68_Y91_N15
-\writedata[32]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(32),
-	o => \writedata[32]~input_o\);
-
--- Location: IOIBUF_X50_Y91_N22
-\writedata[33]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(33),
-	o => \writedata[33]~input_o\);
-
--- Location: IOIBUF_X68_Y91_N1
-\writedata[34]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(34),
-	o => \writedata[34]~input_o\);
-
--- Location: IOIBUF_X75_Y91_N8
-\writedata[35]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(35),
-	o => \writedata[35]~input_o\);
-
--- Location: M9K_X65_Y88_N0
-\mem_block_rtl_0|auto_generated|ram_block1a18\ : cycloneiv_ram_block
+-- Location: M9K_X33_Y35_N0
+\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\ : cycloneiv_ram_block
 -- pragma translate_off
 GENERIC MAP (
 	data_interleave_offset_in_bits => 1,
 	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
+	logical_ram_name => "cache_SRAM:word_four_SRAM|altsyncram:mem_block_rtl_0|altsyncram_lh81:auto_generated|ALTSYNCRAM",
 	operation_mode => "single_port",
 	port_a_address_clear => "none",
-	port_a_address_width => 9,
+	port_a_address_width => 8,
 	port_a_byte_enable_clock => "none",
 	port_a_data_out_clear => "none",
 	port_a_data_out_clock => "none",
 	port_a_data_width => 18,
 	port_a_first_address => 0,
-	port_a_first_bit_number => 18,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
+	port_a_first_bit_number => 27,
+	port_a_last_address => 255,
+	port_a_logical_ram_depth => 256,
+	port_a_logical_ram_width => 32,
 	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
+	port_b_address_width => 8,
 	port_b_data_width => 18,
 	ram_block_type => "M9K")
 -- pragma translate_on
 PORT MAP (
-	portawe => \writeenable~input_o\,
+	portawe => \memwrite~input_o\,
 	portare => VCC,
 	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a18_PORTAADDR_bus\,
+	portadatain => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAIN_bus\,
+	portaaddr => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTAADDR_bus\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a18_PORTADATAOUT_bus\);
+	portadataout => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\);
 
--- Location: IOIBUF_X95_Y0_N8
-\writedata[36]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(36),
-	o => \writedata[36]~input_o\);
-
--- Location: IOIBUF_X106_Y0_N1
-\writedata[37]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(37),
-	o => \writedata[37]~input_o\);
-
--- Location: IOIBUF_X84_Y0_N15
-\writedata[38]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(38),
-	o => \writedata[38]~input_o\);
-
--- Location: IOIBUF_X97_Y0_N1
-\writedata[39]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(39),
-	o => \writedata[39]~input_o\);
-
--- Location: IOIBUF_X99_Y0_N8
-\writedata[40]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(40),
-	o => \writedata[40]~input_o\);
-
--- Location: IOIBUF_X111_Y0_N15
-\writedata[41]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(41),
-	o => \writedata[41]~input_o\);
-
--- Location: IOIBUF_X104_Y0_N8
-\writedata[42]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(42),
-	o => \writedata[42]~input_o\);
-
--- Location: IOIBUF_X95_Y0_N15
-\writedata[43]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(43),
-	o => \writedata[43]~input_o\);
-
--- Location: IOIBUF_X111_Y0_N8
-\writedata[44]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(44),
-	o => \writedata[44]~input_o\);
-
--- Location: IOIBUF_X95_Y0_N1
-\writedata[45]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(45),
-	o => \writedata[45]~input_o\);
-
--- Location: IOIBUF_X115_Y0_N8
-\writedata[46]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(46),
-	o => \writedata[46]~input_o\);
-
--- Location: IOIBUF_X97_Y0_N8
-\writedata[47]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(47),
-	o => \writedata[47]~input_o\);
-
--- Location: IOIBUF_X106_Y0_N8
-\writedata[48]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(48),
-	o => \writedata[48]~input_o\);
-
--- Location: IOIBUF_X108_Y0_N1
-\writedata[49]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(49),
-	o => \writedata[49]~input_o\);
-
--- Location: IOIBUF_X99_Y0_N1
-\writedata[50]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(50),
-	o => \writedata[50]~input_o\);
-
--- Location: IOIBUF_X108_Y0_N8
-\writedata[51]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(51),
-	o => \writedata[51]~input_o\);
-
--- Location: IOIBUF_X113_Y0_N1
-\writedata[52]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(52),
-	o => \writedata[52]~input_o\);
-
--- Location: IOIBUF_X108_Y0_N22
-\writedata[53]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(53),
-	o => \writedata[53]~input_o\);
-
--- Location: M9K_X94_Y1_N0
-\mem_block_rtl_0|auto_generated|ram_block1a36\ : cycloneiv_ram_block
+-- Location: M9K_X33_Y35_N0
+\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\ : cycloneiv_ram_block
 -- pragma translate_off
 GENERIC MAP (
 	data_interleave_offset_in_bits => 1,
 	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
+	logical_ram_name => "cache_SRAM:word_three_SRAM|altsyncram:mem_block_rtl_0|altsyncram_lh81:auto_generated|ALTSYNCRAM",
 	operation_mode => "single_port",
 	port_a_address_clear => "none",
-	port_a_address_width => 9,
+	port_a_address_width => 8,
 	port_a_byte_enable_clock => "none",
 	port_a_data_out_clear => "none",
 	port_a_data_out_clock => "none",
 	port_a_data_width => 18,
 	port_a_first_address => 0,
-	port_a_first_bit_number => 36,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
+	port_a_first_bit_number => 27,
+	port_a_last_address => 255,
+	port_a_logical_ram_depth => 256,
+	port_a_logical_ram_width => 32,
 	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
+	port_b_address_width => 8,
 	port_b_data_width => 18,
 	ram_block_type => "M9K")
 -- pragma translate_on
 PORT MAP (
-	portawe => \writeenable~input_o\,
+	portawe => \memwrite~input_o\,
 	portare => VCC,
 	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a36_PORTAADDR_bus\,
+	portadatain => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAIN_bus\,
+	portaaddr => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTAADDR_bus\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a36_PORTADATAOUT_bus\);
+	portadataout => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27_PORTADATAOUT_bus\);
 
--- Location: IOIBUF_X117_Y64_N1
-\writedata[54]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(54),
-	o => \writedata[54]~input_o\);
-
--- Location: IOIBUF_X117_Y70_N8
-\writedata[55]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(55),
-	o => \writedata[55]~input_o\);
-
--- Location: IOIBUF_X117_Y68_N1
-\writedata[56]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(56),
-	o => \writedata[56]~input_o\);
-
--- Location: IOIBUF_X117_Y86_N1
-\writedata[57]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(57),
-	o => \writedata[57]~input_o\);
-
--- Location: IOIBUF_X117_Y70_N1
-\writedata[58]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(58),
-	o => \writedata[58]~input_o\);
-
--- Location: IOIBUF_X117_Y66_N1
-\writedata[59]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(59),
-	o => \writedata[59]~input_o\);
-
--- Location: IOIBUF_X117_Y84_N8
-\writedata[60]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(60),
-	o => \writedata[60]~input_o\);
-
--- Location: IOIBUF_X117_Y65_N8
-\writedata[61]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(61),
-	o => \writedata[61]~input_o\);
-
--- Location: IOIBUF_X117_Y65_N1
-\writedata[62]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(62),
-	o => \writedata[62]~input_o\);
-
--- Location: IOIBUF_X117_Y61_N1
-\writedata[63]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(63),
-	o => \writedata[63]~input_o\);
-
--- Location: IOIBUF_X117_Y72_N8
-\writedata[64]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(64),
-	o => \writedata[64]~input_o\);
-
--- Location: IOIBUF_X117_Y77_N8
-\writedata[65]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(65),
-	o => \writedata[65]~input_o\);
-
--- Location: IOIBUF_X117_Y81_N1
-\writedata[66]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(66),
-	o => \writedata[66]~input_o\);
-
--- Location: IOIBUF_X117_Y84_N1
-\writedata[67]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(67),
-	o => \writedata[67]~input_o\);
-
--- Location: IOIBUF_X117_Y80_N1
-\writedata[68]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(68),
-	o => \writedata[68]~input_o\);
-
--- Location: IOIBUF_X117_Y78_N1
-\writedata[69]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(69),
-	o => \writedata[69]~input_o\);
-
--- Location: IOIBUF_X117_Y62_N8
-\writedata[70]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(70),
-	o => \writedata[70]~input_o\);
-
--- Location: IOIBUF_X117_Y74_N8
-\writedata[71]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(71),
-	o => \writedata[71]~input_o\);
-
--- Location: M9K_X110_Y73_N0
-\mem_block_rtl_0|auto_generated|ram_block1a54\ : cycloneiv_ram_block
--- pragma translate_off
-GENERIC MAP (
-	data_interleave_offset_in_bits => 1,
-	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
-	operation_mode => "single_port",
-	port_a_address_clear => "none",
-	port_a_address_width => 9,
-	port_a_byte_enable_clock => "none",
-	port_a_data_out_clear => "none",
-	port_a_data_out_clock => "none",
-	port_a_data_width => 18,
-	port_a_first_address => 0,
-	port_a_first_bit_number => 54,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
-	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
-	port_b_data_width => 18,
-	ram_block_type => "M9K")
--- pragma translate_on
-PORT MAP (
-	portawe => \writeenable~input_o\,
-	portare => VCC,
-	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a54_PORTAADDR_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a54_PORTADATAOUT_bus\);
-
--- Location: IOIBUF_X32_Y91_N15
-\writedata[72]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(72),
-	o => \writedata[72]~input_o\);
-
--- Location: IOIBUF_X34_Y91_N22
-\writedata[73]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(73),
-	o => \writedata[73]~input_o\);
-
--- Location: IOIBUF_X32_Y0_N15
-\writedata[74]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(74),
-	o => \writedata[74]~input_o\);
-
--- Location: IOIBUF_X39_Y91_N22
-\writedata[75]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(75),
-	o => \writedata[75]~input_o\);
-
--- Location: IOIBUF_X37_Y91_N22
-\writedata[76]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(76),
-	o => \writedata[76]~input_o\);
-
--- Location: IOIBUF_X37_Y0_N8
-\writedata[77]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(77),
-	o => \writedata[77]~input_o\);
-
--- Location: IOIBUF_X41_Y91_N1
-\writedata[78]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(78),
-	o => \writedata[78]~input_o\);
-
--- Location: IOIBUF_X37_Y91_N1
-\writedata[79]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(79),
-	o => \writedata[79]~input_o\);
-
--- Location: IOIBUF_X39_Y91_N1
-\writedata[80]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(80),
-	o => \writedata[80]~input_o\);
-
--- Location: IOIBUF_X32_Y0_N1
-\writedata[81]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(81),
-	o => \writedata[81]~input_o\);
-
--- Location: IOIBUF_X39_Y0_N8
-\writedata[82]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(82),
-	o => \writedata[82]~input_o\);
-
--- Location: IOIBUF_X37_Y91_N8
-\writedata[83]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(83),
-	o => \writedata[83]~input_o\);
-
--- Location: IOIBUF_X39_Y0_N1
-\writedata[84]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(84),
-	o => \writedata[84]~input_o\);
+-- Location: LCCOMB_X34_Y35_N28
+\Mux4~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux4~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27~portadataout\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\ & 
+-- ((!\address[0]~input_o\))))
 
--- Location: IOIBUF_X37_Y0_N1
-\writedata[85]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(85),
-	o => \writedata[85]~input_o\);
-
--- Location: IOIBUF_X32_Y91_N22
-\writedata[86]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(86),
-	o => \writedata[86]~input_o\);
-
--- Location: IOIBUF_X39_Y91_N15
-\writedata[87]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(87),
-	o => \writedata[87]~input_o\);
-
--- Location: IOIBUF_X28_Y91_N22
-\writedata[88]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(88),
-	o => \writedata[88]~input_o\);
-
--- Location: IOIBUF_X37_Y91_N15
-\writedata[89]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(89),
-	o => \writedata[89]~input_o\);
-
--- Location: M9K_X36_Y87_N0
-\mem_block_rtl_0|auto_generated|ram_block1a72\ : cycloneiv_ram_block
--- pragma translate_off
-GENERIC MAP (
-	data_interleave_offset_in_bits => 1,
-	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
-	operation_mode => "single_port",
-	port_a_address_clear => "none",
-	port_a_address_width => 9,
-	port_a_byte_enable_clock => "none",
-	port_a_data_out_clear => "none",
-	port_a_data_out_clock => "none",
-	port_a_data_width => 18,
-	port_a_first_address => 0,
-	port_a_first_bit_number => 72,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
-	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
-	port_b_data_width => 18,
-	ram_block_type => "M9K")
--- pragma translate_on
-PORT MAP (
-	portawe => \writeenable~input_o\,
-	portare => VCC,
-	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a72_PORTAADDR_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a72_PORTADATAOUT_bus\);
-
--- Location: IOIBUF_X97_Y91_N1
-\writedata[90]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(90),
-	o => \writedata[90]~input_o\);
-
--- Location: IOIBUF_X86_Y91_N1
-\writedata[91]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(91),
-	o => \writedata[91]~input_o\);
-
--- Location: IOIBUF_X106_Y91_N15
-\writedata[92]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(92),
-	o => \writedata[92]~input_o\);
-
--- Location: IOIBUF_X106_Y91_N8
-\writedata[93]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(93),
-	o => \writedata[93]~input_o\);
-
--- Location: IOIBUF_X111_Y91_N22
-\writedata[94]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(94),
-	o => \writedata[94]~input_o\);
-
--- Location: IOIBUF_X82_Y91_N8
-\writedata[95]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(95),
-	o => \writedata[95]~input_o\);
-
--- Location: IOIBUF_X97_Y91_N8
-\writedata[96]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(96),
-	o => \writedata[96]~input_o\);
-
--- Location: IOIBUF_X95_Y91_N1
-\writedata[97]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(97),
-	o => \writedata[97]~input_o\);
-
--- Location: IOIBUF_X113_Y91_N1
-\writedata[98]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(98),
-	o => \writedata[98]~input_o\);
-
--- Location: IOIBUF_X95_Y91_N8
-\writedata[99]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(99),
-	o => \writedata[99]~input_o\);
-
--- Location: IOIBUF_X101_Y91_N1
-\writedata[100]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(100),
-	o => \writedata[100]~input_o\);
-
--- Location: IOIBUF_X113_Y91_N22
-\writedata[101]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(101),
-	o => \writedata[101]~input_o\);
-
--- Location: IOIBUF_X101_Y91_N8
-\writedata[102]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(102),
-	o => \writedata[102]~input_o\);
-
--- Location: IOIBUF_X99_Y91_N1
-\writedata[103]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(103),
-	o => \writedata[103]~input_o\);
-
--- Location: IOIBUF_X104_Y91_N8
-\writedata[104]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(104),
-	o => \writedata[104]~input_o\);
-
--- Location: IOIBUF_X99_Y91_N8
-\writedata[105]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1111000011001010",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(105),
-	o => \writedata[105]~input_o\);
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27~portadataout\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux4~0_combout\);
 
--- Location: IOIBUF_X108_Y91_N8
-\writedata[106]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(106),
-	o => \writedata[106]~input_o\);
+-- Location: LCCOMB_X34_Y35_N22
+\Mux4~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux4~1_combout\ = (\Mux4~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27~portadataout\) # ((!\address[0]~input_o\)))) # (!\Mux4~0_combout\ & (((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\ & 
+-- \address[0]~input_o\))))
 
--- Location: IOIBUF_X106_Y91_N1
-\writedata[107]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1011100011001100",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(107),
-	o => \writedata[107]~input_o\);
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27~portadataout\,
+	datab => \Mux4~0_combout\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a27\,
+	datad => \address[0]~input_o\,
+	combout => \Mux4~1_combout\);
 
--- Location: M9K_X94_Y88_N0
-\mem_block_rtl_0|auto_generated|ram_block1a90\ : cycloneiv_ram_block
--- pragma translate_off
-GENERIC MAP (
-	data_interleave_offset_in_bits => 1,
-	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
-	operation_mode => "single_port",
-	port_a_address_clear => "none",
-	port_a_address_width => 9,
-	port_a_byte_enable_clock => "none",
-	port_a_data_out_clear => "none",
-	port_a_data_out_clock => "none",
-	port_a_data_width => 18,
-	port_a_first_address => 0,
-	port_a_first_bit_number => 90,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
-	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
-	port_b_data_width => 18,
-	ram_block_type => "M9K")
--- pragma translate_on
-PORT MAP (
-	portawe => \writeenable~input_o\,
-	portare => VCC,
-	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a90_PORTAADDR_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a90_PORTADATAOUT_bus\);
+-- Location: LCCOMB_X32_Y35_N0
+\Mux3~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux3~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\)) # (!\address[0]~input_o\ & 
+-- ((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\)))))
 
--- Location: IOIBUF_X117_Y21_N1
-\writedata[108]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1110111000110000",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(108),
-	o => \writedata[108]~input_o\);
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\,
+	datab => \address[1]~input_o\,
+	datac => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\,
+	datad => \address[0]~input_o\,
+	combout => \Mux3~0_combout\);
 
--- Location: IOIBUF_X117_Y38_N8
-\writedata[109]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(109),
-	o => \writedata[109]~input_o\);
+-- Location: LCCOMB_X32_Y35_N18
+\Mux3~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux3~1_combout\ = (\Mux3~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\) # ((!\address[1]~input_o\)))) # (!\Mux3~0_combout\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\ & \address[1]~input_o\))))
 
--- Location: IOIBUF_X117_Y22_N8
-\writedata[110]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1011100011001100",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(110),
-	o => \writedata[110]~input_o\);
+	dataa => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\,
+	datab => \Mux3~0_combout\,
+	datac => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a28\,
+	datad => \address[1]~input_o\,
+	combout => \Mux3~1_combout\);
 
--- Location: IOIBUF_X117_Y26_N8
-\writedata[111]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(111),
-	o => \writedata[111]~input_o\);
+-- Location: LCCOMB_X32_Y35_N20
+\Mux2~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux2~0_combout\ = (\address[1]~input_o\ & ((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\) # ((\address[0]~input_o\)))) # (!\address[1]~input_o\ & (((\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ & 
+-- !\address[0]~input_o\))))
 
--- Location: IOIBUF_X117_Y19_N8
-\writedata[112]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1100110010111000",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(112),
-	o => \writedata[112]~input_o\);
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\,
+	datab => \address[1]~input_o\,
+	datac => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\,
+	datad => \address[0]~input_o\,
+	combout => \Mux2~0_combout\);
 
--- Location: IOIBUF_X117_Y29_N1
-\writedata[113]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(113),
-	o => \writedata[113]~input_o\);
+-- Location: LCCOMB_X32_Y35_N22
+\Mux2~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux2~1_combout\ = (\Mux2~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\) # (!\address[0]~input_o\)))) # (!\Mux2~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\ & ((\address[0]~input_o\))))
 
--- Location: IOIBUF_X117_Y21_N8
-\writedata[114]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1110001011001100",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(114),
-	o => \writedata[114]~input_o\);
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\,
+	datab => \Mux2~0_combout\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a29\,
+	datad => \address[0]~input_o\,
+	combout => \Mux2~1_combout\);
 
--- Location: IOIBUF_X117_Y19_N1
-\writedata[115]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(115),
-	o => \writedata[115]~input_o\);
+-- Location: LCCOMB_X32_Y35_N8
+\Mux1~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux1~0_combout\ = (\address[1]~input_o\ & (((\address[0]~input_o\)))) # (!\address[1]~input_o\ & ((\address[0]~input_o\ & ((\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\))) # (!\address[0]~input_o\ & 
+-- (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\))))
 
--- Location: IOIBUF_X117_Y18_N1
-\writedata[116]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1111110000100010",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(116),
-	o => \writedata[116]~input_o\);
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\,
+	datab => \address[1]~input_o\,
+	datac => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\,
+	datad => \address[0]~input_o\,
+	combout => \Mux1~0_combout\);
 
--- Location: IOIBUF_X117_Y17_N1
-\writedata[117]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(117),
-	o => \writedata[117]~input_o\);
+-- Location: LCCOMB_X32_Y35_N10
+\Mux1~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux1~1_combout\ = (\address[1]~input_o\ & ((\Mux1~0_combout\ & ((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\))) # (!\Mux1~0_combout\ & (\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\)))) # (!\address[1]~input_o\ & 
+-- (((\Mux1~0_combout\))))
 
--- Location: IOIBUF_X117_Y42_N8
-\writedata[118]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1111100000111000",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(118),
-	o => \writedata[118]~input_o\);
+	dataa => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\,
+	datab => \address[1]~input_o\,
+	datac => \Mux1~0_combout\,
+	datad => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a30\,
+	combout => \Mux1~1_combout\);
 
--- Location: IOIBUF_X117_Y43_N1
-\writedata[119]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(119),
-	o => \writedata[119]~input_o\);
+-- Location: LCCOMB_X34_Y35_N24
+\Mux0~0\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux0~0_combout\ = (\address[1]~input_o\ & (((\word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\) # (\address[0]~input_o\)))) # (!\address[1]~input_o\ & (\word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ & 
+-- ((!\address[0]~input_o\))))
 
--- Location: IOIBUF_X117_Y24_N8
-\writedata[120]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1111000011001010",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(120),
-	o => \writedata[120]~input_o\);
+	dataa => \word_one_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\,
+	datab => \word_three_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\,
+	datac => \address[1]~input_o\,
+	datad => \address[0]~input_o\,
+	combout => \Mux0~0_combout\);
 
--- Location: IOIBUF_X117_Y23_N8
-\writedata[121]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(121),
-	o => \writedata[121]~input_o\);
+-- Location: LCCOMB_X34_Y35_N18
+\Mux0~1\ : cycloneiv_lcell_comb
+-- Equation(s):
+-- \Mux0~1_combout\ = (\Mux0~0_combout\ & (((\word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\) # (!\address[0]~input_o\)))) # (!\Mux0~0_combout\ & (\word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\ & ((\address[0]~input_o\))))
 
--- Location: IOIBUF_X117_Y34_N8
-\writedata[122]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	lut_mask => "1110001011001100",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(122),
-	o => \writedata[122]~input_o\);
+	dataa => \word_two_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\,
+	datab => \Mux0~0_combout\,
+	datac => \word_four_SRAM|mem_block_rtl_0|auto_generated|ram_block1a31\,
+	datad => \address[0]~input_o\,
+	combout => \Mux0~1_combout\);
 
--- Location: IOIBUF_X117_Y35_N1
-\writedata[123]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X27_Y0_N8
+\address[10]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(123),
-	o => \writedata[123]~input_o\);
+	i => ww_address(10),
+	o => \address[10]~input_o\);
 
--- Location: IOIBUF_X117_Y24_N1
-\writedata[124]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X27_Y0_N1
+\address[11]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(124),
-	o => \writedata[124]~input_o\);
+	i => ww_address(11),
+	o => \address[11]~input_o\);
 
--- Location: IOIBUF_X117_Y22_N1
-\writedata[125]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X7_Y41_N22
+\address[12]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(125),
-	o => \writedata[125]~input_o\);
-
--- Location: M9K_X110_Y27_N0
-\mem_block_rtl_0|auto_generated|ram_block1a108\ : cycloneiv_ram_block
--- pragma translate_off
-GENERIC MAP (
-	data_interleave_offset_in_bits => 1,
-	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
-	operation_mode => "single_port",
-	port_a_address_clear => "none",
-	port_a_address_width => 9,
-	port_a_byte_enable_clock => "none",
-	port_a_data_out_clear => "none",
-	port_a_data_out_clock => "none",
-	port_a_data_width => 18,
-	port_a_first_address => 0,
-	port_a_first_bit_number => 108,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
-	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
-	port_b_data_width => 18,
-	ram_block_type => "M9K")
 -- pragma translate_on
 PORT MAP (
-	portawe => \writeenable~input_o\,
-	portare => VCC,
-	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a108_PORTAADDR_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a108_PORTADATAOUT_bus\);
+	i => ww_address(12),
+	o => \address[12]~input_o\);
 
--- Location: IOIBUF_X19_Y0_N8
-\writedata[126]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X5_Y0_N8
+\address[13]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(126),
-	o => \writedata[126]~input_o\);
+	i => ww_address(13),
+	o => \address[13]~input_o\);
 
--- Location: IOIBUF_X26_Y0_N22
-\writedata[127]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X52_Y16_N1
+\address[14]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(127),
-	o => \writedata[127]~input_o\);
+	i => ww_address(14),
+	o => \address[14]~input_o\);
 
--- Location: IOIBUF_X19_Y91_N22
-\writedata[128]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X43_Y0_N8
+\address[15]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(128),
-	o => \writedata[128]~input_o\);
+	i => ww_address(15),
+	o => \address[15]~input_o\);
 
--- Location: IOIBUF_X5_Y91_N15
-\writedata[129]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X16_Y41_N8
+\address[16]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(129),
-	o => \writedata[129]~input_o\);
+	i => ww_address(16),
+	o => \address[16]~input_o\);
 
--- Location: IOIBUF_X24_Y91_N8
-\writedata[130]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X52_Y10_N1
+\address[17]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(130),
-	o => \writedata[130]~input_o\);
+	i => ww_address(17),
+	o => \address[17]~input_o\);
 
--- Location: IOIBUF_X19_Y0_N15
-\writedata[131]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X52_Y9_N1
+\address[18]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(131),
-	o => \writedata[131]~input_o\);
+	i => ww_address(18),
+	o => \address[18]~input_o\);
 
 -- Location: IOIBUF_X21_Y0_N1
-\writedata[132]~input\ : cycloneiv_io_ibuf
+\address[19]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(132),
-	o => \writedata[132]~input_o\);
+	i => ww_address(19),
+	o => \address[19]~input_o\);
 
--- Location: IOIBUF_X5_Y91_N22
-\writedata[133]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X46_Y0_N22
+\address[20]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(133),
-	o => \writedata[133]~input_o\);
+	i => ww_address(20),
+	o => \address[20]~input_o\);
 
--- Location: IOIBUF_X8_Y91_N15
-\writedata[134]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X5_Y0_N1
+\address[21]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(134),
-	o => \writedata[134]~input_o\);
+	i => ww_address(21),
+	o => \address[21]~input_o\);
 
--- Location: IOIBUF_X24_Y91_N1
-\writedata[135]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X7_Y0_N22
+\address[22]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(135),
-	o => \writedata[135]~input_o\);
+	i => ww_address(22),
+	o => \address[22]~input_o\);
 
--- Location: IOIBUF_X26_Y91_N1
-\writedata[136]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X12_Y41_N8
+\address[23]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(136),
-	o => \writedata[136]~input_o\);
+	i => ww_address(23),
+	o => \address[23]~input_o\);
 
--- Location: IOIBUF_X3_Y91_N15
-\writedata[137]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X5_Y41_N1
+\address[24]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(137),
-	o => \writedata[137]~input_o\);
+	i => ww_address(24),
+	o => \address[24]~input_o\);
 
--- Location: IOIBUF_X19_Y91_N8
-\writedata[138]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X41_Y0_N22
+\address[25]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(138),
-	o => \writedata[138]~input_o\);
+	i => ww_address(25),
+	o => \address[25]~input_o\);
 
--- Location: IOIBUF_X21_Y0_N15
-\writedata[139]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X46_Y41_N8
+\address[26]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(139),
-	o => \writedata[139]~input_o\);
+	i => ww_address(26),
+	o => \address[26]~input_o\);
 
--- Location: IOIBUF_X15_Y91_N15
-\writedata[140]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X7_Y0_N8
+\address[27]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(140),
-	o => \writedata[140]~input_o\);
+	i => ww_address(27),
+	o => \address[27]~input_o\);
 
--- Location: IOIBUF_X24_Y0_N15
-\writedata[141]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X12_Y0_N1
+\address[28]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(141),
-	o => \writedata[141]~input_o\);
+	i => ww_address(28),
+	o => \address[28]~input_o\);
 
--- Location: IOIBUF_X8_Y91_N8
-\writedata[142]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X46_Y0_N8
+\address[29]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(142),
-	o => \writedata[142]~input_o\);
+	i => ww_address(29),
+	o => \address[29]~input_o\);
 
--- Location: IOIBUF_X19_Y0_N1
-\writedata[143]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X18_Y41_N1
+\address[30]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(143),
-	o => \writedata[143]~input_o\);
+	i => ww_address(30),
+	o => \address[30]~input_o\);
 
--- Location: M9K_X23_Y87_N0
-\mem_block_rtl_0|auto_generated|ram_block1a126\ : cycloneiv_ram_block
--- pragma translate_off
-GENERIC MAP (
-	data_interleave_offset_in_bits => 1,
-	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
-	operation_mode => "single_port",
-	port_a_address_clear => "none",
-	port_a_address_width => 9,
-	port_a_byte_enable_clock => "none",
-	port_a_data_out_clear => "none",
-	port_a_data_out_clock => "none",
-	port_a_data_width => 18,
-	port_a_first_address => 0,
-	port_a_first_bit_number => 126,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
-	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
-	port_b_data_width => 18,
-	ram_block_type => "M9K")
--- pragma translate_on
-PORT MAP (
-	portawe => \writeenable~input_o\,
-	portare => VCC,
-	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a126_PORTAADDR_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a126_PORTADATAOUT_bus\);
-
--- Location: IOIBUF_X117_Y50_N8
-\writedata[144]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X12_Y0_N8
+\address[31]~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(144),
-	o => \writedata[144]~input_o\);
+	i => ww_address(31),
+	o => \address[31]~input_o\);
 
--- Location: IOIBUF_X117_Y49_N8
-\writedata[145]~input\ : cycloneiv_io_ibuf
+-- Location: IOIBUF_X1_Y0_N8
+\memread~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_writedata(145),
-	o => \writedata[145]~input_o\);
-
--- Location: IOIBUF_X117_Y54_N1
-\writedata[146]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(146),
-	o => \writedata[146]~input_o\);
-
--- Location: IOIBUF_X117_Y51_N8
-\writedata[147]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(147),
-	o => \writedata[147]~input_o\);
-
--- Location: IOIBUF_X57_Y0_N8
-\writedata[148]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(148),
-	o => \writedata[148]~input_o\);
-
--- Location: IOIBUF_X57_Y0_N1
-\writedata[149]~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_writedata(149),
-	o => \writedata[149]~input_o\);
-
--- Location: M9K_X110_Y51_N0
-\mem_block_rtl_0|auto_generated|ram_block1a144\ : cycloneiv_ram_block
--- pragma translate_off
-GENERIC MAP (
-	data_interleave_offset_in_bits => 1,
-	data_interleave_width_in_bits => 1,
-	logical_ram_name => "altsyncram:mem_block_rtl_0|altsyncram_8j81:auto_generated|ALTSYNCRAM",
-	operation_mode => "single_port",
-	port_a_address_clear => "none",
-	port_a_address_width => 9,
-	port_a_byte_enable_clock => "none",
-	port_a_data_out_clear => "none",
-	port_a_data_out_clock => "none",
-	port_a_data_width => 18,
-	port_a_first_address => 0,
-	port_a_first_bit_number => 144,
-	port_a_last_address => 511,
-	port_a_logical_ram_depth => 257,
-	port_a_logical_ram_width => 150,
-	port_a_read_during_write_mode => "old_data",
-	port_b_address_width => 9,
-	port_b_data_width => 18,
-	ram_block_type => "M9K")
--- pragma translate_on
-PORT MAP (
-	portawe => \writeenable~input_o\,
-	portare => VCC,
-	clk0 => \clock~inputclkctrl_outclk\,
-	portadatain => \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAIN_bus\,
-	portaaddr => \mem_block_rtl_0|auto_generated|ram_block1a144_PORTAADDR_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	portadataout => \mem_block_rtl_0|auto_generated|ram_block1a144_PORTADATAOUT_bus\);
+	i => ww_memread,
+	o => \memread~input_o\);
 
 ww_readdata(0) <= \readdata[0]~output_o\;
 
@@ -5052,241 +3299,7 @@ ww_readdata(30) <= \readdata[30]~output_o\;
 
 ww_readdata(31) <= \readdata[31]~output_o\;
 
-ww_readdata(32) <= \readdata[32]~output_o\;
-
-ww_readdata(33) <= \readdata[33]~output_o\;
-
-ww_readdata(34) <= \readdata[34]~output_o\;
-
-ww_readdata(35) <= \readdata[35]~output_o\;
-
-ww_readdata(36) <= \readdata[36]~output_o\;
-
-ww_readdata(37) <= \readdata[37]~output_o\;
-
-ww_readdata(38) <= \readdata[38]~output_o\;
-
-ww_readdata(39) <= \readdata[39]~output_o\;
-
-ww_readdata(40) <= \readdata[40]~output_o\;
-
-ww_readdata(41) <= \readdata[41]~output_o\;
-
-ww_readdata(42) <= \readdata[42]~output_o\;
-
-ww_readdata(43) <= \readdata[43]~output_o\;
-
-ww_readdata(44) <= \readdata[44]~output_o\;
-
-ww_readdata(45) <= \readdata[45]~output_o\;
-
-ww_readdata(46) <= \readdata[46]~output_o\;
-
-ww_readdata(47) <= \readdata[47]~output_o\;
-
-ww_readdata(48) <= \readdata[48]~output_o\;
-
-ww_readdata(49) <= \readdata[49]~output_o\;
-
-ww_readdata(50) <= \readdata[50]~output_o\;
-
-ww_readdata(51) <= \readdata[51]~output_o\;
-
-ww_readdata(52) <= \readdata[52]~output_o\;
-
-ww_readdata(53) <= \readdata[53]~output_o\;
-
-ww_readdata(54) <= \readdata[54]~output_o\;
-
-ww_readdata(55) <= \readdata[55]~output_o\;
-
-ww_readdata(56) <= \readdata[56]~output_o\;
-
-ww_readdata(57) <= \readdata[57]~output_o\;
-
-ww_readdata(58) <= \readdata[58]~output_o\;
-
-ww_readdata(59) <= \readdata[59]~output_o\;
-
-ww_readdata(60) <= \readdata[60]~output_o\;
-
-ww_readdata(61) <= \readdata[61]~output_o\;
-
-ww_readdata(62) <= \readdata[62]~output_o\;
-
-ww_readdata(63) <= \readdata[63]~output_o\;
-
-ww_readdata(64) <= \readdata[64]~output_o\;
-
-ww_readdata(65) <= \readdata[65]~output_o\;
-
-ww_readdata(66) <= \readdata[66]~output_o\;
-
-ww_readdata(67) <= \readdata[67]~output_o\;
-
-ww_readdata(68) <= \readdata[68]~output_o\;
-
-ww_readdata(69) <= \readdata[69]~output_o\;
-
-ww_readdata(70) <= \readdata[70]~output_o\;
-
-ww_readdata(71) <= \readdata[71]~output_o\;
-
-ww_readdata(72) <= \readdata[72]~output_o\;
-
-ww_readdata(73) <= \readdata[73]~output_o\;
-
-ww_readdata(74) <= \readdata[74]~output_o\;
-
-ww_readdata(75) <= \readdata[75]~output_o\;
-
-ww_readdata(76) <= \readdata[76]~output_o\;
-
-ww_readdata(77) <= \readdata[77]~output_o\;
-
-ww_readdata(78) <= \readdata[78]~output_o\;
-
-ww_readdata(79) <= \readdata[79]~output_o\;
-
-ww_readdata(80) <= \readdata[80]~output_o\;
-
-ww_readdata(81) <= \readdata[81]~output_o\;
-
-ww_readdata(82) <= \readdata[82]~output_o\;
-
-ww_readdata(83) <= \readdata[83]~output_o\;
-
-ww_readdata(84) <= \readdata[84]~output_o\;
-
-ww_readdata(85) <= \readdata[85]~output_o\;
-
-ww_readdata(86) <= \readdata[86]~output_o\;
-
-ww_readdata(87) <= \readdata[87]~output_o\;
-
-ww_readdata(88) <= \readdata[88]~output_o\;
-
-ww_readdata(89) <= \readdata[89]~output_o\;
-
-ww_readdata(90) <= \readdata[90]~output_o\;
-
-ww_readdata(91) <= \readdata[91]~output_o\;
-
-ww_readdata(92) <= \readdata[92]~output_o\;
-
-ww_readdata(93) <= \readdata[93]~output_o\;
-
-ww_readdata(94) <= \readdata[94]~output_o\;
-
-ww_readdata(95) <= \readdata[95]~output_o\;
-
-ww_readdata(96) <= \readdata[96]~output_o\;
-
-ww_readdata(97) <= \readdata[97]~output_o\;
-
-ww_readdata(98) <= \readdata[98]~output_o\;
-
-ww_readdata(99) <= \readdata[99]~output_o\;
-
-ww_readdata(100) <= \readdata[100]~output_o\;
-
-ww_readdata(101) <= \readdata[101]~output_o\;
-
-ww_readdata(102) <= \readdata[102]~output_o\;
-
-ww_readdata(103) <= \readdata[103]~output_o\;
-
-ww_readdata(104) <= \readdata[104]~output_o\;
-
-ww_readdata(105) <= \readdata[105]~output_o\;
-
-ww_readdata(106) <= \readdata[106]~output_o\;
-
-ww_readdata(107) <= \readdata[107]~output_o\;
-
-ww_readdata(108) <= \readdata[108]~output_o\;
-
-ww_readdata(109) <= \readdata[109]~output_o\;
-
-ww_readdata(110) <= \readdata[110]~output_o\;
-
-ww_readdata(111) <= \readdata[111]~output_o\;
-
-ww_readdata(112) <= \readdata[112]~output_o\;
-
-ww_readdata(113) <= \readdata[113]~output_o\;
-
-ww_readdata(114) <= \readdata[114]~output_o\;
-
-ww_readdata(115) <= \readdata[115]~output_o\;
-
-ww_readdata(116) <= \readdata[116]~output_o\;
-
-ww_readdata(117) <= \readdata[117]~output_o\;
-
-ww_readdata(118) <= \readdata[118]~output_o\;
-
-ww_readdata(119) <= \readdata[119]~output_o\;
-
-ww_readdata(120) <= \readdata[120]~output_o\;
-
-ww_readdata(121) <= \readdata[121]~output_o\;
-
-ww_readdata(122) <= \readdata[122]~output_o\;
-
-ww_readdata(123) <= \readdata[123]~output_o\;
-
-ww_readdata(124) <= \readdata[124]~output_o\;
-
-ww_readdata(125) <= \readdata[125]~output_o\;
-
-ww_readdata(126) <= \readdata[126]~output_o\;
-
-ww_readdata(127) <= \readdata[127]~output_o\;
-
-ww_readdata(128) <= \readdata[128]~output_o\;
-
-ww_readdata(129) <= \readdata[129]~output_o\;
-
-ww_readdata(130) <= \readdata[130]~output_o\;
-
-ww_readdata(131) <= \readdata[131]~output_o\;
-
-ww_readdata(132) <= \readdata[132]~output_o\;
-
-ww_readdata(133) <= \readdata[133]~output_o\;
-
-ww_readdata(134) <= \readdata[134]~output_o\;
-
-ww_readdata(135) <= \readdata[135]~output_o\;
-
-ww_readdata(136) <= \readdata[136]~output_o\;
-
-ww_readdata(137) <= \readdata[137]~output_o\;
-
-ww_readdata(138) <= \readdata[138]~output_o\;
-
-ww_readdata(139) <= \readdata[139]~output_o\;
-
-ww_readdata(140) <= \readdata[140]~output_o\;
-
-ww_readdata(141) <= \readdata[141]~output_o\;
-
-ww_readdata(142) <= \readdata[142]~output_o\;
-
-ww_readdata(143) <= \readdata[143]~output_o\;
-
-ww_readdata(144) <= \readdata[144]~output_o\;
-
-ww_readdata(145) <= \readdata[145]~output_o\;
-
-ww_readdata(146) <= \readdata[146]~output_o\;
-
-ww_readdata(147) <= \readdata[147]~output_o\;
-
-ww_readdata(148) <= \readdata[148]~output_o\;
-
-ww_readdata(149) <= \readdata[149]~output_o\;
+ww_waitrequest <= \waitrequest~output_o\;
 END structure;
 
 

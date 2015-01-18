@@ -71,6 +71,9 @@ BEGIN
 		wait for clk_period;
 		address <= X"12345678"; --0b1001000110100010101 10011110 00, 0x48D15 0x9E 0x0--
         wait;
+		  
+		-- write "12345678" to address 0x00000001
+		-- should end up in line one of cache
 
     END PROCESS;
 

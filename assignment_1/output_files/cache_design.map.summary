@@ -1,15 +1,15 @@
-Analysis & Synthesis Status : Successful - Fri Jan 16 14:36:37 2015
-Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Full Version
+Analysis & Synthesis Status : Successful - Sat Jan 17 16:34:43 2015
+Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : cache_design
-Top-level Entity Name : cache_SRAM
+Top-level Entity Name : cache
 Family : Cyclone IV GX
-Total logic elements : 0
-    Total combinational functions : 0
+Total logic elements : 64
+    Total combinational functions : 64
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 310
+Total pins : 100
 Total virtual pins : 0
-Total memory bits : 38,400
+Total memory bits : 32,768
 Embedded Multiplier 9-bit elements : 0
 Total GXB Receiver Channel PCS : 0
 Total GXB Receiver Channel PMA : 0
