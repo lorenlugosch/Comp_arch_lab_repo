@@ -25,6 +25,7 @@ END cache_SRAM;
 ARCHITECTURE arch OF cache_SRAM IS
 	TYPE MEM IS ARRAY(0 to number_of_rows) OF STD_LOGIC_VECTOR(SRAM_width-1 downto 0);
 	SIGNAL mem_block : MEM;
+	SIGNAL read_address_reg : INTEGER RANGE 0 to number_of_rows-1;
 	
 BEGIN
 	PROCESS (clock)
@@ -36,8 +37,10 @@ BEGIN
 				mem_block(address) <= writedata;
 			end if;
 			
-			readdata <= mem_block(address);
+			--read_address_reg <= address;
 		end if;
 	END PROCESS;
+	--readdata <= mem_block(read_address_reg);
+	readdata <= mem_block(address); -- quartus will simply make registers
 
 END arch;

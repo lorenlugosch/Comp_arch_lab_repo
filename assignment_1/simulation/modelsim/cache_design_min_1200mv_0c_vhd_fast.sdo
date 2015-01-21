@@ -29,7 +29,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "cache")
-  (DATE "01/17/2015 16:35:11")
+  (DATE "01/19/2015 08:10:55")
   (VENDOR "Altera")
   (PROGRAM "Quartus II 64-Bit")
   (VERSION "Version 13.1.0 Build 162 10/23/2013 SJ Web Edition")
@@ -41,8 +41,8 @@
     (INSTANCE \\readdata\[0\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (947:947:947) (1071:1071:1071))
-        (IOPATH i o (1630:1630:1630) (1619:1619:1619))
+        (PORT i (904:904:904) (1034:1034:1034))
+        (IOPATH i o (1610:1610:1610) (1599:1599:1599))
       )
     )
   )
@@ -51,8 +51,8 @@
     (INSTANCE \\readdata\[1\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (961:961:961) (1077:1077:1077))
-        (IOPATH i o (1713:1713:1713) (1665:1665:1665))
+        (PORT i (851:851:851) (956:956:956))
+        (IOPATH i o (1753:1753:1753) (1705:1705:1705))
       )
     )
   )
@@ -61,8 +61,8 @@
     (INSTANCE \\readdata\[2\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1431:1431:1431) (1618:1618:1618))
-        (IOPATH i o (1610:1610:1610) (1599:1599:1599))
+        (PORT i (1130:1130:1130) (1247:1247:1247))
+        (IOPATH i o (1733:1733:1733) (1685:1685:1685))
       )
     )
   )
@@ -71,7 +71,7 @@
     (INSTANCE \\readdata\[3\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1479:1479:1479) (1646:1646:1646))
+        (PORT i (926:926:926) (1069:1069:1069))
         (IOPATH i o (2170:2170:2170) (2161:2161:2161))
       )
     )
@@ -81,8 +81,8 @@
     (INSTANCE \\readdata\[4\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1099:1099:1099) (1234:1234:1234))
-        (IOPATH i o (1743:1743:1743) (1695:1695:1695))
+        (PORT i (985:985:985) (1109:1109:1109))
+        (IOPATH i o (1610:1610:1610) (1599:1599:1599))
       )
     )
   )
@@ -91,8 +91,8 @@
     (INSTANCE \\readdata\[5\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (729:729:729) (807:807:807))
-        (IOPATH i o (1743:1743:1743) (1695:1695:1695))
+        (PORT i (922:922:922) (1035:1035:1035))
+        (IOPATH i o (1600:1600:1600) (1589:1589:1589))
       )
     )
   )
@@ -101,8 +101,8 @@
     (INSTANCE \\readdata\[6\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1172:1172:1172) (1310:1310:1310))
-        (IOPATH i o (1733:1733:1733) (1685:1685:1685))
+        (PORT i (1274:1274:1274) (1423:1423:1423))
+        (IOPATH i o (1590:1590:1590) (1579:1579:1579))
       )
     )
   )
@@ -111,7 +111,7 @@
     (INSTANCE \\readdata\[7\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (851:851:851) (952:952:952))
+        (PORT i (1087:1087:1087) (1228:1228:1228))
         (IOPATH i o (1610:1610:1610) (1599:1599:1599))
       )
     )
@@ -121,8 +121,8 @@
     (INSTANCE \\readdata\[8\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (613:613:613) (689:689:689))
-        (IOPATH i o (1600:1600:1600) (1589:1589:1589))
+        (PORT i (1130:1130:1130) (1283:1283:1283))
+        (IOPATH i o (1535:1535:1535) (1508:1508:1508))
       )
     )
   )
@@ -131,8 +131,8 @@
     (INSTANCE \\readdata\[9\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (980:980:980) (1126:1126:1126))
-        (IOPATH i o (1610:1610:1610) (1599:1599:1599))
+        (PORT i (739:739:739) (826:826:826))
+        (IOPATH i o (1575:1575:1575) (1548:1548:1548))
       )
     )
   )
@@ -141,8 +141,8 @@
     (INSTANCE \\readdata\[10\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1030:1030:1030) (1159:1159:1159))
-        (IOPATH i o (1713:1713:1713) (1665:1665:1665))
+        (PORT i (1229:1229:1229) (1379:1379:1379))
+        (IOPATH i o (2193:2193:2193) (2182:2182:2182))
       )
     )
   )
@@ -151,8 +151,8 @@
     (INSTANCE \\readdata\[11\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1072:1072:1072) (1204:1204:1204))
-        (IOPATH i o (1545:1545:1545) (1518:1518:1518))
+        (PORT i (784:784:784) (879:879:879))
+        (IOPATH i o (1723:1723:1723) (1675:1675:1675))
       )
     )
   )
@@ -161,8 +161,8 @@
     (INSTANCE \\readdata\[12\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (826:826:826) (911:911:911))
-        (IOPATH i o (1723:1723:1723) (1675:1675:1675))
+        (PORT i (1329:1329:1329) (1482:1482:1482))
+        (IOPATH i o (1565:1565:1565) (1538:1538:1538))
       )
     )
   )
@@ -171,7 +171,7 @@
     (INSTANCE \\readdata\[13\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1417:1417:1417) (1599:1599:1599))
+        (PORT i (1109:1109:1109) (1256:1256:1256))
         (IOPATH i o (1630:1630:1630) (1619:1619:1619))
       )
     )
@@ -181,8 +181,8 @@
     (INSTANCE \\readdata\[14\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (989:989:989) (1128:1128:1128))
-        (IOPATH i o (1590:1590:1590) (1579:1579:1579))
+        (PORT i (593:593:593) (659:659:659))
+        (IOPATH i o (1743:1743:1743) (1695:1695:1695))
       )
     )
   )
@@ -191,8 +191,8 @@
     (INSTANCE \\readdata\[15\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (653:653:653) (712:712:712))
-        (IOPATH i o (2193:2193:2193) (2182:2182:2182))
+        (PORT i (721:721:721) (813:813:813))
+        (IOPATH i o (1753:1753:1753) (1705:1705:1705))
       )
     )
   )
@@ -201,8 +201,8 @@
     (INSTANCE \\readdata\[16\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1191:1191:1191) (1354:1354:1354))
-        (IOPATH i o (1575:1575:1575) (1548:1548:1548))
+        (PORT i (1324:1324:1324) (1477:1477:1477))
+        (IOPATH i o (1650:1650:1650) (1639:1639:1639))
       )
     )
   )
@@ -211,7 +211,7 @@
     (INSTANCE \\readdata\[17\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (792:792:792) (864:864:864))
+        (PORT i (993:993:993) (1114:1114:1114))
         (IOPATH i o (1733:1733:1733) (1685:1685:1685))
       )
     )
@@ -221,8 +221,8 @@
     (INSTANCE \\readdata\[18\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1343:1343:1343) (1497:1497:1497))
-        (IOPATH i o (1763:1763:1763) (1715:1715:1715))
+        (PORT i (1096:1096:1096) (1239:1239:1239))
+        (IOPATH i o (1620:1620:1620) (1609:1609:1609))
       )
     )
   )
@@ -231,8 +231,8 @@
     (INSTANCE \\readdata\[19\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1361:1361:1361) (1526:1526:1526))
-        (IOPATH i o (1600:1600:1600) (1589:1589:1589))
+        (PORT i (997:997:997) (1102:1102:1102))
+        (IOPATH i o (1753:1753:1753) (1705:1705:1705))
       )
     )
   )
@@ -241,8 +241,8 @@
     (INSTANCE \\readdata\[20\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (811:811:811) (882:882:882))
-        (IOPATH i o (1743:1743:1743) (1695:1695:1695))
+        (PORT i (793:793:793) (902:902:902))
+        (IOPATH i o (1630:1630:1630) (1619:1619:1619))
       )
     )
   )
@@ -251,8 +251,8 @@
     (INSTANCE \\readdata\[21\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1075:1075:1075) (1206:1206:1206))
-        (IOPATH i o (1630:1630:1630) (1619:1619:1619))
+        (PORT i (663:663:663) (721:721:721))
+        (IOPATH i o (1723:1723:1723) (1675:1675:1675))
       )
     )
   )
@@ -261,8 +261,8 @@
     (INSTANCE \\readdata\[22\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (747:747:747) (850:850:850))
-        (IOPATH i o (1610:1610:1610) (1599:1599:1599))
+        (PORT i (814:814:814) (891:891:891))
+        (IOPATH i o (1733:1733:1733) (1685:1685:1685))
       )
     )
   )
@@ -271,8 +271,8 @@
     (INSTANCE \\readdata\[23\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (554:554:554) (615:615:615))
-        (IOPATH i o (1590:1590:1590) (1579:1579:1579))
+        (PORT i (883:883:883) (979:979:979))
+        (IOPATH i o (1743:1743:1743) (1695:1695:1695))
       )
     )
   )
@@ -281,8 +281,8 @@
     (INSTANCE \\readdata\[24\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (836:836:836) (916:916:916))
-        (IOPATH i o (1753:1753:1753) (1705:1705:1705))
+        (PORT i (1030:1030:1030) (1161:1161:1161))
+        (IOPATH i o (1600:1600:1600) (1589:1589:1589))
       )
     )
   )
@@ -291,8 +291,8 @@
     (INSTANCE \\readdata\[25\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (699:699:699) (802:802:802))
-        (IOPATH i o (1620:1620:1620) (1609:1609:1609))
+        (PORT i (1421:1421:1421) (1572:1572:1572))
+        (IOPATH i o (1610:1610:1610) (1599:1599:1599))
       )
     )
   )
@@ -301,8 +301,8 @@
     (INSTANCE \\readdata\[26\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (519:519:519) (562:562:562))
-        (IOPATH i o (1640:1640:1640) (1629:1629:1629))
+        (PORT i (1086:1086:1086) (1205:1205:1205))
+        (IOPATH i o (2193:2193:2193) (2182:2182:2182))
       )
     )
   )
@@ -311,8 +311,8 @@
     (INSTANCE \\readdata\[27\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (698:698:698) (767:767:767))
-        (IOPATH i o (1713:1713:1713) (1665:1665:1665))
+        (PORT i (1208:1208:1208) (1349:1349:1349))
+        (IOPATH i o (2170:2170:2170) (2161:2161:2161))
       )
     )
   )
@@ -321,8 +321,8 @@
     (INSTANCE \\readdata\[28\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (890:890:890) (1008:1008:1008))
-        (IOPATH i o (1620:1620:1620) (1609:1609:1609))
+        (PORT i (879:879:879) (987:987:987))
+        (IOPATH i o (1590:1590:1590) (1579:1579:1579))
       )
     )
   )
@@ -331,8 +331,8 @@
     (INSTANCE \\readdata\[29\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (1762:1762:1762) (1955:1955:1955))
-        (IOPATH i o (1753:1753:1753) (1705:1705:1705))
+        (PORT i (1042:1042:1042) (1173:1173:1173))
+        (IOPATH i o (1600:1600:1600) (1589:1589:1589))
       )
     )
   )
@@ -341,8 +341,8 @@
     (INSTANCE \\readdata\[30\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (649:649:649) (720:720:720))
-        (IOPATH i o (1630:1630:1630) (1619:1619:1619))
+        (PORT i (900:900:900) (1010:1010:1010))
+        (IOPATH i o (1600:1600:1600) (1589:1589:1589))
       )
     )
   )
@@ -351,17 +351,8 @@
     (INSTANCE \\readdata\[31\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (543:543:543) (602:602:602))
-        (IOPATH i o (2170:2170:2170) (2161:2161:2161))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[1\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (242:242:242) (617:617:617))
+        (PORT i (1193:1193:1193) (1337:1337:1337))
+        (IOPATH i o (1630:1630:1630) (1619:1619:1619))
       )
     )
   )
@@ -370,7 +361,39 @@
     (INSTANCE \\memwrite\~input\\)
     (DELAY
       (ABSOLUTE
+        (IOPATH i o (282:282:282) (657:657:657))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\addr\[0\]\~input\\)
+    (DELAY
+      (ABSOLUTE
         (IOPATH i o (252:252:252) (627:627:627))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\addr\[1\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (253:253:253) (628:628:628))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE memwrite_two)
+    (DELAY
+      (ABSOLUTE
+        (PORT datab (2133:2133:2133) (2380:2380:2380))
+        (PORT datac (2162:2162:2162) (2446:2446:2446))
+        (PORT datad (2109:2109:2109) (2372:2372:2372))
+        (IOPATH datab combout (166:166:166) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
+        (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
   )
@@ -403,61 +426,7 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[2\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (283:283:283) (658:658:658))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[3\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (262:262:262) (637:637:637))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[4\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (252:252:252) (627:627:627))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[5\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (293:293:293) (668:668:668))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[6\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (292:292:292) (667:667:667))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[7\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (272:272:272) (647:647:647))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[8\]\~input\\)
+    (INSTANCE \\addr\[2\]\~input\\)
     (DELAY
       (ABSOLUTE
         (IOPATH i o (263:263:263) (638:638:638))
@@ -466,7 +435,61 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[9\]\~input\\)
+    (INSTANCE \\addr\[3\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (242:242:242) (617:617:617))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\addr\[4\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (272:272:272) (647:647:647))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\addr\[5\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (283:283:283) (658:658:658))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\addr\[6\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (283:283:283) (658:658:658))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\addr\[7\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (272:272:272) (647:647:647))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\addr\[8\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (272:272:272) (647:647:647))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\addr\[9\]\~input\\)
     (DELAY
       (ABSOLUTE
         (IOPATH i o (242:242:242) (617:617:617))
@@ -478,7 +501,7 @@
     (INSTANCE \\writedata\[1\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (252:252:252) (627:627:627))
+        (IOPATH i o (253:253:253) (628:628:628))
       )
     )
   )
@@ -487,7 +510,7 @@
     (INSTANCE \\writedata\[2\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (263:263:263) (638:638:638))
+        (IOPATH i o (273:273:273) (648:648:648))
       )
     )
   )
@@ -496,7 +519,7 @@
     (INSTANCE \\writedata\[3\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (262:262:262) (637:637:637))
+        (IOPATH i o (263:263:263) (638:638:638))
       )
     )
   )
@@ -505,34 +528,111 @@
     (INSTANCE \\writedata\[4\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (283:283:283) (658:658:658))
+        (IOPATH i o (262:262:262) (637:637:637))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[5\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (262:262:262) (637:637:637))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[6\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (292:292:292) (667:667:667))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[7\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (262:262:262) (637:637:637))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[8\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (272:272:272) (647:647:647))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[9\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (272:272:272) (647:647:647))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[10\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (282:282:282) (657:657:657))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[11\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (263:263:263) (638:638:638))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[12\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (282:282:282) (657:657:657))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[13\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (252:252:252) (627:627:627))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.datain_a_register)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.datain_a_register)
     (DELAY
       (ABSOLUTE
-        (PORT d[0] (2397:2397:2397) (2681:2681:2681))
-        (PORT d[1] (2519:2519:2519) (2822:2822:2822))
-        (PORT d[2] (2057:2057:2057) (2290:2290:2290))
-        (PORT d[3] (2139:2139:2139) (2388:2388:2388))
-        (PORT d[4] (2515:2515:2515) (2813:2813:2813))
-        (PORT d[5] (2397:2397:2397) (2690:2690:2690))
-        (PORT d[6] (2038:2038:2038) (2258:2258:2258))
-        (PORT d[7] (2125:2125:2125) (2371:2371:2371))
-        (PORT d[8] (2397:2397:2397) (2681:2681:2681))
-        (PORT d[9] (2397:2397:2397) (2690:2690:2690))
-        (PORT d[10] (2057:2057:2057) (2290:2290:2290))
-        (PORT d[11] (2139:2139:2139) (2388:2388:2388))
-        (PORT d[12] (2577:2577:2577) (2897:2897:2897))
-        (PORT d[13] (2515:2515:2515) (2813:2813:2813))
-        (PORT d[14] (2397:2397:2397) (2690:2690:2690))
-        (PORT d[15] (2038:2038:2038) (2258:2258:2258))
-        (PORT d[16] (2139:2139:2139) (2388:2388:2388))
-        (PORT d[17] (2413:2413:2413) (2700:2700:2700))
-        (PORT clk (1173:1173:1173) (1168:1168:1168))
+        (PORT d[0] (2405:2405:2405) (2681:2681:2681))
+        (PORT d[1] (2440:2440:2440) (2740:2740:2740))
+        (PORT d[2] (2223:2223:2223) (2484:2484:2484))
+        (PORT d[3] (2391:2391:2391) (2679:2679:2679))
+        (PORT d[4] (2317:2317:2317) (2574:2574:2574))
+        (PORT d[5] (2208:2208:2208) (2477:2477:2477))
+        (PORT d[6] (2455:2455:2455) (2732:2732:2732))
+        (PORT d[7] (2132:2132:2132) (2378:2378:2378))
+        (PORT d[8] (2369:2369:2369) (2666:2666:2666))
+        (PORT d[9] (2412:2412:2412) (2720:2720:2720))
+        (PORT d[10] (2175:2175:2175) (2439:2439:2439))
+        (PORT d[11] (2073:2073:2073) (2310:2310:2310))
+        (PORT d[12] (2350:2350:2350) (2639:2639:2639))
+        (PORT d[13] (2403:2403:2403) (2713:2713:2713))
+        (PORT clk (1186:1186:1186) (1181:1181:1181))
       )
     )
     (TIMINGCHECK
@@ -541,18 +641,18 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.addr_a_register)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.addr_a_register)
     (DELAY
       (ABSOLUTE
-        (PORT d[0] (2444:2444:2444) (2734:2734:2734))
-        (PORT d[1] (2056:2056:2056) (2317:2317:2317))
-        (PORT d[2] (2051:2051:2051) (2307:2307:2307))
-        (PORT d[3] (2119:2119:2119) (2368:2368:2368))
-        (PORT d[4] (2013:2013:2013) (2250:2250:2250))
-        (PORT d[5] (2236:2236:2236) (2520:2520:2520))
-        (PORT d[6] (2045:2045:2045) (2276:2276:2276))
-        (PORT d[7] (2509:2509:2509) (2817:2817:2817))
-        (PORT clk (1171:1171:1171) (1166:1166:1166))
+        (PORT d[0] (2423:2423:2423) (2716:2716:2716))
+        (PORT d[1] (2522:2522:2522) (2838:2838:2838))
+        (PORT d[2] (2532:2532:2532) (2849:2849:2849))
+        (PORT d[3] (2253:2253:2253) (2516:2516:2516))
+        (PORT d[4] (2074:2074:2074) (2313:2313:2313))
+        (PORT d[5] (2324:2324:2324) (2606:2606:2606))
+        (PORT d[6] (2578:2578:2578) (2912:2912:2912))
+        (PORT d[7] (2361:2361:2361) (2652:2652:2652))
+        (PORT clk (1184:1184:1184) (1179:1179:1179))
       )
     )
     (TIMINGCHECK
@@ -561,11 +661,11 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.we_a_register)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.we_a_register)
     (DELAY
       (ABSOLUTE
-        (PORT d[0] (2337:2337:2337) (2542:2542:2542))
-        (PORT clk (1171:1171:1171) (1166:1166:1166))
+        (PORT d[0] (734:734:734) (764:764:764))
+        (PORT clk (1184:1184:1184) (1179:1179:1179))
       )
     )
     (TIMINGCHECK
@@ -574,97 +674,408 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1173:1173:1173) (1168:1168:1168))
+        (PORT clk (1186:1186:1186) (1181:1181:1181))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.wpgen_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.wpgen_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1174:1174:1174) (1169:1169:1169))
+        (PORT clk (1187:1187:1187) (1182:1182:1182))
         (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1174:1174:1174) (1169:1169:1169))
+        (PORT clk (1187:1187:1187) (1182:1182:1182))
         (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1174:1174:1174) (1169:1169:1169))
+        (PORT clk (1187:1187:1187) (1182:1182:1182))
         (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1174:1174:1174) (1169:1169:1169))
+        (PORT clk (1187:1187:1187) (1182:1182:1182))
         (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_b)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_b)
     (DELAY
       (ABSOLUTE
-        (PORT clk (693:693:693) (679:679:679))
+        (PORT clk (706:706:706) (692:692:692))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_b)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_b)
     (DELAY
       (ABSOLUTE
-        (PORT clk (694:694:694) (680:680:680))
+        (PORT clk (707:707:707) (693:693:693))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_b)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_b)
     (DELAY
       (ABSOLUTE
-        (PORT clk (694:694:694) (680:680:680))
+        (PORT clk (707:707:707) (693:693:693))
         (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_b)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_b)
     (DELAY
       (ABSOLUTE
-        (PORT clk (694:694:694) (680:680:680))
+        (PORT clk (707:707:707) (693:693:693))
         (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
   (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\address\[0\]\~input\\)
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE memwrite_zero)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (282:282:282) (657:657:657))
+        (PORT datab (2131:2131:2131) (2377:2377:2377))
+        (PORT datac (2168:2168:2168) (2453:2453:2453))
+        (PORT datad (2107:2107:2107) (2370:2370:2370))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (120:120:120) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.datain_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2103:2103:2103) (2345:2345:2345))
+        (PORT d[1] (2429:2429:2429) (2724:2724:2724))
+        (PORT d[2] (2566:2566:2566) (2876:2876:2876))
+        (PORT d[3] (2417:2417:2417) (2709:2709:2709))
+        (PORT d[4] (2588:2588:2588) (2878:2878:2878))
+        (PORT d[5] (2214:2214:2214) (2484:2484:2484))
+        (PORT d[6] (2146:2146:2146) (2389:2389:2389))
+        (PORT d[7] (2402:2402:2402) (2675:2675:2675))
+        (PORT d[8] (2373:2373:2373) (2667:2667:2667))
+        (PORT d[9] (2427:2427:2427) (2736:2736:2736))
+        (PORT d[10] (2341:2341:2341) (2622:2622:2622))
+        (PORT d[11] (2194:2194:2194) (2438:2438:2438))
+        (PORT d[12] (2182:2182:2182) (2450:2450:2450))
+        (PORT d[13] (2557:2557:2557) (2879:2879:2879))
+        (PORT clk (1188:1188:1188) (1182:1182:1182))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.addr_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2428:2428:2428) (2725:2725:2725))
+        (PORT d[1] (2374:2374:2374) (2676:2676:2676))
+        (PORT d[2] (2373:2373:2373) (2672:2672:2672))
+        (PORT d[3] (2241:2241:2241) (2497:2497:2497))
+        (PORT d[4] (2073:2073:2073) (2312:2312:2312))
+        (PORT d[5] (2343:2343:2343) (2631:2631:2631))
+        (PORT d[6] (2583:2583:2583) (2920:2920:2920))
+        (PORT d[7] (2361:2361:2361) (2656:2656:2656))
+        (PORT clk (1186:1186:1186) (1180:1180:1180))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.we_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (894:894:894) (953:953:953))
+        (PORT clk (1186:1186:1186) (1180:1180:1180))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1182:1182:1182))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.wpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (708:708:708) (693:693:693))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (709:709:709) (694:694:694))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (709:709:709) (694:694:694))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (709:709:709) (694:694:694))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE memwrite_one)
+    (DELAY
+      (ABSOLUTE
+        (PORT datab (2132:2132:2132) (2379:2379:2379))
+        (PORT datac (2163:2163:2163) (2447:2447:2447))
+        (PORT datad (2109:2109:2109) (2372:2372:2372))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.datain_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2088:2088:2088) (2317:2317:2317))
+        (PORT d[1] (2432:2432:2432) (2731:2731:2731))
+        (PORT d[2] (2213:2213:2213) (2472:2472:2472))
+        (PORT d[3] (2423:2423:2423) (2717:2717:2717))
+        (PORT d[4] (2301:2301:2301) (2562:2562:2562))
+        (PORT d[5] (2390:2390:2390) (2691:2691:2691))
+        (PORT d[6] (2315:2315:2315) (2591:2591:2591))
+        (PORT d[7] (2474:2474:2474) (2760:2760:2760))
+        (PORT d[8] (2369:2369:2369) (2660:2660:2660))
+        (PORT d[9] (2437:2437:2437) (2740:2740:2740))
+        (PORT d[10] (2503:2503:2503) (2813:2813:2813))
+        (PORT d[11] (2207:2207:2207) (2454:2454:2454))
+        (PORT d[12] (2360:2360:2360) (2655:2655:2655))
+        (PORT d[13] (2570:2570:2570) (2898:2898:2898))
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.addr_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2562:2562:2562) (2860:2860:2860))
+        (PORT d[1] (2372:2372:2372) (2665:2665:2665))
+        (PORT d[2] (2515:2515:2515) (2828:2828:2828))
+        (PORT d[3] (2234:2234:2234) (2489:2489:2489))
+        (PORT d[4] (2066:2066:2066) (2305:2305:2305))
+        (PORT d[5] (2493:2493:2493) (2796:2796:2796))
+        (PORT d[6] (2561:2561:2561) (2893:2893:2893))
+        (PORT d[7] (2352:2352:2352) (2644:2644:2644))
+        (PORT clk (1187:1187:1187) (1181:1181:1181))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.we_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (593:593:593) (614:614:614))
+        (PORT clk (1187:1187:1187) (1181:1181:1181))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.wpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1190:1190:1190) (1184:1184:1184))
+        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1190:1190:1190) (1184:1184:1184))
+        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1190:1190:1190) (1184:1184:1184))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1190:1190:1190) (1184:1184:1184))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (709:709:709) (694:694:694))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (710:710:710) (695:695:695))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (710:710:710) (695:695:695))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (710:710:710) (695:695:695))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
@@ -673,14 +1084,174 @@
     (INSTANCE \\Mux31\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (2887:2887:2887) (3240:3240:3240))
-        (PORT datab (477:477:477) (549:549:549))
-        (PORT datac (299:299:299) (339:339:339))
-        (PORT datad (2780:2780:2780) (3134:3134:3134))
-        (IOPATH dataa combout (166:166:166) (159:159:159))
-        (IOPATH datab combout (167:167:167) (158:158:158))
+        (PORT dataa (359:359:359) (414:414:414))
+        (PORT datab (2460:2460:2460) (2768:2768:2768))
+        (PORT datac (674:674:674) (775:775:775))
+        (PORT datad (2286:2286:2286) (2574:2574:2574))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (188:188:188) (177:177:177))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE memwrite_three)
+    (DELAY
+      (ABSOLUTE
+        (PORT datab (2128:2128:2128) (2375:2375:2375))
+        (PORT datac (2175:2175:2175) (2461:2461:2461))
+        (PORT datad (2105:2105:2105) (2367:2367:2367))
+        (IOPATH datab combout (167:167:167) (167:167:167))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.datain_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2076:2076:2076) (2314:2314:2314))
+        (PORT d[1] (2553:2553:2553) (2851:2851:2851))
+        (PORT d[2] (2700:2700:2700) (3025:3025:3025))
+        (PORT d[3] (2427:2427:2427) (2721:2721:2721))
+        (PORT d[4] (2456:2456:2456) (2741:2741:2741))
+        (PORT d[5] (2372:2372:2372) (2666:2666:2666))
+        (PORT d[6] (2165:2165:2165) (2422:2422:2422))
+        (PORT d[7] (2317:2317:2317) (2591:2591:2591))
+        (PORT d[8] (2384:2384:2384) (2679:2679:2679))
+        (PORT d[9] (2438:2438:2438) (2748:2748:2748))
+        (PORT d[10] (2189:2189:2189) (2459:2459:2459))
+        (PORT d[11] (2215:2215:2215) (2463:2463:2463))
+        (PORT d[12] (2365:2365:2365) (2657:2657:2657))
+        (PORT d[13] (2583:2583:2583) (2912:2912:2912))
+        (PORT clk (1187:1187:1187) (1179:1179:1179))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.addr_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2249:2249:2249) (2521:2521:2521))
+        (PORT d[1] (2200:2200:2200) (2466:2466:2466))
+        (PORT d[2] (2542:2542:2542) (2861:2861:2861))
+        (PORT d[3] (2062:2062:2062) (2296:2296:2296))
+        (PORT d[4] (2036:2036:2036) (2266:2266:2266))
+        (PORT d[5] (2170:2170:2170) (2428:2428:2428))
+        (PORT d[6] (2402:2402:2402) (2712:2712:2712))
+        (PORT d[7] (2319:2319:2319) (2604:2604:2604))
+        (PORT clk (1185:1185:1185) (1177:1177:1177))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.we_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (768:768:768) (814:814:814))
+        (PORT clk (1185:1185:1185) (1177:1177:1177))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1187:1187:1187) (1179:1179:1179))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.wpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1180:1180:1180))
+        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1180:1180:1180))
+        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1180:1180:1180))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1180:1180:1180))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.active_core_port_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (707:707:707) (690:690:690))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (708:708:708) (691:691:691))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.ftpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (708:708:708) (691:691:691))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a0\\.rwpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (708:708:708) (691:691:691))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
@@ -689,12 +1260,12 @@
     (INSTANCE \\Mux31\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (2895:2895:2895) (3248:3248:3248))
-        (PORT datab (204:204:204) (241:241:241))
-        (PORT datac (459:459:459) (526:526:526))
-        (PORT datad (92:92:92) (110:110:110))
-        (IOPATH dataa combout (172:172:172) (165:165:165))
-        (IOPATH datab combout (161:161:161) (167:167:167))
+        (PORT dataa (522:522:522) (610:610:610))
+        (PORT datab (108:108:108) (133:133:133))
+        (PORT datac (512:512:512) (587:587:587))
+        (PORT datad (2290:2290:2290) (2579:2579:2579))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (192:192:192) (177:177:177))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -705,13 +1276,13 @@
     (INSTANCE \\Mux30\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (374:374:374) (443:443:443))
-        (PORT datab (741:741:741) (846:846:846))
-        (PORT datac (2473:2473:2473) (2780:2780:2780))
-        (PORT datad (2778:2778:2778) (3133:3133:3133))
+        (PORT dataa (368:368:368) (432:432:432))
+        (PORT datab (2460:2460:2460) (2768:2768:2768))
+        (PORT datac (501:501:501) (569:569:569))
+        (PORT datad (2285:2285:2285) (2572:2572:2572))
         (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (120:120:120) (124:124:124))
+        (IOPATH datab combout (166:166:166) (176:176:176))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -721,13 +1292,13 @@
     (INSTANCE \\Mux30\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (109:109:109) (135:135:135))
-        (PORT datab (484:484:484) (562:562:562))
-        (PORT datac (190:190:190) (219:219:219))
-        (PORT datad (2779:2779:2779) (3133:3133:3133))
-        (IOPATH dataa combout (186:186:186) (175:175:175))
-        (IOPATH datab combout (167:167:167) (158:158:158))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (371:371:371) (426:426:426))
+        (PORT datab (375:375:375) (427:427:427))
+        (PORT datac (2175:2175:2175) (2461:2461:2461))
+        (PORT datad (572:572:572) (636:636:636))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (167:167:167) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -737,12 +1308,12 @@
     (INSTANCE \\Mux29\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (2890:2890:2890) (3243:3243:3243))
-        (PORT datab (204:204:204) (242:242:242))
-        (PORT datac (338:338:338) (377:377:377))
-        (PORT datad (2779:2779:2779) (3133:3133:3133))
-        (IOPATH dataa combout (165:165:165) (173:173:173))
-        (IOPATH datab combout (168:168:168) (167:167:167))
+        (PORT dataa (531:531:531) (620:620:620))
+        (PORT datab (2461:2461:2461) (2769:2769:2769))
+        (PORT datac (345:345:345) (393:393:393))
+        (PORT datad (2291:2291:2291) (2580:2580:2580))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (190:190:190) (188:188:188))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -753,13 +1324,13 @@
     (INSTANCE \\Mux29\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (218:218:218) (262:262:262))
-        (PORT datab (483:483:483) (557:557:557))
-        (PORT datac (94:94:94) (114:114:114))
-        (PORT datad (2879:2879:2879) (3224:3224:3224))
-        (IOPATH dataa combout (166:166:166) (163:163:163))
-        (IOPATH datab combout (166:166:166) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
+        (PORT dataa (110:110:110) (136:136:136))
+        (PORT datab (2307:2307:2307) (2604:2604:2604))
+        (PORT datac (842:842:842) (968:968:968))
+        (PORT datad (507:507:507) (583:583:583))
+        (IOPATH dataa combout (186:186:186) (175:175:175))
+        (IOPATH datab combout (167:167:167) (158:158:158))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -769,12 +1340,12 @@
     (INSTANCE \\Mux28\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (207:207:207) (246:246:246))
-        (PORT datab (2489:2489:2489) (2799:2799:2799))
-        (PORT datac (347:347:347) (400:400:400))
-        (PORT datad (2779:2779:2779) (3134:3134:3134))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (188:188:188) (177:177:177))
+        (PORT dataa (2593:2593:2593) (2908:2908:2908))
+        (PORT datab (632:632:632) (733:733:733))
+        (PORT datac (357:357:357) (421:421:421))
+        (PORT datad (2287:2287:2287) (2575:2575:2575))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (167:167:167) (158:158:158))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -785,200 +1356,14 @@
     (INSTANCE \\Mux28\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (217:217:217) (261:261:261))
-        (PORT datab (108:108:108) (132:132:132))
-        (PORT datac (190:190:190) (220:220:220))
-        (PORT datad (2778:2778:2778) (3132:3132:3132))
-        (IOPATH dataa combout (159:159:159) (163:163:163))
-        (IOPATH datab combout (169:169:169) (167:167:167))
+        (PORT dataa (646:646:646) (746:746:746))
+        (PORT datab (107:107:107) (131:131:131))
+        (PORT datac (679:679:679) (780:780:780))
+        (PORT datad (2442:2442:2442) (2745:2745:2745))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (192:192:192) (177:177:177))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[5\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (252:252:252) (627:627:627))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[6\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (282:282:282) (657:657:657))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[7\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (292:292:292) (667:667:667))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[8\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (292:292:292) (667:667:667))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.datain_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2413:2413:2413) (2700:2700:2700))
-        (PORT d[1] (2206:2206:2206) (2479:2479:2479))
-        (PORT d[2] (2268:2268:2268) (2551:2551:2551))
-        (PORT d[3] (2427:2427:2427) (2729:2729:2729))
-        (PORT d[4] (2260:2260:2260) (2519:2519:2519))
-        (PORT d[5] (2577:2577:2577) (2897:2897:2897))
-        (PORT d[6] (2206:2206:2206) (2479:2479:2479))
-        (PORT d[7] (2256:2256:2256) (2536:2536:2536))
-        (PORT d[8] (2427:2427:2427) (2729:2729:2729))
-        (PORT d[9] (2254:2254:2254) (2517:2517:2517))
-        (PORT d[10] (2206:2206:2206) (2479:2479:2479))
-        (PORT d[11] (2268:2268:2268) (2551:2551:2551))
-        (PORT d[12] (2412:2412:2412) (2711:2711:2711))
-        (PORT d[13] (2260:2260:2260) (2519:2519:2519))
-        (PORT d[14] (2206:2206:2206) (2479:2479:2479))
-        (PORT d[15] (2256:2256:2256) (2536:2536:2536))
-        (PORT d[16] (2427:2427:2427) (2729:2729:2729))
-        (PORT d[17] (2260:2260:2260) (2519:2519:2519))
-        (PORT clk (1173:1173:1173) (1168:1168:1168))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.addr_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2455:2455:2455) (2749:2749:2749))
-        (PORT d[1] (2056:2056:2056) (2317:2317:2317))
-        (PORT d[2] (2051:2051:2051) (2307:2307:2307))
-        (PORT d[3] (2119:2119:2119) (2368:2368:2368))
-        (PORT d[4] (2013:2013:2013) (2250:2250:2250))
-        (PORT d[5] (2236:2236:2236) (2520:2520:2520))
-        (PORT d[6] (2045:2045:2045) (2276:2276:2276))
-        (PORT d[7] (2509:2509:2509) (2817:2817:2817))
-        (PORT clk (1171:1171:1171) (1166:1166:1166))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.we_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2337:2337:2337) (2542:2542:2542))
-        (PORT clk (1171:1171:1171) (1166:1166:1166))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.active_core_port_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1173:1173:1173) (1168:1168:1168))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.wpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1174:1174:1174) (1169:1169:1169))
-        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.rpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1174:1174:1174) (1169:1169:1169))
-        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.ftpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1174:1174:1174) (1169:1169:1169))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.rwpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1174:1174:1174) (1169:1169:1169))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.active_core_port_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (693:693:693) (679:679:679))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.rpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (694:694:694) (680:680:680))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.ftpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (694:694:694) (680:680:680))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a4\\.rwpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (694:694:694) (680:680:680))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
@@ -987,11 +1372,11 @@
     (INSTANCE \\Mux27\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (2894:2894:2894) (3248:3248:3248))
-        (PORT datab (362:362:362) (419:419:419))
-        (PORT datac (341:341:341) (383:383:383))
-        (PORT datad (2777:2777:2777) (3132:3132:3132))
-        (IOPATH dataa combout (165:165:165) (173:173:173))
+        (PORT dataa (2593:2593:2593) (2908:2908:2908))
+        (PORT datab (366:366:366) (429:429:429))
+        (PORT datac (490:490:490) (564:564:564))
+        (PORT datad (2286:2286:2286) (2574:2574:2574))
+        (IOPATH dataa combout (188:188:188) (179:179:179))
         (IOPATH datab combout (168:168:168) (167:167:167))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
@@ -1003,12 +1388,12 @@
     (INSTANCE \\Mux27\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (360:360:360) (407:407:407))
-        (PORT datab (107:107:107) (131:131:131))
-        (PORT datac (453:453:453) (515:515:515))
-        (PORT datad (2869:2869:2869) (3213:3213:3213))
-        (IOPATH dataa combout (166:166:166) (159:159:159))
-        (IOPATH datab combout (192:192:192) (177:177:177))
+        (PORT dataa (110:110:110) (137:137:137))
+        (PORT datab (532:532:532) (605:605:605))
+        (PORT datac (507:507:507) (582:582:582))
+        (PORT datad (2290:2290:2290) (2579:2579:2579))
+        (IOPATH dataa combout (172:172:172) (163:163:163))
+        (IOPATH datab combout (161:161:161) (167:167:167))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -1019,12 +1404,12 @@
     (INSTANCE \\Mux26\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (2899:2899:2899) (3252:3252:3252))
-        (PORT datab (365:365:365) (416:416:416))
-        (PORT datac (296:296:296) (339:339:339))
-        (PORT datad (2776:2776:2776) (3130:3130:3130))
-        (IOPATH dataa combout (188:188:188) (179:179:179))
-        (IOPATH datab combout (168:168:168) (167:167:167))
+        (PORT dataa (2593:2593:2593) (2908:2908:2908))
+        (PORT datab (523:523:523) (608:608:608))
+        (PORT datac (353:353:353) (416:416:416))
+        (PORT datad (2292:2292:2292) (2581:2581:2581))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (167:167:167) (158:158:158))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -1035,12 +1420,12 @@
     (INSTANCE \\Mux26\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (217:217:217) (262:262:262))
-        (PORT datab (104:104:104) (128:128:128))
-        (PORT datac (339:339:339) (382:382:382))
-        (PORT datad (2775:2775:2775) (3130:3130:3130))
-        (IOPATH dataa combout (166:166:166) (159:159:159))
-        (IOPATH datab combout (192:192:192) (177:177:177))
+        (PORT dataa (707:707:707) (822:822:822))
+        (PORT datab (108:108:108) (132:132:132))
+        (PORT datac (633:633:633) (727:727:727))
+        (PORT datad (2442:2442:2442) (2746:2746:2746))
+        (IOPATH dataa combout (159:159:159) (163:163:163))
+        (IOPATH datab combout (169:169:169) (167:167:167))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -1051,13 +1436,13 @@
     (INSTANCE \\Mux25\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (466:466:466) (535:535:535))
-        (PORT datab (2795:2795:2795) (3157:3157:3157))
-        (PORT datac (199:199:199) (238:238:238))
-        (PORT datad (2878:2878:2878) (3223:3223:3223))
+        (PORT dataa (520:520:520) (609:609:609))
+        (PORT datab (368:368:368) (436:436:436))
+        (PORT datac (2576:2576:2576) (2884:2884:2884))
+        (PORT datad (2284:2284:2284) (2572:2572:2572))
         (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (188:188:188) (177:177:177))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1067,13 +1452,13 @@
     (INSTANCE \\Mux25\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (354:354:354) (408:408:408))
-        (PORT datab (211:211:211) (253:253:253))
-        (PORT datac (2473:2473:2473) (2780:2780:2780))
-        (PORT datad (91:91:91) (109:109:109))
-        (IOPATH dataa combout (166:166:166) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
+        (PORT dataa (113:113:113) (140:140:140))
+        (PORT datab (527:527:527) (601:601:601))
+        (PORT datac (348:348:348) (399:399:399))
+        (PORT datad (2292:2292:2292) (2581:2581:2581))
+        (IOPATH dataa combout (172:172:172) (163:163:163))
+        (IOPATH datab combout (161:161:161) (167:167:167))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1083,11 +1468,11 @@
     (INSTANCE \\Mux24\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (458:458:458) (527:527:527))
-        (PORT datab (456:456:456) (522:522:522))
-        (PORT datac (2613:2613:2613) (2947:2947:2947))
-        (PORT datad (2642:2642:2642) (2998:2998:2998))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (PORT dataa (209:209:209) (249:249:249))
+        (PORT datab (452:452:452) (505:505:505))
+        (PORT datac (2171:2171:2171) (2457:2457:2457))
+        (PORT datad (2243:2243:2243) (2512:2512:2512))
+        (IOPATH dataa combout (165:165:165) (163:163:163))
         (IOPATH datab combout (168:168:168) (167:167:167))
         (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
@@ -1099,13 +1484,13 @@
     (INSTANCE \\Mux24\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (601:601:601) (688:688:688))
-        (PORT datab (105:105:105) (129:129:129))
-        (PORT datac (768:768:768) (869:869:869))
-        (PORT datad (2642:2642:2642) (2998:2998:2998))
-        (IOPATH dataa combout (159:159:159) (163:163:163))
-        (IOPATH datab combout (169:169:169) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (641:641:641) (736:736:736))
+        (PORT datab (108:108:108) (132:132:132))
+        (PORT datac (2172:2172:2172) (2459:2459:2459))
+        (PORT datad (355:355:355) (399:399:399))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (196:196:196) (205:205:205))
+        (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1115,10 +1500,10 @@
     (INSTANCE \\Mux23\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (595:595:595) (671:671:671))
-        (PORT datab (452:452:452) (519:519:519))
-        (PORT datac (2644:2644:2644) (2998:2998:2998))
-        (PORT datad (2710:2710:2710) (3035:3035:3035))
+        (PORT dataa (630:630:630) (708:708:708))
+        (PORT datab (476:476:476) (548:548:548))
+        (PORT datac (2595:2595:2595) (2902:2902:2902))
+        (PORT datad (2106:2106:2106) (2367:2367:2367))
         (IOPATH dataa combout (170:170:170) (163:163:163))
         (IOPATH datab combout (168:168:168) (167:167:167))
         (IOPATH datac combout (120:120:120) (124:124:124))
@@ -1131,209 +1516,14 @@
     (INSTANCE \\Mux23\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (515:515:515) (594:594:594))
-        (PORT datab (507:507:507) (582:582:582))
-        (PORT datac (2509:2509:2509) (2829:2829:2829))
-        (PORT datad (90:90:90) (107:107:107))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (167:167:167) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
+        (PORT dataa (520:520:520) (602:602:602))
+        (PORT datab (107:107:107) (131:131:131))
+        (PORT datac (523:523:523) (602:602:602))
+        (PORT datad (2107:2107:2107) (2369:2369:2369))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (192:192:192) (177:177:177))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[9\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (282:282:282) (657:657:657))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[10\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (263:263:263) (638:638:638))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[11\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (242:242:242) (617:617:617))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[12\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (263:263:263) (638:638:638))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[13\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (282:282:282) (657:657:657))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.datain_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2324:2324:2324) (2598:2598:2598))
-        (PORT d[1] (2239:2239:2239) (2485:2485:2485))
-        (PORT d[2] (2218:2218:2218) (2482:2482:2482))
-        (PORT d[3] (2227:2227:2227) (2488:2488:2488))
-        (PORT d[4] (2335:2335:2335) (2613:2613:2613))
-        (PORT d[5] (2260:2260:2260) (2519:2519:2519))
-        (PORT d[6] (2232:2232:2232) (2493:2493:2493))
-        (PORT d[7] (2224:2224:2224) (2485:2485:2485))
-        (PORT d[8] (2324:2324:2324) (2598:2598:2598))
-        (PORT d[9] (2260:2260:2260) (2519:2519:2519))
-        (PORT d[10] (2218:2218:2218) (2482:2482:2482))
-        (PORT d[11] (2227:2227:2227) (2488:2488:2488))
-        (PORT d[12] (2245:2245:2245) (2526:2526:2526))
-        (PORT d[13] (2335:2335:2335) (2613:2613:2613))
-        (PORT d[14] (2260:2260:2260) (2519:2519:2519))
-        (PORT d[15] (2232:2232:2232) (2493:2493:2493))
-        (PORT d[16] (2227:2227:2227) (2488:2488:2488))
-        (PORT d[17] (2235:2235:2235) (2514:2514:2514))
-        (PORT clk (1170:1170:1170) (1164:1164:1164))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.addr_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2431:2431:2431) (2715:2715:2715))
-        (PORT d[1] (2186:2186:2186) (2467:2467:2467))
-        (PORT d[2] (2220:2220:2220) (2501:2501:2501))
-        (PORT d[3] (2084:2084:2084) (2325:2325:2325))
-        (PORT d[4] (2012:2012:2012) (2250:2250:2250))
-        (PORT d[5] (2213:2213:2213) (2502:2502:2502))
-        (PORT d[6] (2045:2045:2045) (2276:2276:2276))
-        (PORT d[7] (2388:2388:2388) (2683:2683:2683))
-        (PORT clk (1168:1168:1168) (1162:1162:1162))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.we_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2515:2515:2515) (2746:2746:2746))
-        (PORT clk (1168:1168:1168) (1162:1162:1162))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.active_core_port_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1170:1170:1170) (1164:1164:1164))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.wpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1171:1171:1171) (1165:1165:1165))
-        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.rpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1171:1171:1171) (1165:1165:1165))
-        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.ftpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1171:1171:1171) (1165:1165:1165))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.rwpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1171:1171:1171) (1165:1165:1165))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.active_core_port_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (690:690:690) (675:675:675))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.rpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (691:691:691) (676:676:676))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.ftpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (691:691:691) (676:676:676))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a9\\.rwpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (691:691:691) (676:676:676))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
@@ -1342,13 +1532,13 @@
     (INSTANCE \\Mux22\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (2327:2327:2327) (2612:2612:2612))
-        (PORT datab (201:201:201) (238:238:238))
-        (PORT datac (2646:2646:2646) (3001:3001:3001))
-        (PORT datad (344:344:344) (390:390:390))
-        (IOPATH dataa combout (188:188:188) (193:193:193))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (120:120:120) (125:125:125))
+        (PORT dataa (523:523:523) (597:597:597))
+        (PORT datab (2652:2652:2652) (2991:2991:2991))
+        (PORT datac (349:349:349) (402:402:402))
+        (PORT datad (2105:2105:2105) (2366:2366:2366))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (167:167:167) (158:158:158))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1358,13 +1548,13 @@
     (INSTANCE \\Mux22\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (356:356:356) (402:402:402))
-        (PORT datab (202:202:202) (238:238:238))
-        (PORT datac (2649:2649:2649) (3005:3005:3005))
-        (PORT datad (90:90:90) (108:108:108))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (167:167:167) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
+        (PORT dataa (109:109:109) (135:135:135))
+        (PORT datab (807:807:807) (920:920:920))
+        (PORT datac (509:509:509) (584:584:584))
+        (PORT datad (2634:2634:2634) (2967:2967:2967))
+        (IOPATH dataa combout (186:186:186) (175:175:175))
+        (IOPATH datab combout (167:167:167) (158:158:158))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1374,13 +1564,13 @@
     (INSTANCE \\Mux21\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (214:214:214) (258:258:258))
-        (PORT datab (2529:2529:2529) (2852:2852:2852))
-        (PORT datac (2645:2645:2645) (3000:3000:3000))
-        (PORT datad (462:462:462) (526:526:526))
+        (PORT dataa (810:810:810) (923:923:923))
+        (PORT datab (2651:2651:2651) (2990:2990:2990))
+        (PORT datac (460:460:460) (528:528:528))
+        (PORT datad (2104:2104:2104) (2365:2365:2365))
         (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (188:188:188) (193:193:193))
-        (IOPATH datac combout (120:120:120) (124:124:124))
+        (IOPATH datab combout (190:190:190) (188:188:188))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1390,13 +1580,13 @@
     (INSTANCE \\Mux21\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (686:686:686) (786:786:786))
-        (PORT datab (203:203:203) (237:237:237))
-        (PORT datac (91:91:91) (110:110:110))
-        (PORT datad (2709:2709:2709) (3034:3034:3034))
-        (IOPATH dataa combout (165:165:165) (163:163:163))
-        (IOPATH datab combout (167:167:167) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
+        (PORT dataa (696:696:696) (801:801:801))
+        (PORT datab (107:107:107) (131:131:131))
+        (PORT datac (501:501:501) (568:568:568))
+        (PORT datad (2103:2103:2103) (2364:2364:2364))
+        (IOPATH dataa combout (159:159:159) (163:163:163))
+        (IOPATH datab combout (169:169:169) (167:167:167))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1406,13 +1596,13 @@
     (INSTANCE \\Mux20\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (354:354:354) (403:403:403))
-        (PORT datab (2531:2531:2531) (2855:2855:2855))
-        (PORT datac (2650:2650:2650) (3006:3006:3006))
-        (PORT datad (280:280:280) (317:317:317))
+        (PORT dataa (475:475:475) (545:545:545))
+        (PORT datab (530:530:530) (609:609:609))
+        (PORT datac (2594:2594:2594) (2901:2901:2901))
+        (PORT datad (2101:2101:2101) (2362:2362:2362))
         (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
+        (IOPATH datab combout (166:166:166) (167:167:167))
+        (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1422,13 +1612,13 @@
     (INSTANCE \\Mux20\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (309:309:309) (357:357:357))
-        (PORT datab (370:370:370) (418:418:418))
-        (PORT datac (2651:2651:2651) (3006:3006:3006))
-        (PORT datad (88:88:88) (106:106:106))
-        (IOPATH dataa combout (166:166:166) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
+        (PORT dataa (519:519:519) (596:596:596))
+        (PORT datab (109:109:109) (133:133:133))
+        (PORT datac (631:631:631) (720:720:720))
+        (PORT datad (2633:2633:2633) (2967:2967:2967))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (192:192:192) (177:177:177))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1438,13 +1628,13 @@
     (INSTANCE \\Mux19\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (206:206:206) (242:242:242))
-        (PORT datab (2531:2531:2531) (2854:2854:2854))
-        (PORT datac (2649:2649:2649) (3005:3005:3005))
-        (PORT datad (187:187:187) (218:218:218))
+        (PORT dataa (366:366:366) (412:412:412))
+        (PORT datab (2651:2651:2651) (2990:2990:2990))
+        (PORT datac (838:838:838) (954:954:954))
+        (PORT datad (2102:2102:2102) (2363:2363:2363))
         (IOPATH dataa combout (170:170:170) (163:163:163))
         (IOPATH datab combout (188:188:188) (177:177:177))
-        (IOPATH datac combout (119:119:119) (125:125:125))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -1454,12 +1644,44 @@
     (INSTANCE \\Mux19\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (303:303:303) (348:348:348))
-        (PORT datab (2531:2531:2531) (2854:2854:2854))
-        (PORT datac (347:347:347) (400:400:400))
-        (PORT datad (89:89:89) (107:107:107))
-        (IOPATH dataa combout (159:159:159) (163:163:163))
-        (IOPATH datab combout (169:169:169) (167:167:167))
+        (PORT dataa (997:997:997) (1143:1143:1143))
+        (PORT datab (108:108:108) (133:133:133))
+        (PORT datac (523:523:523) (600:600:600))
+        (PORT datad (2105:2105:2105) (2367:2367:2367))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (192:192:192) (177:177:177))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux18\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (799:799:799) (903:903:903))
+        (PORT datab (2652:2652:2652) (2992:2992:2992))
+        (PORT datac (360:360:360) (404:404:404))
+        (PORT datad (2106:2106:2106) (2368:2368:2368))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (167:167:167) (158:158:158))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux18\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (518:518:518) (593:593:593))
+        (PORT datab (110:110:110) (135:135:135))
+        (PORT datac (633:633:633) (727:727:727))
+        (PORT datad (2632:2632:2632) (2965:2965:2965))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (192:192:192) (177:177:177))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -1470,7 +1692,7 @@
     (INSTANCE \\writedata\[14\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (262:262:262) (637:637:637))
+        (IOPATH i o (253:253:253) (628:628:628))
       )
     )
   )
@@ -1479,7 +1701,7 @@
     (INSTANCE \\writedata\[15\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (263:263:263) (638:638:638))
+        (IOPATH i o (283:283:283) (658:658:658))
       )
     )
   )
@@ -1488,7 +1710,7 @@
     (INSTANCE \\writedata\[16\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (253:253:253) (628:628:628))
+        (IOPATH i o (262:262:262) (637:637:637))
       )
     )
   )
@@ -1497,317 +1719,7 @@
     (INSTANCE \\writedata\[17\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (262:262:262) (637:637:637))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.datain_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2235:2235:2235) (2514:2514:2514))
-        (PORT d[1] (2233:2233:2233) (2504:2504:2504))
-        (PORT d[2] (2223:2223:2223) (2475:2475:2475))
-        (PORT d[3] (2261:2261:2261) (2525:2525:2525))
-        (PORT d[4] (2235:2235:2235) (2520:2520:2520))
-        (PORT d[5] (2245:2245:2245) (2526:2526:2526))
-        (PORT d[6] (2244:2244:2244) (2519:2519:2519))
-        (PORT d[7] (2212:2212:2212) (2463:2463:2463))
-        (PORT d[8] (2261:2261:2261) (2525:2525:2525))
-        (PORT d[9] (2222:2222:2222) (2505:2505:2505))
-        (PORT d[10] (2233:2233:2233) (2504:2504:2504))
-        (PORT d[11] (2223:2223:2223) (2475:2475:2475))
-        (PORT d[12] (2258:2258:2258) (2521:2521:2521))
-        (PORT d[13] (2235:2235:2235) (2520:2520:2520))
-        (PORT d[14] (2244:2244:2244) (2519:2519:2519))
-        (PORT d[15] (2212:2212:2212) (2463:2463:2463))
-        (PORT d[16] (2261:2261:2261) (2525:2525:2525))
-        (PORT d[17] (2235:2235:2235) (2520:2520:2520))
-        (PORT clk (1170:1170:1170) (1164:1164:1164))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.addr_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2442:2442:2442) (2730:2730:2730))
-        (PORT d[1] (2186:2186:2186) (2467:2467:2467))
-        (PORT d[2] (2220:2220:2220) (2501:2501:2501))
-        (PORT d[3] (2084:2084:2084) (2325:2325:2325))
-        (PORT d[4] (2012:2012:2012) (2250:2250:2250))
-        (PORT d[5] (2213:2213:2213) (2502:2502:2502))
-        (PORT d[6] (2045:2045:2045) (2276:2276:2276))
-        (PORT d[7] (2388:2388:2388) (2683:2683:2683))
-        (PORT clk (1168:1168:1168) (1162:1162:1162))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.we_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2515:2515:2515) (2746:2746:2746))
-        (PORT clk (1168:1168:1168) (1162:1162:1162))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.active_core_port_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1170:1170:1170) (1164:1164:1164))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.wpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1171:1171:1171) (1165:1165:1165))
-        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.rpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1171:1171:1171) (1165:1165:1165))
-        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.ftpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1171:1171:1171) (1165:1165:1165))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.rwpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1171:1171:1171) (1165:1165:1165))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.active_core_port_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (690:690:690) (675:675:675))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.rpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (691:691:691) (676:676:676))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.ftpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (691:691:691) (676:676:676))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a13\\.rwpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (691:691:691) (676:676:676))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux18\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (688:688:688) (786:786:786))
-        (PORT datab (2528:2528:2528) (2851:2851:2851))
-        (PORT datac (2644:2644:2644) (2999:2999:2999))
-        (PORT datad (346:346:346) (396:396:396))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux18\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (357:357:357) (407:407:407))
-        (PORT datab (106:106:106) (130:130:130))
-        (PORT datac (2647:2647:2647) (3002:3002:3002))
-        (PORT datad (359:359:359) (416:416:416))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (196:196:196) (205:205:205))
-        (IOPATH datac combout (120:120:120) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux17\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (216:216:216) (261:261:261))
-        (PORT datab (2530:2530:2530) (2853:2853:2853))
-        (PORT datac (2648:2648:2648) (3003:3003:3003))
-        (PORT datad (355:355:355) (403:403:403))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (188:188:188) (177:177:177))
-        (IOPATH datac combout (119:119:119) (125:125:125))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux17\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (492:492:492) (568:568:568))
-        (PORT datab (2530:2530:2530) (2853:2853:2853))
-        (PORT datac (190:190:190) (223:223:223))
-        (PORT datad (90:90:90) (107:107:107))
-        (IOPATH dataa combout (159:159:159) (163:163:163))
-        (IOPATH datab combout (169:169:169) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux16\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (380:380:380) (443:443:443))
-        (PORT datab (319:319:319) (372:372:372))
-        (PORT datac (2623:2623:2623) (2959:2959:2959))
-        (PORT datad (2637:2637:2637) (2991:2991:2991))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (120:120:120) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux16\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (362:362:362) (417:417:417))
-        (PORT datab (110:110:110) (135:135:135))
-        (PORT datac (304:304:304) (344:344:344))
-        (PORT datad (2643:2643:2643) (2999:2999:2999))
-        (IOPATH dataa combout (159:159:159) (163:163:163))
-        (IOPATH datab combout (169:169:169) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux15\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (382:382:382) (445:445:445))
-        (PORT datab (314:314:314) (368:368:368))
-        (PORT datac (2625:2625:2625) (2961:2961:2961))
-        (PORT datad (2636:2636:2636) (2990:2990:2990))
-        (IOPATH dataa combout (165:165:165) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (120:120:120) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux15\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (2642:2642:2642) (2982:2982:2982))
-        (PORT datab (794:794:794) (905:905:905))
-        (PORT datac (294:294:294) (333:333:333))
-        (PORT datad (91:91:91) (108:108:108))
-        (IOPATH dataa combout (172:172:172) (165:165:165))
-        (IOPATH datab combout (161:161:161) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux14\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (304:304:304) (346:346:346))
-        (PORT datab (312:312:312) (366:366:366))
-        (PORT datac (2611:2611:2611) (2945:2945:2945))
-        (PORT datad (2642:2642:2642) (2999:2999:2999))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (120:120:120) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux14\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (2662:2662:2662) (3029:3029:3029))
-        (PORT datab (357:357:357) (407:407:407))
-        (PORT datac (308:308:308) (359:359:359))
-        (PORT datad (90:90:90) (108:108:108))
-        (IOPATH dataa combout (172:172:172) (165:165:165))
-        (IOPATH datab combout (161:161:161) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
+        (IOPATH i o (283:283:283) (658:658:658))
       )
     )
   )
@@ -1843,7 +1755,7 @@
     (INSTANCE \\writedata\[21\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (272:272:272) (647:647:647))
+        (IOPATH i o (293:293:293) (668:668:668))
       )
     )
   )
@@ -1852,285 +1764,7 @@
     (INSTANCE \\writedata\[22\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (273:273:273) (648:648:648))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.datain_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2252:2252:2252) (2528:2528:2528))
-        (PORT d[1] (1179:1179:1179) (1064:1064:1064))
-        (PORT d[2] (1046:1046:1046) (973:973:973))
-        (PORT d[3] (1986:1986:1986) (2213:2213:2213))
-        (PORT d[4] (2250:2250:2250) (2532:2532:2532))
-        (PORT d[5] (996:996:996) (906:906:906))
-        (PORT d[6] (1221:1221:1221) (1127:1127:1127))
-        (PORT d[7] (2120:2120:2120) (2359:2359:2359))
-        (PORT d[8] (2252:2252:2252) (2528:2528:2528))
-        (PORT d[9] (996:996:996) (906:906:906))
-        (PORT d[10] (1046:1046:1046) (973:973:973))
-        (PORT d[11] (1986:1986:1986) (2213:2213:2213))
-        (PORT d[12] (2389:2389:2389) (2666:2666:2666))
-        (PORT d[13] (2250:2250:2250) (2532:2532:2532))
-        (PORT d[14] (996:996:996) (906:906:906))
-        (PORT d[15] (1221:1221:1221) (1127:1127:1127))
-        (PORT d[16] (1986:1986:1986) (2213:2213:2213))
-        (PORT d[17] (2412:2412:2412) (2696:2696:2696))
-        (PORT clk (1180:1180:1180) (1175:1175:1175))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.addr_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2581:2581:2581) (2884:2884:2884))
-        (PORT d[1] (2388:2388:2388) (2697:2697:2697))
-        (PORT d[2] (2396:2396:2396) (2699:2699:2699))
-        (PORT d[3] (2096:2096:2096) (2341:2341:2341))
-        (PORT d[4] (1989:1989:1989) (2220:2220:2220))
-        (PORT d[5] (2239:2239:2239) (2526:2526:2526))
-        (PORT d[6] (2058:2058:2058) (2294:2294:2294))
-        (PORT d[7] (2544:2544:2544) (2867:2867:2867))
-        (PORT clk (1178:1178:1178) (1173:1173:1173))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.we_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2674:2674:2674) (2924:2924:2924))
-        (PORT clk (1178:1178:1178) (1173:1173:1173))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.active_core_port_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1180:1180:1180) (1175:1175:1175))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.wpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1181:1181:1181) (1176:1176:1176))
-        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.rpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1181:1181:1181) (1176:1176:1176))
-        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.ftpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1181:1181:1181) (1176:1176:1176))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.rwpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1181:1181:1181) (1176:1176:1176))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.active_core_port_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (700:700:700) (686:686:686))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.rpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (701:701:701) (687:687:687))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.ftpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (701:701:701) (687:687:687))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a18\\.rwpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (701:701:701) (687:687:687))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux13\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (675:675:675) (765:765:765))
-        (PORT datab (2530:2530:2530) (2854:2854:2854))
-        (PORT datac (2648:2648:2648) (3004:3004:3004))
-        (PORT datad (491:491:491) (558:558:558))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (188:188:188) (177:177:177))
-        (IOPATH datac combout (119:119:119) (125:125:125))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux13\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (666:666:666) (756:756:756))
-        (PORT datab (613:613:613) (693:693:693))
-        (PORT datac (2621:2621:2621) (2957:2957:2957))
-        (PORT datad (253:253:253) (280:280:280))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (167:167:167) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux12\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (563:563:563) (656:656:656))
-        (PORT datab (694:694:694) (795:795:795))
-        (PORT datac (2474:2474:2474) (2781:2781:2781))
-        (PORT datad (2777:2777:2777) (3131:3131:3131))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (120:120:120) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux12\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (685:685:685) (784:784:784))
-        (PORT datab (609:609:609) (693:693:693))
-        (PORT datac (399:399:399) (440:440:440))
-        (PORT datad (2640:2640:2640) (2996:2996:2996))
-        (IOPATH dataa combout (165:165:165) (163:163:163))
-        (IOPATH datab combout (167:167:167) (167:167:167))
-        (IOPATH datac combout (119:119:119) (125:125:125))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux11\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (703:703:703) (810:810:810))
-        (PORT datab (627:627:627) (720:720:720))
-        (PORT datac (2615:2615:2615) (2949:2949:2949))
-        (PORT datad (2641:2641:2641) (2997:2997:2997))
-        (IOPATH dataa combout (165:165:165) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (120:120:120) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux11\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (2640:2640:2640) (2980:2980:2980))
-        (PORT datab (672:672:672) (758:758:758))
-        (PORT datac (614:614:614) (695:695:695))
-        (PORT datad (91:91:91) (108:108:108))
-        (IOPATH dataa combout (186:186:186) (175:175:175))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux10\~0\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (2638:2638:2638) (2978:2978:2978))
-        (PORT datab (664:664:664) (753:753:753))
-        (PORT datac (593:593:593) (665:665:665))
-        (PORT datad (2640:2640:2640) (2996:2996:2996))
-        (IOPATH dataa combout (188:188:188) (184:184:184))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux10\~1\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT dataa (631:631:631) (723:723:723))
-        (PORT datab (108:108:108) (132:132:132))
-        (PORT datac (586:586:586) (653:653:653))
-        (PORT datad (2637:2637:2637) (2990:2990:2990))
-        (IOPATH dataa combout (166:166:166) (159:159:159))
-        (IOPATH datab combout (192:192:192) (177:177:177))
-        (IOPATH datac combout (119:119:119) (124:124:124))
-        (IOPATH datad combout (68:68:68) (63:63:63))
+        (IOPATH i o (292:292:292) (667:667:667))
       )
     )
   )
@@ -2139,7 +1773,7 @@
     (INSTANCE \\writedata\[23\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (272:272:272) (647:647:647))
+        (IOPATH i o (292:292:292) (667:667:667))
       )
     )
   )
@@ -2148,7 +1782,7 @@
     (INSTANCE \\writedata\[24\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (272:272:272) (647:647:647))
+        (IOPATH i o (292:292:292) (667:667:667))
       )
     )
   )
@@ -2166,34 +1800,79 @@
     (INSTANCE \\writedata\[26\]\~input\\)
     (DELAY
       (ABSOLUTE
+        (IOPATH i o (263:263:263) (638:638:638))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[27\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (242:242:242) (617:617:617))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[28\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (252:252:252) (627:627:627))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[29\]\~input\\)
+    (DELAY
+      (ABSOLUTE
         (IOPATH i o (273:273:273) (648:648:648))
       )
     )
   )
   (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.datain_a_register)
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[30\]\~input\\)
     (DELAY
       (ABSOLUTE
-        (PORT d[0] (2412:2412:2412) (2696:2696:2696))
-        (PORT d[1] (2198:2198:2198) (2460:2460:2460))
-        (PORT d[2] (2156:2156:2156) (2386:2386:2386))
-        (PORT d[3] (2188:2188:2188) (2467:2467:2467))
-        (PORT d[4] (2242:2242:2242) (2501:2501:2501))
-        (PORT d[5] (2389:2389:2389) (2666:2666:2666))
-        (PORT d[6] (2209:2209:2209) (2475:2475:2475))
-        (PORT d[7] (1997:1997:1997) (2204:2204:2204))
-        (PORT d[8] (2188:2188:2188) (2467:2467:2467))
-        (PORT d[9] (2087:2087:2087) (2323:2323:2323))
-        (PORT d[10] (2198:2198:2198) (2460:2460:2460))
-        (PORT d[11] (2156:2156:2156) (2386:2386:2386))
-        (PORT d[12] (2184:2184:2184) (2463:2463:2463))
-        (PORT d[13] (2242:2242:2242) (2501:2501:2501))
-        (PORT d[14] (2209:2209:2209) (2475:2475:2475))
-        (PORT d[15] (1997:1997:1997) (2204:2204:2204))
-        (PORT d[16] (2188:2188:2188) (2467:2467:2467))
-        (PORT d[17] (2242:2242:2242) (2501:2501:2501))
-        (PORT clk (1180:1180:1180) (1175:1175:1175))
+        (IOPATH i o (242:242:242) (617:617:617))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_io_ibuf")
+    (INSTANCE \\writedata\[31\]\~input\\)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH i o (253:253:253) (628:628:628))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.datain_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2616:2616:2616) (2939:2939:2939))
+        (PORT d[1] (2271:2271:2271) (2527:2527:2527))
+        (PORT d[2] (2419:2419:2419) (2730:2730:2730))
+        (PORT d[3] (2569:2569:2569) (2881:2881:2881))
+        (PORT d[4] (2205:2205:2205) (2474:2474:2474))
+        (PORT d[5] (1535:1535:1535) (1372:1372:1372))
+        (PORT d[6] (943:943:943) (862:862:862))
+        (PORT d[7] (2280:2280:2280) (2550:2550:2550))
+        (PORT d[8] (2547:2547:2547) (2866:2866:2866))
+        (PORT d[9] (2308:2308:2308) (2591:2591:2591))
+        (PORT d[10] (2445:2445:2445) (2737:2737:2737))
+        (PORT d[11] (2331:2331:2331) (2602:2602:2602))
+        (PORT d[12] (2371:2371:2371) (2650:2650:2650))
+        (PORT d[13] (2250:2250:2250) (2532:2532:2532))
+        (PORT d[14] (2549:2549:2549) (2868:2868:2868))
+        (PORT d[15] (2073:2073:2073) (2307:2307:2307))
+        (PORT d[16] (2218:2218:2218) (2477:2477:2477))
+        (PORT d[17] (2230:2230:2230) (2476:2476:2476))
+        (PORT clk (1186:1186:1186) (1181:1181:1181))
       )
     )
     (TIMINGCHECK
@@ -2202,18 +1881,18 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.addr_a_register)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.addr_a_register)
     (DELAY
       (ABSOLUTE
-        (PORT d[0] (2595:2595:2595) (2892:2892:2892))
-        (PORT d[1] (2388:2388:2388) (2697:2697:2697))
-        (PORT d[2] (2396:2396:2396) (2699:2699:2699))
-        (PORT d[3] (2096:2096:2096) (2341:2341:2341))
-        (PORT d[4] (1989:1989:1989) (2220:2220:2220))
-        (PORT d[5] (2239:2239:2239) (2526:2526:2526))
-        (PORT d[6] (2058:2058:2058) (2294:2294:2294))
-        (PORT d[7] (2544:2544:2544) (2867:2867:2867))
-        (PORT clk (1178:1178:1178) (1173:1173:1173))
+        (PORT d[0] (2587:2587:2587) (2898:2898:2898))
+        (PORT d[1] (2522:2522:2522) (2838:2838:2838))
+        (PORT d[2] (2532:2532:2532) (2849:2849:2849))
+        (PORT d[3] (2253:2253:2253) (2516:2516:2516))
+        (PORT d[4] (2074:2074:2074) (2313:2313:2313))
+        (PORT d[5] (2324:2324:2324) (2606:2606:2606))
+        (PORT d[6] (2578:2578:2578) (2912:2912:2912))
+        (PORT d[7] (2361:2361:2361) (2652:2652:2652))
+        (PORT clk (1184:1184:1184) (1179:1179:1179))
       )
     )
     (TIMINGCHECK
@@ -2222,11 +1901,11 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.we_a_register)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.we_a_register)
     (DELAY
       (ABSOLUTE
-        (PORT d[0] (2674:2674:2674) (2924:2924:2924))
-        (PORT clk (1178:1178:1178) (1173:1173:1173))
+        (PORT d[0] (734:734:734) (764:764:764))
+        (PORT clk (1184:1184:1184) (1179:1179:1179))
       )
     )
     (TIMINGCHECK
@@ -2235,100 +1914,582 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.active_core_port_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.active_core_port_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1180:1180:1180) (1175:1175:1175))
+        (PORT clk (1186:1186:1186) (1181:1181:1181))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.wpgen_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.wpgen_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1181:1181:1181) (1176:1176:1176))
+        (PORT clk (1187:1187:1187) (1182:1182:1182))
         (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.rpgen_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rpgen_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1181:1181:1181) (1176:1176:1176))
+        (PORT clk (1187:1187:1187) (1182:1182:1182))
         (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.ftpgen_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.ftpgen_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1181:1181:1181) (1176:1176:1176))
+        (PORT clk (1187:1187:1187) (1182:1182:1182))
         (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.rwpgen_a)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rwpgen_a)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1181:1181:1181) (1176:1176:1176))
+        (PORT clk (1187:1187:1187) (1182:1182:1182))
         (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.active_core_port_b)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.active_core_port_b)
     (DELAY
       (ABSOLUTE
-        (PORT clk (700:700:700) (686:686:686))
+        (PORT clk (706:706:706) (692:692:692))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.rpgen_b)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rpgen_b)
     (DELAY
       (ABSOLUTE
-        (PORT clk (701:701:701) (687:687:687))
+        (PORT clk (707:707:707) (693:693:693))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.ftpgen_b)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.ftpgen_b)
     (DELAY
       (ABSOLUTE
-        (PORT clk (701:701:701) (687:687:687))
+        (PORT clk (707:707:707) (693:693:693))
         (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a22\\.rwpgen_b)
+    (INSTANCE \\word_two_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rwpgen_b)
     (DELAY
       (ABSOLUTE
-        (PORT clk (701:701:701) (687:687:687))
+        (PORT clk (707:707:707) (693:693:693))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.datain_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2427:2427:2427) (2724:2724:2724))
+        (PORT d[1] (2271:2271:2271) (2528:2528:2528))
+        (PORT d[2] (2401:2401:2401) (2705:2705:2705))
+        (PORT d[3] (2411:2411:2411) (2700:2700:2700))
+        (PORT d[4] (2513:2513:2513) (2813:2813:2813))
+        (PORT d[5] (1170:1170:1170) (1059:1059:1059))
+        (PORT d[6] (1283:1283:1283) (1149:1149:1149))
+        (PORT d[7] (2737:2737:2737) (3066:3066:3066))
+        (PORT d[8] (2374:2374:2374) (2677:2677:2677))
+        (PORT d[9] (2286:2286:2286) (2560:2560:2560))
+        (PORT d[10] (2295:2295:2295) (2570:2570:2570))
+        (PORT d[11] (2621:2621:2621) (2924:2924:2924))
+        (PORT d[12] (2383:2383:2383) (2658:2658:2658))
+        (PORT d[13] (2435:2435:2435) (2743:2743:2743))
+        (PORT d[14] (2200:2200:2200) (2471:2471:2471))
+        (PORT d[15] (2274:2274:2274) (2538:2538:2538))
+        (PORT d[16] (2177:2177:2177) (2429:2429:2429))
+        (PORT d[17] (2079:2079:2079) (2316:2316:2316))
+        (PORT clk (1187:1187:1187) (1179:1179:1179))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.addr_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2241:2241:2241) (2502:2502:2502))
+        (PORT d[1] (2200:2200:2200) (2466:2466:2466))
+        (PORT d[2] (2542:2542:2542) (2861:2861:2861))
+        (PORT d[3] (2062:2062:2062) (2296:2296:2296))
+        (PORT d[4] (2036:2036:2036) (2266:2266:2266))
+        (PORT d[5] (2170:2170:2170) (2428:2428:2428))
+        (PORT d[6] (2402:2402:2402) (2712:2712:2712))
+        (PORT d[7] (2319:2319:2319) (2604:2604:2604))
+        (PORT clk (1185:1185:1185) (1177:1177:1177))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.we_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (768:768:768) (814:814:814))
+        (PORT clk (1185:1185:1185) (1177:1177:1177))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.active_core_port_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1187:1187:1187) (1179:1179:1179))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.wpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1180:1180:1180))
+        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1180:1180:1180))
+        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.ftpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1180:1180:1180))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rwpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1180:1180:1180))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.active_core_port_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (707:707:707) (690:690:690))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (708:708:708) (691:691:691))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.ftpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (708:708:708) (691:691:691))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rwpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (708:708:708) (691:691:691))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.datain_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2616:2616:2616) (2939:2939:2939))
+        (PORT d[1] (2605:2605:2605) (2920:2920:2920))
+        (PORT d[2] (2686:2686:2686) (3029:3029:3029))
+        (PORT d[3] (2536:2536:2536) (2840:2840:2840))
+        (PORT d[4] (2355:2355:2355) (2642:2642:2642))
+        (PORT d[5] (1193:1193:1193) (1071:1071:1071))
+        (PORT d[6] (1308:1308:1308) (1181:1181:1181))
+        (PORT d[7] (2556:2556:2556) (2861:2861:2861))
+        (PORT d[8] (2412:2412:2412) (2712:2712:2712))
+        (PORT d[9] (2594:2594:2594) (2905:2905:2905))
+        (PORT d[10] (2267:2267:2267) (2531:2531:2531))
+        (PORT d[11] (2596:2596:2596) (2895:2895:2895))
+        (PORT d[12] (2535:2535:2535) (2836:2836:2836))
+        (PORT d[13] (2426:2426:2426) (2733:2733:2733))
+        (PORT d[14] (2384:2384:2384) (2683:2683:2683))
+        (PORT d[15] (2248:2248:2248) (2511:2511:2511))
+        (PORT d[16] (2217:2217:2217) (2476:2476:2476))
+        (PORT d[17] (2233:2233:2233) (2491:2491:2491))
+        (PORT clk (1188:1188:1188) (1182:1182:1182))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.addr_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2225:2225:2225) (2490:2490:2490))
+        (PORT d[1] (2374:2374:2374) (2676:2676:2676))
+        (PORT d[2] (2373:2373:2373) (2672:2672:2672))
+        (PORT d[3] (2241:2241:2241) (2497:2497:2497))
+        (PORT d[4] (2073:2073:2073) (2312:2312:2312))
+        (PORT d[5] (2343:2343:2343) (2631:2631:2631))
+        (PORT d[6] (2583:2583:2583) (2920:2920:2920))
+        (PORT d[7] (2361:2361:2361) (2656:2656:2656))
+        (PORT clk (1186:1186:1186) (1180:1180:1180))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.we_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (894:894:894) (953:953:953))
+        (PORT clk (1186:1186:1186) (1180:1180:1180))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.active_core_port_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1188:1188:1188) (1182:1182:1182))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.wpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.ftpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rwpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.active_core_port_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (708:708:708) (693:693:693))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (709:709:709) (694:694:694))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.ftpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (709:709:709) (694:694:694))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_zero_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rwpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (709:709:709) (694:694:694))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.datain_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2620:2620:2620) (2947:2947:2947))
+        (PORT d[1] (2617:2617:2617) (2922:2922:2922))
+        (PORT d[2] (2587:2587:2587) (2921:2921:2921))
+        (PORT d[3] (2551:2551:2551) (2850:2850:2850))
+        (PORT d[4] (2196:2196:2196) (2463:2463:2463))
+        (PORT d[5] (1479:1479:1479) (1337:1337:1337))
+        (PORT d[6] (981:981:981) (890:890:890))
+        (PORT d[7] (2721:2721:2721) (3050:3050:3050))
+        (PORT d[8] (2402:2402:2402) (2701:2701:2701))
+        (PORT d[9] (2307:2307:2307) (2586:2586:2586))
+        (PORT d[10] (2426:2426:2426) (2707:2707:2707))
+        (PORT d[11] (2613:2613:2613) (2919:2919:2919))
+        (PORT d[12] (2379:2379:2379) (2655:2655:2655))
+        (PORT d[13] (2443:2443:2443) (2753:2753:2753))
+        (PORT d[14] (2568:2568:2568) (2888:2888:2888))
+        (PORT d[15] (2263:2263:2263) (2526:2526:2526))
+        (PORT d[16] (2194:2194:2194) (2456:2456:2456))
+        (PORT d[17] (2226:2226:2226) (2478:2478:2478))
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.addr_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (2417:2417:2417) (2714:2714:2714))
+        (PORT d[1] (2372:2372:2372) (2665:2665:2665))
+        (PORT d[2] (2515:2515:2515) (2828:2828:2828))
+        (PORT d[3] (2234:2234:2234) (2489:2489:2489))
+        (PORT d[4] (2066:2066:2066) (2305:2305:2305))
+        (PORT d[5] (2493:2493:2493) (2796:2796:2796))
+        (PORT d[6] (2561:2561:2561) (2893:2893:2893))
+        (PORT d[7] (2352:2352:2352) (2644:2644:2644))
+        (PORT clk (1187:1187:1187) (1181:1181:1181))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.we_a_register)
+    (DELAY
+      (ABSOLUTE
+        (PORT d[0] (593:593:593) (614:614:614))
+        (PORT clk (1187:1187:1187) (1181:1181:1181))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (104:104:104))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.active_core_port_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1189:1189:1189) (1183:1183:1183))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.wpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1190:1190:1190) (1184:1184:1184))
+        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1190:1190:1190) (1184:1184:1184))
+        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.ftpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1190:1190:1190) (1184:1184:1184))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rwpgen_a)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1190:1190:1190) (1184:1184:1184))
+        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_register")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.active_core_port_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (709:709:709) (694:694:694))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (710:710:710) (695:695:695))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.ftpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (710:710:710) (695:695:695))
+        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_ram_pulse_generator")
+    (INSTANCE \\word_one_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a14\\.rwpgen_b)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (710:710:710) (695:695:695))
         (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneiv_lcell_comb")
-    (INSTANCE \\Mux9\~0\\)
+    (INSTANCE \\Mux17\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (366:366:366) (430:430:430))
-        (PORT datab (345:345:345) (400:400:400))
-        (PORT datac (2313:2313:2313) (2584:2584:2584))
-        (PORT datad (2615:2615:2615) (2964:2964:2964))
+        (PORT dataa (373:373:373) (438:438:438))
+        (PORT datab (2127:2127:2127) (2398:2398:2398))
+        (PORT datac (608:608:608) (681:681:681))
+        (PORT datad (2634:2634:2634) (2968:2968:2968))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (166:166:166) (176:176:176))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux17\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (2265:2265:2265) (2544:2544:2544))
+        (PORT datab (358:358:358) (415:415:415))
+        (PORT datac (527:527:527) (604:604:604))
+        (PORT datad (162:162:162) (185:185:185))
+        (IOPATH dataa combout (186:186:186) (175:175:175))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux16\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (518:518:518) (600:600:600))
+        (PORT datab (365:365:365) (420:420:420))
+        (PORT datac (2170:2170:2170) (2456:2456:2456))
+        (PORT datad (2243:2243:2243) (2512:2512:2512))
         (IOPATH dataa combout (170:170:170) (163:163:163))
         (IOPATH datab combout (166:166:166) (167:167:167))
         (IOPATH datac combout (120:120:120) (124:124:124))
@@ -2338,15 +2499,239 @@
   )
   (CELL
     (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux16\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (553:553:553) (633:633:633))
+        (PORT datab (517:517:517) (593:593:593))
+        (PORT datac (2174:2174:2174) (2460:2460:2460))
+        (PORT datad (92:92:92) (109:109:109))
+        (IOPATH dataa combout (166:166:166) (163:163:163))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux15\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (376:376:376) (438:438:438))
+        (PORT datab (2651:2651:2651) (2990:2990:2990))
+        (PORT datac (608:608:608) (681:681:681))
+        (PORT datad (2102:2102:2102) (2362:2362:2362))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (188:188:188) (177:177:177))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux15\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (107:107:107) (133:133:133))
+        (PORT datab (518:518:518) (594:594:594))
+        (PORT datac (657:657:657) (749:749:749))
+        (PORT datad (2103:2103:2103) (2364:2364:2364))
+        (IOPATH dataa combout (186:186:186) (175:175:175))
+        (IOPATH datab combout (167:167:167) (158:158:158))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux14\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (523:523:523) (600:600:600))
+        (PORT datab (2194:2194:2194) (2483:2483:2483))
+        (PORT datac (338:338:338) (381:381:381))
+        (PORT datad (2246:2246:2246) (2515:2515:2515))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (166:166:166) (176:176:176))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux14\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (777:777:777) (873:873:873))
+        (PORT datab (513:513:513) (586:586:586))
+        (PORT datac (2174:2174:2174) (2461:2461:2461))
+        (PORT datad (90:90:90) (107:107:107))
+        (IOPATH dataa combout (166:166:166) (163:163:163))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux13\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (531:531:531) (621:621:621))
+        (PORT datab (799:799:799) (909:909:909))
+        (PORT datac (2173:2173:2173) (2460:2460:2460))
+        (PORT datad (2245:2245:2245) (2515:2515:2515))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (120:120:120) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux13\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (382:382:382) (445:445:445))
+        (PORT datab (106:106:106) (129:129:129))
+        (PORT datac (642:642:642) (730:730:730))
+        (PORT datad (2246:2246:2246) (2516:2516:2516))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (192:192:192) (177:177:177))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux12\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (500:500:500) (574:574:574))
+        (PORT datab (349:349:349) (404:404:404))
+        (PORT datac (2175:2175:2175) (2462:2462:2462))
+        (PORT datad (2246:2246:2246) (2516:2516:2516))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (166:166:166) (167:167:167))
+        (IOPATH datac combout (120:120:120) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux12\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (692:692:692) (798:798:798))
+        (PORT datab (517:517:517) (586:586:586))
+        (PORT datac (2176:2176:2176) (2463:2463:2463))
+        (PORT datad (88:88:88) (106:106:106))
+        (IOPATH dataa combout (166:166:166) (163:163:163))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux11\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (459:459:459) (526:526:526))
+        (PORT datab (2460:2460:2460) (2768:2768:2768))
+        (PORT datac (199:199:199) (241:241:241))
+        (PORT datad (2285:2285:2285) (2573:2573:2573))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (190:190:190) (188:188:188))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux11\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (110:110:110) (136:136:136))
+        (PORT datab (369:369:369) (433:433:433))
+        (PORT datac (363:363:363) (424:424:424))
+        (PORT datad (2291:2291:2291) (2580:2580:2580))
+        (IOPATH dataa combout (186:186:186) (175:175:175))
+        (IOPATH datab combout (167:167:167) (158:158:158))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux10\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (2265:2265:2265) (2545:2545:2545))
+        (PORT datab (361:361:361) (415:415:415))
+        (PORT datac (2172:2172:2172) (2458:2458:2458))
+        (PORT datad (489:489:489) (555:555:555))
+        (IOPATH dataa combout (170:170:170) (165:165:165))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux10\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (535:535:535) (614:614:614))
+        (PORT datab (106:106:106) (130:130:130))
+        (PORT datac (2172:2172:2172) (2458:2458:2458))
+        (PORT datad (510:510:510) (583:583:583))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (169:169:169) (167:167:167))
+        (IOPATH datac combout (120:120:120) (125:125:125))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
+    (INSTANCE \\Mux9\~0\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (205:205:205) (244:244:244))
+        (PORT datab (2196:2196:2196) (2485:2485:2485))
+        (PORT datac (427:427:427) (482:482:482))
+        (PORT datad (2104:2104:2104) (2366:2366:2366))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (190:190:190) (188:188:188))
+        (IOPATH datac combout (119:119:119) (124:124:124))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneiv_lcell_comb")
     (INSTANCE \\Mux9\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (458:458:458) (529:529:529))
-        (PORT datab (2370:2370:2370) (2671:2671:2671))
-        (PORT datac (342:342:342) (399:399:399))
-        (PORT datad (92:92:92) (110:110:110))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (190:190:190) (177:177:177))
+        (PORT dataa (364:364:364) (416:416:416))
+        (PORT datab (105:105:105) (129:129:129))
+        (PORT datac (448:448:448) (511:511:511))
+        (PORT datad (2104:2104:2104) (2366:2366:2366))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (192:192:192) (177:177:177))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -2357,12 +2742,12 @@
     (INSTANCE \\Mux8\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (361:361:361) (424:424:424))
-        (PORT datab (2368:2368:2368) (2668:2668:2668))
-        (PORT datac (619:619:619) (700:700:700))
-        (PORT datad (2618:2618:2618) (2968:2968:2968))
+        (PORT dataa (458:458:458) (523:523:523))
+        (PORT datab (2185:2185:2185) (2471:2471:2471))
+        (PORT datac (352:352:352) (407:407:407))
+        (PORT datad (2108:2108:2108) (2371:2371:2371))
         (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (188:188:188) (177:177:177))
+        (IOPATH datab combout (166:166:166) (176:176:176))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -2373,13 +2758,13 @@
     (INSTANCE \\Mux8\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (110:110:110) (136:136:136))
-        (PORT datab (438:438:438) (497:497:497))
-        (PORT datac (341:341:341) (387:387:387))
-        (PORT datad (2613:2613:2613) (2962:2962:2962))
-        (IOPATH dataa combout (172:172:172) (163:163:163))
-        (IOPATH datab combout (161:161:161) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (314:314:314) (363:363:363))
+        (PORT datab (105:105:105) (129:129:129))
+        (PORT datac (2165:2165:2165) (2450:2450:2450))
+        (PORT datad (674:674:674) (756:756:756))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (196:196:196) (205:205:205))
+        (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2389,11 +2774,11 @@
     (INSTANCE \\Mux7\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (347:347:347) (401:401:401))
-        (PORT datab (517:517:517) (600:600:600))
-        (PORT datac (2378:2378:2378) (2664:2664:2664))
-        (PORT datad (2766:2766:2766) (3130:3130:3130))
-        (IOPATH dataa combout (165:165:165) (163:163:163))
+        (PORT dataa (300:300:300) (343:343:343))
+        (PORT datab (364:364:364) (425:425:425))
+        (PORT datac (2166:2166:2166) (2451:2451:2451))
+        (PORT datad (2108:2108:2108) (2371:2371:2371))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
         (IOPATH datab combout (168:168:168) (167:167:167))
         (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
@@ -2405,13 +2790,13 @@
     (INSTANCE \\Mux7\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (2395:2395:2395) (2688:2688:2688))
-        (PORT datab (503:503:503) (575:575:575))
-        (PORT datac (340:340:340) (393:393:393))
-        (PORT datad (90:90:90) (107:107:107))
-        (IOPATH dataa combout (172:172:172) (165:165:165))
-        (IOPATH datab combout (161:161:161) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (652:652:652) (746:746:746))
+        (PORT datab (369:369:369) (426:426:426))
+        (PORT datac (91:91:91) (110:110:110))
+        (PORT datad (2107:2107:2107) (2370:2370:2370))
+        (IOPATH dataa combout (166:166:166) (163:163:163))
+        (IOPATH datab combout (166:166:166) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2421,12 +2806,12 @@
     (INSTANCE \\Mux6\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (2395:2395:2395) (2688:2688:2688))
-        (PORT datab (450:450:450) (502:502:502))
-        (PORT datac (583:583:583) (657:657:657))
-        (PORT datad (2765:2765:2765) (3128:3128:3128))
-        (IOPATH dataa combout (188:188:188) (179:179:179))
-        (IOPATH datab combout (168:168:168) (167:167:167))
+        (PORT dataa (378:378:378) (441:441:441))
+        (PORT datab (2194:2194:2194) (2483:2483:2483))
+        (PORT datac (358:358:358) (409:409:409))
+        (PORT datad (2105:2105:2105) (2367:2367:2367))
+        (IOPATH dataa combout (166:166:166) (159:159:159))
+        (IOPATH datab combout (167:167:167) (158:158:158))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -2437,13 +2822,13 @@
     (INSTANCE \\Mux6\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (109:109:109) (135:135:135))
-        (PORT datab (513:513:513) (593:593:593))
-        (PORT datac (609:609:609) (683:683:683))
-        (PORT datad (2762:2762:2762) (3126:3126:3126))
-        (IOPATH dataa combout (186:186:186) (175:175:175))
-        (IOPATH datab combout (167:167:167) (158:158:158))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (300:300:300) (343:343:343))
+        (PORT datab (106:106:106) (129:129:129))
+        (PORT datac (2169:2169:2169) (2455:2455:2455))
+        (PORT datad (436:436:436) (494:494:494))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (196:196:196) (205:205:205))
+        (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2453,13 +2838,13 @@
     (INSTANCE \\Mux5\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (343:343:343) (396:396:396))
-        (PORT datab (352:352:352) (409:409:409))
-        (PORT datac (2376:2376:2376) (2662:2662:2662))
-        (PORT datad (2764:2764:2764) (3128:3128:3128))
-        (IOPATH dataa combout (165:165:165) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
-        (IOPATH datac combout (120:120:120) (124:124:124))
+        (PORT dataa (216:216:216) (260:260:260))
+        (PORT datab (2192:2192:2192) (2480:2480:2480))
+        (PORT datac (433:433:433) (484:484:484))
+        (PORT datad (2106:2106:2106) (2368:2368:2368))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (190:190:190) (188:188:188))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2469,343 +2854,14 @@
     (INSTANCE \\Mux5\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (448:448:448) (512:512:512))
-        (PORT datab (106:106:106) (130:130:130))
-        (PORT datac (2375:2375:2375) (2660:2660:2660))
-        (PORT datad (509:509:509) (589:589:589))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (196:196:196) (205:205:205))
-        (IOPATH datac combout (120:120:120) (124:124:124))
+        (PORT dataa (370:370:370) (432:432:432))
+        (PORT datab (105:105:105) (129:129:129))
+        (PORT datac (364:364:364) (413:413:413))
+        (PORT datad (2105:2105:2105) (2368:2368:2368))
+        (IOPATH dataa combout (159:159:159) (163:163:163))
+        (IOPATH datab combout (169:169:169) (167:167:167))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[27\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (252:252:252) (627:627:627))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[28\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (293:293:293) (668:668:668))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[29\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (242:242:242) (617:617:617))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[30\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (282:282:282) (657:657:657))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_io_ibuf")
-    (INSTANCE \\writedata\[31\]\~input\\)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH i o (302:302:302) (677:677:677))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.datain_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2183:2183:2183) (2441:2441:2441))
-        (PORT d[1] (2095:2095:2095) (2331:2331:2331))
-        (PORT d[2] (1975:1975:1975) (2194:2194:2194))
-        (PORT d[3] (1993:1993:1993) (2228:2228:2228))
-        (PORT d[4] (2197:2197:2197) (2464:2464:2464))
-        (PORT d[5] (2323:2323:2323) (2598:2598:2598))
-        (PORT d[6] (2094:2094:2094) (2331:2331:2331))
-        (PORT d[7] (1975:1975:1975) (2196:2196:2196))
-        (PORT d[8] (1993:1993:1993) (2228:2228:2228))
-        (PORT d[9] (2172:2172:2172) (2432:2432:2432))
-        (PORT d[10] (2095:2095:2095) (2331:2331:2331))
-        (PORT d[11] (1975:1975:1975) (2194:2194:2194))
-        (PORT d[12] (1990:1990:1990) (2224:2224:2224))
-        (PORT d[13] (2197:2197:2197) (2464:2464:2464))
-        (PORT d[14] (2094:2094:2094) (2331:2331:2331))
-        (PORT d[15] (1975:1975:1975) (2196:2196:2196))
-        (PORT d[16] (1993:1993:1993) (2228:2228:2228))
-        (PORT d[17] (2197:2197:2197) (2464:2464:2464))
-        (PORT clk (1182:1182:1182) (1178:1178:1178))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.addr_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2301:2301:2301) (2571:2571:2571))
-        (PORT d[1] (2377:2377:2377) (2683:2683:2683))
-        (PORT d[2] (2397:2397:2397) (2700:2700:2700))
-        (PORT d[3] (2272:2272:2272) (2539:2539:2539))
-        (PORT d[4] (2006:2006:2006) (2241:2241:2241))
-        (PORT d[5] (2246:2246:2246) (2538:2538:2538))
-        (PORT d[6] (2050:2050:2050) (2282:2282:2282))
-        (PORT d[7] (2421:2421:2421) (2729:2729:2729))
-        (PORT clk (1180:1180:1180) (1176:1176:1176))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.we_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2836:2836:2836) (3110:3110:3110))
-        (PORT clk (1180:1180:1180) (1176:1176:1176))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.active_core_port_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1182:1182:1182) (1178:1178:1178))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.wpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1183:1183:1183) (1179:1179:1179))
-        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.rpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1183:1183:1183) (1179:1179:1179))
-        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.ftpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1183:1183:1183) (1179:1179:1179))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.rwpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1183:1183:1183) (1179:1179:1179))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.active_core_port_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (702:702:702) (689:689:689))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.rpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (703:703:703) (690:690:690))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.ftpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (703:703:703) (690:690:690))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_four_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.rwpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (703:703:703) (690:690:690))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.datain_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2183:2183:2183) (2441:2441:2441))
-        (PORT d[1] (2183:2183:2183) (2441:2441:2441))
-        (PORT clk (1182:1182:1182) (1178:1178:1178))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.addr_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2301:2301:2301) (2571:2571:2571))
-        (PORT d[1] (2377:2377:2377) (2683:2683:2683))
-        (PORT d[2] (2397:2397:2397) (2700:2700:2700))
-        (PORT d[3] (2272:2272:2272) (2539:2539:2539))
-        (PORT d[4] (2006:2006:2006) (2241:2241:2241))
-        (PORT d[5] (2246:2246:2246) (2538:2538:2538))
-        (PORT d[6] (2050:2050:2050) (2282:2282:2282))
-        (PORT d[7] (2421:2421:2421) (2729:2729:2729))
-        (PORT clk (1180:1180:1180) (1176:1176:1176))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.we_a_register)
-    (DELAY
-      (ABSOLUTE
-        (PORT d[0] (2836:2836:2836) (3110:3110:3110))
-        (PORT clk (1180:1180:1180) (1176:1176:1176))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD d (posedge clk) (104:104:104))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.active_core_port_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1182:1182:1182) (1178:1178:1178))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.wpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1183:1183:1183) (1179:1179:1179))
-        (IOPATH (posedge clk) pulse (0:0:0) (987:987:987))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.rpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1183:1183:1183) (1179:1179:1179))
-        (IOPATH (posedge clk) pulse (0:0:0) (1128:1128:1128))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.ftpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1183:1183:1183) (1179:1179:1179))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.rwpgen_a)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1183:1183:1183) (1179:1179:1179))
-        (IOPATH (posedge clk) pulse (0:0:0) (1207:1207:1207))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_register")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.active_core_port_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (702:702:702) (689:689:689))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.rpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (703:703:703) (690:690:690))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.ftpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (703:703:703) (690:690:690))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneiv_ram_pulse_generator")
-    (INSTANCE \\word_three_SRAM\|mem_block_rtl_0\|auto_generated\|ram_block1a27\\.rwpgen_b)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (703:703:703) (690:690:690))
-        (IOPATH (posedge clk) pulse (0:0:0) (1222:1222:1222))
       )
     )
   )
@@ -2814,12 +2870,12 @@
     (INSTANCE \\Mux4\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (356:356:356) (405:405:405))
-        (PORT datab (203:203:203) (240:240:240))
-        (PORT datac (2375:2375:2375) (2660:2660:2660))
-        (PORT datad (2762:2762:2762) (3126:3126:3126))
+        (PORT dataa (371:371:371) (428:428:428))
+        (PORT datab (381:381:381) (448:448:448))
+        (PORT datac (2178:2178:2178) (2465:2465:2465))
+        (PORT datad (2103:2103:2103) (2365:2365:2365))
         (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datab combout (166:166:166) (167:167:167))
         (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -2830,13 +2886,13 @@
     (INSTANCE \\Mux4\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (369:369:369) (426:426:426))
-        (PORT datab (106:106:106) (130:130:130))
-        (PORT datac (192:192:192) (221:221:221))
-        (PORT datad (2763:2763:2763) (3127:3127:3127))
-        (IOPATH dataa combout (159:159:159) (163:163:163))
-        (IOPATH datab combout (169:169:169) (167:167:167))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (531:531:531) (615:615:615))
+        (PORT datab (212:212:212) (254:254:254))
+        (PORT datac (2179:2179:2179) (2466:2466:2466))
+        (PORT datad (88:88:88) (106:106:106))
+        (IOPATH dataa combout (166:166:166) (163:163:163))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2846,13 +2902,13 @@
     (INSTANCE \\Mux3\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (370:370:370) (439:439:439))
-        (PORT datab (2370:2370:2370) (2671:2671:2671))
-        (PORT datac (487:487:487) (549:549:549))
-        (PORT datad (2621:2621:2621) (2972:2972:2972))
-        (IOPATH dataa combout (166:166:166) (159:159:159))
-        (IOPATH datab combout (167:167:167) (158:158:158))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (516:516:516) (590:590:590))
+        (PORT datab (366:366:366) (428:428:428))
+        (PORT datac (2288:2288:2288) (2567:2567:2567))
+        (PORT datad (2272:2272:2272) (2552:2552:2552))
+        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2862,10 +2918,10 @@
     (INSTANCE \\Mux3\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (443:443:443) (499:499:499))
-        (PORT datab (109:109:109) (134:134:134))
-        (PORT datac (346:346:346) (404:404:404))
-        (PORT datad (2347:2347:2347) (2638:2638:2638))
+        (PORT dataa (524:524:524) (612:612:612))
+        (PORT datab (106:106:106) (130:130:130))
+        (PORT datac (356:356:356) (420:420:420))
+        (PORT datad (2270:2270:2270) (2551:2551:2551))
         (IOPATH dataa combout (159:159:159) (163:163:163))
         (IOPATH datab combout (169:169:169) (167:167:167))
         (IOPATH datac combout (119:119:119) (124:124:124))
@@ -2878,13 +2934,13 @@
     (INSTANCE \\Mux2\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (364:364:364) (423:423:423))
-        (PORT datab (2365:2365:2365) (2665:2665:2665))
-        (PORT datac (199:199:199) (241:241:241))
-        (PORT datad (2616:2616:2616) (2965:2965:2965))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (190:190:190) (188:188:188))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (355:355:355) (408:408:408))
+        (PORT datab (689:689:689) (795:795:795))
+        (PORT datac (2290:2290:2290) (2570:2570:2570))
+        (PORT datad (2270:2270:2270) (2550:2550:2550))
+        (IOPATH dataa combout (165:165:165) (163:163:163))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2894,13 +2950,13 @@
     (INSTANCE \\Mux2\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (360:360:360) (414:414:414))
-        (PORT datab (107:107:107) (131:131:131))
-        (PORT datac (191:191:191) (227:227:227))
-        (PORT datad (2615:2615:2615) (2964:2964:2964))
-        (IOPATH dataa combout (166:166:166) (159:159:159))
-        (IOPATH datab combout (192:192:192) (177:177:177))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (108:108:108) (134:134:134))
+        (PORT datab (535:535:535) (626:626:626))
+        (PORT datac (2292:2292:2292) (2572:2572:2572))
+        (PORT datad (522:522:522) (606:606:606))
+        (IOPATH dataa combout (195:195:195) (203:203:203))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2910,12 +2966,12 @@
     (INSTANCE \\Mux1\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (368:368:368) (431:431:431))
-        (PORT datab (2368:2368:2368) (2669:2669:2669))
-        (PORT datac (200:200:200) (241:241:241))
-        (PORT datad (2619:2619:2619) (2969:2969:2969))
+        (PORT dataa (361:361:361) (424:424:424))
+        (PORT datab (2309:2309:2309) (2593:2593:2593))
+        (PORT datac (353:353:353) (411:411:411))
+        (PORT datad (2268:2268:2268) (2548:2548:2548))
         (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (166:166:166) (176:176:176))
+        (IOPATH datab combout (188:188:188) (177:177:177))
         (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -2926,13 +2982,13 @@
     (INSTANCE \\Mux1\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (365:365:365) (429:429:429))
-        (PORT datab (2368:2368:2368) (2669:2669:2669))
-        (PORT datac (92:92:92) (112:112:112))
-        (PORT datad (199:199:199) (237:237:237))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
-        (IOPATH datab combout (190:190:190) (205:205:205))
-        (IOPATH datac combout (120:120:120) (124:124:124))
+        (PORT dataa (485:485:485) (559:559:559))
+        (PORT datab (105:105:105) (129:129:129))
+        (PORT datac (197:197:197) (238:238:238))
+        (PORT datad (2268:2268:2268) (2548:2548:2548))
+        (IOPATH dataa combout (159:159:159) (163:163:163))
+        (IOPATH datab combout (169:169:169) (167:167:167))
+        (IOPATH datac combout (119:119:119) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -2942,11 +2998,11 @@
     (INSTANCE \\Mux0\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (521:521:521) (597:597:597))
-        (PORT datab (212:212:212) (254:254:254))
-        (PORT datac (2375:2375:2375) (2660:2660:2660))
-        (PORT datad (2763:2763:2763) (3126:3126:3126))
-        (IOPATH dataa combout (170:170:170) (163:163:163))
+        (PORT dataa (369:369:369) (432:432:432))
+        (PORT datab (528:528:528) (620:620:620))
+        (PORT datac (2293:2293:2293) (2574:2574:2574))
+        (PORT datad (2268:2268:2268) (2547:2547:2547))
+        (IOPATH dataa combout (165:165:165) (163:163:163))
         (IOPATH datab combout (168:168:168) (167:167:167))
         (IOPATH datac combout (120:120:120) (124:124:124))
         (IOPATH datad combout (68:68:68) (63:63:63))
@@ -2958,13 +3014,13 @@
     (INSTANCE \\Mux0\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (299:299:299) (348:348:348))
-        (PORT datab (107:107:107) (132:132:132))
-        (PORT datac (343:343:343) (384:384:384))
-        (PORT datad (2764:2764:2764) (3127:3127:3127))
-        (IOPATH dataa combout (166:166:166) (159:159:159))
-        (IOPATH datab combout (192:192:192) (177:177:177))
-        (IOPATH datac combout (119:119:119) (124:124:124))
+        (PORT dataa (530:530:530) (616:616:616))
+        (PORT datab (512:512:512) (584:584:584))
+        (PORT datac (2294:2294:2294) (2574:2574:2574))
+        (PORT datad (88:88:88) (106:106:106))
+        (IOPATH dataa combout (166:166:166) (163:163:163))
+        (IOPATH datab combout (168:168:168) (167:167:167))
+        (IOPATH datac combout (119:119:119) (125:125:125))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )

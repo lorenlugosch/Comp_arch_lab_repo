@@ -1,13 +1,4 @@
-C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity cache_tb
--- Compiling architecture behavior of cache_tb
-
-} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd
+C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -16,14 +7,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity memory
 -- Compiling architecture rtl of memory
 
-} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity cache_SRAM
--- Compiling architecture arch of cache_SRAM
+-- Compiling entity cache_tb
+-- Compiling architecture behavior of cache_tb
 
 } {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -43,7 +34,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity cache_SRAM_tb
 -- Compiling architecture behavior of cache_SRAM_tb
 
-} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd {0 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -51,16 +42,5 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Compiling entity cache
 -- Compiling architecture arch of cache
-** Error: C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd(84): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
 
-** Warning: C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd(85): (vcom-1322) Selected waveforms choice cannot be checked for uniqueness.
-
-** Warning: C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd(86): (vcom-1322) Selected waveforms choice cannot be checked for uniqueness.
-
-** Warning: C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd(87): (vcom-1322) Selected waveforms choice cannot be checked for uniqueness.
-
-** Warning: C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd(88): (vcom-1322) Selected waveforms choice cannot be checked for uniqueness.
-
-** Error: C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd(95): VHDL Compiler exiting
-
-} {9.0 10.0 19.0 20.0} {}}
+} {} {}}
