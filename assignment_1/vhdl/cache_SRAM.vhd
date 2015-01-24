@@ -37,10 +37,10 @@ BEGIN
 				mem_block(address) <= writedata;
 			end if;
 			
-			--read_address_reg <= address;
+			read_address_reg <= address;
 		end if;
 	END PROCESS;
-	--readdata <= mem_block(read_address_reg);
-	readdata <= mem_block(address); -- quartus will simply make registers
+	readdata <= mem_block(read_address_reg);
+	--readdata <= mem_block(address); -- quartus will simply make registers
 
 END arch;
