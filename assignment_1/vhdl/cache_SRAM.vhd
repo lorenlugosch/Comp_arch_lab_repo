@@ -9,8 +9,8 @@ USE ieee.numeric_std.all;
 
 ENTITY cache_SRAM IS
 	GENERIC(
-		SRAM_width : INTEGER;
-		number_of_rows : INTEGER
+		SRAM_width : INTEGER := 32;-- default needed
+		number_of_rows : INTEGER := 256
 	);
 	PORT(
 		clock : in STD_LOGIC;

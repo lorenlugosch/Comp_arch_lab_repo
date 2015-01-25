@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cache_design
-Fri Jan 23 23:26:07 2015
+Sat Jan 24 14:32:33 2015
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -12,27 +12,20 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   4. Analysis & Synthesis Source Files Read
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
-  7. Analysis & Synthesis RAM Summary
-  8. State Machine - |cache|state
-  9. Registers Removed During Synthesis
+  7. State Machine - |cache|state
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
- 11. Registers Packed Into Inferred Megafunctions
- 12. Source assignments for cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0|altsyncram_au31:auto_generated
- 13. Parameter Settings for User Entity Instance: Top-level Entity: |cache
- 14. Parameter Settings for User Entity Instance: cache_SRAM:tag_SRAM
- 15. Parameter Settings for User Entity Instance: cache_SRAM:word_zero_SRAM
- 16. Parameter Settings for User Entity Instance: cache_SRAM:word_one_SRAM
- 17. Parameter Settings for User Entity Instance: cache_SRAM:word_two_SRAM
- 18. Parameter Settings for User Entity Instance: cache_SRAM:word_three_SRAM
- 19. Parameter Settings for Inferred Entity Instance: cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0
- 20. altsyncram Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "cache_SRAM:word_three_SRAM"
- 22. Port Connectivity Checks: "cache_SRAM:word_two_SRAM"
- 23. Port Connectivity Checks: "cache_SRAM:word_one_SRAM"
- 24. Port Connectivity Checks: "cache_SRAM:word_zero_SRAM"
- 25. Port Connectivity Checks: "cache_SRAM:tag_SRAM"
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |cache
+ 13. Parameter Settings for User Entity Instance: cache_SRAM:tag_SRAM
+ 14. Parameter Settings for User Entity Instance: cache_SRAM:word_zero_SRAM
+ 15. Parameter Settings for User Entity Instance: cache_SRAM:word_one_SRAM
+ 16. Parameter Settings for User Entity Instance: cache_SRAM:word_two_SRAM
+ 17. Parameter Settings for User Entity Instance: cache_SRAM:word_three_SRAM
+ 18. Port Connectivity Checks: "cache_SRAM:tag_SRAM"
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -58,18 +51,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jan 23 23:26:07 2015      ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 24 14:32:33 2015      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; cache_design                               ;
 ; Top-level Entity Name              ; cache                                      ;
 ; Family                             ; Cyclone IV GX                              ;
-; Total logic elements               ; 59                                         ;
-;     Total combinational functions  ; 27                                         ;
-;     Dedicated logic registers      ; 40                                         ;
-; Total registers                    ; 40                                         ;
+; Total logic elements               ; 78                                         ;
+;     Total combinational functions  ; 16                                         ;
+;     Dedicated logic registers      ; 74                                         ;
+; Total registers                    ; 74                                         ;
 ; Total pins                         ; 200                                        ;
 ; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 5,888                                      ;
+; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
 ; Total GXB Receiver Channel PCS     ; 0                                          ;
 ; Total GXB Receiver Channel PMA     ; 0                                          ;
@@ -165,24 +158,14 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; vhdl/cache.vhd                   ; yes             ; User VHDL File               ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd         ;         ;
-; vhdl/cache_SRAM.vhd              ; yes             ; User VHDL File               ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd    ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/altsyncram.tdf           ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/stratix_ram_block.inc    ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mux.inc              ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_decode.inc           ;         ;
-; aglobal131.inc                   ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc           ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/a_rdenreg.inc            ;         ;
-; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/altrom.inc               ;         ;
-; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/altram.inc               ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/altdpram.inc             ;         ;
-; db/altsyncram_au31.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/db/altsyncram_au31.tdf ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+; vhdl/cache.vhd                   ; yes             ; User VHDL File  ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd      ;         ;
+; vhdl/cache_SRAM.vhd              ; yes             ; User VHDL File  ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------+
@@ -191,35 +174,22 @@ applicable agreement for further details.
 ; Resource                 ; Usage            ;
 +--------------------------+------------------+
 ; I/O pins                 ; 200              ;
-; Total memory bits        ; 5888             ;
 ; DSP block 9-bit elements ; 0                ;
 ; Maximum fan-out node     ; clock~input      ;
-; Maximum fan-out          ; 63               ;
-; Total fan-out            ; 672              ;
-; Average fan-out          ; 1.37             ;
+; Maximum fan-out          ; 74               ;
+; Total fan-out            ; 535              ;
+; Average fan-out          ; 1.09             ;
 +--------------------------+------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                     ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                  ; Library Name ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
-; |cache                                    ; 27 (27)           ; 40 (40)      ; 5888        ; 0            ; 0       ; 0         ; 0         ; 200  ; 0            ; |cache                                                                               ; work         ;
-;    |cache_SRAM:tag_SRAM|                  ; 0 (0)             ; 0 (0)        ; 5888        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache|cache_SRAM:tag_SRAM                                                           ; work         ;
-;       |altsyncram:mem_block_rtl_0|        ; 0 (0)             ; 0 (0)        ; 5888        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache|cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0                                ; work         ;
-;          |altsyncram_au31:auto_generated| ; 0 (0)             ; 0 (0)        ; 5888        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache|cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0|altsyncram_au31:auto_generated ; work         ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                        ;
-+------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                                     ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
-; cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0|altsyncram_au31:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 23           ; --           ; --           ; 5888 ; None ;
-+------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; |cache                     ; 16 (16)           ; 74 (74)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 200  ; 0            ; |cache              ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
@@ -238,16 +208,105 @@ Encoding Type:  One-Hot
 +-------------------------+------------+-------------------+-------------------------+---------------------+------------------+------------+-----------+
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; m_addr[31]~reg0                       ; Stuck at GND due to stuck port data_in ;
-; m_read~reg0                           ; Stuck at VCC due to stuck port data_in ;
-; state.READ_FLUSH_TO_MEM               ; Lost fanout                            ;
-; Total Number of Removed Registers = 3 ;                                        ;
-+---------------------------------------+----------------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                   ;
++------------------------------------------------+-----------------------------------------------------+
+; Register name                                  ; Reason for Removal                                  ;
++------------------------------------------------+-----------------------------------------------------+
+; writedata_tag[22]                              ; Lost fanout                                         ;
+; writedata_tag[23]                              ; Stuck at VCC due to stuck port data_in              ;
+; cache_SRAM:word_one_SRAM|read_address_reg[0]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[0] ;
+; cache_SRAM:word_three_SRAM|read_address_reg[0] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[0] ;
+; cache_SRAM:word_two_SRAM|read_address_reg[0]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[0] ;
+; cache_SRAM:word_zero_SRAM|read_address_reg[0]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[0] ;
+; cache_SRAM:word_one_SRAM|read_address_reg[1]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[1] ;
+; cache_SRAM:word_three_SRAM|read_address_reg[1] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[1] ;
+; cache_SRAM:word_two_SRAM|read_address_reg[1]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[1] ;
+; cache_SRAM:word_zero_SRAM|read_address_reg[1]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[1] ;
+; cache_SRAM:word_one_SRAM|read_address_reg[2]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[2] ;
+; cache_SRAM:word_three_SRAM|read_address_reg[2] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[2] ;
+; cache_SRAM:word_two_SRAM|read_address_reg[2]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[2] ;
+; cache_SRAM:word_zero_SRAM|read_address_reg[2]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[2] ;
+; cache_SRAM:word_one_SRAM|read_address_reg[3]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[3] ;
+; cache_SRAM:word_three_SRAM|read_address_reg[3] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[3] ;
+; cache_SRAM:word_two_SRAM|read_address_reg[3]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[3] ;
+; cache_SRAM:word_zero_SRAM|read_address_reg[3]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[3] ;
+; cache_SRAM:word_one_SRAM|read_address_reg[4]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[4] ;
+; cache_SRAM:word_three_SRAM|read_address_reg[4] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[4] ;
+; cache_SRAM:word_two_SRAM|read_address_reg[4]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[4] ;
+; cache_SRAM:word_zero_SRAM|read_address_reg[4]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[4] ;
+; cache_SRAM:word_one_SRAM|read_address_reg[5]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[5] ;
+; cache_SRAM:word_three_SRAM|read_address_reg[5] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[5] ;
+; cache_SRAM:word_two_SRAM|read_address_reg[5]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[5] ;
+; cache_SRAM:word_zero_SRAM|read_address_reg[5]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[5] ;
+; cache_SRAM:word_one_SRAM|read_address_reg[6]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[6] ;
+; cache_SRAM:word_three_SRAM|read_address_reg[6] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[6] ;
+; cache_SRAM:word_two_SRAM|read_address_reg[6]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[6] ;
+; cache_SRAM:word_zero_SRAM|read_address_reg[6]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[6] ;
+; cache_SRAM:word_one_SRAM|read_address_reg[7]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[7] ;
+; cache_SRAM:word_three_SRAM|read_address_reg[7] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[7] ;
+; cache_SRAM:word_two_SRAM|read_address_reg[7]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[7] ;
+; cache_SRAM:word_zero_SRAM|read_address_reg[7]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[7] ;
+; writedata_tag[0..21]                           ; Stuck at GND due to stuck port clock_enable         ;
+; write_tag                                      ; Stuck at GND due to stuck port data_in              ;
+; s_readdata[31]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[30]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[29]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[28]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[27]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[26]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[25]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[24]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[23]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[22]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[21]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[20]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[19]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[18]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[17]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[16]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[15]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[14]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[13]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[12]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[11]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[10]~reg0                            ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[9]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[8]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[7]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[6]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[5]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[4]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[3]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[2]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[1]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; s_readdata[0]~reg0                             ; Stuck at GND due to stuck port clock_enable         ;
+; writedata[0..31]                               ; Lost fanout                                         ;
+; cache_SRAM:tag_SRAM|read_address_reg[0..7]     ; Lost fanout                                         ;
+; word_select[0..2]                              ; Lost fanout                                         ;
+; m_read~reg0                                    ; Stuck at VCC due to stuck port data_in              ;
+; state.READ_FLUSH_TO_MEM                        ; Stuck at GND due to stuck port data_in              ;
+; Total Number of Removed Registers = 134        ;                                                     ;
++------------------------------------------------+-----------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                               ;
++-------------------+---------------------------+-------------------------------------------------------------------------------------------+
+; Register name     ; Reason for Removal        ; Registers Removed due to This Register                                                    ;
++-------------------+---------------------------+-------------------------------------------------------------------------------------------+
+; writedata_tag[23] ; Stuck at VCC              ; writedata_tag[8], writedata_tag[7], writedata_tag[6], writedata_tag[5], writedata_tag[4], ;
+;                   ; due to stuck port data_in ; writedata_tag[3], writedata_tag[2], writedata_tag[1], writedata_tag[0], write_tag,        ;
+;                   ;                           ; s_readdata[31]~reg0, s_readdata[30]~reg0, s_readdata[29]~reg0, s_readdata[28]~reg0,       ;
+;                   ;                           ; s_readdata[27]~reg0, s_readdata[26]~reg0, s_readdata[25]~reg0, s_readdata[24]~reg0,       ;
+;                   ;                           ; s_readdata[23]~reg0, s_readdata[22]~reg0, s_readdata[21]~reg0, s_readdata[20]~reg0,       ;
+;                   ;                           ; s_readdata[19]~reg0, s_readdata[18]~reg0, s_readdata[17]~reg0, s_readdata[16]~reg0,       ;
+;                   ;                           ; s_readdata[15]~reg0, s_readdata[14]~reg0, s_readdata[13]~reg0, s_readdata[12]~reg0,       ;
+;                   ;                           ; s_readdata[11]~reg0, s_readdata[10]~reg0, s_readdata[9]~reg0, s_readdata[8]~reg0,         ;
+;                   ;                           ; s_readdata[7]~reg0, s_readdata[6]~reg0, s_readdata[5]~reg0, s_readdata[4]~reg0,           ;
+;                   ;                           ; s_readdata[3]~reg0, s_readdata[2]~reg0, s_readdata[1]~reg0, s_readdata[0]~reg0,           ;
+;                   ;                           ; writedata[0], writedata[1], writedata[2], writedata[3], word_select[2], m_read~reg0       ;
++-------------------+---------------------------+-------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -255,32 +314,23 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 40    ;
+; Total registers                              ; 74    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 6     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 34    ;
+; Number of registers using Clock Enable       ; 68    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions                                            ;
-+--------------------------------------------+-------------------------------------+------+
-; Register Name                              ; Megafunction                        ; Type ;
-+--------------------------------------------+-------------------------------------+------+
-; cache_SRAM:tag_SRAM|read_address_reg[0..7] ; cache_SRAM:tag_SRAM|mem_block_rtl_0 ; RAM  ;
-+--------------------------------------------+-------------------------------------+------+
-
-
-+------------------------------------------------------------------------------------------------------+
-; Source assignments for cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0|altsyncram_au31:auto_generated ;
-+---------------------------------+--------------------+------+----------------------------------------+
-; Assignment                      ; Value              ; From ; To                                     ;
-+---------------------------------+--------------------+------+----------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
-+---------------------------------+--------------------+------+----------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cache|m_addr[0]~reg0      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -315,7 +365,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-----------------------------------------------+
 ; Parameter Name ; Value ; Type                                          ;
 +----------------+-------+-----------------------------------------------+
-; sram_width     ; 32    ; Signed Integer                                ;
+; SRAM_width     ; 32    ; Signed Integer                                ;
 ; number_of_rows ; 256   ; Signed Integer                                ;
 +----------------+-------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -326,7 +376,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------------+
 ; Parameter Name ; Value ; Type                                         ;
 +----------------+-------+----------------------------------------------+
-; sram_width     ; 32    ; Signed Integer                               ;
+; SRAM_width     ; 32    ; Signed Integer                               ;
 ; number_of_rows ; 256   ; Signed Integer                               ;
 +----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -337,7 +387,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------------+
 ; Parameter Name ; Value ; Type                                         ;
 +----------------+-------+----------------------------------------------+
-; sram_width     ; 32    ; Signed Integer                               ;
+; SRAM_width     ; 32    ; Signed Integer                               ;
 ; number_of_rows ; 256   ; Signed Integer                               ;
 +----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -348,127 +398,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+------------------------------------------------+
 ; Parameter Name ; Value ; Type                                           ;
 +----------------+-------+------------------------------------------------+
-; sram_width     ; 32    ; Signed Integer                                 ;
+; SRAM_width     ; 32    ; Signed Integer                                 ;
 ; number_of_rows ; 256   ; Signed Integer                                 ;
 +----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0 ;
-+------------------------------------+----------------------+-------------------------------------+
-; Parameter Name                     ; Value                ; Type                                ;
-+------------------------------------+----------------------+-------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                             ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                          ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                        ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                        ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                      ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                             ;
-; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                             ;
-; WIDTH_A                            ; 23                   ; Untyped                             ;
-; WIDTHAD_A                          ; 8                    ; Untyped                             ;
-; NUMWORDS_A                         ; 256                  ; Untyped                             ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                             ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                             ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                             ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                             ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                             ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                             ;
-; WIDTH_B                            ; 1                    ; Untyped                             ;
-; WIDTHAD_B                          ; 1                    ; Untyped                             ;
-; NUMWORDS_B                         ; 1                    ; Untyped                             ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                             ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                             ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                             ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                             ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                             ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                             ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                             ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                             ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                             ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                             ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                             ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                             ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                             ;
-; BYTE_SIZE                          ; 8                    ; Untyped                             ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                             ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
-; INIT_FILE                          ; UNUSED               ; Untyped                             ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                             ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                             ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                             ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                             ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                             ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                             ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                             ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                             ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                             ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                             ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                             ;
-; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped                             ;
-; CBXI_PARAMETER                     ; altsyncram_au31      ; Untyped                             ;
-+------------------------------------+----------------------+-------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                           ;
-+-------------------------------------------+------------------------------------------------+
-; Name                                      ; Value                                          ;
-+-------------------------------------------+------------------------------------------------+
-; Number of entity instances                ; 1                                              ;
-; Entity Instance                           ; cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0 ;
-;     -- OPERATION_MODE                     ; SINGLE_PORT                                    ;
-;     -- WIDTH_A                            ; 23                                             ;
-;     -- NUMWORDS_A                         ; 256                                            ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
-;     -- WIDTH_B                            ; 1                                              ;
-;     -- NUMWORDS_B                         ; 1                                              ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                         ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ;
-+-------------------------------------------+------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cache_SRAM:word_three_SRAM"                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; readdata ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cache_SRAM:word_two_SRAM"                                                               ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; readdata ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cache_SRAM:word_one_SRAM"                                                               ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; readdata ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cache_SRAM:word_zero_SRAM"                                                              ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; readdata ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -485,7 +418,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -495,7 +428,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Fri Jan 23 23:26:00 2015
+    Info: Processing started: Sat Jan 24 14:32:21 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cache_design -c cache_design
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/memory.vhd
@@ -507,49 +440,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file vhdl/me
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache.vhd
     Info (12022): Found design unit 1: cache-arch
     Info (12023): Found entity 1: cache
-Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache_tb.vhd
-    Info (12022): Found design unit 1: cache_tb-behavior
-    Info (12023): Found entity 1: cache_tb
+Info (12021): Found 0 design units, including 0 entities, in source file vhdl/cache_tb.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache_sram.vhd
     Info (12022): Found design unit 1: cache_SRAM-arch
     Info (12023): Found entity 1: cache_SRAM
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache_sram_tb.vhd
     Info (12022): Found design unit 1: cache_SRAM_tb-behavior
     Info (12023): Found entity 1: cache_SRAM_tb
+Info (12021): Found 0 design units, including 0 entities, in source file vhdl/memory_hierarchy.vhd
+Info (12021): Found 0 design units, including 0 entities, in source file vhdl/cache_fsm.vhd
 Info (12127): Elaborating entity "cache" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at cache.vhd(30): used implicit default value for signal "s_readdata" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at cache.vhd(39): used implicit default value for signal "m_write" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at cache.vhd(40): used implicit default value for signal "m_writedata" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at cache.vhd(54): object "readdata" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at cache.vhd(59): object "s_addr_offset" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at cache.vhd(74): used implicit default value for signal "writedata_tag" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at cache.vhd(77): used implicit default value for signal "write_tag" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "cache_SRAM" for hierarchy "cache_SRAM:tag_SRAM"
 Info (12128): Elaborating entity "cache_SRAM" for hierarchy "cache_SRAM:word_zero_SRAM"
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "cache_SRAM:tag_SRAM|mem_block_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
-        Info (286033): Parameter WIDTH_A set to 23
-        Info (286033): Parameter WIDTHAD_A set to 8
-        Info (286033): Parameter NUMWORDS_A set to 256
-        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-Info (12130): Elaborated megafunction instantiation "cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0"
-Info (12133): Instantiated megafunction "cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
-    Info (12134): Parameter "WIDTH_A" = "23"
-    Info (12134): Parameter "WIDTHAD_A" = "8"
-    Info (12134): Parameter "NUMWORDS_A" = "256"
-    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_au31.tdf
-    Info (12023): Found entity 1: altsyncram_au31
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "s_readdata[0]" is stuck at GND
     Warning (13410): Pin "s_readdata[1]" is stuck at GND
@@ -583,80 +485,12 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "s_readdata[29]" is stuck at GND
     Warning (13410): Pin "s_readdata[30]" is stuck at GND
     Warning (13410): Pin "s_readdata[31]" is stuck at GND
-    Warning (13410): Pin "m_addr[31]" is stuck at GND
     Warning (13410): Pin "m_read" is stuck at VCC
-    Warning (13410): Pin "m_write" is stuck at GND
-    Warning (13410): Pin "m_writedata[0]" is stuck at GND
-    Warning (13410): Pin "m_writedata[1]" is stuck at GND
-    Warning (13410): Pin "m_writedata[2]" is stuck at GND
-    Warning (13410): Pin "m_writedata[3]" is stuck at GND
-    Warning (13410): Pin "m_writedata[4]" is stuck at GND
-    Warning (13410): Pin "m_writedata[5]" is stuck at GND
-    Warning (13410): Pin "m_writedata[6]" is stuck at GND
-    Warning (13410): Pin "m_writedata[7]" is stuck at GND
-    Warning (13410): Pin "m_writedata[8]" is stuck at GND
-    Warning (13410): Pin "m_writedata[9]" is stuck at GND
-    Warning (13410): Pin "m_writedata[10]" is stuck at GND
-    Warning (13410): Pin "m_writedata[11]" is stuck at GND
-    Warning (13410): Pin "m_writedata[12]" is stuck at GND
-    Warning (13410): Pin "m_writedata[13]" is stuck at GND
-    Warning (13410): Pin "m_writedata[14]" is stuck at GND
-    Warning (13410): Pin "m_writedata[15]" is stuck at GND
-    Warning (13410): Pin "m_writedata[16]" is stuck at GND
-    Warning (13410): Pin "m_writedata[17]" is stuck at GND
-    Warning (13410): Pin "m_writedata[18]" is stuck at GND
-    Warning (13410): Pin "m_writedata[19]" is stuck at GND
-    Warning (13410): Pin "m_writedata[20]" is stuck at GND
-    Warning (13410): Pin "m_writedata[21]" is stuck at GND
-    Warning (13410): Pin "m_writedata[22]" is stuck at GND
-    Warning (13410): Pin "m_writedata[23]" is stuck at GND
-    Warning (13410): Pin "m_writedata[24]" is stuck at GND
-    Warning (13410): Pin "m_writedata[25]" is stuck at GND
-    Warning (13410): Pin "m_writedata[26]" is stuck at GND
-    Warning (13410): Pin "m_writedata[27]" is stuck at GND
-    Warning (13410): Pin "m_writedata[28]" is stuck at GND
-    Warning (13410): Pin "m_writedata[29]" is stuck at GND
-    Warning (13410): Pin "m_writedata[30]" is stuck at GND
-    Warning (13410): Pin "m_writedata[31]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (17049): 44 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 66 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "s_addr[0]"
-    Warning (15610): No output dependent on input pin "s_addr[1]"
-    Warning (15610): No output dependent on input pin "s_writedata[0]"
-    Warning (15610): No output dependent on input pin "s_writedata[1]"
-    Warning (15610): No output dependent on input pin "s_writedata[2]"
-    Warning (15610): No output dependent on input pin "s_writedata[3]"
-    Warning (15610): No output dependent on input pin "s_writedata[4]"
-    Warning (15610): No output dependent on input pin "s_writedata[5]"
-    Warning (15610): No output dependent on input pin "s_writedata[6]"
-    Warning (15610): No output dependent on input pin "s_writedata[7]"
-    Warning (15610): No output dependent on input pin "s_writedata[8]"
-    Warning (15610): No output dependent on input pin "s_writedata[9]"
-    Warning (15610): No output dependent on input pin "s_writedata[10]"
-    Warning (15610): No output dependent on input pin "s_writedata[11]"
-    Warning (15610): No output dependent on input pin "s_writedata[12]"
-    Warning (15610): No output dependent on input pin "s_writedata[13]"
-    Warning (15610): No output dependent on input pin "s_writedata[14]"
-    Warning (15610): No output dependent on input pin "s_writedata[15]"
-    Warning (15610): No output dependent on input pin "s_writedata[16]"
-    Warning (15610): No output dependent on input pin "s_writedata[17]"
-    Warning (15610): No output dependent on input pin "s_writedata[18]"
-    Warning (15610): No output dependent on input pin "s_writedata[19]"
-    Warning (15610): No output dependent on input pin "s_writedata[20]"
-    Warning (15610): No output dependent on input pin "s_writedata[21]"
-    Warning (15610): No output dependent on input pin "s_writedata[22]"
-    Warning (15610): No output dependent on input pin "s_writedata[23]"
-    Warning (15610): No output dependent on input pin "s_writedata[24]"
-    Warning (15610): No output dependent on input pin "s_writedata[25]"
-    Warning (15610): No output dependent on input pin "s_writedata[26]"
-    Warning (15610): No output dependent on input pin "s_writedata[27]"
-    Warning (15610): No output dependent on input pin "s_writedata[28]"
-    Warning (15610): No output dependent on input pin "s_writedata[29]"
-    Warning (15610): No output dependent on input pin "s_writedata[30]"
-    Warning (15610): No output dependent on input pin "s_writedata[31]"
+Warning (21074): Design contains 32 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "m_readdata[0]"
     Warning (15610): No output dependent on input pin "m_readdata[1]"
     Warning (15610): No output dependent on input pin "m_readdata[2]"
@@ -689,15 +523,14 @@ Warning (21074): Design contains 66 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "m_readdata[29]"
     Warning (15610): No output dependent on input pin "m_readdata[30]"
     Warning (15610): No output dependent on input pin "m_readdata[31]"
-Info (21057): Implemented 282 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 278 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 101 input pins
     Info (21059): Implemented 99 output pins
-    Info (21061): Implemented 59 logic cells
-    Info (21064): Implemented 23 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 143 warnings
-    Info: Peak virtual memory: 591 megabytes
-    Info: Processing ended: Fri Jan 23 23:26:07 2015
-    Info: Elapsed time: 00:00:07
+    Info (21061): Implemented 78 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 68 warnings
+    Info: Peak virtual memory: 571 megabytes
+    Info: Processing ended: Sat Jan 24 14:32:33 2015
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:03
 
 

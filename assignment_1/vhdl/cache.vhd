@@ -11,7 +11,7 @@ use ieee.numeric_std.all;
 entity cache is
 	generic(
 		word_length : integer := 32;
-		address_length : integer := 32;
+		address_length : integer := 32; -- MSB is I/O
 		associativity : integer := 1; --two-way associative?--
 		index_length : integer := 8; --256 cache lines means 8 bits of index--
 		tag_length : integer := 22; --32 address bits minus 10 = 22 tag bits--
@@ -33,7 +33,7 @@ entity cache is
 		s_waitrequest : out std_logic; -- cache tells CPU to keep waiting
 		
 		-- cache/MEM bus
-		m_addr : out std_logic_vector (31 downto 0);
+		m_addr : out integer range 0 to 2147483647; --2^31-1, MSB from s_addr used for I/O --out std_logic_vector (31 downto 0);
 		m_read : out std_logic;
 		m_readdata : in std_logic_vector (word_length-1 downto 0);
 		m_write : out std_logic;
@@ -44,7 +44,7 @@ end cache;
 
 architecture arch of cache is
 	-- FSM signals
-	type state_type is (RST, IDLE, READ_START, READ_FROM_MEM, READ_FLUSH_TO_MEM, WRITE_START, DONE);
+	type state_type is (RST, IDLE, READ_START, READ_FROM_MEM, READ_FROM_MEM_DEASSERT, READ_FLUSH_TO_MEM, WRITE_START, DONE);
 	signal state : state_type;
 	signal out_count : integer range 0 to 3; -- used during block reads/writes
 	
@@ -108,63 +108,6 @@ architecture arch of cache is
 		write_two <= word_select(2) and word_select(1) and not word_select(0);
 		write_three <= word_select(2) and word_select(1) and word_select(0);
 		
-		-- SRAMs are instantiated as components here
-		-- see cache_SRAM.vhd for SRAM implementation details
-		tag_SRAM: cache_SRAM 
-									generic map 
-										(SRAM_width => tag_length+2, --tag, dirty bit, valid bit
-										number_of_rows => number_of_cache_blocks)
-									port map
-										(clock, 
-										writedata_tag, 
-										s_addr_index, 
-										write_tag, 
-										readdata_tag);
-									
-		word_zero_SRAM: cache_SRAM 
-									generic map
-										(SRAM_width => word_length, 
-										number_of_rows => number_of_cache_blocks)
-									port map
-										(clock, 
-										writedata, 
-										s_addr_index, 
-										write_zero, 
-										readdata_zero);
-									
-		word_one_SRAM: cache_SRAM
-									generic map
-										(SRAM_width => word_length, 
-										number_of_rows => number_of_cache_blocks)
-									port map
-										(clock, 
-										writedata, 
-										s_addr_index, 
-										write_one, 
-										readdata_one);
-									
-		word_two_SRAM: cache_SRAM
-									generic map
-										(SRAM_width => word_length, 
-										number_of_rows => number_of_cache_blocks)
-									port map
-										(clock,
-										writedata, 
-										s_addr_index, 
-										write_two, 
-										readdata_two);
-									
-		word_three_SRAM: cache_SRAM
-									generic map
-										(SRAM_width => word_length, 
-										number_of_rows => number_of_cache_blocks)
-									port map 
-										(clock, 
-										writedata, 
-										s_addr_index, 
-										write_three, 
-										readdata_three);
-					
 		-- select which SRAM's output data we want to read
 		with word_select select
 			readdata <= readdata_zero when "100",
@@ -172,6 +115,63 @@ architecture arch of cache is
 						   readdata_two when "110",
 						   readdata_three when "111",
 						   X"00000000" when others;
+		
+		-- SRAMs are instantiated as components here
+		-- see cache_SRAM.vhd for SRAM implementation details
+		tag_SRAM: cache_SRAM 
+									generic map 
+										(SRAM_width => tag_length+2, --tag, dirty bit, valid bit
+										number_of_rows => number_of_cache_blocks)
+									port map
+										(clock => clock, 
+										writedata => writedata_tag, 
+										address => s_addr_index, 
+										writeenable => write_tag, 
+										readdata => readdata_tag);
+									
+		word_zero_SRAM: cache_SRAM 
+									generic map
+										(SRAM_width => word_length, 
+										number_of_rows => number_of_cache_blocks)
+									port map
+										(clock => clock, 
+										writedata => writedata, 
+										address => s_addr_index, 
+										writeenable => write_zero, 
+										readdata => readdata_zero);
+									
+		word_one_SRAM: cache_SRAM
+									generic map
+										(SRAM_width => word_length, 
+										number_of_rows => number_of_cache_blocks)
+									port map
+										(clock => clock, 
+										writedata => writedata, 
+										address => s_addr_index, 
+										writeenable => write_one, 
+										readdata => readdata_one);
+									
+		word_two_SRAM: cache_SRAM
+									generic map
+										(SRAM_width => word_length, 
+										number_of_rows => number_of_cache_blocks)
+									port map
+										(clock => clock,
+										writedata => writedata, 
+										address => s_addr_index, 
+										writeenable => write_two, 
+										readdata => readdata_two);
+									
+		word_three_SRAM: cache_SRAM
+									generic map
+										(SRAM_width => word_length, 
+										number_of_rows => number_of_cache_blocks)
+									port map 
+										(clock => clock, 
+										writedata => writedata, 
+										address => s_addr_index, 
+										writeenable => write_three, 
+										readdata => readdata_three);
 		
 		-- FSM for controlling datapath/interface --
 		cache_controller : process(clock, reset)
@@ -186,7 +186,7 @@ architecture arch of cache is
 						state <= IDLE;
 				
 					when IDLE =>
-						-- CPU waitrequest high until DONE
+					  -- CPU waitrequest high until DONE
 						s_waitrequest <= '1';
 					
 						-- read request
@@ -210,6 +210,11 @@ architecture arch of cache is
 							-- valid
 							if (readdata_tag(tag_length+1) = '1') then
 								-- hit!
+								-- choose appropriate word based on
+								-- address offset, then go to DONE
+								-- (word appears on s_readdata in next CC)
+								s_readdata <= readdata;
+								word_select <= '1' & s_addr_offset;
 								state <= DONE;
 							
 							-- invalid
@@ -217,7 +222,6 @@ architecture arch of cache is
 								-- compulsory miss
 								-- need to read block from MEM
 								state <= READ_FROM_MEM;
-							
 							end if;
 							
 						-- tag not equal
@@ -228,7 +232,7 @@ architecture arch of cache is
 								-- conflict miss
 								-- need to flush block to MEM
 								state <= READ_FLUSH_TO_MEM;
-							
+								
 							-- invalid
 							else
 								-- compulsory miss / conflict miss but not dirty
@@ -246,7 +250,7 @@ architecture arch of cache is
 						-- set the MEM address to the address of the first
 						-- word in the block of s_addr + the count
 						-- ("out_count" is how many words we've read in)
-						m_addr <= std_logic_vector(to_unsigned(to_integer(unsigned(s_addr(31 downto 2)&"00")),m_addr'length) + out_count);
+						m_addr <= to_integer(unsigned(s_addr(31-1 downto 2)&"00")) + out_count;--std_logic_vector(to_unsigned(to_integer(unsigned(s_addr(31 downto 2)&"00")),m_addr'length) + out_count); --
 						
 						-- wait until MEM deasserts m_waitrequest
 						-- then:
@@ -257,30 +261,62 @@ architecture arch of cache is
 							word_select <= '1' & std_logic_vector(to_unsigned(out_count,word_select'length-1));
 							writedata <= m_readdata;
 							out_count <= out_count + 1;
+							state <= READ_FROM_MEM_DEASSERT;
 						else
 							-- make sure no SRAMs get written to unless MEM data is valid
 							word_select <= "000";
 						end if;
 						
-						-- if 4 words read, we're done
+						-- if 4 words read, we're done,
+						-- and we can mark valid/not dirty
 						-- otherwise keep reading
 						if out_count > 3 then
 							m_read <= '0';
+							write_tag <= '1';
+							writedata_tag <= "10" & readdata_tag(tag_length-1 downto 0);
 							state <= DONE;
 						else
-							state <= READ_FROM_MEM;
+						  m_read <= '1';
+							--state <= READ_FROM_MEM;
 						end if;
+						
+					-- the reading process block in
+				  -- memory.vhd is only triggered by 
+				  -- memread events, so we need to deassert
+				  -- and then reassert m_read
+					when READ_FROM_MEM_DEASSERT =>
+					  m_read <= '0';
+					  state <= READ_FROM_MEM;
 					
 					when READ_FLUSH_TO_MEM =>
-						--...
+						
+						
+						
+						
+						------ start here ------
+						
+						
+						
+						
 						state <= READ_FROM_MEM;
 						
 					when WRITE_START =>
-						state <= DONE;
+						-- write no allocate
+						m_write <= '1';
+						m_writedata <= s_writedata;
+						m_addr <= to_integer(unsigned(s_addr(31-1 downto 0)));
+						if m_waitrequest = '0' then
+							state <= DONE;
+						else
+							state <= WRITE_START;
+						end if;
 					
 					when DONE =>
 						-- deassert CPU waitrequest for one CC
 						s_waitrequest <= '0';
+						m_write <= '0';
+						word_select <= "000";
+						write_tag <= '0';
 						state <= IDLE;
 				end case;
 			end if;
