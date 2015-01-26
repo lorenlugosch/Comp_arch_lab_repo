@@ -1,5 +1,5 @@
 
-State Machine - |cache|state
+State Machine - |cache|cache_FSM:cache_controller|state
 Name state.DONE state.WRITE_START state.WRITE_FLUSH_TO_MEM_DEASSERT state.WRITE_FLUSH_TO_MEM state.READ_FLUSH_TO_MEM_DEASSERT state.READ_FLUSH_TO_MEM state.WRITE_GET_BLOCK_FROM_MEM_DEASSERT state.WRITE_GET_BLOCK_FROM_MEM state.READ_GET_BLOCK_FROM_MEM_DEASSERT state.READ_GET_BLOCK_FROM_MEM state.READ_START state.IDLE state.RST 
 state.RST 0 0 0 0 0 0 0 0 0 0 0 0 0 
 state.IDLE 0 0 0 0 0 0 0 0 0 0 0 1 1 

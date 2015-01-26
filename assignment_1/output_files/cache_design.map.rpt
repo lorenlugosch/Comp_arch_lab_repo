@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cache_design
-Sun Jan 25 22:57:24 2015
+Mon Jan 26 01:21:27 2015
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -13,7 +13,7 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
   7. Analysis & Synthesis RAM Summary
-  8. State Machine - |cache|state
+  8. State Machine - |cache|cache_FSM:cache_controller|state
   9. Registers Removed During Synthesis
  10. General Register Statistics
  11. Registers Packed Into Inferred Megafunctions
@@ -29,14 +29,15 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
  21. Parameter Settings for User Entity Instance: cache_SRAM:word_one_SRAM
  22. Parameter Settings for User Entity Instance: cache_SRAM:word_two_SRAM
  23. Parameter Settings for User Entity Instance: cache_SRAM:word_three_SRAM
- 24. Parameter Settings for Inferred Entity Instance: cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0
- 25. Parameter Settings for Inferred Entity Instance: cache_SRAM:word_zero_SRAM|altsyncram:mem_block_rtl_0
- 26. Parameter Settings for Inferred Entity Instance: cache_SRAM:word_one_SRAM|altsyncram:mem_block_rtl_0
- 27. Parameter Settings for Inferred Entity Instance: cache_SRAM:word_two_SRAM|altsyncram:mem_block_rtl_0
- 28. Parameter Settings for Inferred Entity Instance: cache_SRAM:word_three_SRAM|altsyncram:mem_block_rtl_0
- 29. altsyncram Parameter Settings by Entity Instance
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
+ 24. Parameter Settings for User Entity Instance: cache_FSM:cache_controller
+ 25. Parameter Settings for Inferred Entity Instance: cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0
+ 26. Parameter Settings for Inferred Entity Instance: cache_SRAM:word_zero_SRAM|altsyncram:mem_block_rtl_0
+ 27. Parameter Settings for Inferred Entity Instance: cache_SRAM:word_one_SRAM|altsyncram:mem_block_rtl_0
+ 28. Parameter Settings for Inferred Entity Instance: cache_SRAM:word_two_SRAM|altsyncram:mem_block_rtl_0
+ 29. Parameter Settings for Inferred Entity Instance: cache_SRAM:word_three_SRAM|altsyncram:mem_block_rtl_0
+ 30. altsyncram Parameter Settings by Entity Instance
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
 
 
 
@@ -62,13 +63,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jan 25 22:57:24 2015      ;
+; Analysis & Synthesis Status        ; Successful - Mon Jan 26 01:21:27 2015      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; cache_design                               ;
 ; Top-level Entity Name              ; cache                                      ;
 ; Family                             ; Cyclone IV GX                              ;
-; Total logic elements               ; 338                                        ;
-;     Total combinational functions  ; 313                                        ;
+; Total logic elements               ; 336                                        ;
+;     Total combinational functions  ; 311                                        ;
 ;     Dedicated logic registers      ; 80                                         ;
 ; Total registers                    ; 80                                         ;
 ; Total pins                         ; 199                                        ;
@@ -176,6 +177,7 @@ applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
 ; vhdl/cache.vhd                   ; yes             ; User VHDL File               ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd         ;         ;
 ; vhdl/cache_SRAM.vhd              ; yes             ; User VHDL File               ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd    ;         ;
+; vhdl/cache_FSM.vhd               ; yes             ; User VHDL File               ; C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_FSM.vhd     ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/altsyncram.tdf           ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/stratix_ram_block.inc    ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mux.inc              ;         ;
@@ -200,7 +202,7 @@ applicable agreement for further details.
 ; DSP block 9-bit elements ; 0                ;
 ; Maximum fan-out node     ; clock~input      ;
 ; Maximum fan-out          ; 232              ;
-; Total fan-out            ; 3412             ;
+; Total fan-out            ; 3405             ;
 ; Average fan-out          ; 3.62             ;
 +--------------------------+------------------+
 
@@ -210,7 +212,8 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                         ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------+--------------+
-; |cache                                    ; 313 (313)         ; 80 (80)      ; 38912       ; 0            ; 0       ; 0         ; 0         ; 199  ; 0            ; |cache                                                                                      ; work         ;
+; |cache                                    ; 311 (166)         ; 80 (0)       ; 38912       ; 0            ; 0       ; 0         ; 0         ; 199  ; 0            ; |cache                                                                                      ; work         ;
+;    |cache_FSM:cache_controller|           ; 145 (145)         ; 80 (80)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache|cache_FSM:cache_controller                                                           ; work         ;
 ;    |cache_SRAM:tag_SRAM|                  ; 0 (0)             ; 0 (0)        ; 6144        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache|cache_SRAM:tag_SRAM                                                                  ; work         ;
 ;       |altsyncram:mem_block_rtl_0|        ; 0 (0)             ; 0 (0)        ; 6144        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache|cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0                                       ; work         ;
 ;          |altsyncram_8j41:auto_generated| ; 0 (0)             ; 0 (0)        ; 6144        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cache|cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0|altsyncram_8j41:auto_generated        ; work         ;
@@ -245,7 +248,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 Encoding Type:  One-Hot
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |cache|state                                                                                                                                                                                                                                                                                                                                                                         ;
+; State Machine - |cache|cache_FSM:cache_controller|state                                                                                                                                                                                                                                                                                                                                              ;
 +-----------------------------------------+------------+-------------------+-----------------------------------+--------------------------+----------------------------------+-------------------------+-----------------------------------------+--------------------------------+----------------------------------------+-------------------------------+------------------+------------+-----------+
 ; Name                                    ; state.DONE ; state.WRITE_START ; state.WRITE_FLUSH_TO_MEM_DEASSERT ; state.WRITE_FLUSH_TO_MEM ; state.READ_FLUSH_TO_MEM_DEASSERT ; state.READ_FLUSH_TO_MEM ; state.WRITE_GET_BLOCK_FROM_MEM_DEASSERT ; state.WRITE_GET_BLOCK_FROM_MEM ; state.READ_GET_BLOCK_FROM_MEM_DEASSERT ; state.READ_GET_BLOCK_FROM_MEM ; state.READ_START ; state.IDLE ; state.RST ;
 +-----------------------------------------+------------+-------------------+-----------------------------------+--------------------------+----------------------------------+-------------------------+-----------------------------------------+--------------------------------+----------------------------------------+-------------------------------+------------------+------------+-----------+
@@ -302,7 +305,7 @@ Encoding Type:  One-Hot
 ; cache_SRAM:word_three_SRAM|read_address_reg[7] ; Merged with cache_SRAM:tag_SRAM|read_address_reg[7] ;
 ; cache_SRAM:word_two_SRAM|read_address_reg[7]   ; Merged with cache_SRAM:tag_SRAM|read_address_reg[7] ;
 ; cache_SRAM:word_zero_SRAM|read_address_reg[7]  ; Merged with cache_SRAM:tag_SRAM|read_address_reg[7] ;
-; writedata_tag[23]                              ; Stuck at VCC due to stuck port data_in              ;
+; cache_FSM:cache_controller|writedata_tag[23]   ; Stuck at VCC due to stuck port data_in              ;
 ; Total Number of Removed Registers = 33         ;                                                     ;
 +------------------------------------------------+-----------------------------------------------------+
 
@@ -331,20 +334,20 @@ Encoding Type:  One-Hot
 +--------------------------------------------+--------------------------------------------+------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 22 bits   ; 44 LEs        ; 0 LEs                ; 44 LEs                 ; Yes        ; |cache|writedata_tag[9]    ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cache|m_addr[0]~reg0      ;
-; 7:1                ; 29 bits   ; 116 LEs       ; 29 LEs               ; 87 LEs                 ; Yes        ; |cache|m_addr[6]~reg0      ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |cache|out_count[1]        ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 2 LEs                ; 10 LEs                 ; Yes        ; |cache|word_select[1]      ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |cache|Mux12               ;
-; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; No         ; |cache|Add0                ;
-; 7:1                ; 21 bits   ; 84 LEs        ; 42 LEs               ; 42 LEs                 ; No         ; |cache|Add0                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 22 bits   ; 44 LEs        ; 0 LEs                ; 44 LEs                 ; Yes        ; |cache|cache_FSM:cache_controller|writedata_tag[9] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cache|cache_FSM:cache_controller|m_addr[0]        ;
+; 7:1                ; 29 bits   ; 116 LEs       ; 29 LEs               ; 87 LEs                 ; Yes        ; |cache|cache_FSM:cache_controller|m_addr[6]        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |cache|cache_FSM:cache_controller|out_count[1]     ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 2 LEs                ; 10 LEs                 ; Yes        ; |cache|cache_FSM:cache_controller|word_select[1]   ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |cache|Mux19                                       ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; No         ; |cache|cache_FSM:cache_controller|Add0             ;
+; 7:1                ; 21 bits   ; 84 LEs        ; 42 LEs               ; 42 LEs                 ; No         ; |cache|cache_FSM:cache_controller|Add0             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------+
@@ -399,7 +402,6 @@ Encoding Type:  One-Hot
 +------------------------+-------+--------------------------------------+
 ; word_length            ; 32    ; Signed Integer                       ;
 ; address_length         ; 32    ; Signed Integer                       ;
-; associativity          ; 1     ; Signed Integer                       ;
 ; index_length           ; 8     ; Signed Integer                       ;
 ; tag_length             ; 22    ; Signed Integer                       ;
 ; offset_length          ; 2     ; Signed Integer                       ;
@@ -460,6 +462,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; sram_width     ; 32    ; Signed Integer                                 ;
 ; number_of_rows ; 256   ; Signed Integer                                 ;
 +----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cache_FSM:cache_controller ;
++------------------------+-------+----------------------------------------+
+; Parameter Name         ; Value ; Type                                   ;
++------------------------+-------+----------------------------------------+
+; word_length            ; 32    ; Signed Integer                         ;
+; address_length         ; 32    ; Signed Integer                         ;
+; index_length           ; 8     ; Signed Integer                         ;
+; tag_length             ; 22    ; Signed Integer                         ;
+; offset_length          ; 2     ; Signed Integer                         ;
+; number_of_cache_blocks ; 256   ; Signed Integer                         ;
++------------------------+-------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -847,7 +864,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Sun Jan 25 22:57:18 2015
+    Info: Processing started: Mon Jan 26 01:21:21 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cache_design -c cache_design
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file vhdl/memory.vhd
@@ -869,10 +886,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file vhdl/ca
     Info (12022): Found design unit 1: cache_SRAM_tb-behavior
     Info (12023): Found entity 1: cache_SRAM_tb
 Info (12021): Found 0 design units, including 0 entities, in source file vhdl/memory_hierarchy.vhd
-Info (12021): Found 0 design units, including 0 entities, in source file vhdl/cache_fsm.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file vhdl/cache_fsm.vhd
+    Info (12022): Found design unit 1: cache_FSM-arch
+    Info (12023): Found entity 1: cache_FSM
 Info (12127): Elaborating entity "cache" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at cache.vhd(62): object "s_addr_tag" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cache.vhd(64): object "s_addr_offset" assigned a value but never read
 Info (12128): Elaborating entity "cache_SRAM" for hierarchy "cache_SRAM:tag_SRAM"
 Info (12128): Elaborating entity "cache_SRAM" for hierarchy "cache_SRAM:word_zero_SRAM"
+Info (12128): Elaborating entity "cache_FSM" for hierarchy "cache_FSM:cache_controller"
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "writedata[0]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "writedata[1]" feeding internal logic into a wire
@@ -986,14 +1008,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 695 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 693 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 101 input pins
     Info (21059): Implemented 98 output pins
-    Info (21061): Implemented 344 logic cells
+    Info (21061): Implemented 342 logic cells
     Info (21064): Implemented 152 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 34 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 36 warnings
     Info: Peak virtual memory: 586 megabytes
-    Info: Processing ended: Sun Jan 25 22:57:24 2015
+    Info: Processing ended: Mon Jan 26 01:21:27 2015
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:04
 

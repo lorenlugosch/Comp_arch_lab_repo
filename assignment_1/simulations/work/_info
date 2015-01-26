@@ -4,7 +4,7 @@ K3
 cModel Technology
 dC:\altera\13.1
 Ecache
-Z0 w1422251155
+Z0 w1422253266
 Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
@@ -14,48 +14,85 @@ Z6 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd
 l0
 L11
 V<2e<Ra8YAM0?U2l_3V;LH3
-!s100 3LL@zLbN9SH5P<02<Il330
 Z7 OV;C;10.1d;51
 32
-!i10b 1
-Z8 !s108 1422251162.352000
+Z8 !s108 1422253354.251000
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd|
 Z10 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache.vhd|
 Z11 o-work work -2002 -explicit -O0
 Z12 tExplicit 1
+!s100 3LL@zLbN9SH5P<02<Il330
+!i10b 1
 Aarch
 R1
 R2
 R3
-Z13 DEx4 work 5 cache 0 22 <2e<Ra8YAM0?U2l_3V;LH3
-l109
+DEx4 work 5 cache 0 22 <2e<Ra8YAM0?U2l_3V;LH3
+l140
 L44
-Z14 V<W3WHCPhb5]2k@BDO@1kA2
-!s100 bgd=L1z4[YhPB;NFcBEjO1
+VCf6M`NJH0ccCNQPW;6i_53
 R7
 32
-!i10b 1
 R8
 R9
 R10
 R11
 R12
-Ecache_sram
-Z15 w1422244515
+!s100 lJ?gE;GGXNQGi>H>XnPj:2
+!i10b 1
+Ecache_fsm
+Z13 w1422253230
 R1
 R2
 R3
 R4
-Z16 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd
-Z17 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd
+Z14 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_FSM.vhd
+Z15 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_FSM.vhd
+l0
+L10
+Vfh@3ck[4=IbzF1`=ITRV`2
+!s100 E35Em:[6DMDn@AACf<Zzb3
+R7
+32
+!i10b 1
+Z16 !s108 1422253356.231000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_FSM.vhd|
+Z18 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_FSM.vhd|
+R11
+R12
+Aarch
+R1
+R2
+R3
+Z19 DEx4 work 9 cache_fsm 0 22 fh@3ck[4=IbzF1`=ITRV`2
+l67
+L46
+Z20 VAF]kGZH5ARVc^AU[6bIme0
+Z21 !s100 MiSID:680j99lNiB5mAO60
+R7
+32
+!i10b 1
+R16
+R17
+R18
+R11
+R12
+Ecache_sram
+Z22 w1422244515
+R1
+R2
+R3
+R4
+Z23 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd
+Z24 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd
 l0
 L10
 V6_lADRc8K@blX_AEFXmi80
 R7
 32
-Z18 !s108 1422244804.586000
-Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd|
-Z20 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd|
+Z25 !s108 1422253355.045000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd|
+Z27 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM.vhd|
 R11
 R12
 !s100 ^SaMYcf<kNL_j5QHUXGC70
@@ -70,29 +107,29 @@ L25
 V@L4aZlVKKnM<Eb8K4U2YB1
 R7
 32
-R18
-R19
-R20
+R25
+R26
+R27
 R11
 R12
 !s100 XzUVG3B8o[WCmnhzC@FA?0
 !i10b 1
 Ecache_sram_tb
-Z21 w1421529748
+Z28 w1421529748
 R1
 R2
 R3
 R4
-Z22 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM_tb.vhd
-Z23 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM_tb.vhd
+Z29 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM_tb.vhd
+Z30 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM_tb.vhd
 l0
 L10
 V<WJIZknO181l>L6OL^;b;3
 R7
 32
-Z24 !s108 1421986581.460000
-Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM_tb.vhd|
-Z26 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM_tb.vhd|
+Z31 !s108 1422253355.801000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM_tb.vhd|
+Z33 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_SRAM_tb.vhd|
 R11
 R12
 !s100 f>@>3UOIif>GHXEfUa]G_1
@@ -105,31 +142,31 @@ DEx4 work 13 cache_sram_tb 0 22 <WJIZknO181l>L6OL^;b;3
 l41
 L17
 VT_N>7f]n;h9eOffRa?Tjj3
+!s100 9cBL[<O8<WaV9OKLgjLRg1
 R7
 32
-R24
-R25
-R26
+R31
+R32
+R33
 R11
 R12
-!s100 9cBL[<O8<WaV9OKLgjLRg1
 !i10b 1
 Ecache_tb
-Z27 w1422249618
+Z34 w1422249618
 R1
 R2
 R3
 R4
-Z28 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd
-Z29 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd
+Z35 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd
+Z36 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd
 l0
 L10
 VHa5[MA19T6TN[APnm1YBJ1
 R7
 32
-Z30 !s108 1422249641.633000
-Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd|
-Z32 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd|
+Z37 !s108 1422253354.623000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd|
+Z39 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/cache_tb.vhd|
 R11
 R12
 !s100 Nz>fkb4lKK:ZzGLdUU4?O3
@@ -144,29 +181,29 @@ L13
 VRjGQN?FaLJ?@nG7VW94g=0
 R7
 32
-R30
-R31
-R32
+R37
+R38
+R39
 R11
 R12
 !s100 RCJgTeUKP^4bT1RbHoE3c1
 !i10b 1
 Ememory
-Z33 w1422203980
+Z40 w1422203980
 R1
 R2
 R3
 R4
-Z34 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd
-Z35 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd
+Z41 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd
+Z42 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd
 l0
 L6
 VPYTg754ZW@4JN?2MbZz`93
 R7
 32
-Z36 !s108 1422204008.866000
-Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd|
-Z38 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd|
+Z43 !s108 1422253352.377000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd|
+Z45 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory.vhd|
 R11
 R12
 !s100 JS`DbI3X2F?>d`nUi4Df[1
@@ -181,29 +218,29 @@ L24
 VN?P;1AAiOIlY1]R`zAXl<0
 R7
 32
-R36
-R37
-R38
+R43
+R44
+R45
 R11
 R12
 !s100 BYS_GOnjLe>2m^3n?a<620
 !i10b 1
 Ememory_tb
-Z39 w1421527846
+Z46 w1421527846
 R1
 R2
 R3
 R4
-Z40 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd
-Z41 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd
+Z47 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd
+Z48 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd
 l0
 L5
 VMTFBjhU;CDA>GCM09SQnz1
 R7
 32
-Z42 !s108 1421986581.039000
-Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd|
-Z44 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd|
+Z49 !s108 1422253353.684000
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd|
+Z51 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_1/vhdl/memory_tb.vhd|
 R11
 R12
 !s100 oLmG8jlOOJcnj1m7@@hng3
@@ -218,9 +255,9 @@ L8
 VOFNdZ[VD3=:o1hcR2g`Wk3
 R7
 32
-R42
-R43
-R44
+R49
+R50
+R51
 R11
 R12
 !s100 Z[GPYWACA^>DIijz:ig<Q1
