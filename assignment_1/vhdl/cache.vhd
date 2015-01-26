@@ -323,9 +323,6 @@ architecture arch of cache is
 							transaction <= MEM_to_cache;
 							out_count <= out_count + 1;
 							state <= READ_GET_BLOCK_FROM_MEM_DEASSERT;
-						--else
-							-- make sure no SRAMs get written to unless MEM data is valid
-							--word_select <= "000";
 						end if;
 						
 					-- the reading process block in
@@ -419,7 +416,7 @@ architecture arch of cache is
 									
 								-- invalid 
 								else
-								  -- compulsory miss, 
+								  -- compulsory miss, load block
 									state <= WRITE_GET_BLOCK_FROM_MEM;
 								end if;
 							
@@ -473,10 +470,7 @@ architecture arch of cache is
 							transaction <= MEM_to_cache;
 							out_count <= out_count + 1;
 							state <= WRITE_GET_BLOCK_FROM_MEM_DEASSERT;
-						--else
-							-- make sure no SRAMs get written to unless MEM data is valid
-							--word_select <= "000";
-						end if;
+            end if;
 						
 					when WRITE_GET_BLOCK_FROM_MEM_DEASSERT =>
 					  m_read <= '0';

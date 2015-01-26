@@ -241,7 +241,7 @@ architecture arch of cache is
 					  -- if the MSB of the address
 					  -- is 1, this is I/O and we should
 					  -- ignore the cache
-					  if s_addr(1) = '1' then
+					  if s_addr(31) = '1' then
 						  m_read <= '1';
 						  transaction <= MEM_to_CPU;
 						  m_addr <= to_integer(unsigned(s_addr(31-1 downto 0)));
@@ -323,9 +323,6 @@ architecture arch of cache is
 							transaction <= MEM_to_cache;
 							out_count <= out_count + 1;
 							state <= READ_GET_BLOCK_FROM_MEM_DEASSERT;
-						--else
-							-- make sure no SRAMs get written to unless MEM data is valid
-							--word_select <= "000";
 						end if;
 						
 					-- the reading process block in
@@ -473,10 +470,7 @@ architecture arch of cache is
 							transaction <= MEM_to_cache;
 							out_count <= out_count + 1;
 							state <= WRITE_GET_BLOCK_FROM_MEM_DEASSERT;
-						--else
-							-- make sure no SRAMs get written to unless MEM data is valid
-							--word_select <= "000";
-						end if;
+            end if;
 						
 					when WRITE_GET_BLOCK_FROM_MEM_DEASSERT =>
 					  m_read <= '0';

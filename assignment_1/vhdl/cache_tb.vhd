@@ -134,8 +134,16 @@ BEGIN
 
 	 test_process : process
     BEGIN
+      -- hereafter, the vector <h=_,d=_,v=_,r=_>
+      -- denotes the case when a memory access is:
+      --    -hit (h)
+      --    -dirty (d)
+      --    -valid (v)
+      --    -read (r)
+      
 			-- start by writing 0x12341234
 			--	to address 1
+			-- <h=0,d=0,v=0,r=0>
 			s_write <= '1';
 			s_read <= '0';
 			s_addr <= X"00000001";
@@ -146,6 +154,7 @@ BEGIN
 			
 			-- write 0x55555555
 			--	to address 2
+			-- <h=1,d=1,v=1,r=0>
 			s_write <= '1';
 			s_read <= '0';
 			s_addr <= X"00000002";
@@ -155,7 +164,7 @@ BEGIN
 			wait for clk_period*5;
 			
 			-- read from address 0x1
-			-- (read, valid, tag =, not dirty)
+			-- <h=1,d=1,v=1,r=1>
 			s_write <= '0';
 			s_read <= '1';
 			s_addr <= X"00000001";
@@ -164,11 +173,13 @@ BEGIN
 			wait for clk_period*2;
 			
 			-- try reading from somewhere unwritten
-			-- (read, invalid, tag not =, not dirty)
+			-- <h=0,d=0,v=0,r=1>
 			s_addr <= X"00000012";
 			s_read <= '1';
 			wait until s_waitrequest = '0';
 			wait for clk_period*2;
+			
+			
 		  
 		-- write "12345678" to address 0x00000001
 		-- should end up in line one of cache
