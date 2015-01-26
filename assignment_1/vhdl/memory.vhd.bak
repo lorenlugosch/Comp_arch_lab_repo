@@ -7,13 +7,13 @@ ENTITY memory IS
 	GENERIC(
 		data_width : INTEGER := 32;
 		ram_size : INTEGER := 24576;
-		mem_delay : time := 10 ns;
+		mem_delay : time := 10500 ps;--10 ns;
 		clock_period : time := 1 ns
 	);
 	PORT (
 		clock: IN STD_LOGIC;
 		writedata: IN STD_LOGIC_VECTOR (data_width-1 DOWNTO 0);
-		address: IN STD_LOGIC_VECTOR (31 downto 0);--IN INTEGER RANGE 0 TO ram_size-1;
+		address: IN INTEGER RANGE 0 TO ram_size-1;
 		memwrite: IN STD_LOGIC;
 		memread: IN STD_LOGIC;
 		readdata: OUT STD_LOGIC_VECTOR (data_width-1 DOWNTO 0);

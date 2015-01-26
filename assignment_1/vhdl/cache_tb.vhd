@@ -140,7 +140,6 @@ BEGIN
 			s_read <= '0';
 			s_addr <= X"00000001";
 			s_writedata <= X"12341234";
-			wait until m_waitrequest = '0';
 			wait until s_waitrequest = '0';
 			s_write <= '0';
 			wait for clk_period*5;
@@ -151,26 +150,25 @@ BEGIN
 			s_read <= '0';
 			s_addr <= X"00000002";
 			s_writedata <= X"55555555";
-			wait until m_waitrequest = '0';
 			wait until s_waitrequest = '0';
 			s_write <= '0';
 			wait for clk_period*5;
 			
-			-- then read that data out
+			-- read from address 0x1
+			-- (read, valid, tag =, not dirty)
 			s_write <= '0';
 			s_read <= '1';
 			s_addr <= X"00000001";
-			wait until m_waitrequest = '0';
 			wait until s_waitrequest = '0';
+			s_read <= '0';
 			wait for clk_period*2;
 			
 			-- try reading from somewhere unwritten
-			s_addr <= X"00000002";
+			-- (read, invalid, tag not =, not dirty)
+			s_addr <= X"00000012";
+			s_read <= '1';
+			wait until s_waitrequest = '0';
 			wait for clk_period*2;
-			
-			-- write 0x87654321
-			-- to address
-			wait;
 		  
 		-- write "12345678" to address 0x00000001
 		-- should end up in line one of cache
