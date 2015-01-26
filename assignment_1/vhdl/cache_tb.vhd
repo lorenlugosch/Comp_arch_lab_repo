@@ -1,18 +1,19 @@
 -- Loren Lugosch
 -- 260404057
 
+-- Main testbench for complete system.
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE ieee.numeric_std.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-ENTITY cache_tb IS
-END cache_tb;
+entity cache_tb is
+end cache_tb;
 
-ARCHITECTURE behavior OF cache_tb IS
+architecture behavior of cache_tb is
 
-	COMPONENT cache IS
-		GENERIC(
+	component cache is
+		generic(
 			word_length : integer := 32;
 			address_length : integer := 32;
 			associativity : integer := 1; --two-way associative?--
@@ -21,7 +22,7 @@ ARCHITECTURE behavior OF cache_tb IS
 			offset_length : integer := 2; --4 words per line means 2 bits req'd to address a word--
 			number_of_cache_blocks : integer := 256
 		);
-		PORT(
+		port(
 			clock : in std_logic;
 			reset : in std_logic;
 		
@@ -43,36 +44,30 @@ ARCHITECTURE behavior OF cache_tb IS
 			m_writedata : out std_logic_vector (word_length-1 downto 0);
 			m_waitrequest : in std_logic -- MEM tells cache to keep waiting
 		);
-		END COMPONENT;
+	end component;
 		
 	component memory is 
-		GENERIC(
-			data_width : INTEGER := 32;
-			ram_size : INTEGER := 24576;
+		generic(
+			data_width : integer := 32;
+			ram_size : integer := 24576;
 			mem_delay : time := 10 ns;
 			clock_period : time := 1 ns
 		);
-		PORT (
-			clock: IN STD_LOGIC;
-			writedata: IN STD_LOGIC_VECTOR (data_width-1 DOWNTO 0);
-			address: IN INTEGER RANGE 0 TO 2147483647;
-			memwrite: IN STD_LOGIC;
-			memread: IN STD_LOGIC;
-			readdata: OUT STD_LOGIC_VECTOR (data_width-1 DOWNTO 0);
-			waitrequest: OUT STD_LOGIC
+		port (
+			clock: in std_logic;
+			writedata: in std_logic_vector (data_width-1 downto 0);
+			address: in integer range 0 to 2147483647;
+			memwrite: in std_logic;
+			memread: in std_logic;
+			readdata: out std_logic_vector (data_width-1 downto 0);
+			waitrequest: out std_logic
 		);
-	END component;
+	end component;
 	
-	--all the input signals with initial values
-	 signal reset : std_logic;
+	-- test signals 
+	signal reset : std_logic;
    signal clk : std_logic := '0';
    constant clk_period : time := 1 ns;
---   signal writedata: std_logic_vector(31 downto 0);
---   signal xaddr: STD_LOGIC_VECTOR(31 downto 0);
---   signal memwrite: STD_LOGIC := '0';
---   signal memread: STD_LOGIC := '0';
---   signal readdata: STD_LOGIC_VECTOR (31 DOWNTO 0);
---   signal waitrequest: STD_LOGIC;
 
 	signal s_addr : std_logic_vector (31 downto 0);
 	signal s_read : std_logic;
@@ -88,11 +83,10 @@ ARCHITECTURE behavior OF cache_tb IS
 	signal m_writedata : std_logic_vector (31 downto 0);
 	signal m_waitrequest : std_logic; -- cache tells CPU to keep waiting
 	
-BEGIN
-	--dut => Device Under Test
-    dut: cache 
-   			PORT MAP(
-					clock => clk,
+begin
+	dut: cache 
+   			port map(
+				clock => clk,
 		      reset => reset,
 		
 		      -- CPU/cache bus
@@ -113,7 +107,7 @@ BEGIN
     			);
 				
 	MEM : memory
-		  PORT MAP(
+		  port map (
 					clock => clk,
 					writedata => m_writedata,
 					address => m_addr,
@@ -125,7 +119,7 @@ BEGIN
 				
 
     clk_process : process
-    BEGIN
+    begin
         clk <= '0';
         wait for clk_period/2;
         clk <= '1';
@@ -133,7 +127,7 @@ BEGIN
     end process;
 
 	 test_process : process
-    BEGIN
+    begin
       -- hereafter, the vector <h=_,d=_,v=_,r=_>
       -- denotes the case when a memory access is:
       --    -hit (h)
@@ -141,50 +135,51 @@ BEGIN
       --    -valid (v)
       --    -read (r)
       
-			-- start by writing 0x12341234
-			--	to address 1
-			-- <h=0,d=0,v=0,r=0>
-			s_write <= '1';
-			s_read <= '0';
-			s_addr <= X"00000001";
-			s_writedata <= X"12341234";
-			wait until s_waitrequest = '0';
-			s_write <= '0';
-			wait for clk_period*5;
-			
-			-- write 0x55555555
-			--	to address 2
-			-- <h=1,d=1,v=1,r=0>
-			s_write <= '1';
-			s_read <= '0';
-			s_addr <= X"00000002";
-			s_writedata <= X"55555555";
-			wait until s_waitrequest = '0';
-			s_write <= '0';
-			wait for clk_period*5;
-			
-			-- read from address 0x1
-			-- <h=1,d=1,v=1,r=1>
-			s_write <= '0';
-			s_read <= '1';
-			s_addr <= X"00000001";
-			wait until s_waitrequest = '0';
-			s_read <= '0';
-			wait for clk_period*2;
-			
-			-- try reading from somewhere unwritten
-			-- <h=0,d=0,v=0,r=1>
-			s_addr <= X"00000012";
-			s_read <= '1';
-			wait until s_waitrequest = '0';
-			wait for clk_period*2;
-			
-			
-		  
+		-- start by writing 0x12341234
+		--	to address 1
+		-- <h=0,d=0,v=0,r=0>
+		s_write <= '1';
+		s_read <= '0';
+		s_addr <= X"00000001";
+		s_writedata <= X"12341234";
+		wait until s_waitrequest = '0';
+		s_write <= '0';
+		wait for clk_period*5;
+		
+		-- write 0x55555555
+		--	to address 2
+		-- <h=1,d=1,v=1,r=0>
+		s_write <= '1';
+		s_read <= '0';
+		s_addr <= X"00000002";
+		s_writedata <= X"55555555";
+		wait until s_waitrequest = '0';
+		s_write <= '0';
+		wait for clk_period*5;
+		
+		-- read from address 0x1
+		-- (result should be 0x12341234)
+		-- <h=1,d=1,v=1,r=1>
+		s_write <= '0';
+		s_read <= '1';
+		s_addr <= X"00000001";
+		wait until s_waitrequest = '0';
+		s_read <= '0';
+		wait for clk_period*2;
+		
+		-- try reading from somewhere unwritten
+		-- <h=0,d=0,v=0,r=1>
+		s_addr <= X"00000012";
+		s_read <= '1';
+		wait until s_waitrequest = '0';
+		wait for clk_period*2;
+		
 		-- write "12345678" to address 0x00000001
 		-- should end up in line one of cache
-
-    END PROCESS;
-
+		-- and evict the data there
+		-- <h=0,d=1,v=1,r=0>
+		
+		
+    end process;
 	
-END;
+end;

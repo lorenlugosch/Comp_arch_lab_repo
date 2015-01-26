@@ -5,6 +5,6 @@
 		<CBX_INST_ENTRY INSTANCE_NAME="|cache|cache_SRAM:word_three_SRAM|altsyncram:mem_block_rtl_0" CBX_FILE_NAME="altsyncram_6j41.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|cache|cache_SRAM:word_two_SRAM|altsyncram:mem_block_rtl_0" CBX_FILE_NAME="altsyncram_6j41.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|cache|cache_SRAM:word_zero_SRAM|altsyncram:mem_block_rtl_0" CBX_FILE_NAME="altsyncram_6j41.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|cache|cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0" CBX_FILE_NAME="altsyncram_7j41.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|cache|cache_SRAM:tag_SRAM|altsyncram:mem_block_rtl_0" CBX_FILE_NAME="altsyncram_8j41.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

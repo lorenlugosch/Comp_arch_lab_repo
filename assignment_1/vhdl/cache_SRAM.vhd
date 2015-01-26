@@ -3,44 +3,41 @@
 
 -- This VHD describes an SRAM to be used as the memory of a 4kB cache.
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE ieee.numeric_std.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-ENTITY cache_SRAM IS
-	GENERIC(
-		SRAM_width : INTEGER := 32;-- default needed
-		number_of_rows : INTEGER := 256
+entity cache_SRAM is
+	generic(
+		SRAM_width : integer := 32;-- default needed
+		number_of_rows : integer := 256
 	);
-	PORT(
-		clock : in STD_LOGIC;
-		writedata : in STD_LOGIC_VECTOR(SRAM_width-1 downto 0);
-		address : in INTEGER RANGE 0 to number_of_rows-1;
-		writeenable : in STD_LOGIC;
-		readdata : out STD_LOGIC_VECTOR(SRAM_width-1 downto 0)
+	port(
+		clock : in std_logic;
+		writedata : in std_logic_vector(SRAM_width-1 downto 0);
+		address : in integer range 0 to number_of_rows-1;
+		writeenable : in std_logic;
+		readdata : out std_logic_vector(SRAM_width-1 downto 0)
 	);
-END cache_SRAM;
+end cache_SRAM;
 
--- Inferred memory SRAM adapted from Altera examples --
-ARCHITECTURE arch OF cache_SRAM IS
-	TYPE MEM IS ARRAY(0 to number_of_rows) OF STD_LOGIC_VECTOR(SRAM_width-1 downto 0);
-	SIGNAL mem_block : MEM;
-	SIGNAL read_address_reg : INTEGER RANGE 0 to number_of_rows-1;
+-- inferred memory SRAM adapted from altera examples --
+architecture arch of cache_SRAM is
+	type MEM is array(0 to number_of_rows) of std_logic_vector(SRAM_width-1 downto 0);
+	signal mem_block : MEM;
+	signal read_address_reg : integer range 0 to number_of_rows-1;
 	
-BEGIN
-	PROCESS (clock)
-	BEGIN
-		-- on rising clock edge, write data if write enabled
-		-- and spit out data at that address whether read or write
-		if (clock'event AND clock = '1') then
+begin
+	process (clock)
+	begin
+		if (clock'event and clock = '1') then
 			if (writeenable = '1') then
 				mem_block(address) <= writedata;
 			end if;
 			
 			read_address_reg <= address;
 		end if;
-	END PROCESS;
+	end process;
 	readdata <= mem_block(read_address_reg);
-	--readdata <= mem_block(address); -- quartus will simply make registers
 
-END arch;
+end arch;

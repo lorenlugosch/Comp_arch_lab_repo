@@ -1,5 +1,5 @@
 Flow report for cache_design
-Sun Jan 25 19:33:13 2015
+Sun Jan 25 22:38:13 2015
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Sun Jan 25 19:33:13 2015      ;
+; Flow Status                        ; Successful - Sun Jan 25 22:38:13 2015      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; cache_design                               ;
 ; Top-level Entity Name              ; cache                                      ;
 ; Family                             ; Cyclone IV GX                              ;
-; Total logic elements               ; 310 / 29,440 ( 1 % )                       ;
-;     Total combinational functions  ; 306 / 29,440 ( 1 % )                       ;
-;     Dedicated logic registers      ; 75 / 29,440 ( < 1 % )                      ;
-; Total registers                    ; 75                                         ;
+; Total logic elements               ; 336 / 29,440 ( 1 % )                       ;
+;     Total combinational functions  ; 314 / 29,440 ( 1 % )                       ;
+;     Dedicated logic registers      ; 80 / 29,440 ( < 1 % )                      ;
+; Total registers                    ; 80                                         ;
 ; Total pins                         ; 199 / 307 ( 65 % )                         ;
 ; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 38,656 / 1,105,920 ( 3 % )                 ;
+; Total memory bits                  ; 38,912 / 1,105,920 ( 4 % )                 ;
 ; Embedded Multiplier 9-bit elements ; 0 / 160 ( 0 % )                            ;
 ; Total GXB Receiver Channel PCS     ; 0 / 4 ( 0 % )                              ;
 ; Total GXB Receiver Channel PMA     ; 0 / 4 ( 0 % )                              ;
@@ -68,7 +68,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/25/2015 19:30:04 ;
+; Start date & time ; 01/25/2015 22:37:09 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cache_design        ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ applicable agreement for further details.
 +-------------------------------------+------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                        ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 121369922799.142223220404188 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 121369922799.142224342904480 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                         ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)       ; <None>        ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                     ; --            ; cache       ; Top            ;
@@ -95,12 +95,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:05     ; 1.0                     ; 586 MB              ; 00:00:03                           ;
-; Fitter                    ; 00:02:42     ; 1.0                     ; 983 MB              ; 00:02:14                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 518 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 541 MB              ; 00:00:04                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 487 MB              ; 00:00:02                           ;
-; Total                     ; 00:03:00     ; --                      ; --                  ; 00:02:28                           ;
+; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 586 MB              ; 00:00:03                           ;
+; Fitter                    ; 00:00:38     ; 1.0                     ; 945 MB              ; 00:00:29                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 519 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 536 MB              ; 00:00:04                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 491 MB              ; 00:00:02                           ;
+; Total                     ; 00:00:56     ; --                      ; --                  ; 00:00:43                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,7 +1,7 @@
 -- Loren Lugosch
 -- 260404057
 
--- This VHD describes a cache. Hereafter "MEM" = "main memory".
+-- This VHD describes a cache. Hereafter, "MEM" = "main memory".
 
 library ieee;
 use ieee.std_logic_1164.all;
