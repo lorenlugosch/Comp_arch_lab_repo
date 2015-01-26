@@ -214,10 +214,23 @@ architecture arch of cache is
 				
 			elsif (clock'event and clock = '1') then
 				case state is
+				  
+				  -- FSM needs a reset state;
+		      -- for now this does nothing,
+		      -- but could add things like initializing
+		      -- valid / dirty bits to '0'
 					when RST =>
 						out_count <= 0;
 						state <= IDLE;
 				
+				  -- this state is entered after
+				  -- every transaction is DONE
+				  -- and left once s_read or s_write
+				  -- goes high
+				  -- (Avalon interface specifies that
+				  -- the address must also be on the lines
+				  -- when that happens-- if not, this will
+				  -- bug out!)
 					when IDLE =>
 					  -- CPU waitrequest high until DONE
 					  transaction <= NO_TRANSACTION;
@@ -235,7 +248,13 @@ architecture arch of cache is
 							state <= IDLE;
 						end if;
 						
-						
+					-- entered after s_read;
+					-- remain here until tag is ready,
+					-- then jump to:
+					--     -DONE if hit or direct MEM read completes
+					--     -READ_GET_BLOCK_FROM_MEM if the line is empty or
+					--       has clean data
+					--     -READ_FLUSH_TO_MEM if the line has dirty data
 					when READ_START =>
 					  -- if the MSB of the address
 					  -- is 1, this is I/O and we should
@@ -263,7 +282,7 @@ architecture arch of cache is
       						  -- if tag is equal:
       						  elsif (readdata_tag(tag_length-1 downto 0) = s_addr_tag) then
       							
-      							  -- valid
+      							  -- valid?
       							  if (readdata_tag(tag_length+1) = '1') then
       								  -- hit!
       								  -- choose appropriate word based on
@@ -302,6 +321,8 @@ architecture arch of cache is
   						
 						end if;
 						
+					-- cycle between here and DEASSERT until
+					-- the block is fully loaded into the cache
 					when READ_GET_BLOCK_FROM_MEM =>
 						-- read four words from the right place in MEM
 						-- into the correct cache block
@@ -352,6 +373,8 @@ architecture arch of cache is
 						  transaction <= NO_TRANSACTION;
 						end if;
 					
+					-- cycle between here and DEASSERT
+					-- until dirty block is flushed to MEM					
 					when READ_FLUSH_TO_MEM =>
 						m_write <= '1';
 						m_addr <= to_integer(unsigned(readdata_tag(tag_length-1 downto 0) & std_logic_vector(to_unsigned(s_addr_index,index_length)) & "00")) + out_count;
@@ -363,7 +386,8 @@ architecture arch of cache is
 							state <= READ_FLUSH_TO_MEM_DEASSERT;
 						end if;
 						
-						
+					-- after flushing block, jump from here
+					-- to reading in the new block
 					when READ_FLUSH_TO_MEM_DEASSERT =>
 					  m_write <= '0';
 					  
@@ -379,7 +403,9 @@ architecture arch of cache is
 						  transaction <= NO_TRANSACTION;
 						end if;
 					
-						
+					-- entered after s_write
+					-- only differences from READ_START
+					-- are the target states (WRITE_ instead of READ_)
 					when WRITE_START =>
 					  -- if the MSB of the address
 					  -- is 1, this is I/O and we should
@@ -473,6 +499,7 @@ architecture arch of cache is
 							state <= WRITE_GET_BLOCK_FROM_MEM_DEASSERT;
             end if;
 						
+					-- same as read, decoupled for clarity
 					when WRITE_GET_BLOCK_FROM_MEM_DEASSERT =>
 					  m_read <= '0';
 					  
@@ -506,7 +533,7 @@ architecture arch of cache is
 							state <= WRITE_FLUSH_TO_MEM_DEASSERT;
 						end if;
 						
-						
+					-- same as read, decoupled for clarity
 					when WRITE_FLUSH_TO_MEM_DEASSERT =>
 					  m_write <= '0';
 					  
@@ -522,6 +549,8 @@ architecture arch of cache is
 						  transaction <= NO_TRANSACTION;
 						end if;
 					
+					-- after transaction, clean up interface signals
+					-- and jump back to IDLE
 					when DONE =>
 						-- reassert CPU waitrequest
 						s_waitrequest <= '1';

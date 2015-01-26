@@ -142,8 +142,7 @@ architecture arch of cache is
 		           m_readdata when MEM_to_CPU,
 		           "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" when others;
 		
-		-- enable direct writes to MEM
-		-- OR connect cache's read-out to MEM's write
+		-- select source for writes to MEM
 		with transaction select   
 		  m_writedata <= readdata when cache_to_MEM,
 		           s_writedata when CPU_to_MEM,
@@ -215,10 +214,23 @@ architecture arch of cache is
 				
 			elsif (clock'event and clock = '1') then
 				case state is
+				  
+				  -- FSM needs a reset state;
+		      -- for now this does nothing,
+		      -- but could add things like initializing
+		      -- valid / dirty bits to '0'
 					when RST =>
 						out_count <= 0;
 						state <= IDLE;
 				
+				  -- this state is entered after
+				  -- every transaction is DONE
+				  -- and left once s_read or s_write
+				  -- goes high
+				  -- (Avalon interface specifies that
+				  -- the address must also be on the lines
+				  -- when that happens-- if not, this will
+				  -- bug out!)
 					when IDLE =>
 					  -- CPU waitrequest high until DONE
 					  transaction <= NO_TRANSACTION;
@@ -236,7 +248,13 @@ architecture arch of cache is
 							state <= IDLE;
 						end if;
 						
-						
+					-- entered after s_read;
+					-- remain here until tag is ready,
+					-- then jump to:
+					--     -DONE if hit or direct MEM read completes
+					--     -READ_GET_BLOCK_FROM_MEM if the line is empty or
+					--       has clean data
+					--     -READ_FLUSH_TO_MEM if the line has dirty data
 					when READ_START =>
 					  -- if the MSB of the address
 					  -- is 1, this is I/O and we should
@@ -264,7 +282,7 @@ architecture arch of cache is
       						  -- if tag is equal:
       						  elsif (readdata_tag(tag_length-1 downto 0) = s_addr_tag) then
       							
-      							  -- valid
+      							  -- valid?
       							  if (readdata_tag(tag_length+1) = '1') then
       								  -- hit!
       								  -- choose appropriate word based on
@@ -303,6 +321,8 @@ architecture arch of cache is
   						
 						end if;
 						
+					-- cycle between here and DEASSERT until
+					-- the block is fully loaded into the cache
 					when READ_GET_BLOCK_FROM_MEM =>
 						-- read four words from the right place in MEM
 						-- into the correct cache block
