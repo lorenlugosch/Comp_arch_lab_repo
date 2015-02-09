@@ -1,0 +1,138 @@
+-- Loren Lugosch
+-- 260404057
+-- 
+-- In_FIFOs buffer packets
+-- routed into this core
+-- and route them to one of the 
+-- out_FIFOs.
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+use work.router_parameters.all;
+
+entity in_FIFO is
+	generic (
+		packet_size : integer := 64;
+		data_width : integer := 32;
+		header_width : integer := 16;
+		address_size : integer := 16
+	);
+	port (
+		clock : in std_logic;
+		reset : in std_logic;
+		
+		--Avalon-ish interface with neighboring core
+		writedata_into_X : in std_logic_vector(packet_size-1 downto 0);
+		waitrequest_outof_X : out std_logic;
+		write_into_X : in std_logic;
+		
+		--Avalon-ish interface with out_FIFOs
+		writedata_outof_X : out std_logic_vector(packet_size-1 downto 0);
+		waitrequest_into_X_outof_N : in std_logic;
+		waitrequest_into_X_outof_S : in std_logic;
+		waitrequest_into_X_outof_W : in std_logic;
+		waitrequest_into_X_outof_E : in std_logic;
+		waitrequest_into_X_outof_LOCAL : in std_logic;
+		
+		write_outof_X_into_N : out std_logic;
+		write_outof_X_into_S : out std_logic;
+		write_outof_X_into_W : out std_logic;
+		write_outof_X_into_E : out std_logic;
+		write_outof_X_into_LOCAL : out std_logic
+	);
+end in_FIFO;
+
+architecture rtl of in_FIFO is
+	
+	-- signals
+	signal queue_data_out : std_logic_vector(packet_size-1 downto 0);
+	signal packet_x_coordinate : integer;
+	signal packet_y_coordinate : integer;
+	signal destination : std_logic_vector(2 downto 0);
+	signal writedata_outof_X_internal : std_logic_vector(packet_size-1 downto 0);
+	
+	 -- control sigs from FSM
+	signal dest_enable : std_logic;
+	signal pop_enable : std_logic;
+	
+	-- inputs to FSM
+	signal queue_empty : std_logic;
+	signal waitrequest_outof_N : std_logic;
+	signal waitrequest_outof_S : std_logic;
+	signal waitrequest_outof_W : std_logic;
+	signal waitrequest_outof_E : std_logic;
+	signal waitrequest_outof_LOCAL : std_logic;
+	signal waitrequest : std_logic;
+
+begin
+	writedata_outof_X <= writedata_outof_X_internal;
+
+	-- packet buffer register
+	packet_buffer : reg
+		port map(
+			clock => clock,
+			reset => reset,
+			D => queue_data_out,
+			Q => writedata_outof_X_internal
+		);
+
+	-- FIFO queue
+	queue : STD_FIFO
+		port map(
+			CLK => clock,
+			RST => reset,
+			WriteEn => write_into_X,
+			DataIn => writedata_into_X,
+			ReadEn => pop_enable,
+			DataOut => queue_data_out,
+			Empty	=> queue_empty,
+			Full => waitrequest_outof_X
+		);
+
+	-- destination decoder
+	packet_x_coordinate <= to_integer(unsigned(writedata_outof_X_internal(31 downto 31-1)));
+	packet_y_coordinate <= to_integer(unsigned(writedata_outof_X_internal(31-2 downto 31-3)));
+	
+	dest_decode : destination_decoder
+		port map(
+			dest_enable => dest_enable,
+		
+			x_coordinate => packet_x_coordinate,
+			y_coordinate => packet_y_coordinate,
+			
+			destination => destination,
+			
+			write_outof_X_into_N => write_outof_X_into_N,
+			write_outof_X_into_S => write_outof_X_into_S,
+			write_outof_X_into_W => write_outof_X_into_W,
+			write_outof_X_into_E => write_outof_X_into_E,
+			write_outof_X_into_LOCAL => write_outof_X_into_LOCAL
+		);
+
+	-- choose waitrequest signal input for FSM
+	with destination select
+		waitrequest <= 
+			waitrequest_into_X_outof_N when N,
+			waitrequest_into_X_outof_S when S,
+			waitrequest_into_X_outof_W when W,
+			waitrequest_into_X_outof_E when E,
+			waitrequest_into_X_outof_LOCAL when LOCAL,
+			'1' when others; -- "wait" by default
+		
+	-- FSM
+	fsm : in_FIFO_FSM
+		port map(
+			clock => clock,
+			reset => reset,
+			write_into_X => write_into_X,
+		
+			dest_enable => dest_enable,
+			pop_enable => pop_enable,
+			
+			queue_empty => queue_empty,
+			waitrequest => waitrequest
+		);
+
+end rtl;

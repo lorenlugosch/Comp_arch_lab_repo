@@ -1,0 +1,9 @@
+entity in_FIFO_FSM is
+	port ();
+end in_FIFO_FSM;
+
+architecture rtl of in_FIFO_FSM is
+
+begin
+
+end rtl;

@@ -168,6 +168,7 @@ begin
     		s_read <= '1';
     		s_addr <= X"00000001";
     		wait until s_waitrequest = '0';
+    		assert s_readdata = X"12341234";
     		s_read <= '0';
     		wait for clk_period*2;
     		
@@ -229,6 +230,7 @@ begin
     		s_read <= '1';
     		s_write <= '0';
     		wait until s_waitrequest = '0';
+    		assert s_readdata = X"00000012";
     		wait for clk_period*2;
     		
     		-- write to that line

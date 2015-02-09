@@ -16,7 +16,6 @@ architecture behavior of cache_tb is
 		generic(
 			word_length : integer := 32;
 			address_length : integer := 32;
-			associativity : integer := 1;
 			index_length : integer := 8;
 			tag_length : integer := 22;
 			offset_length : integer := 2;
@@ -230,6 +229,7 @@ begin
     		s_read <= '1';
     		s_write <= '0';
     		wait until s_waitrequest = '0';
+    		assert s_readdata = X"00000010";
     		wait for clk_period*2;
     		
     		-- write to that line

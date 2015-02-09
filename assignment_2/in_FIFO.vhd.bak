@@ -1,0 +1,64 @@
+-- Loren Lugosch
+-- 260404057
+-- 
+-- In_FIFOs buffer packets
+-- routed into this core
+-- and route them to one of the 
+-- out_FIFOs.
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity in_FIFO is
+	--generic ();
+	port (
+		--Avalon-ish interface
+		writedata_X : out std_logic_vector(63 downto 0); -- packet
+		waitrequest_X : in std_logic;
+		write_X_to_N : out std_logic;
+		write_X_to_S : out std_logic;
+		write_X_to_W : out std_logic;
+		write_X_to_E : out std_logic;
+		write_X_to_LOCAL : out std_logic;
+	);
+end in_FIFO;
+
+architecture rtl of in_FIFO is
+
+	component destination_decoder is
+		generic (
+			my_x : integer := 1;
+			my_y : integer := 1
+		);
+		port (
+			x_coordinate : in integer;
+			y_coordinate : in integer;
+			destination : out std_logic_vector(2 downto 0) -- N, S, W, E, LOCAL
+		);
+	end component;
+
+	component STD_FIFO is 
+
+begin
+
+-- packet buffer register
+	packet_buffer : reg
+		port map
+
+-- FIFO queue
+	queue : STD_FIFO
+		port map(
+		);
+
+-- destination decoder
+	dest_decode : destination_decoder
+		port map(
+		);
+
+-- FSM
+	fsm : in_FIFO_FSM
+		port map(
+		);
+
+end rtl;

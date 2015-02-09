@@ -1,0 +1,30 @@
+I. Intro
+We were given the task of designing a write-back, direct-mapped cache following the Avalon interface specification with 4 kB of storage, 32-bit words, and 128-bit lines. My solution was a write-allocate cache with five SRAM units. In the following sections, I describe how I decided on the write-allocate and multiple-SRAM format and how I implemented the required functionality.
+
+II. Parameter Calculation
+Before I could start coding, I needed to calculate some of the parameters which would determine the dimensions of my cache. From the specification, the cache needs enough SRAM for 4 kB of data, and the data are stored as 32-bit words in 128-bit lines. These two requirements set the number of lines in the cache. Since 4 kB is 4096 bytes, and there are 4 bytes in a word, there are 1024 words. 128-bit lines means 4 words per line, so there are 256 lines total (meaning 256 sets for a direct-mapped cache). The number of lines in turn sets the number of bits in the address designated as the index: to index 256 sets requires log2(256) = 8 bits. Thus the signal "s_addr_index" in my cache is an std_logic_vector of width 8. Four words per line can be addressed with a two-bit offset, so "s_addr_offset" is two bits. The rest of the address bits are designated as the tag. Since the size of the address space was not specified, I decided on a 32-bit address, and I made the 22 remaining bits the tag.
+
+III. SRAM
+The assignment specifies that tags, flags, and data are to be stored in SRAM. Each line of the cache needs 128 bits to store the four data words, as well as 24 bits to store the 22-bit tag and valid/dirty flags, thus 152 bits per line. At 256 lines, the system will need 38912 memory bits. Appendix A, the compilation report in Quartus, shows that this number of bits is indeed synthesized as SRAM and not as registers.
+
+An SRAM unit can only read or write one line as a whole- there is no way to access individual bits. One could store each line of the cache with its tags as a 152-bit SRAM word. However, accessing one word (or the tag) from a 152-bit word would require complicated masking mechanisms, increase the size of the combinational logic, increase the amount of propagation delay, etc.. I decided to use five separate SRAM units: one to store tags and flags, and the other four to store data words. This allows each word and the tag to be accessed separately.
+
+IV. Combinational Logic
+The two main combinational logic blocks in my design are 1) bus arbitration and 2) word selection. In the next two sections I describe both blocks.
+
+A) Bus arbitration
+There are seven possible interactions between the CPU, the cache, and main memory (MEM), listed here along with transactional codes used in my design:
+-CPU reads from cache (cache_to_CPU := 0)
+-cache writes to MEM (cache_to_MEM := 1)
+-CPU writes to cache (CPU_to_cache := 2)
+-cache reads from MEM (MEM_to_cache := 3)
+-CPU writes directly to MEM (CPU_to_MEM := 4)
+-CPU reads directly from MEM (MEM_to_CPU := 5)
+-no transaction (NO_TRANSACTION := 7)
+
+In each case, the left device becomes bus master, and the right device becomes bus slave. The finite state machine (see section V) does not route signals through itself but rather emits a transaction code (signal "transaction" in cache.vhd and cache_FSM.vhd). The transaction code acts as the select signal for three multiplexers, which drive data from the appropriate source onto one of three busses: "writedata", "s_readdata", or "m_writedata". (During "NO_TRANSACTION", all three busses are undriven.)
+
+B) Word selection
+
+
+V.

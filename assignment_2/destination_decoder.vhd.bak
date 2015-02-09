@@ -1,0 +1,10 @@
+entity destination_decoder is
+	port ();
+end destination_decoder;
+
+architecture rtl of destination_decoder is
+--signals
+
+begin
+
+end rtl;

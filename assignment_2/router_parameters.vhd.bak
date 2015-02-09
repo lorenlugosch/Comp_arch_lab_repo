@@ -1,0 +1,8 @@
+
+package router_parameters is
+	constant N : std_logic_vector(2 downto 0) := "000";
+	constant S : std_logic_vector(2 downto 0) := "001";
+	constant W : std_logic_vector(2 downto 0) := "010";
+	constant E : std_logic_vector(2 downto 0) := "011";
+	constant LOCAL : std_logic_vector(2 downto 0) := "100"
+end router_parameters;
