@@ -1,11 +1,15 @@
+-- Taken from http://www.deathbylogic.com/2013/07/vhdl-standard-fifo/
+
 library IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
+
+use work.router_parameters.all;
  
 entity STD_FIFO is
 	Generic (
-		constant DATA_WIDTH  : positive := 8;
-		constant FIFO_DEPTH	: positive := 256
+		constant DATA_WIDTH  : integer;
+		constant FIFO_DEPTH	: integer
 	);
 	Port ( 
 		CLK		: in  STD_LOGIC;
@@ -20,13 +24,14 @@ entity STD_FIFO is
 end STD_FIFO;
  
 architecture Behavioral of STD_FIFO is
+  type FIFO_Memory is array (0 to FIFO_DEPTH - 1) of STD_LOGIC_VECTOR (DATA_WIDTH - 1 downto 0);
+		signal Memory : FIFO_Memory;
  
 begin
  
 	-- Memory Pointer Process
 	fifo_proc : process (CLK)
-		type FIFO_Memory is array (0 to FIFO_DEPTH - 1) of STD_LOGIC_VECTOR (DATA_WIDTH - 1 downto 0);
-		variable Memory : FIFO_Memory;
+		
 		
 		variable Head : natural range 0 to FIFO_DEPTH - 1;
 		variable Tail : natural range 0 to FIFO_DEPTH - 1;
@@ -37,6 +42,11 @@ begin
 			if RST = '1' then
 				Head := 0;
 				Tail := 0;
+				
+				--initialization trick taken from ass't 1 memory.vhd
+		    For i in 0 to FIFO_DEPTH-1 LOOP
+				  Memory(i) <= std_logic_vector(to_unsigned(i,packet_size));
+			  END LOOP;
 				
 				Looped := false;
 				
@@ -64,7 +74,7 @@ begin
 				if (WriteEn = '1') then
 					if ((Looped = false) or (Head /= Tail)) then
 						-- Write Data to Memory
-						Memory(Head) := DataIn;
+						Memory(Head) <= DataIn;
 						
 						-- Increment Head pointer as needed
 						if (Head = FIFO_DEPTH - 1) then

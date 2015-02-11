@@ -13,12 +13,6 @@ use ieee.numeric_std.all;
 use work.router_parameters.all;
 
 entity in_FIFO is
-	generic (
-		packet_size : integer := 64;
-		data_width : integer := 32;
-		header_width : integer := 16;
-		address_size : integer := 16
-	);
 	port (
 		clock : in std_logic;
 		reset : in std_logic;
@@ -56,9 +50,11 @@ architecture rtl of in_FIFO is
 	 -- control sigs from FSM
 	signal dest_enable : std_logic;
 	signal pop_enable : std_logic;
+	signal push_enable : std_logic;
 	
 	-- inputs to FSM
 	signal queue_empty : std_logic;
+	signal queue_full : std_logic;
 	signal waitrequest_outof_N : std_logic;
 	signal waitrequest_outof_S : std_logic;
 	signal waitrequest_outof_W : std_logic;
@@ -80,15 +76,19 @@ begin
 
 	-- FIFO queue
 	queue : STD_FIFO
+	 generic map(
+	    DATA_WIDTH => packet_size,
+	    FIFO_DEPTH => 4 -- four packets max
+	   )
 		port map(
 			CLK => clock,
 			RST => reset,
-			WriteEn => write_into_X,
+			WriteEn => push_enable,
 			DataIn => writedata_into_X,
 			ReadEn => pop_enable,
 			DataOut => queue_data_out,
 			Empty	=> queue_empty,
-			Full => waitrequest_outof_X
+			Full => queue_full
 		);
 
 	-- destination decoder
@@ -130,9 +130,12 @@ begin
 		
 			dest_enable => dest_enable,
 			pop_enable => pop_enable,
+			push_enable => push_enable,
 			
+			queue_full => queue_full,
 			queue_empty => queue_empty,
-			waitrequest => waitrequest
+			waitrequest => waitrequest,
+			waitrequest_outof_X => waitrequest_outof_X
 		);
 
 end rtl;

@@ -18,9 +18,12 @@ entity in_FIFO_FSM is
 	
 		dest_enable : out std_logic;
 		pop_enable : out std_logic;
+		push_enable : out std_logic;
 		
 		queue_empty : in std_logic;
-		waitrequest : in std_logic
+		queue_full : in std_logic;
+		waitrequest : in std_logic;
+		waitrequest_outof_X : out std_logic
 	);
 end in_FIFO_FSM;
 
@@ -33,6 +36,7 @@ begin
 
 	process (clock, reset)
 	begin
+	  
 		-- asynchronous reset
 		if (reset = '1') then
 			state <= RST;
@@ -76,8 +80,18 @@ begin
 					end if;
 			
 			end case;
+			
+			-- also handle letting packets into the queue
+			if (queue_full = '0') and (write_into_X = '1') then
+			  waitrequest_outof_X <= '0';
+			  push_enable <= '1';
+			else
+			  waitrequest_outof_X <= '1';
+			  push_enable <= '0';
+			end if;
 		
 		end if;
+		
 		
 	end process;
 
