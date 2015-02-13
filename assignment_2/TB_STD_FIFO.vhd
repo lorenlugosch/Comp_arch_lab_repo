@@ -1,4 +1,4 @@
--- Taken from http://www.deathbylogic.com/2013/07/vhdl-standard-fifo/
+-- This code is taken from http://www.deathbylogic.com/2013/07/vhdl-standard-fifo/
 
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;

@@ -1,0 +1,32 @@
+entity source_mux is
+	generic (
+		direction : std_logic_vector := NO_DEST
+	);
+	port (
+		--Avalon-ish interface with neighboring core
+		enable_N : in std_logic;
+		enable_S : in std_logic;
+		enable_W : in std_logic;
+		enable_E : in std_logic;
+		enable_LOCAL : in std_logic;
+		
+		--Data from N, S, W, E, LOCAL
+		writedata_outof_N : in std_logic_vector(packet_size-1 downto 0);
+		writedata_outof_S : in std_logic_vector(packet_size-1 downto 0);
+		writedata_outof_W : in std_logic_vector(packet_size-1 downto 0);
+		writedata_outof_E : in std_logic_vector(packet_size-1 downto 0);
+		writedata_outof_LOCAL : in std_logic_vector(packet_size-1 downto 0);
+		
+		--Data to be written to queue
+		writedata : out std_logic_vector(packet_size-1 downto 0);
+	);
+end source_mux;
+
+architecture rtl of source_mux is
+
+begin
+
+	process (enable_N, enable_S, enable_W, enable_E, enable_LOCAL)
+	begin
+
+end rtl;

@@ -1,4 +1,4 @@
--- Taken from http://www.deathbylogic.com/2013/07/vhdl-standard-fifo/
+-- This code is adapted from http://www.deathbylogic.com/2013/07/vhdl-standard-fifo/
 
 library IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
@@ -47,6 +47,7 @@ begin
 		    For i in 0 to FIFO_DEPTH-1 LOOP
 				  Memory(i) <= std_logic_vector(to_unsigned(0,packet_size));
 			  END LOOP;
+			  DataOut <= Memory(Tail); -- remove XXXX
 				
 				Looped := false;
 				

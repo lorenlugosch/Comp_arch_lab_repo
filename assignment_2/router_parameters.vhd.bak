@@ -18,6 +18,8 @@ package router_parameters is
 	constant data_width : integer := 32;
 	constant header_width : integer := 16;
 	constant address_size : integer := 16;
+	-- <header = 16 bits> <address = 16bits> | <data> --
+	--  bits 63-62 = x, bits 61-60 = y
 	
 	-- test packets for testbenches
 	constant test_packet_A : std_logic_vector := X"1234567887654321";
@@ -89,7 +91,8 @@ package router_parameters is
 			
 			queue_full : in std_logic;
 			queue_empty : in std_logic;
-			waitrequest : in std_logic
+			waitrequest : in std_logic;
+		  waitrequest_outof_X : out std_logic
 		);
 	end component;
 	

@@ -2,14 +2,119 @@
 -- 260404057
 -- 
 -- Out_FIFOs have a FIFO queue
+-- connected to another router
+-- in the network of cores
 -- and an interface which tells 
 -- the various in_FIFOs that 
--- they can write.
+-- they can write to this queue.
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use work.router_parameters.all;
+
 entity out_FIFO is
-	generic ();
-	port ();
+	generic (
+		direction : std_logic_vector := NO_DEST
+	);
+	port (
+		clock : in std_logic;
+		reset : in std_logic;
+		
+		--Avalon-ish interface with neighboring core
+		writedata_outof_X : out std_logic_vector(packet_size-1 downto 0);
+		waitrequest_into_X : in std_logic;
+		write_outof_X : out std_logic;
+		
+		--Avalon-ish interface with in_FIFOs
+		writedata_outof_N : in std_logic_vector(packet_size-1 downto 0);
+		writedata_outof_S : in std_logic_vector(packet_size-1 downto 0);
+		writedata_outof_W : in std_logic_vector(packet_size-1 downto 0);
+		writedata_outof_E : in std_logic_vector(packet_size-1 downto 0);
+		writedata_outof_LOCAL : in std_logic_vector(packet_size-1 downto 0);
+		
+		write_outof_N_into_X : in std_logic;
+		write_outof_S_into_X : in std_logic;
+		write_outof_W_into_X : in std_logic;
+		write_outof_E_into_X : in std_logic;
+		write_outof_LOCAL_into_X : in std_logic;
+		
+		waitrequest_into_N_outof_X : out std_logic;
+		waitrequest_into_S_outof_X : out std_logic;
+		waitrequest_into_W_outof_X : out std_logic;
+		waitrequest_into_E_outof_X : out std_logic;
+		waitrequest_into_LOCAL_outof_X : out std_logic
+	);
 end out_FIFO;
+
+architecture rtl of out_FIFO is
+
+	signal queue_empty : std_logic;
+	signal queue_full : std_logic;
+	signal currently_servicing : std_logic_vector(2 downto 0);
+	signal queue_data_in : std_logic_vector(packet_size-1 downto 0);
+	signal push_enable : std_logic;
+	signal pop_enable : std_logic;
+
+begin
+
+	-- FIFO queue
+	queue : STD_FIFO
+		generic map(
+			DATA_WIDTH => packet_size,
+			FIFO_DEPTH => 4 -- four packets max
+	   )
+		port map(
+			CLK => clock,
+			RST => reset,
+			WriteEn => push_enable,
+			DataIn => queue_data_in,
+			ReadEn => pop_enable,
+			DataOut => writedata_outof_X,
+			Empty	=> queue_empty,
+			Full => queue_full
+		);
+		
+	FSM : out_FIFO_FSM
+		port map(
+			clock => clock,
+			reset => reset,
+			
+			waitrequest_into_X => waitrequest_into_X,
+			write_outof_X => write_outof_X,
+		
+			write_outof_N_into_X => write_outof_N_into_X,
+			write_outof_S_into_X => write_outof_S_into_X,
+			write_outof_W_into_X => write_outof_W_into_X,
+			write_outof_E_into_X => write_outof_E_into_X,
+			write_outof_LOCAL_into_X => write_outof_LOCAL_into_X,
+			
+			waitrequest_into_N_outof_X => waitrequest_into_N_outof_X,
+			waitrequest_into_S_outof_X => waitrequest_into_S_outof_X,
+			waitrequest_into_W_outof_X => waitrequest_into_W_outof_X,
+			waitrequest_into_E_outof_X => waitrequest_into_E_outof_X,
+			waitrequest_into_LOCAL_outof_X => waitrequest_into_LOCAL_outof_X,
+			
+			currently_servicing => currently_servicing,
+			queue_empty => queue_empty,
+			queue_full => queue_full,
+			push_enable => push_enable,
+			pop_enable => pop_enable
+		);
+		
+	src_mux : source_mux
+		port map(
+			currently_servicing => currently_servicing,
+		
+			--Data from N, S, W, E, LOCAL
+			writedata_outof_N => writedata_outof_N,
+			writedata_outof_S => writedata_outof_S,
+			writedata_outof_W => writedata_outof_W,
+			writedata_outof_E => writedata_outof_E,
+			writedata_outof_LOCAL => writedata_outof_LOCAL,
+			
+			--Data to be written to queue
+			writedata => queue_data_in
+		);
+		
+end rtl;

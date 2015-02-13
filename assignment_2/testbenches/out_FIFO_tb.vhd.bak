@@ -1,0 +1,133 @@
+-- Loren Lugosch
+-- 260404057
+-- 
+-- Out_FIFOs have a FIFO queue
+-- connected to another router
+-- in the network of cores
+-- and an interface which tells 
+-- the various in_FIFOs that 
+-- they can write to this queue.
+
+-- *** Testbench ***
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+use work.router_parameters.all;
+
+entity out_FIFO_tb is
+end entity;
+
+architecture tb of out_FIFO_tb is
+  
+    constant clk_period : time := 1 ns;
+  		signal clock : std_logic := '0';
+		signal reset : std_logic := '0';
+		
+		--Avalon-ish interface with neighboring core
+		signal writedata_outof_X : std_logic_vector(packet_size-1 downto 0);
+		signal waitrequest_into_X : std_logic := '1';
+		signal write_outof_X : std_logic;
+		
+		--Avalon-ish interface with in_FIFOs
+		signal writedata_outof_N : std_logic_vector(packet_size-1 downto 0) := undriven_64;
+		signal writedata_outof_S : std_logic_vector(packet_size-1 downto 0) := undriven_64;
+		signal writedata_outof_W : std_logic_vector(packet_size-1 downto 0) := undriven_64;
+		signal writedata_outof_E : std_logic_vector(packet_size-1 downto 0) := undriven_64;
+		signal writedata_outof_LOCAL : std_logic_vector(packet_size-1 downto 0) := undriven_64;
+		
+		signal write_outof_N_into_X : std_logic := '0';
+		signal write_outof_S_into_X : std_logic := '0';
+		signal write_outof_W_into_X : std_logic := '0';
+		signal write_outof_E_into_X : std_logic := '0';
+		signal write_outof_LOCAL_into_X : std_logic := '0';
+		
+		signal waitrequest_into_N_outof_X : std_logic;
+		signal waitrequest_into_S_outof_X : std_logic;
+		signal waitrequest_into_W_outof_X : std_logic;
+		signal waitrequest_into_E_outof_X : std_logic;
+		signal waitrequest_into_LOCAL_outof_X : std_logic;
+  
+begin
+  
+    -- device under test:
+    dut: out_FIFO
+      port map(
+    		  clock => clock,
+		    reset => reset,
+
+      		--Avalon-ish interface with neighboring core
+      		writedata_outof_X => writedata_outof_X,
+      		waitrequest_into_X => waitrequest_into_X,
+      		write_outof_X => write_outof_X,
+      		
+      		--Avalon-ish interface with in_FIFOs
+      		writedata_outof_N => writedata_outof_N,
+      		writedata_outof_S => writedata_outof_S,
+      		writedata_outof_W => writedata_outof_W,
+      		writedata_outof_E => writedata_outof_E,
+      		writedata_outof_LOCAL => writedata_outof_LOCAL,
+      		
+      		write_outof_N_into_X => write_outof_N_into_X,
+      		write_outof_S_into_X => write_outof_S_into_X,
+      		write_outof_W_into_X => write_outof_W_into_X,
+      		write_outof_E_into_X => write_outof_E_into_X,
+      		write_outof_LOCAL_into_X => write_outof_LOCAL_into_X,
+      		
+      		waitrequest_into_N_outof_X => waitrequest_into_N_outof_X,
+      		waitrequest_into_S_outof_X => waitrequest_into_S_outof_X,
+      		waitrequest_into_W_outof_X => waitrequest_into_W_outof_X,
+      		waitrequest_into_E_outof_X => waitrequest_into_E_outof_X,
+      		waitrequest_into_LOCAL_outof_X => waitrequest_into_LOCAL_outof_X
+    		);
+    		
+  		-- 1GHz clock
+    clock_process: process
+    begin
+    
+      clock <= '0';
+      wait for clk_period/2;
+      clock <= '1';
+      wait for clk_period/2;
+    
+    end process;
+  
+    -- test FIFO
+    test_process : process
+    begin
+      -- reset system
+      reset <= '1';
+      wait for clk_period * 2;
+      reset <= '0';
+      wait for clk_period * 2;
+      
+      -- packet from N arrives
+      write_outof_N_into_X <= '1';
+      writedata_outof_N <= test_packet_A;
+      wait until waitrequest_into_N_outof_X = '0';
+      write_outof_N_into_X <= '0';
+      
+      -- allow packet into neighboring core
+      wait for clk_period * 5;
+      waitrequest_into_X <= '0';
+      wait for clk_period;
+      waitrequest_into_X <= '1';
+      
+      -- packets from S and W arrive
+      writedata_outof_S <= test_packet_B;
+      write_outof_S_into_X <= '1';
+      writedata_outof_W <= test_packet_C;
+      write_outof_W_into_X <= '1';
+      
+      -- S has priority; it writes to queue
+      wait until waitrequest_into_S_outof_X = '0';
+      write_outof_S_into_X <= '0';
+      
+      wait on writedata_outof_X;
+      assert writedata_outof_X = test_packet_B;
+            
+      wait;
+    end process;
+  
+ end tb;

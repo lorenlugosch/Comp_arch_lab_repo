@@ -29,8 +29,11 @@ end in_FIFO_FSM;
 
 architecture rtl of in_FIFO_FSM is
 	-- state information
-	type state_type is (RST, IDLE, SERVICING_PACKET);
-	signal state : state_type;
+	type send_state_type is (RST, IDLE, SERVICING_PACKET);
+	signal sending_state : send_state_type;
+	
+	type recv_state_type is (RST, IDLE, SERVICING_PACKET);
+	signal receiving_state : recv_state_type;
 
 begin
 
@@ -39,16 +42,16 @@ begin
 	  
 		-- asynchronous reset
 		if (reset = '1') then
-			state <= RST;
+			sending_state <= RST;
 		
 		-- synchronous state machine
 		elsif (rising_edge(clock)) then
 		
-			case state is
+			case sending_state is
 				when RST =>
 					dest_enable <= '0';
 					pop_enable <= '0';
-					state <= IDLE;
+					sending_state <= IDLE;
 				
 				when IDLE =>
 					pop_enable <= '0';
@@ -56,43 +59,83 @@ begin
 					-- if no packets in queue, do nothing
 					if (queue_empty = '1') then
 						dest_enable <= '0';
-						state <= IDLE;
+						sending_state <= IDLE;
 					
 					-- if there are packets in the queue,
 					-- service them
 					else
 						dest_enable <= '1'; -- determine destination and set write high
-						state <= SERVICING_PACKET;
+						pop_enable <= '1';
+						sending_state <= SERVICING_PACKET;
 
 					end if;
 				
 				when SERVICING_PACKET =>
-					-- once waitrequest deasserts, 
-					-- pop packet from queue,
-					-- disable dest_enable,
+				  -- packet is ready to go;
+				  -- don't pop again
+					pop_enable <= '0';
 					
 					-- TODO: burst mode?
 					if (waitrequest = '0') then
-						pop_enable <= '1';
-						state <= IDLE;
+					  dest_enable <= '0';
+						sending_state <= IDLE;
 					else 
-						state <= SERVICING_PACKET;
+						sending_state <= SERVICING_PACKET;
 					end if;
 			
 			end case;
-			
-			-- also handle letting packets into the queue
-			if (queue_full = '0') and (write_into_X = '1') then
-			  waitrequest_outof_X <= '1';
-			  push_enable <= '1';
-			else
-			  waitrequest_outof_X <= '0';
-			  push_enable <= '0';
-			end if;
 		
 		end if;
 		
-		
 	end process;
+	
+	-- also handle letting packets into the queue
+	-- (state machine not strictly necessary,
+	-- but this keeps the input firing at the
+	-- same rate as the output)
+  process(write_into_X)
+  begin
+      if (queue_full = '0') and (write_into_X = '1') then
+       waitrequest_outof_X <= '0';
+       push_enable <= '1';
+     else
+       waitrequest_outof_X <= '1';
+       push_enable <= '0';
+     end if;
+  end process;
+     
+--  process(clock, reset)
+--  begin
+	    
+    -- asynchronous reset
+--		if (reset = '1') then
+--			receiving_state <= RST;
+		
+--		-- synchronous state machine
+--		elsif (rising_edge(clock)) then
+--		
+--			case receiving_state is
+--			  when RST =>
+--			    receiving_state <= IDLE;
+--			    
+--			  when IDLE => 
+--			    	if (queue_full = '0') and (write_into_X = '1') then
+--			       waitrequest_outof_X <= '0';
+--			       push_enable <= '1';
+--			       receiving_state <= SERVICING_PACKET;
+--			     else
+--			       waitrequest_outof_X <= '1';
+--			       push_enable <= '0';
+--			       receiving_state <= IDLE;
+--			     end if;
+--			     
+--			  when SERVICING_PACKET =>
+--	         waitrequest_outof_X <= '1';
+--			     push_enable <= '0';
+--			     receiving_state <= IDLE;
+--			 end case;
+--		end if;
+
+--	end process;
 
 end rtl;

@@ -86,7 +86,9 @@ begin
 	begin
 	
 		-- determine destination
-		if    (x_coordinate = my_x) and (y_coordinate = my_y) then
+		if (dest_enable /= '1') then
+		  destination_internal <= NO_DEST;
+		elsif    (x_coordinate = my_x) and (y_coordinate = my_y) then
 			destination_internal <= LOCAL;
 		elsif (x_coordinate = my_x) and (y_coordinate < my_y) then
 			destination_internal <= N;
@@ -107,13 +109,12 @@ begin
 		end if;
 		
 		-- decode destination
-		if (dest_enable = '0') then
+		if (dest_enable /= '1') then
 			write_outof_X_into_N <= '0';
 			write_outof_X_into_S <= '0';
 			write_outof_X_into_W <= '0';
 			write_outof_X_into_E <= '0';
 			write_outof_X_into_LOCAL <= '0';
-			
 			
 		elsif (destination_internal = N) then
 			write_outof_X_into_N <= '1';

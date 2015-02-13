@@ -83,7 +83,7 @@ begin
 		port map(
 			CLK => clock,
 			RST => reset,
-			WriteEn => write_into_X,
+			WriteEn => push_enable,
 			DataIn => writedata_into_X,
 			ReadEn => pop_enable,
 			DataOut => queue_data_out,

@@ -7,6 +7,26 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity reg
 -- Compiling architecture arch of reg
 
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/destination_decoder.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/destination_decoder.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package router_parameters
+-- Compiling entity destination_decoder
+-- Compiling architecture rtl of destination_decoder
+
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package router_parameters
+-- Compiling entity source_mux
+-- Compiling architecture rtl of source_mux
+
 } {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -16,6 +36,25 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package router_parameters
 -- Compiling entity in_FIFO
 -- Compiling architecture rtl of in_FIFO
+
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd {1 {vcom -work router_on_chip -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity TB_STD_FIFO
+-- Compiling architecture behavior of TB_STD_FIFO
+
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/out_FIFO.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/out_FIFO.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package router_parameters
+-- Compiling entity out_FIFO
+-- Compiling architecture rtl of out_FIFO
 
 } {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd {1 {vcom -work router_on_chip -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -27,6 +66,26 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity STD_FIFO
 -- Compiling architecture Behavioral of STD_FIFO
 
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/in_FIFO_tb.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/in_FIFO_tb.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package router_parameters
+-- Compiling entity in_FIFO_tb
+-- Compiling architecture tb of in_FIFO_tb
+
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/out_FIFO_tb.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/out_FIFO_tb.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package router_parameters
+-- Compiling entity out_FIFO_tb
+-- Compiling architecture tb of out_FIFO_tb
+
 } {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO_FSM.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO_FSM.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -37,24 +96,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity in_FIFO_FSM
 -- Compiling architecture rtl of in_FIFO_FSM
 
-} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd {1 {vcom -work router_on_chip -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity TB_STD_FIFO
--- Compiling architecture behavior of TB_STD_FIFO
-
-} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/destination_decoder.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/destination_decoder.vhd
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/out_FIFO_FSM.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/out_FIFO_FSM.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
 -- Loading package router_parameters
--- Compiling entity destination_decoder
--- Compiling architecture rtl of destination_decoder
+-- Compiling entity out_FIFO_FSM
+-- Compiling architecture rtl of out_FIFO_FSM
 
 } {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

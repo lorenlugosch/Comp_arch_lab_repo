@@ -13,6 +13,9 @@ use ieee.numeric_std.all;
 use work.router_parameters.all;
 
 entity in_FIFO is
+	generic (
+		direction : std_logic_vector := NO_DEST
+	);
 	port (
 		clock : in std_logic;
 		reset : in std_logic;
@@ -92,8 +95,8 @@ begin
 		);
 
 	-- destination decoder
-	packet_x_coordinate <= to_integer(unsigned(writedata_outof_X_internal(31 downto 31-1)));
-	packet_y_coordinate <= to_integer(unsigned(writedata_outof_X_internal(31-2 downto 31-3)));
+	packet_x_coordinate <= to_integer(unsigned(writedata_outof_X_internal(63 downto 63-1)));
+	packet_y_coordinate <= to_integer(unsigned(writedata_outof_X_internal(63-2 downto 63-3)));
 	
 	dest_decode : destination_decoder
 		port map(

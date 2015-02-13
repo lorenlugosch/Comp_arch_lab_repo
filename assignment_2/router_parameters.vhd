@@ -10,6 +10,8 @@ package router_parameters is
 	constant W : std_logic_vector(2 downto 0) := "010";
 	constant E : std_logic_vector(2 downto 0) := "011";
 	constant LOCAL : std_logic_vector(2 downto 0) := "100";
+	constant NO_DEST : std_logic_vector(2 downto 0) := "111";
+	constant NO_SRC : std_logic_vector(2 downto 0) := "111";
 
 	-- useful definitions
 	constant undriven_32 : std_logic_vector := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
@@ -18,6 +20,8 @@ package router_parameters is
 	constant data_width : integer := 32;
 	constant header_width : integer := 16;
 	constant address_size : integer := 16;
+	-- <header = 16 bits> <address = 16bits> | <data> --
+	--  bits 63-62 = x, bits 61-60 = y
 	
 	-- test packets for testbenches
 	constant test_packet_A : std_logic_vector := X"1234567887654321";
@@ -95,29 +99,111 @@ package router_parameters is
 	end component;
 	
 	component in_FIFO is
-	port (
-		clock : in std_logic;
-		reset : in std_logic;
+		generic (
+			direction : std_logic_vector := NO_DEST
+		);
 		
-		--Avalon-ish interface with neighboring core
-		writedata_into_X : in std_logic_vector(packet_size-1 downto 0);
-		waitrequest_outof_X : out std_logic;
-		write_into_X : in std_logic;
-		
-		--Avalon-ish interface with out_FIFOs
-		writedata_outof_X : out std_logic_vector(packet_size-1 downto 0);
-		waitrequest_into_X_outof_N : in std_logic;
-		waitrequest_into_X_outof_S : in std_logic;
-		waitrequest_into_X_outof_W : in std_logic;
-		waitrequest_into_X_outof_E : in std_logic;
-		waitrequest_into_X_outof_LOCAL : in std_logic;
-		
-		write_outof_X_into_N : out std_logic;
-		write_outof_X_into_S : out std_logic;
-		write_outof_X_into_W : out std_logic;
-		write_outof_X_into_E : out std_logic;
-		write_outof_X_into_LOCAL : out std_logic
-	);
-end component;
+		port (
+			clock : in std_logic;
+			reset : in std_logic;
+			
+			--Avalon-ish interface with neighboring core
+			writedata_into_X : in std_logic_vector(packet_size-1 downto 0);
+			waitrequest_outof_X : out std_logic;
+			write_into_X : in std_logic;
+			
+			--Avalon-ish interface with out_FIFOs
+			writedata_outof_X : out std_logic_vector(packet_size-1 downto 0);
+			waitrequest_into_X_outof_N : in std_logic;
+			waitrequest_into_X_outof_S : in std_logic;
+			waitrequest_into_X_outof_W : in std_logic;
+			waitrequest_into_X_outof_E : in std_logic;
+			waitrequest_into_X_outof_LOCAL : in std_logic;
+			
+			write_outof_X_into_N : out std_logic;
+			write_outof_X_into_S : out std_logic;
+			write_outof_X_into_W : out std_logic;
+			write_outof_X_into_E : out std_logic;
+			write_outof_X_into_LOCAL : out std_logic
+		);
+	end component;
+	
+	component source_mux is
+		port (
+			currently_servicing : in std_logic_vector(2 downto 0);
+			
+			--Data from N, S, W, E, LOCAL
+			writedata_outof_N : in std_logic_vector(packet_size-1 downto 0);
+			writedata_outof_S : in std_logic_vector(packet_size-1 downto 0);
+			writedata_outof_W : in std_logic_vector(packet_size-1 downto 0);
+			writedata_outof_E : in std_logic_vector(packet_size-1 downto 0);
+			writedata_outof_LOCAL : in std_logic_vector(packet_size-1 downto 0);
+			
+			--Data to be written to queue
+			writedata : out std_logic_vector(packet_size-1 downto 0)
+		);
+	end component;
 
+	component out_FIFO is
+		generic (
+			direction : std_logic_vector := NO_DEST
+		);
+		port (
+			clock : in std_logic;
+			reset : in std_logic;
+			
+			--Avalon-ish interface with neighboring core
+			writedata_outof_X : out std_logic_vector(packet_size-1 downto 0);
+			waitrequest_into_X : in std_logic;
+			write_outof_X : out std_logic;
+			
+			--Avalon-ish interface with in_FIFOs
+			writedata_outof_N : in std_logic_vector(packet_size-1 downto 0);
+			writedata_outof_S : in std_logic_vector(packet_size-1 downto 0);
+			writedata_outof_W : in std_logic_vector(packet_size-1 downto 0);
+			writedata_outof_E : in std_logic_vector(packet_size-1 downto 0);
+			writedata_outof_LOCAL : in std_logic_vector(packet_size-1 downto 0);
+			
+			write_outof_N_into_X : in std_logic;
+			write_outof_S_into_X : in std_logic;
+			write_outof_W_into_X : in std_logic;
+			write_outof_E_into_X : in std_logic;
+			write_outof_LOCAL_into_X : in std_logic;
+			
+			waitrequest_into_N_outof_X : out std_logic;
+			waitrequest_into_S_outof_X : out std_logic;
+			waitrequest_into_W_outof_X : out std_logic;
+			waitrequest_into_E_outof_X : out std_logic;
+			waitrequest_into_LOCAL_outof_X : out std_logic
+		);
+	end component;
+	
+	component out_FIFO_FSM is
+		port (
+			clock : in std_logic;
+			reset : in std_logic;
+			
+			waitrequest_into_X : in std_logic;
+			write_outof_X : out std_logic;
+			
+			write_outof_N_into_X : in std_logic;
+			write_outof_S_into_X : in std_logic;
+			write_outof_W_into_X : in std_logic;
+			write_outof_E_into_X : in std_logic;
+			write_outof_LOCAL_into_X : in std_logic;
+			
+			waitrequest_into_N_outof_X : out std_logic;
+			waitrequest_into_S_outof_X : out std_logic;
+			waitrequest_into_W_outof_X : out std_logic;
+			waitrequest_into_E_outof_X : out std_logic;
+			waitrequest_into_LOCAL_outof_X : out std_logic;
+			
+			currently_servicing : out std_logic_vector(2 downto 0);
+			queue_empty : in std_logic;
+			queue_full : in std_logic;
+			push_enable : out std_logic;
+			pop_enable : out std_logic
+		);
+	end component;
+	
 end router_parameters;

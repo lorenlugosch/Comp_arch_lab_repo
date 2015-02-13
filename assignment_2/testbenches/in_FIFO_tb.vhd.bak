@@ -94,32 +94,51 @@ begin
     -- put packets into queue
     writedata_into_X <= test_packet_A; --X"1234567887654321"
     write_into_X <= '1';
+    wait until clock = '1';
     if (waitrequest_outof_X /= '0') then
       wait until waitrequest_outof_X = '0';
     end if;
     write_into_X <= '0';
-    wait for clk_period / 4;
+    wait for clk_period/2;
     
     writedata_into_X <= test_packet_B;
     write_into_X <= '1';
+    wait until clock = '1';
     if (waitrequest_outof_X /= '0') then
       wait until waitrequest_outof_X = '0';
     end if;
     write_into_X <= '0';
+    wait for clk_period/2;
     
     writedata_into_X <= test_packet_C;
     write_into_X <= '1';
+    wait until clock = '1';
     if (waitrequest_outof_X /= '0') then
       wait until waitrequest_outof_X = '0';
     end if;
     write_into_X <= '0';
+    wait for clk_period/2;
     
     writedata_into_X <= test_packet_D;
     write_into_X <= '1';
+    wait until clock = '1';
     if (waitrequest_outof_X /= '0') then
       wait until waitrequest_outof_X = '0';
     end if;
     write_into_X <= '0';
+    writedata_into_X <= undriven_64;
+    
+    -- allow a packet to exit
+    waitrequest_into_X_outof_W  <= '0';
+    wait for clk_period;
+    waitrequest_into_X_outof_W  <= '1';
+    
+    wait for clk_period * 4;
+ 
+     -- allow a packet to exit
+    waitrequest_into_X_outof_W  <= '0';
+    wait for clk_period;
+    waitrequest_into_X_outof_W  <= '1';
     
     wait for clk_period * 10;
     
