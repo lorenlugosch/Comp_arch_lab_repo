@@ -5,7 +5,7 @@ cModel Technology
 dC:\altera\13.1
 Edestination_decoder
 Z0 w1423714867
-Z1 DPx4 work 17 router_parameters 0 22 :hCMIZ`NzecOfN`^f@Gf82
+Z1 DPx4 work 17 router_parameters 0 22 J=5h:KKz7;Th7i@PzY:ad2
 Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
@@ -17,7 +17,7 @@ L14
 VQH[kZWZCj8nE[l_1QL?AU0
 Z8 OV;C;10.1d;51
 32
-Z9 !s108 1423802779.829000
+Z9 !s108 1423827741.440000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/destination_decoder.vhd|
 Z11 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/destination_decoder.vhd|
 Z12 o-work work -2002 -explicit -O0
@@ -43,7 +43,7 @@ R13
 !s100 bkak8Jn[=SX;QHIe;I7Z31
 !i10b 1
 Ein_fifo
-Z14 w1423715920
+Z14 w1423820046
 R1
 R2
 R3
@@ -56,7 +56,7 @@ L15
 VN`cbdYfK]bHBFm0]]i2NN3
 R8
 32
-Z17 !s108 1423802779.970000
+Z17 !s108 1423827741.550000
 Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO.vhd|
 Z19 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO.vhd|
 R12
@@ -95,7 +95,7 @@ L13
 V_MBSN]SbD?_Z2ekXUFz]90
 R8
 32
-Z23 !s108 1423802780.110000
+Z23 !s108 1423827741.643000
 Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO_FSM.vhd|
 Z25 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO_FSM.vhd|
 R12
@@ -134,7 +134,7 @@ L17
 VY`B66GGLYA[_9R?RJaVdQ0
 R8
 32
-Z29 !s108 1423802780.579000
+Z29 !s108 1423827742.081000
 Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/in_FIFO_tb.vhd|
 Z31 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/in_FIFO_tb.vhd|
 R12
@@ -173,7 +173,7 @@ L17
 Vbb3SO8TzYlV8XKzz4?m>T1
 R8
 32
-Z35 !s108 1423802780.735000
+Z35 !s108 1423827742.175000
 Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/out_FIFO.vhd|
 Z37 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/out_FIFO.vhd|
 R12
@@ -199,7 +199,7 @@ R13
 !s100 _VI:8:49LOA24`cROZ53f3
 !i10b 1
 Eout_fifo_fsm
-Z38 w1423803877
+Z38 w1423820043
 R1
 R2
 R3
@@ -212,7 +212,7 @@ L17
 V69zQP?4<ICgFjO@R?MEoH3
 R8
 32
-Z41 !s108 1423803924.415000
+Z41 !s108 1423827742.284000
 Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/out_FIFO_FSM.vhd|
 Z43 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/out_FIFO_FSM.vhd|
 R12
@@ -249,49 +249,49 @@ Z46 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/out_FIFO_tb.vh
 l0
 L19
 VVLDZ>K_9=X65daYZg6]B02
-!s100 MT@DB4:5J1]WHVL?mMKN;3
 R8
 32
-!i10b 1
-Z47 !s108 1423805451.698000
+Z47 !s108 1423827742.393000
 Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/out_FIFO_tb.vhd|
 Z49 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/out_FIFO_tb.vhd|
 R12
 R13
+!s100 MT@DB4:5J1]WHVL?mMKN;3
+!i10b 1
 Atb
 R1
 R2
 R3
 R4
-Z50 DEx4 work 11 out_fifo_tb 0 22 VLDZ>K_9=X65daYZg6]B02
+DEx4 work 11 out_fifo_tb 0 22 VLDZ>K_9=X65daYZg6]B02
 l52
 L22
 VfGdRmHo@`N7G2;ZSiE=6K3
-!s100 DBzJd;32=QkRfL5z;1C[f1
 R8
 32
-!i10b 1
 R47
 R48
 R49
 R12
 R13
+!s100 DBzJd;32=QkRfL5z;1C[f1
+!i10b 1
 Ereg
-Z51 w1423445233
+Z50 w1423445233
 R2
 R3
 R4
 R5
-Z52 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/reg.vhd
-Z53 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/reg.vhd
+Z51 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/reg.vhd
+Z52 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/reg.vhd
 l0
 L11
 V^Ziil`Y81o58b^P@DYgX^3
 R8
 32
-Z54 !s108 1423802780.235000
-Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/reg.vhd|
-Z56 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/reg.vhd|
+Z53 !s108 1423827741.753000
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/reg.vhd|
+Z55 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/reg.vhd|
 R12
 R13
 !s100 3Q4gc`6A=W7WhQVbL2DW10
@@ -306,89 +306,128 @@ L24
 Vj9UBdNX0ThMN_oTRC@VRz2
 R8
 32
+R53
 R54
 R55
-R56
 R12
 R13
 !s100 5Od`Q^JS]>nAfe1f]hOH:0
 !i10b 1
 Erouter_on_chip
-Z57 w1423446270
+Z56 w1423821973
 R1
 R2
 R3
 R4
 R5
-Z58 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd
-Z59 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd
+Z57 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd
+Z58 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd
 l0
 L15
-V4HeR_jgk]481fGK@0h`6Q0
+VVEnGTYZkPjdWKN3@JD6MG3
 R8
 32
-Z60 !s108 1423802780.345000
-Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd|
-Z62 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd|
+Z59 !s108 1423827741.862000
+Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd|
+Z61 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_on_chip.vhd|
 R12
 R13
-!s100 7ZaR1PLghz[iYzOX]5M641
+!s100 YK>CESPI]WJ:fkodB:<Um2
 !i10b 1
 Artl
 R1
 R2
 R3
 R4
-DEx4 work 14 router_on_chip 0 22 4HeR_jgk]481fGK@0h`6Q0
-l47
-L45
-V6`hCcg`YY25RehOkTih[82
+DEx4 work 14 router_on_chip 0 22 VEnGTYZkPjdWKN3@JD6MG3
+l113
+L73
+VMiZQSC9VCfF?KOCeB5nzT2
 R8
 32
+R59
 R60
 R61
-R62
 R12
 R13
-!s100 EoB>OhGjAN39R@2z?SIVY0
+!s100 `EnR]^A;R=3G0PTn_==aC1
 !i10b 1
-Prouter_parameters
-R2
-R3
-R4
-w1423794907
-R5
-8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_parameters.vhd
-FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_parameters.vhd
-l0
-L5
-V:hCMIZ`NzecOfN`^f@Gf82
-R8
-32
-R12
-R13
-!s100 b2Rj5c5kmPKNC1OUc`ZC[0
-!i10b 1
-!s108 1423802780.470000
-!s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_parameters.vhd|
-!s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_parameters.vhd|
-Esource_mux
-Z63 w1423793629
+Erouter_on_chip_tb
+Z62 w1423829190
 R1
 R2
 R3
 R4
 R5
-Z64 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd
-Z65 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd
+Z63 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/router_on_chip_tb.vhd
+Z64 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/router_on_chip_tb.vhd
+l0
+L17
+V9M6k_;=<6]NnY?8E67>7]1
+!s100 67S3DlizT8BJLkVLR<Gei1
+R8
+32
+!i10b 1
+Z65 !s108 1423829202.646000
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/router_on_chip_tb.vhd|
+Z67 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/testbenches/router_on_chip_tb.vhd|
+R12
+R13
+Atb
+R1
+R2
+R3
+R4
+Z68 DEx4 work 17 router_on_chip_tb 0 22 9M6k_;=<6]NnY?8E67>7]1
+l70
+L20
+VG8:_^R@ZQz1InnIOOdA050
+!s100 >loM341kChoIK?DKlhoK92
+R8
+32
+!i10b 1
+R65
+R66
+R67
+R12
+R13
+Prouter_parameters
+R2
+R3
+R4
+w1423827087
+R5
+8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_parameters.vhd
+FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_parameters.vhd
+l0
+L5
+VJ=5h:KKz7;Th7i@PzY:ad2
+R8
+32
+R12
+R13
+!s100 @PFJF?_0O>WJ>ed_nNIgb2
+!i10b 1
+!s108 1423827741.987000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_parameters.vhd|
+!s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/router_parameters.vhd|
+Esource_mux
+Z69 w1423793629
+R1
+R2
+R3
+R4
+R5
+Z70 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd
+Z71 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd
 l0
 L14
 V_9j7gbPC?9lWNl5V2m=hh2
 R8
 32
-Z66 !s108 1423802781.212000
-Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd|
-Z68 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd|
+Z72 !s108 1423827742.503000
+Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd|
+Z74 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd|
 R12
 R13
 !s100 1^9l3e@;ag1LM2BzZf4bW3
@@ -404,31 +443,31 @@ L31
 VjJ@6X8?89LA6o@oM8QSCW3
 R8
 32
-R66
-R67
-R68
+R72
+R73
+R74
 R12
 R13
 !s100 aV;@94Q=Ub2VRElgi4V8k0
 !i10b 1
 Estd_fifo
-Z69 w1423802772
+Z75 w1423802772
 R1
 R2
 R3
 R4
 R5
-Z70 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd
-Z71 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd
+Z76 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd
+Z77 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd
 l0
 L9
 VaDgY5>j8Iah33WFVj;NKa2
 R8
 32
-Z72 !s108 1423802779.516000
-Z73 !s90 -reportprogress|300|-work|router_on_chip|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd|
-Z74 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd|
-Z75 o-work router_on_chip -2002 -explicit -O0
+Z78 !s108 1423827741.190000
+Z79 !s90 -reportprogress|300|-work|router_on_chip|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd|
+Z80 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/STD_FIFO.vhd|
+Z81 o-work router_on_chip -2002 -explicit -O0
 R13
 !s100 <@5HClP5GAoRae=`Chk7J3
 !i10b 1
@@ -443,30 +482,30 @@ L26
 V?f`Q?W2J?Pgh<^<WBzg`]3
 R8
 32
-R72
-R73
-R74
-R75
+R78
+R79
+R80
+R81
 R13
 !s100 lQ0bTh?@YeRjN`a=kOgcn0
 !i10b 1
 Etb_std_fifo
-Z76 w1423796201
+Z82 w1423796201
 R2
 R3
 R4
 R5
-Z77 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd
-Z78 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd
+Z83 8C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd
+Z84 FC:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd
 l0
 L7
 Va8hNLSS>h]NjOhPFfMSlP3
 R8
 32
-Z79 !s108 1423802779.673000
-Z80 !s90 -reportprogress|300|-work|router_on_chip|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd|
-Z81 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd|
-R75
+Z85 !s108 1423827741.315000
+Z86 !s90 -reportprogress|300|-work|router_on_chip|-2002|-explicit|C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd|
+Z87 !s107 C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd|
+R81
 R13
 !s100 DjhHj0og:m[0Xl3nXzX<f3
 !i10b 1
@@ -480,10 +519,10 @@ L10
 VebLF2D4bEDZQPl_Rkjkob1
 R8
 32
-R79
-R80
+R85
+R86
+R87
 R81
-R75
 R13
 !s100 O]JSRjVW21lQ580<Um_GD1
 !i10b 1

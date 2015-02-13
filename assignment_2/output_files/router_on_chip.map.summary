@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Feb 13 02:12:31 2015
+Analysis & Synthesis Status : Successful - Fri Feb 13 05:12:33 2015
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : router_on_chip
-Top-level Entity Name : router_on_chip
+Top-level Entity Name : out_FIFO_FSM
 Family : Cyclone IV GX
-Total logic elements : 0
-    Total combinational functions : 0
-    Dedicated logic registers : 0
-Total registers : 0
-Total pins : 662
+Total logic elements : 25
+    Total combinational functions : 24
+    Dedicated logic registers : 16
+Total registers : 16
+Total pins : 21
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

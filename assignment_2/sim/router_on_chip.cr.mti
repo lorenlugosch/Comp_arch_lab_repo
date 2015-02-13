@@ -17,16 +17,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity destination_decoder
 -- Compiling architecture rtl of destination_decoder
 
-} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package router_parameters
--- Compiling entity source_mux
--- Compiling architecture rtl of source_mux
-
 } {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/in_FIFO.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -36,6 +26,16 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package router_parameters
 -- Compiling entity in_FIFO
 -- Compiling architecture rtl of in_FIFO
+
+} {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd {1 {vcom -work work -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/source_mux.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package router_parameters
+-- Compiling entity source_mux
+-- Compiling architecture rtl of source_mux
 
 } {} {}} C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd {1 {vcom -work router_on_chip -2002 -explicit C:/Users/lorenlugosch/Comp_arch_lab/assignment_2/TB_STD_FIFO.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

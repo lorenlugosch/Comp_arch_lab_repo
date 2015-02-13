@@ -28,6 +28,7 @@ package router_parameters is
 	constant test_packet_B : std_logic_vector := X"ABCDEFABCDEFABCD";
 	constant test_packet_C : std_logic_vector := X"0000111122223333";
 	constant test_packet_D : std_logic_vector := X"4444555566667777";
+	constant test_packet_E : std_logic_vector := X"6444555566667777";
 	
 	-- components
 	component destination_decoder is
@@ -205,5 +206,59 @@ package router_parameters is
 			pop_enable : out std_logic
 		);
 	end component;
+	
+	component router_on_chip is
+	generic (
+		my_x : integer := 1;
+		my_y : integer := 1
+	);
+	
+	port (
+		clock : in std_logic;
+		reset : in std_logic;
+	
+		-- data from neighbors to here
+		N_in : in std_logic_vector(packet_size-1 downto 0);
+		S_in : in std_logic_vector(packet_size-1 downto 0);
+		W_in : in std_logic_vector(packet_size-1 downto 0);
+		E_in : in std_logic_vector(packet_size-1 downto 0);
+		LOCAL_in : in std_logic_vector(packet_size-1 downto 0);
+		
+		-- data from here to neighbors
+		N_out : out std_logic_vector(packet_size-1 downto 0);
+		S_out : out std_logic_vector(packet_size-1 downto 0);
+		W_out : out std_logic_vector(packet_size-1 downto 0);
+		E_out : out std_logic_vector(packet_size-1 downto 0);
+		LOCAL_out : out std_logic_vector(packet_size-1 downto 0);
+		
+		-- wait signals from neighbors to here
+		waitrequest_into_N : in std_logic;
+		waitrequest_into_S : in std_logic;
+		waitrequest_into_W : in std_logic;
+		waitrequest_into_E : in std_logic;
+		waitrequest_into_LOCAL : in std_logic;
+		
+		-- wait signals from here to neighbors
+		waitrequest_outof_N : out std_logic;
+		waitrequest_outof_S : out std_logic;
+		waitrequest_outof_W : out std_logic;
+		waitrequest_outof_E : out std_logic;
+		waitrequest_outof_LOCAL : out std_logic;
+		
+		-- write signals from neighbors to here
+		write_into_N : in std_logic;
+		write_into_S : in std_logic;
+		write_into_W : in std_logic;
+		write_into_E : in std_logic;
+		write_into_LOCAL : in std_logic;
+		
+		-- write signals from here to neighbors
+		write_outof_N : out std_logic;
+		write_outof_S : out std_logic;
+		write_outof_W : out std_logic;
+		write_outof_E : out std_logic;
+		write_outof_LOCAL : out std_logic
+	);
+end component;
 	
 end router_parameters;

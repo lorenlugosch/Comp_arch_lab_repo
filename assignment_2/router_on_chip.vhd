@@ -71,7 +71,8 @@ entity router_on_chip is
 end router_on_chip;
 
 architecture rtl of router_on_chip is
-	-- Use arrays to shorten signal declaration!
+	-- arrays use lots of signal declarations, but 
+	-- allow fewer component instantiations
 	type bit_array is array(4 downto 0) of std_logic;
 	type packet_array is array(4 downto 0) of std_logic_vector(packet_size-1 downto 0);
 	
@@ -81,11 +82,23 @@ architecture rtl of router_on_chip is
 	signal waitrequest_into_X_outof_E : bit_array;
 	signal waitrequest_into_X_outof_LOCAL : bit_array;
 	
+	signal waitrequest_into_N_outof_X : bit_array;
+	signal waitrequest_into_S_outof_X : bit_array;
+	signal waitrequest_into_W_outof_X : bit_array;
+	signal waitrequest_into_E_outof_X : bit_array;
+	signal waitrequest_into_LOCAL_outof_X : bit_array;
+	
 	signal write_outof_X_into_N : bit_array;
 	signal write_outof_X_into_S : bit_array;
 	signal write_outof_X_into_W : bit_array;
 	signal write_outof_X_into_E : bit_array;
 	signal write_outof_X_into_LOCAL : bit_array;
+	
+	signal write_outof_N_into_X : bit_array;
+	signal write_outof_S_into_X : bit_array;
+	signal write_outof_W_into_X : bit_array;
+	signal write_outof_E_into_X : bit_array;
+	signal write_outof_LOCAL_into_X : bit_array;
 	
 	signal waitrequest_outof_X : bit_array;
 	signal waitrequest_into_X : bit_array;
@@ -113,7 +126,7 @@ begin
 	E_out <= X_out(to_integer(unsigned(E)));
 	LOCAL_out <= X_out(to_integer(unsigned(LOCAL)));
 	
-	waitrequest_outof_N <= waitrequest_outof_X(to_integer(unsigned(N))) ;
+	waitrequest_outof_N <= waitrequest_outof_X(to_integer(unsigned(N)));
 	waitrequest_outof_S <= waitrequest_outof_X(to_integer(unsigned(S)));
 	waitrequest_outof_W <= waitrequest_outof_X(to_integer(unsigned(W)));
 	waitrequest_outof_E <= waitrequest_outof_X(to_integer(unsigned(E)));
@@ -124,6 +137,81 @@ begin
 	waitrequest_into_X(to_integer(unsigned(W))) <= waitrequest_into_W;
 	waitrequest_into_X(to_integer(unsigned(E))) <= waitrequest_into_E;
 	waitrequest_into_X(to_integer(unsigned(LOCAL))) <= waitrequest_into_LOCAL;
+	
+	write_into_X(to_integer(unsigned(N))) <= write_into_N;
+	write_into_X(to_integer(unsigned(S))) <= write_into_S;
+	write_into_X(to_integer(unsigned(W))) <= write_into_W;
+	write_into_X(to_integer(unsigned(E))) <= write_into_E;
+	write_into_X(to_integer(unsigned(LOCAL))) <= write_into_LOCAL;
+	
+	write_outof_N <= write_outof_X(to_integer(unsigned(N)));
+	write_outof_S <= write_outof_X(to_integer(unsigned(S)));
+	write_outof_W <= write_outof_X(to_integer(unsigned(W)));
+	write_outof_E <= write_outof_X(to_integer(unsigned(E)));
+	write_outof_LOCAL <= write_outof_X(to_integer(unsigned(LOCAL)));
+	
+	-- waitrequests
+	waitrequest_into_X_outof_N(to_integer(unsigned(N))) <= waitrequest_into_N_outof_X(to_integer(unsigned(N)));
+	waitrequest_into_X_outof_N(to_integer(unsigned(S))) <= waitrequest_into_S_outof_X(to_integer(unsigned(N)));
+	waitrequest_into_X_outof_N(to_integer(unsigned(W))) <= waitrequest_into_W_outof_X(to_integer(unsigned(N)));
+	waitrequest_into_X_outof_N(to_integer(unsigned(E))) <= waitrequest_into_E_outof_X(to_integer(unsigned(N)));
+	waitrequest_into_X_outof_N(to_integer(unsigned(LOCAL))) <= waitrequest_into_LOCAL_outof_X(to_integer(unsigned(N)));
+	
+	waitrequest_into_X_outof_S(to_integer(unsigned(N))) <= waitrequest_into_N_outof_X(to_integer(unsigned(S)));
+	waitrequest_into_X_outof_S(to_integer(unsigned(S))) <= waitrequest_into_S_outof_X(to_integer(unsigned(S)));
+	waitrequest_into_X_outof_S(to_integer(unsigned(W))) <= waitrequest_into_W_outof_X(to_integer(unsigned(S)));
+	waitrequest_into_X_outof_S(to_integer(unsigned(E))) <= waitrequest_into_E_outof_X(to_integer(unsigned(S)));
+	waitrequest_into_X_outof_S(to_integer(unsigned(LOCAL))) <= waitrequest_into_LOCAL_outof_X(to_integer(unsigned(S)));
+	
+	waitrequest_into_X_outof_W(to_integer(unsigned(N))) <= waitrequest_into_N_outof_X(to_integer(unsigned(W)));
+	waitrequest_into_X_outof_W(to_integer(unsigned(S))) <= waitrequest_into_S_outof_X(to_integer(unsigned(W)));
+	waitrequest_into_X_outof_W(to_integer(unsigned(W))) <= waitrequest_into_W_outof_X(to_integer(unsigned(W)));
+	waitrequest_into_X_outof_W(to_integer(unsigned(E))) <= waitrequest_into_E_outof_X(to_integer(unsigned(W)));
+	waitrequest_into_X_outof_W(to_integer(unsigned(LOCAL))) <= waitrequest_into_LOCAL_outof_X(to_integer(unsigned(W)));
+	
+	waitrequest_into_X_outof_E(to_integer(unsigned(N))) <= waitrequest_into_N_outof_X(to_integer(unsigned(E)));
+	waitrequest_into_X_outof_E(to_integer(unsigned(S))) <= waitrequest_into_S_outof_X(to_integer(unsigned(E)));
+	waitrequest_into_X_outof_E(to_integer(unsigned(W))) <= waitrequest_into_W_outof_X(to_integer(unsigned(E)));
+	waitrequest_into_X_outof_E(to_integer(unsigned(E))) <= waitrequest_into_E_outof_X(to_integer(unsigned(E)));
+	waitrequest_into_X_outof_E(to_integer(unsigned(LOCAL))) <= waitrequest_into_LOCAL_outof_X(to_integer(unsigned(E)));
+	
+	waitrequest_into_X_outof_LOCAL(to_integer(unsigned(N))) <= waitrequest_into_N_outof_X(to_integer(unsigned(LOCAL)));
+	waitrequest_into_X_outof_LOCAL(to_integer(unsigned(S))) <= waitrequest_into_S_outof_X(to_integer(unsigned(LOCAL)));
+	waitrequest_into_X_outof_LOCAL(to_integer(unsigned(W))) <= waitrequest_into_W_outof_X(to_integer(unsigned(LOCAL)));
+	waitrequest_into_X_outof_LOCAL(to_integer(unsigned(E))) <= waitrequest_into_E_outof_X(to_integer(unsigned(LOCAL)));
+	waitrequest_into_X_outof_LOCAL(to_integer(unsigned(LOCAL))) <= waitrequest_into_LOCAL_outof_X(to_integer(unsigned(LOCAL)));
+	
+	--writes
+	write_outof_N_into_X(to_integer(unsigned(N))) <= write_outof_X_into_N(to_integer(unsigned(N)));
+	write_outof_S_into_X(to_integer(unsigned(N))) <= write_outof_X_into_N(to_integer(unsigned(S)));
+	write_outof_W_into_X(to_integer(unsigned(N))) <= write_outof_X_into_N(to_integer(unsigned(W)));
+	write_outof_E_into_X(to_integer(unsigned(N))) <= write_outof_X_into_N(to_integer(unsigned(E)));
+	write_outof_LOCAL_into_X(to_integer(unsigned(N))) <= write_outof_X_into_N(to_integer(unsigned(LOCAL)));
+	
+	write_outof_N_into_X(to_integer(unsigned(S))) <= write_outof_X_into_S(to_integer(unsigned(N)));
+	write_outof_S_into_X(to_integer(unsigned(S))) <= write_outof_X_into_S(to_integer(unsigned(S)));
+	write_outof_W_into_X(to_integer(unsigned(S))) <= write_outof_X_into_S(to_integer(unsigned(W)));
+	write_outof_E_into_X(to_integer(unsigned(S))) <= write_outof_X_into_S(to_integer(unsigned(E)));
+	write_outof_LOCAL_into_X(to_integer(unsigned(S))) <= write_outof_X_into_S(to_integer(unsigned(LOCAL)));
+	
+	write_outof_N_into_X(to_integer(unsigned(W))) <= write_outof_X_into_W(to_integer(unsigned(N)));
+	write_outof_S_into_X(to_integer(unsigned(W))) <= write_outof_X_into_W(to_integer(unsigned(S)));
+	write_outof_W_into_X(to_integer(unsigned(W))) <= write_outof_X_into_W(to_integer(unsigned(W)));
+	write_outof_E_into_X(to_integer(unsigned(W))) <= write_outof_X_into_W(to_integer(unsigned(E)));
+	write_outof_LOCAL_into_X(to_integer(unsigned(W))) <= write_outof_X_into_W(to_integer(unsigned(LOCAL)));
+	
+	write_outof_N_into_X(to_integer(unsigned(E))) <= write_outof_X_into_E(to_integer(unsigned(N)));
+	write_outof_S_into_X(to_integer(unsigned(E))) <= write_outof_X_into_E(to_integer(unsigned(S)));
+	write_outof_W_into_X(to_integer(unsigned(E))) <= write_outof_X_into_E(to_integer(unsigned(W)));
+	write_outof_E_into_X(to_integer(unsigned(E))) <= write_outof_X_into_E(to_integer(unsigned(E)));
+	write_outof_LOCAL_into_X(to_integer(unsigned(E))) <= write_outof_X_into_E(to_integer(unsigned(LOCAL)));
+	
+	write_outof_N_into_X(to_integer(unsigned(LOCAL))) <= write_outof_X_into_LOCAL(to_integer(unsigned(N)));
+	write_outof_S_into_X(to_integer(unsigned(LOCAL))) <= write_outof_X_into_LOCAL(to_integer(unsigned(S)));
+	write_outof_W_into_X(to_integer(unsigned(LOCAL))) <= write_outof_X_into_LOCAL(to_integer(unsigned(W)));
+	write_outof_E_into_X(to_integer(unsigned(LOCAL))) <= write_outof_X_into_LOCAL(to_integer(unsigned(E)));
+	write_outof_LOCAL_into_X(to_integer(unsigned(LOCAL))) <= write_outof_X_into_LOCAL(to_integer(unsigned(LOCAL)));
+	
 
 	-- generate FIFOs at all five input ports
 	in_FIFO_gen:
@@ -182,17 +270,17 @@ begin
 			writedata_outof_E => writedata_outof_X(to_integer(unsigned(E))),
 			writedata_outof_LOCAL => writedata_outof_X(to_integer(unsigned(LOCAL))),
 			
-			write_outof_N_into_X => write_outof_X_into_N(I),
-			write_outof_S_into_X => write_outof_X_into_S(I),
-			write_outof_W_into_X => write_outof_X_into_W(I),
-			write_outof_E_into_X => write_outof_X_into_E(I),
-			write_outof_LOCAL_into_X => write_outof_X_into_LOCAL(I),
+			write_outof_N_into_X => write_outof_N_into_X(I),
+			write_outof_S_into_X => write_outof_S_into_X(I),
+			write_outof_W_into_X => write_outof_W_into_X(I),
+			write_outof_E_into_X => write_outof_E_into_X(I),
+			write_outof_LOCAL_into_X => write_outof_LOCAL_into_X(I),
 			
-			waitrequest_into_N_outof_X => waitrequest_into_X_outof_N(I),
-			waitrequest_into_S_outof_X => waitrequest_into_X_outof_S(I),
-			waitrequest_into_W_outof_X => waitrequest_into_X_outof_W(I),
-			waitrequest_into_E_outof_X => waitrequest_into_X_outof_E(I),
-			waitrequest_into_LOCAL_outof_X => waitrequest_into_X_outof_LOCAL(I)
+			waitrequest_into_N_outof_X => waitrequest_into_N_outof_X(I),
+			waitrequest_into_S_outof_X => waitrequest_into_S_outof_X(I),
+			waitrequest_into_W_outof_X => waitrequest_into_W_outof_X(I),
+			waitrequest_into_E_outof_X => waitrequest_into_E_outof_X(I),
+			waitrequest_into_LOCAL_outof_X => waitrequest_into_LOCAL_outof_X(I)
 		);
 	end generate;
 
