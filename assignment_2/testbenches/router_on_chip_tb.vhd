@@ -65,7 +65,7 @@ architecture tb of router_on_chip_tb is
 		signal write_outof_LOCAL : std_logic; -- out
 		
 		constant clk_period : time := 1 ns;
-    constant test_packet_F : std_logic_vector := X"8444555566667777";
+    constant test_packet_F : std_logic_vector := X"f444555566667777";
   
 begin
 
@@ -138,16 +138,18 @@ begin
     
     -- send packet from N to S
     -- (N is (1,0), S is (1,2), we're at (1,1))
-    N_in <= test_packet_F;--test_packet_E; -- x = 1, y = 2 => S
-    write_into_N <= '1';
+    W_in <= test_packet_E;--test_packet_E; -- x = 1, y = 2 => S
+    write_into_W <= '1';
     wait for clk_period;
-    if (waitrequest_outof_N /= '0') then
-      wait until waitrequest_outof_N = '0';
+    if (waitrequest_outof_S /= '0') then
+      wait until waitrequest_outof_S = '0';
     end if;
-    write_into_N <= '0';
+    write_into_W <= '0';
     
     wait for clk_period* 10;
     
+    -- send four packets from five ports
+    wait;
   end process;
 
 end tb;

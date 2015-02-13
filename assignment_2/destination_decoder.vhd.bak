@@ -86,7 +86,9 @@ begin
 	begin
 	
 		-- determine destination
-		if    (x_coordinate = my_x) and (y_coordinate = my_y) then
+		if (dest_enable /= '1') then
+		  destination_internal <= NO_DEST;
+		elsif    (x_coordinate = my_x) and (y_coordinate = my_y) then
 			destination_internal <= LOCAL;
 		elsif (x_coordinate = my_x) and (y_coordinate < my_y) then
 			destination_internal <= N;
@@ -102,8 +104,10 @@ begin
 			destination_internal <= W;
 		elsif (x_coordinate < my_x) and (y_coordinate < my_y) then
 			destination_internal <= W;
-		else--(x_coordinate < my_x) and (y_coordinate > my_y)
+		elsif (x_coordinate < my_x) and (y_coordinate > my_y) then
 			destination_internal <= W;
+		else 
+		  destination_internal <= NO_DEST;
 		end if;
 		
 		-- decode destination

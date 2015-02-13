@@ -37,6 +37,7 @@ package router_parameters is
 			my_y : integer := 1
 		);
 		port (
+		  clock : in std_logic;
 			dest_enable : in std_logic;
 		
 			x_coordinate : in integer;

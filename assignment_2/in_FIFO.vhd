@@ -100,6 +100,7 @@ begin
 	
 	dest_decode : destination_decoder
 		port map(
+		  clock => clock,
 			dest_enable => dest_enable,
 		
 			x_coordinate => packet_x_coordinate,

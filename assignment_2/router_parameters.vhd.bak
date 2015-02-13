@@ -28,6 +28,7 @@ package router_parameters is
 	constant test_packet_B : std_logic_vector := X"ABCDEFABCDEFABCD";
 	constant test_packet_C : std_logic_vector := X"0000111122223333";
 	constant test_packet_D : std_logic_vector := X"4444555566667777";
+	constant test_packet_E : std_logic_vector := X"6444555566667777";
 	
 	-- components
 	component destination_decoder is

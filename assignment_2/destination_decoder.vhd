@@ -22,6 +22,7 @@ entity destination_decoder is
 	);
 	
 	port (
+	  clock : in std_logic;
 		dest_enable : in std_logic;
 	
 		x_coordinate : in integer;
@@ -82,7 +83,7 @@ begin
 --   <      |    <      ||         W (really, NW)
 --   <      |    >      ||         W (really, SW)
 
-	decoding : process(x_coordinate, y_coordinate, dest_enable)
+	decoding : process(x_coordinate, y_coordinate, dest_enable, clock)
 	begin
 	
 		-- determine destination
@@ -104,8 +105,10 @@ begin
 			destination_internal <= W;
 		elsif (x_coordinate < my_x) and (y_coordinate < my_y) then
 			destination_internal <= W;
-		else--(x_coordinate < my_x) and (y_coordinate > my_y)
+		elsif (x_coordinate < my_x) and (y_coordinate > my_y) then
 			destination_internal <= W;
+		else 
+		  destination_internal <= NO_DEST;
 		end if;
 		
 		-- decode destination

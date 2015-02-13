@@ -148,8 +148,29 @@ begin
     
     wait for clk_period* 10;
     
-    -- send four packets to five ports
-    wait;
+    -- send four packets from five ports
+    N_in <= test_packet_A;
+    write_into_N <= '1';
+    
+    S_in <= test_packet_B;
+    write_into_S <= '1';
+    
+    W_in <= test_packet_C;
+    write_into_W <= '1';
+    
+    E_in <= test_packet_D;
+    write_into_E <= '1';
+    
+    LOCAL_in <= test_packet_E;
+    write_into_LOCAL <= '1';
+    
+    if (waitrequest_outof_N /= '0') then
+      wait until waitrequest_outof_N = '0';
+    end if;
+    write_into_N <= '0';
+    
+    wait for clk_period* 10;
+    
   end process;
 
 end tb;
